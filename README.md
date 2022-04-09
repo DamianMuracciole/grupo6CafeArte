@@ -1,4 +1,7 @@
 # grupo6CafeArte
+*Proyecto integrador del curso de desarrollo web Full Stack de digital house. Grupo 6*
+
+**Cafe Arte**
 
 
 ### Integrantes 
