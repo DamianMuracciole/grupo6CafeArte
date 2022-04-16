@@ -9,7 +9,7 @@ CafeArte buscar que los consumidores y comercios (bares y confiterias) tenga acc
 + https://www.cafebritt.com/: Detalle de producto (Desktop y Mobile) y menú (Mobile).
 + https://www.mercadolibre.com.ar/: Colores y estética (Estilo).
 + https://www.tiendamontibello.com.ar: Detalle de producto
-+ https://tienda.coffeebreak.com.ar/:Colores y estética (Estilo).
++ https://tienda.coffeebreak.com.ar/: Colores y estética (Estilo).
 + https://www.templates.com/pages/info/demo.html?template_id=59005
 + https://www.templates.com/pages/info/demo.html?template_id=86038
 
