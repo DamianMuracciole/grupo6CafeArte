@@ -5,11 +5,11 @@
 CafeArte buscar que los consumidores y comercios (bares y confiterias) tenga acceso a una amplia variedad de cafes de forma simple y segura. Ofrece café en grano y café molido con sus distintos tipos de variedades. 
 
 ** Sitios en los que nos inspiramos **
-+ https://cafesol.com.ar/
-+ https://www.cafebritt.com/
-+ https://www.mercadolibre.com.ar/
-+ https://www.tiendamontibello.com.ar
-+ https://tienda.coffeebreak.com.ar/
++ https://cafesol.com.ar/ :Barra de navegación limpia (Desktop y Mobile) 
++ https://www.cafebritt.com/: Detalle de producto (Desktop y Mobile) y menú (Mobile).
++ https://www.mercadolibre.com.ar/: Colores y estética (Estilo).
++ https://www.tiendamontibello.com.ar: Detalle de producto
++ https://tienda.coffeebreak.com.ar/:Colores y estética (Estilo).
 + https://www.templates.com/pages/info/demo.html?template_id=59005
 + https://www.templates.com/pages/info/demo.html?template_id=86038
 
