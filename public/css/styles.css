@@ -1,0 +1,13 @@
+/* ctrl+k luego ctrl+c */
+/* Chequear siempre que la pagina esta linkeada antes de ponerse con esto */
+/* HOME */
+
+* {
+    box-sizing: border-box;
+        
+}
+
+h1 {
+    color: red;
+    font-size: large;
+}

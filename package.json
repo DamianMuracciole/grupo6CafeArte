@@ -1,0 +1,25 @@
+{
+  "name": "grupo6CafeArte",
+  "version": "1.0.0",
+  "description": "*Proyecto integrador del curso de desarrollo web Full Stack de digital house. Grupo 6*",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DamianMuracciole/grupo6CafeArte.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DamianMuracciole/grupo6CafeArte/issues"
+  },
+  "homepage": "https://github.com/DamianMuracciole/grupo6CafeArte#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15"
+  }
+}
