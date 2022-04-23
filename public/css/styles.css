@@ -4,10 +4,97 @@
 
 * {
     box-sizing: border-box;
-        
+
 }
 
-h1 {
-    color: red;
-    font-size: large;
+
+/* main */
+
+.titulo{
+    font-family: "poppins";
+    font-size:  30px;
+    margin-left: 50px;
+
+}
+
+.imagen{
+    width: 100%;
+
+}
+.card{
+    width: 300px;
+    margin: auto;
+    padding: 5px;
+    /* background-o; */
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 10px;
+
+}
+
+article img{
+    width: 95%;
+    border-radius: 10px;
+}
+.descripcion{
+    font-family: "poppins";
+    font-size: 20px;
+    text-align: left;
+    margin: 5px 0px 0px 0px;
+    padding: 0;
+}
+
+.precio{
+    font-family: "poppins";
+    font-size: 20px ;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    color: burlywood
+}
+
+/* Media queries */
+
+@media (min-width: 350px){
+.card{
+    width: 100%;
+    max-width:400px ;
+
+}
+
+article img{
+    width: 100%;
+}
+main{
+    background-image: url(/images/imagenFondo.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+}
+
+@media (min-width: 768px){
+
+    section{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    main{
+        background-image: url(/images/imagenFondo.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+
+}
+
+@media (min-width: 1024px){
+
+    section{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
 }
