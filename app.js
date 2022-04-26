@@ -36,3 +36,18 @@ app.get('/register', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/register.html'));
     }
 );
+
+app.get('/contactenos', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/contactenos.html'));
+    }
+);
+
+app.get('/comoComprar', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/comoComprar.html'));
+    }
+);
+
+app.get('/carro', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/carroCompras.html'));
+    }
+);

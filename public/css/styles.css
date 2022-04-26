@@ -4,9 +4,110 @@
 
 * {
     box-sizing: border-box;
+}
+/*-----   HEADER   -----*/
+header{
+    font-family: "poppins";
+	position: fixed;
+	background-color: rgba(28,10,0,0.8); /*#361500;*/
+	width: 100%;
+	height: 60px;
+	display: flex;
+	align-items: center;
+}
+/*--- logo del negocio ---*/
+.logo {
+	flex-grow: 0.7;
+}
+.logo img {
+	display: block;
+	width: 54px;
+	height: 54px;
+	margin: 0px 30px;
+}
+/*--nav bar ---*/
+.nav-bar ul {
+	display: none;
+	list-style-type:none;
+}
+
+.nav-bar nav ul li a {
+	font-size: 16px;
+	text-align: center;
+	color:#FAF3E0;
+	text-decoration:none;
+	width: 100px;
+	height: 75px;
+	padding: 10px;
+	border-radius: 5px;
+}
+	
+.nav-bar nav ul li a:hover {
+	background-color:#1C0A00;
+	opacity: 0.85;
+	transition: 0.20s;
+}
+
+/*--------- Iconos -----------*/
+.icons {
+	display: flex;
+	flex-grow: 0.2;
+	justify-content: space-around;
+}
+
+.icons a{
+	color:#FAF3E0;
+	text-decoration-line: none;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.icons a:hover{
+	background-color:#1C0A00 ;
+	opacity: 0.85;
+	transition: 0.20s;
+}
+
+/*-- Lupa => buscador --*/
+.icon-magnifying-glass{
+	display: none;
+	font-size: 20px;
+	padding: 5px;
 
 }
 
+/*-- Sobre de carta => Ayuda, preguntas --*/
+.icon-envelope{
+	display: none;
+	color:#FAF3E0;
+	font-size: 20px;
+	padding: 5px;
+}
+
+/*-- Usuario => Registrarse/ingresar --*/
+.icon-user{
+	display: none;
+	color:#FAF3E0;
+	font-size: 20px;
+	padding: 5px;
+}
+
+/*-- Carrito => Compras --*/
+.icon-cart{
+	display: block;
+	color:#FAF3E0;
+	font-size: 20px;
+	padding: 5px;
+}
+
+
+/*-- Barras => Menú comprimido--*/
+.icon-bars{
+	display: block;
+	color:#FAF3E0;
+	font-size: 20px;
+	padding: 5px;
+}
 
 /* main */
 
@@ -64,18 +165,68 @@ article img{
     opacity: 90%;
 }
 
+/*-----   FOOTER   -----*/
 
+footer {
+    font-family: "poppins";
+	background-color:#361500;
+	color: #CC9544;
+    padding:20px 0px;
+	text-align: center;
+	font-size: 14px;
+	font-weight: 100;
+}
+
+.logo-footer img {
+	width: 40px;
+	height: 40px;
+}
+
+.social{
+	display: flex;
+	font-size: 20px;
+	justify-content: center;
+}
+.social div{
+	padding: 0px 20px;
+}
+
+.logo-footer img,
+.social,
+.phone,
+.address,
+.how_to_buy,
+.nav-footer{
+	margin-bottom: 20px;
+}
+.info-left .nav-footer ul {
+    padding: 0%;
+}
+
+.info-left ul li{
+	list-style-type:none;
+	margin-bottom: 15px;
+}
+
+footer ul li > a{
+	text-decoration-line: none;
+	color: #CC9544;
+}
+
+.how_to_buy > a {
+	color: #CC9544;
+	text-decoration: none;
+}
 
 
 /* Media queries */
 
-@media (min-width: 350px){
+@media (min-width: 481px){
 .card{
     width: 100%;
     max-width:400px ;
 
 }
-
 
 article img{
     width: 100%;
@@ -89,8 +240,52 @@ main{
 
 }
 
-@media (min-width: 768px){
+@media (min-width: 769px){
+    /* --------------  header  ---------------*/
+	/*Cambio el tamaño del icono y de la barra */
+	header{
+		height: 85px;
+	}
+	.logo{
+		flex-grow: 0.1;
+	}
+	.logo img {
+		width: 75px;
+		height: 75px;
+		margin: 5px 0px 5px 50px;
+	}
+	/* Aparece el menú tipo nav bar*/
+	.nav-bar{
+		flex-grow: 0.75;
 
+	}
+	.nav-bar ul {
+		display: flex;
+		align-items:flex-end;
+		justify-content: space-around;
+	}
+	/*Aparece el elemento lupa para buscar*/
+	.icon-magnifying-glass{
+		display: block;
+	}
+	/*Aparece la elemento carta de ayuda*/
+	.icon-envelope{
+		display: block;
+	}
+	/*Aparece la elemento registrarse*/
+	.icon-user{
+		display: block;
+	}
+	/*se saca el elemento menú de barras*/
+	.icon-bars{
+		font-size: 0px;
+		padding: 0px;
+		flex-grow: 0;
+	}
+	.icon-bars > .fa-bars{
+		display: none;
+	}
+    /*------ main ------*/
     section{
         display: flex;
         flex-wrap: wrap;
@@ -105,17 +300,44 @@ main{
     .card{
         margin: 0;
     }
+    /*-------------footer-----------*/
+	footer{
+		font-size: 16px;
+	}
+	.info{
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.info-left{
+		text-align: left;
+	}
+
+	.info-right{
+		text-align: right;
+	}
+	.social{
+		justify-content:end;
+	}
+
+	.social div{
+		padding-left: 40px;
+		padding-right: 0px;
+	}
+	.cpyrgt{
+		padding-top: 40px;
+	}
+
+}
     
 
 }
 
-@media (min-width: 1024px){
+@media (min-width: 1280px){
 
     section{
         display: flex;
         flex-wrap: nowrap;
-    
-        
     }
 
 }
