@@ -16,6 +16,10 @@
     margin-left: 50px;
 
 }
+.carrusel{
+    margin: 0;
+    /* box-shadow: 0 0 50px 0 rgba(0,0,0,.9); */
+}
 
 .imagen{
     width: 100%;
@@ -29,6 +33,7 @@
     text-align: center;
     margin-bottom: 10px;
     border-radius: 10px;
+    transition: 0.20s;
 
 }
 
@@ -53,6 +58,15 @@ article img{
     color: burlywood
 }
 
+.card:hover{
+
+    transform:translateY(-3%);
+    opacity: 90%;
+}
+
+
+
+
 /* Media queries */
 
 @media (min-width: 350px){
@@ -61,6 +75,7 @@ article img{
     max-width:400px ;
 
 }
+
 
 article img{
     width: 100%;
@@ -79,12 +94,16 @@ main{
     section{
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
     }
     main{
         background-image: url(/images/imagenFondo.jpg);
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+    .card{
+        margin: 0;
     }
     
 
@@ -95,6 +114,8 @@ main{
     section{
         display: flex;
         flex-wrap: nowrap;
+    
+        
     }
 
 }
