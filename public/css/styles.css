@@ -9,7 +9,7 @@
 header{
     font-family: "poppins";
 	position: fixed;
-	background-color: rgba(28,10,0,0.8); /*#361500;*/
+	background-color: rgba(28,10,0,1); /*#361500;*/
 	width: 100%;
 	height: 60px;
 	display: flex;
