@@ -4,13 +4,156 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,800&display=swap" rel="stylesheet">
+    <!--link de fuente-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,800&display=swap" rel="stylesheet"> 
+    <!--link de los íconos-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <!--icono de la pestaña-->
+    <link rel="icon" href="/images/logo1.png">
     <title>Cafe Arte</title>
 </head>
+
 <body>
-    <h1>Register</h1>
+    
+    <header class="main-header-reg">
+        <!--Logo-->
+        <div class="logo">
+            <a href="/"><img src="/images/logo2.png" alt=""></a>
+        </div>
+        <!--Nav-Bar-->
+        <div class="nav-bar">
+            <nav>
+                <ul>
+                    <li><a href="/productCart">Nuestro Café</a></li>
+                    <li><a href="#">Otros productos</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!--Iconos-->
+        <div class="icons">
+            <div class="icon-magnifying-glass">
+                <a href="#" title="Buscar Productos" target="_blank"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+            
+            <div class="icon-envelope">
+                <a href="/contactenos" title="Contactenos" target="_blank"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+
+            <div class="icon-user">
+                <a href="/login" title="Login" target="_blank"><i class="fa-solid fa-user"></i></a>
+            </div>
+
+            <div class="icon-register">
+                <li><a href="/register" title="Registrate!" target="_blank"><i class="far fa-id-card"></i></a></li>
+            </div>
+
+            <div class="icon-cart">        
+                <a href="/carro" title="Ir a mi Carrito" target="_blank"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+
+            <div class="icon-bars">
+                <a href="#" title="Menu" target="_blank"><i class="fa-solid fa-bars"></i></a>
+            </div>
+        </div>
+    
+    </header>
+
+    <main>
+        <div class="register-fondo">
+            <div class="form-principal">
+                <form action="/" method="post" class="create-user">
+                    <h2 class="registro">Formulario de registro</h2>
+                    <div class="control-form">
+                        <label for="nombre">Nombre</label> 
+                        <input type="text" name="nombre" class="control" placeholder="Juan" required>    <!--types: text, number, password, email, tel, radio, checkbos. Name: para identificar el campo del formulario -->
+                    </div>
+                    <div class="control-form">
+                        <label for="">Apellido</label> 
+                        <input type="text" name="apellido" class="control" placeholder="Perez" required>   
+                    </div>
+                    <div class="control-form">
+                        <label for="usuario">Nombre de Usuari@</label> 
+                        <input type="text" name="usuario" class="control" placeholder="nombre_de_usuario" required>   
+                    </div>
+                    <div class="control-form">
+                        <label for="correo">Correo electronico</label> 
+                        <input type="email" name="correo" class="control" placeholder="nombre@correo.com" required>   
+                    </div>
+                    <div class="control-form">
+                        <label for="fechaNacimiento">Fecha de Nacimiento</label> 
+                        <input type="date" name="fechaNacimiento" class="control" placeholder="dd/mm/yyyy" required>   
+                    </div>
+                    <div class="control-form">
+                        <label for="contrasena">Contraseña</label> 
+                        <input type="password" name="contrasena" placeholder="Contraseña" class="control" required>    
+                    </div>
+                    <div class="control-form">
+                        <label for="dobleContrasena">Confirmar Contraseña</label> 
+                        <input type="password" name="dobleContrasena" placeholder="Confirme la Contraseña" class="control" required>    
+                    </div>
+                    <div class="control-form">
+                        <button type="submit" class="button-form-create">Crear Usuario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+
+    <footer>
+
+        <div class="logo-footer">
+            <a href="/"><img src="/images/logo2.png" alt=""></a>
+        </div>
+        <div class="info">
+            <div class="info-left">
+                <div class="nav-footer">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/productCart">Nuestro Café</a></li>
+                        <li><a href="#">Otros productos</a></li>
+                        <li><a href="/contactenos">Contáctenos</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-right">
+                <div class="social">
+                    <div>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div>
+                        <i class="fa-brands fa-facebook-square"></i>
+                    </div>
+                    <div>
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                </div>
+                
+
+                <div class="phone">
+                    <p><i class="fa-solid fa-square-phone"></i>   0111-555-5555 </p>
+                </div>
+
+                <div class="address">
+                    <p><i class="fa-solid fa-location-dot"></i>   La Ruta del Café 1234 - Quindío - Colombia </p>
+                </div>
+
+                <div class="how_to_buy">
+                    <a href="/comoComprar"><i class="fa-solid fa-hand-holding-dollar"></i> Medios de pago</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="cpyrgt">
+            <p>© Copyright Café Arte</p>
+        </div>
+
+    </footer>
+
 </body>
 </html>
