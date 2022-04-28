@@ -6,15 +6,26 @@
     box-sizing: border-box;
 }
 /*-----   HEADER   -----*/
-header{
+/* header{
     font-family: "poppins";
 	position: fixed;
-	background-color: rgba(28,10,0,0.8); /*#361500;*/
+	background-color: rgba(28,10,0); /*#361500;
 	width: 100%;
 	height: 60px;
 	display: flex;
 	align-items: center;
-}
+} */
+
+/* .main-header-reg {
+	font-family: "poppins";
+	position: fixed;
+	background-color: rgb(28,10,0);
+	width: 100%;
+	height: 60px;
+	display: flex;
+	align-items: center;
+} */
+
 /*--- logo del negocio ---*/
 .logo {
 	flex-grow: 0.7;
@@ -41,7 +52,8 @@ header{
 	padding: 10px;
 	border-radius: 5px;
 }
-	
+
+/* esto no es */
 .nav-bar nav ul li a:hover {
 	background-color:#1C0A00;
 	opacity: 0.85;
@@ -84,7 +96,15 @@ header{
 	padding: 5px;
 }
 
-/*-- Usuario => Registrarse/ingresar --*/
+/*-- Usuario => Registrarse --*/
+.icon-register {
+	display: none;
+	color:#FAF3E0;
+	font-size: 20px;
+	padding: 5px;
+}
+
+/*-- Usuario => Ingresar --*/
 .icon-user{
 	display: none;
 	color:#FAF3E0;
@@ -199,6 +219,7 @@ footer {
 .nav-footer{
 	margin-bottom: 20px;
 }
+
 .info-left .nav-footer ul {
     padding: 0%;
 }
@@ -218,19 +239,111 @@ footer ul li > a{
 	text-decoration: none;
 }
 
+/******** ESTILOS PARA EL REGISTER *************************/
+
+/* .main-header-reg {
+	position: fixed;
+    top: 0px;
+    width: 100vw;
+    z-index: 100;
+    height: 15vh;
+	background-color: rgba(28,10,0,0.8);
+} */
+
+.main-header-reg {
+	font-family: "poppins";
+	position: fixed;
+	background-color: rgb(28,10,0);
+	width: 100vw;
+	height: 15vh;
+	display: flex;
+	align-items: center;
+	top: 0px;
+	z-index: 100;
+}
+
+ .register-fondo {
+	margin-top: 15vh;
+	background-image: url(/images/imagenFondo.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+	/* background-color: transparent; */
+	z-index: 50;
+}
+
+.form-principal {
+	background-color: white;
+	padding: 20px 15px;
+	width: 50vw;
+	z-index: 50;
+}
+
+.control-form {
+    margin-bottom: 15px;
+}
+
+.control-form label{
+    margin-bottom: 5px;
+    font-style: normal;
+    display: block;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.create-user h2{
+    margin-bottom: 15px;
+    font-style: normal;
+    display: block;
+    font-weight: bold;
+    font-size: 1.9rem;
+    color: rgba(28,10,0,0.8);
+    text-align: center;
+}
+
+.control{
+    width: 40vw;
+    padding: 8px 8px;
+}
+
+
+.button-form-create {
+	box-shadow: 3px 4px 0px 0px #899599;
+	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	background-color:#ededed;
+	border-radius:15px;
+	border:1px solid #d6bcd6;
+	display:inline-block;
+	cursor:pointer;
+	color:rgba(28,10,0,0.8);
+	font-family:Arial;
+	font-size: 17px;
+	padding: 10px 25px;
+	margin: 5px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #e1e2ed;
+}
+.button-form-create:hover {
+	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	background-color:#bab1ba;
+}
+.button-form-create:active {
+	position:relative;
+	top:1px;
+}
 
 /* Media queries */
 
 @media (min-width: 481px){
 .card{
     width: 100%;
-    max-width:400px ;
-
+    max-width:400px;
 }
 
 article img{
     width: 100%;
 }
+
 main{
     background-image: url(/images/imagenFondo.jpg);
     background-attachment: fixed;
@@ -239,6 +352,8 @@ main{
 }
 
 }
+
+ 
 
 @media (min-width: 769px){
     /* --------------  header  ---------------*/
@@ -257,11 +372,11 @@ main{
 	/* Aparece el menú tipo nav bar*/
 	.nav-bar{
 		flex-grow: 0.75;
-
 	}
+
 	.nav-bar ul {
 		display: flex;
-		align-items:flex-end;
+		align-items: flex-end;
 		justify-content: space-around;
 	}
 	/*Aparece el elemento lupa para buscar*/
@@ -276,6 +391,16 @@ main{
 	.icon-user{
 		display: block;
 	}
+
+	.icon-register {
+		display: block;
+	}
+
+	li {
+		list-style-type: none;
+		
+	}
+
 	/*se saca el elemento menú de barras*/
 	.icon-bars{
 		font-size: 0px;
@@ -331,7 +456,7 @@ main{
 }
     
 
-}
+
 
 @media (min-width: 1280px){
 
