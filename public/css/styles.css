@@ -5,18 +5,18 @@
 * {
     box-sizing: border-box;
 }
-/*-----   HEADER   -----*/
-/* header{
+-----   HEADER   -----*/
+header{
     font-family: "poppins";
 	position: fixed;
-	background-color: rgba(28,10,0); /*#361500;
+	background-color: rgb(28,10,0);
 	width: 100%;
 	height: 60px;
 	display: flex;
 	align-items: center;
-} */
+}
 
-/* .main-header-reg {
+ .main-header-reg {
 	font-family: "poppins";
 	position: fixed;
 	background-color: rgb(28,10,0);
@@ -24,7 +24,7 @@
 	height: 60px;
 	display: flex;
 	align-items: center;
-} */
+}
 
 /*--- logo del negocio ---*/
 .logo {
@@ -241,14 +241,14 @@ footer ul li > a{
 
 /******** ESTILOS PARA EL REGISTER *************************/
 
-/* .main-header-reg {
+ .main-header-reg {
 	position: fixed;
     top: 0px;
     width: 100vw;
     z-index: 100;
     height: 15vh;
 	background-color: rgba(28,10,0,0.8);
-} */
+}
 
 .main-header-reg {
 	font-family: "poppins";
@@ -268,7 +268,7 @@ footer ul li > a{
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-	/* background-color: transparent; */
+	background-color: transparent;
 	z-index: 50;
 }
 
