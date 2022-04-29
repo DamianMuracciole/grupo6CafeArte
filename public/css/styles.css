@@ -5,15 +5,16 @@
 * {
     box-sizing: border-box;
 }
------   HEADER   -----*/
+/*-----   HEADER   -----*/
 header{
     font-family: "poppins";
 	position: fixed;
-	background-color: rgb(28,10,0);
+	background-color: #361500;
 	width: 100%;
 	height: 60px;
 	display: flex;
 	align-items: center;
+	top: 0;
 }
 
  .main-header-reg {
@@ -134,12 +135,17 @@ header{
 .titulo{
     font-family: "poppins";
     font-size:  30px;
-    margin-left: 50px;
-
+	background-color: #CC9544;
+	text-align: center;
+	
+	
+	
 }
-.carrusel{
-    margin: 0;
-    /* box-shadow: 0 0 50px 0 rgba(0,0,0,.9); */
+
+.carrusel img{
+	margin-top: 80px;
+    
+    box-shadow: 0 0 50px 0 rgba(0,0,0,.9);
 }
 
 .imagen{
@@ -183,6 +189,8 @@ article img{
 
     transform:translateY(-3%);
     opacity: 90%;
+
+	
 }
 
 /*-----   FOOTER   -----*/
@@ -332,6 +340,59 @@ footer ul li > a{
 	top:1px;
 }
 
+
+/* Login */
+.formBody{
+	
+	display: flex;
+	flex-direction: column;
+}
+.login{
+	background-image: url(/images/imagenFondo.jpg);
+	background-repeat: no-repeat;
+	background-size:cover;
+}
+.formLogin{
+	margin-top: 90px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	font-family: poppins;
+	padding: 5px;
+	
+	
+	
+
+}
+.forgot{
+text-decoration: none;
+margin-bottom: 100px;
+margin-top: 5px;
+}
+
+.formLogin i{
+	font-size: 110px;
+	text-align: center;
+}
+.tituloLogin{
+	margin: auto;
+	
+}
+.butonLogin{
+	margin: auto;
+	margin-top: 10px;
+}
+.pass{
+	margin-top: 20px;
+}
+.rememberMe{
+	margin-top: 5px;
+}
+
+
+
+
+
 /* Media queries */
 
 @media (min-width: 481px){
@@ -349,6 +410,9 @@ main{
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.carrusel img{
+	margin-top: 50px;
 }
 
 }
