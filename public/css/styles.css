@@ -16,7 +16,7 @@ header{
 	align-items: center;
 }
 
-/* .main-header-reg {
+ .main-header-reg {
 	font-family: "poppins";
 	position: fixed;
 	background-color: rgb(28,10,0);
@@ -24,7 +24,7 @@ header{
 	height: 60px;
 	display: flex;
 	align-items: center;
-} */
+} 
 
 /*--- logo del negocio ---*/
 .logo {
@@ -454,9 +454,9 @@ main{
 	}
 
 }
+/*-------------product detail-----------*/
+
     
-
-
 
 @media (min-width: 1280px){
 
@@ -464,5 +464,81 @@ main{
         display: flex;
         flex-wrap: nowrap;
     }
+
+}
+
+  /*-------------error 404-----------*/
+  .error404 {
+	  color:#1C0A00;
+	  height: 90%;
+	  display: flex;
+	  width: 100%;
+	  margin: 1%;
+	  background-image: url(/images/imagenFondo.jpg);
+    	background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+	  
+  }
+  .error404 h3 {
+	  display: flex;
+	  margin-top: 90px;
+	  margin-left: 30%;
+	  justify-content: center;
+	  flex-wrap: wrap;
+	  /*
+	  padding-top: 40px;
+	  box-sizing: border-box;
+	  max-width: 80%;
+	  */
+	  text-align: center;
+	  font-weight: bold;
+  }
+    /*-------------product detail-----------*/
+
+.dp-contenedor-principal{
+	display: flex;
+	width: 90%;
+	margin: 1%;
+
+}
+
+.dp-img-principal{
+	width: 100%;
+	margin-top: 1%;
+
+}
+.dp-detalle {
+	margin: 1%;
+	text-align: center;
+	color: #1C0A00;
+}
+.dp-detalle button {
+	padding: 8px;
+}
+
+.dp-descripcion p {
+	color: #361500;
+	
+}
+.dp-img-secundarias{
+	display: flex;
+	flex-wrap: wrap;
+}
+.img-otros {
+	width: 350px;
+	margin: 2%;
+	border-radius: 5%;
+}
+.dp-img-detalle1{
+	position: relative;
+}
+.dp-img-detalle1 p{
+	color: rgb(240, 240, 240);
+	position: absolute;
+	top: 3%;
+	left: 3%;
+	font-size: 2em;
+	font-weight: bolder;
 
 }
