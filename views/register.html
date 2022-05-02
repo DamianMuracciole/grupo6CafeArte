@@ -67,15 +67,15 @@
                     <h2 class="registro">Formulario de registro</h2>
                     <div class="control-form">
                         <label for="nombre">Nombre</label> 
-                        <input type="text" name="nombre" class="control" placeholder="Juan" required>    <!--types: text, number, password, email, tel, radio, checkbos. Name: para identificar el campo del formulario -->
+                        <input type="text" name="nombre" class="control" minlength="4" maxlength="15" placeholder="Juan" required>    <!--types: text, number, password, email, tel, radio, checkbos. Name: para identificar el campo del formulario -->
                     </div>
                     <div class="control-form">
                         <label for="">Apellido</label> 
-                        <input type="text" name="apellido" class="control" placeholder="Perez" required>   
+                        <input type="text" name="apellido" class="control" minlength="4" maxlength="15" placeholder="Perez" required>   
                     </div>
                     <div class="control-form">
                         <label for="usuario">Nombre de Usuari@</label> 
-                        <input type="text" name="usuario" class="control" placeholder="nombre_de_usuario" required>   
+                        <input type="text" name="usuario" class="control" minlength="4" maxlength="15" placeholder="nombre_de_usuario" required>   
                     </div>
                     <div class="control-form">
                         <label for="correo">Correo electronico</label> 
@@ -87,11 +87,11 @@
                     </div>
                     <div class="control-form">
                         <label for="contrasena">Contraseña</label> 
-                        <input type="password" name="contrasena" placeholder="Contraseña" class="control" required>    
+                        <input type="password" name="contrasena" minlength="4" maxlength="10" placeholder="Contraseña" class="control" required>    
                     </div>
                     <div class="control-form">
                         <label for="dobleContrasena">Confirmar Contraseña</label> 
-                        <input type="password" name="dobleContrasena" placeholder="Confirme la Contraseña" class="control" required>    
+                        <input type="password" name="dobleContrasena" minlength="4" maxlength="10" placeholder="Confirme la Contraseña" class="control" required>    
                     </div>
                     <div class="control-form">
                         <button type="submit" class="button-form-create">Crear Usuario</button>
