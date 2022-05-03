@@ -4,6 +4,9 @@
 
 * {
     box-sizing: border-box;
+	font-family: "poppins";
+	margin: 0%;
+	padding: 0%;
 }
 /*-----   HEADER   -----*/
 header{
@@ -144,7 +147,6 @@ header{
 
 .carrusel img{
 	margin-top: 80px;
-    
     box-shadow: 0 0 50px 0 rgba(0,0,0,.9);
 }
 
@@ -191,6 +193,170 @@ article img{
     opacity: 90%;
 
 	
+}
+
+/*-----   BODY mi compra  -----*/
+.background-mc{
+	background-color: #FAF3E0;
+	background-image: url("/images/imagenFondo-mc.jpg");
+	background-size: 100%;
+	background-position: center;
+	background-attachment:fixed;
+	image-orientation:90deg ;
+}
+
+.background-div-mc{
+	width: 80%;
+	margin:auto ;
+	padding: 20px 0px;
+	background-color: rgba(28,10,0,0.1); /*#FAF3E0;*/
+	border: #1C0A00 0px solid;
+	border-radius: 4px;
+	max-width: 1000px;
+	color: #1C0A00;
+	max-width: 900px;
+}
+
+.title-mc{
+	font-size: 30px;
+	padding: 25px 0px 20px 0px;
+	text-align: center;
+}
+
+.card-productos-mc,
+.finalizacion-compra-mc{
+	width: 90%;
+	margin: 10px auto;
+	padding: 5% 10%;
+	border: #1C0A00 1px solid;
+	border-radius: 4px;
+
+}
+
+.delete-prod-mc{
+	display: block;
+}
+
+.icon-trash-mc{
+	font-size: 18px;
+	padding-right: 8%;
+}
+
+.img-producto-mc{
+	width: 60%;
+	margin: 0% 20%;
+}
+
+.descripciones-mc{
+	padding: 10px 0px;
+}
+
+.descripcion-producto-mc{
+	font-size: 24px;
+	text-align: center;
+	font-weight: 500;
+	padding: 10px 0px;
+}
+
+.detalle-producto-mc{
+	font-size: 16px;
+	text-align: center;
+}
+
+.detalle-compra-mc{
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: #1C0A00 1px solid;
+	font-size: 18px;
+}
+
+.precio-compra-mc,
+.cantidad-compra-mc,
+.subtotal-compra-mc{
+	display: flex;
+	padding: 5px 25px;
+	justify-content: space-between;
+}
+
+.cantidad-compra-mc p{
+	padding-top: auto;
+}
+
+.cantidad-items-mc{
+	width: 40px;
+	height: 22px;
+	text-align: end;
+	margin: 0px;
+	size-adjust: ;
+}
+
+.subtotal-finalizacion-compra-mc,
+.total-compra-mc{
+	display: flex;
+	padding: 25px 10px;
+	justify-content: space-between;
+}
+
+.total-compra-mc{
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.tipo-envio-mc{
+	padding: 25px 10px;
+	border-top: #1C0A00 1px solid;
+	border-bottom: #1C0A00 1px solid;
+	justify-content: space-between;
+}
+
+.opciones-envio-mc{
+	display: flex;
+	font-size: 14px;
+}
+
+.opciones-envio-radio-mc{
+	display: block;
+	flex-grow: 4;
+	padding: 0% 1% 2% 15%;
+	font-size: 16px;
+	text-align: justify;
+	border-bottom: #1C0A00 1px dotted;
+}
+.opciones-envio-radio-mc span{
+	font-size: 12px;
+}
+
+.precio-envio-mc{
+	text-align: end;
+	padding-top: 10px;
+}
+
+.bolder-mc{
+	font-weight: 600;
+}
+/* Botón */
+.submit-compra-mc{
+	text-align: center;
+	border-radius: 5px;
+	background-color:#1C0A00;
+	opacity: 0.85;
+	transition: 0.20s;
+	max-width: 200px;
+	margin:auto;
+}
+.submit-lgn-mc{
+	border: 0ch;
+   	font-size: 20px;
+   	padding: 1px;
+   	margin: 5px;
+  	width: 90%;
+   	max-width: 300px;
+   	border-radius: 5px;
+}
+.submit-compra-mc:hover{
+	opacity: 1;
+box-shadow: 1px 1px 1px #815d4a,
+-1px -1px 1px #815d4a;
 }
 
 /*-----   FOOTER   -----*/
@@ -359,11 +525,8 @@ footer ul li > a{
 	flex-direction: column;
 	font-family: poppins;
 	padding: 5px;
-	
-	
-	
-
 }
+
 .forgot{
 text-decoration: none;
 margin-bottom: 100px;
@@ -396,28 +559,107 @@ margin-top: 5px;
 /* Media queries */
 
 @media (min-width: 481px){
-.card{
-    width: 100%;
-    max-width:400px;
+	.card{
+		width: 100%;
+		max-width:400px;
+	}
+
+	article img{
+		width: 100%;
+	}
+
+	main{
+		background-image: url(/images/imagenFondo.jpg);
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.carrusel img{
+		margin-top: 50px;
+	}
+
+	/*------------- main mi compra ------------*/
+	.title-mc{
+		font-size: 24px;
+	}
+	
+	.card-productos-mc{
+		display: flex;
+		justify-content: space-around;
+		width: 85%;
+		margin: 10px auto;
+		padding: 20px 5%;
+	}
+
+	.delete-prod-mc{
+		display: block;
+		margin: auto 5px;
+	}
+	
+	.icon-trash-mc{
+		font-size: 14px;
+		left: -10%;
+	}
+	
+	.img-producto-mc{
+		width: 90%;
+		max-width: 200px;
+		margin: 0%;
+		padding: 10px;
+	}
+
+
+	.descripciones-mc{
+		margin-top: auto;
+		padding: 10px 0px;
+	}
+	
+	.descripcion-producto-mc{
+		font-size: 18px;
+		text-align: center;
+		font-weight: 600;
+		padding: 10px 0px;
+		margin: auto;
+	}
+	
+	.detalle-producto-mc{
+		font-size: 14px;
+		text-align: center;
+	}
+
+	
+	.detalle-compra-mc{
+		display: block;
+		border-top:none;
+		font-size: 14px;
+		margin: auto;
+	}
+	
+	.precio-compra-mc,
+	.cantidad-compra-mc,
+	.subtotal-compra-mc{
+		display: flex;
+		padding: 5px 10px;
+		justify-content: space-between;
+		align-items: center;
+	}
+	
+	.cantidad-compra-mc div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.cantidad-items-mc{
+		width: 40px;
+	}
+
+	.opciones-envio-radio-mc span{
+		font-size: 16px;
+	}
 }
 
-article img{
-    width: 100%;
-}
-
-main{
-    background-image: url(/images/imagenFondo.jpg);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.carrusel img{
-	margin-top: 50px;
-}
-
-}
-
- 
+	
 
 @media (min-width: 769px){
     /* --------------  header  ---------------*/
@@ -462,7 +704,6 @@ main{
 
 	li {
 		list-style-type: none;
-		
 	}
 
 	/*se saca el elemento menú de barras*/
@@ -489,6 +730,96 @@ main{
     .card{
         margin: 0;
     }
+
+	/*------------- main mi compra ------------*/
+	.card-productos-mc{
+		flex-direction:row ;
+		justify-content: space-between;
+		align-items: center;
+		width: 85%;
+		margin: 10px auto;
+		padding: 1%;
+	}
+	
+	.delete-prod-mc{
+		display: flex;
+		flex-grow: 1;
+	}
+
+	.icon-trash-mc{
+		font-size: 14px;
+		padding: 0%;
+	}
+	
+	.img-producto-mc{
+		width: 150px;
+		margin:auto;
+	}
+
+
+	.descripciones-mc{
+		align-self: center;
+		display: flex;
+		flex-grow: 1;
+		margin: auto;
+	}
+	
+	.descripcion-producto-mc{
+		font-size: 18px;
+		text-align: center;
+		font-weight: 600;
+		margin: auto;
+	}
+	
+	.detalle-producto-mc{
+		font-size: 14px;
+		text-align: center;
+		margin: auto;
+		/*display: none;*/
+	}
+
+	
+	.detalle-compra-mc{
+		display: flex;
+		align-items: flex-start;
+		border-top:none;
+		font-size: 12px;
+		margin: auto;
+		padding: 1px 5px;
+	}
+	
+	.precio-compra-mc,
+	.cantidad-compra-mc,
+	.subtotal-compra-mc{
+		display: block;
+		margin: 0px;
+		padding: auto;
+		justify-content:space-between;
+		align-items: center;
+	}
+
+	.precio-compra-mc p,
+	.cantidad-compra-mc p,
+	.subtotal-compra-mc p{
+		margin: 10px 0px;
+		text-align: center;
+		padding: auto;
+	}
+
+		
+	.cantidad-compra-mc div {
+		display: flex;
+		justify-content: center;
+		position: relative;
+		top: -2px;
+	}
+	
+	.cantidad-items-mc{
+		width: 50px;
+		position: absolute;
+		top: -3px;
+	}
+
     /*-------------footer-----------*/
 	footer{
 		font-size: 16px;
@@ -516,7 +847,6 @@ main{
 	.cpyrgt{
 		padding-top: 40px;
 	}
-
 }
     
 
