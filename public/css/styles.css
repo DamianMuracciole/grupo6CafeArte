@@ -287,9 +287,8 @@ article img{
 	height: 22px;
 	text-align: end;
 	margin: 0px;
-	size-adjust: ;
+	
 }
-
 .subtotal-finalizacion-compra-mc,
 .total-compra-mc{
 	display: flex;
