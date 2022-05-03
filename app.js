@@ -51,3 +51,8 @@ app.get('/carro', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/carroCompras.html'));
     }
 );
+
+app.get('/error', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/404.html'));
+    }
+);
