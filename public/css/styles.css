@@ -5,8 +5,7 @@
 * {
     box-sizing: border-box;
 	font-family: "poppins";
-	margin: 0%;
-	padding: 0%;
+
 }
 /*-----   HEADER   -----*/
 header{
@@ -885,9 +884,17 @@ margin-top: 5px;
 }
     /*-------------product detail-----------*/
 
+	.background-detalle{
+		background-color: #FAF3E0;
+		background-image: url("/images/imagenFondo-mc.jpg");
+		background-size: 100%;
+		background-position: center;
+		background-attachment:fixed;
+		image-orientation:90deg ;
+	}
+
 .dp-contenedor-principal{
-	display: flex;
-	width: 90%;
+	
 	margin: 1%;
 
 }
@@ -899,20 +906,31 @@ margin-top: 5px;
 }
 .dp-detalle {
 	margin: 1%;
+	padding: 1%;
 	text-align: center;
 	color: #1C0A00;
 }
+.dp-contenedor1 {
+	background-color: rgba(28,10,0,0.1); /*#FAF3E0;*/
+	border: #1C0A00 1px solid;
+	margin: 5% 15%;
+	padding: 10px;
+	max-width: 900px;
+}
+
 .dp-detalle button {
-	padding: 8px;
+	padding: 6px;
+	
 }
 
 .dp-descripcion p {
 	color: #361500;
-	
+	text-align: justify;
 }
 .dp-img-secundarias{
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-around;
 }
 .img-otros {
 	width: 350px;
@@ -921,13 +939,34 @@ margin-top: 5px;
 }
 .dp-img-detalle1{
 	position: relative;
+	
+	
 }
 .dp-img-detalle1 p{
-	color: rgb(240, 240, 240);
+	color:#361500;
+	text-shadow: 2px 2px 2px white;
 	position: absolute;
-	top: 3%;
-	left: 3%;
-	font-size: 2em;
+	margin: 0%;
+	top: 5%;
+	left: 10%;
+	font-size: 1.3em;
 	font-weight: bolder;
 
+}
+.dp-descripcion h3, h2 {
+	text-align: center;
+}
+.img-relacionados{
+	margin: 5%; 
+	width: 90%;
+	max-width: 900px;
+}
+@media (min-width: 768px) {
+	.dp-detalle {
+		font-size: 24px;
+
+	}
+	.dp-contenedor-principal{
+	display: flex;
+}
 }
