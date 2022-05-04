@@ -550,6 +550,29 @@ margin-top: 5px;
 	margin-top: 5px;
 }
 
+  /*-------------Main del error 404-----------*/
+  .error404-er{
+	width: 80%;
+	max-width: 1000px;
+	margin: auto;
+	padding: 150px 0px;
+	margin: auto;
+	text-align: center;
+	font-size: 10px;
+
+}
+
+.error404-er p{
+	font-size: 2em;
+	font-weight: 600;
+}
+
+.error404-er img {
+	width: 60%;
+	max-width: 800px;
+
+}
+
 
 
 
@@ -654,6 +677,17 @@ margin-top: 5px;
 
 	.opciones-envio-radio-mc span{
 		font-size: 16px;
+	}
+	/*----------main de error 404 -------*/
+	.error404-er p{
+		font-size: 3em;
+		font-weight: 600;
+	}
+	
+	.error404-er img {
+		width: 60%;
+		max-width: 800px;
+	
 	}
 }
 
@@ -863,25 +897,6 @@ margin-top: 5px;
 
 }
 
-  /*-------------error 404-----------*/
-.error404-er {
-	color:#815d4a ;
-	display: flex;
-	width: 100%;
-	height: 500px;
-	background-image: url(/images/imagenFondo.jpg);
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.cartel-er{
-	margin: 100px auto;
-	border:#1C0A00 3px solid;
-	border-radius: 8px;
-	text-align: center;
-	font-weight: bold;
-}
     /*-------------product detail-----------*/
 
 	.background-detalle{
