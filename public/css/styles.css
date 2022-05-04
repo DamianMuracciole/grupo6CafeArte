@@ -865,32 +865,24 @@ margin-top: 5px;
 }
 
   /*-------------error 404-----------*/
-  .error404 {
-	  color:#1C0A00;
-	  height: 90%;
-	  display: flex;
-	  width: 100%;
-	  margin: 1%;
-	  background-image: url(/images/imagenFondo.jpg);
-    	background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-	  
-  }
-  .error404 h3 {
-	  display: flex;
-	  margin-top: 90px;
-	  margin-left: 30%;
-	  justify-content: center;
-	  flex-wrap: wrap;
-	  /*
-	  padding-top: 40px;
-	  box-sizing: border-box;
-	  max-width: 80%;
-	  */
-	  text-align: center;
-	  font-weight: bold;
-  }
+.error404-er {
+	color:#815d4a ;
+	display: flex;
+	width: 100%;
+	height: 500px;
+	background-image: url(/images/imagenFondo.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cartel-er{
+	margin: 100px auto;
+	border:#1C0A00 3px solid;
+	border-radius: 8px;
+	text-align: center;
+	font-weight: bold;
+}
     /*-------------product detail-----------*/
 
 .dp-contenedor-principal{
