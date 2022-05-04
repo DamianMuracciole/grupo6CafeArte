@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 );
 
 app.get('/productCart', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/productCart.html'));
+    res.sendFile(path.resolve(__dirname, './views/productCart2.html'));
     }
 );
 
@@ -48,7 +48,7 @@ app.get('/comoComprar', (req, res) => {
 );
 
 app.get('/carro', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './views/carroCompras.html'));
+    res.sendFile(path.resolve(__dirname, './views/productCart.html'));
     }
 );
 
