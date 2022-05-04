@@ -903,16 +903,22 @@ margin-top: 5px;
 }
 .dp-detalle {
 	margin: 1%;
+	padding: 1%;
 	text-align: center;
 	color: #1C0A00;
 }
+.dp-contenedor1 {
+	background-color: rgba(28,10,0,0.1); /*#FAF3E0;*/
+	border: #1C0A00 1px solid;
+}
+
 .dp-detalle button {
-	padding: 8px;
+	padding: 6px;
+	
 }
 
 .dp-descripcion p {
 	color: #361500;
-	
 }
 .dp-img-secundarias{
 	display: flex;
@@ -934,4 +940,13 @@ margin-top: 5px;
 	font-size: 2em;
 	font-weight: bolder;
 
+}
+.dp-descripcion h3, h2 {
+	text-align: center;
+}
+@media (min-width: 768px) {
+	.dp-detalle {
+		font-size: 24px;
+
+	}
 }
