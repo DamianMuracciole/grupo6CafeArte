@@ -52,7 +52,7 @@ app.get('/carro', (req, res) => {
     }
 );
 
-app.get('/error', (req, res) => {
+app.get('/*', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/404.html'));
     }
 );
