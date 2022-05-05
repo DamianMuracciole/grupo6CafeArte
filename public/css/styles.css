@@ -17,6 +17,7 @@ header{
 	display: flex;
 	align-items: center;
 	top: 0;
+	z-index: 100;
 }
 
  .main-header-reg {
@@ -435,7 +436,7 @@ footer ul li > a{
 }
 
  .register-fondo {
-	margin-top: 15vh;
+	margin-top: 8vh;
 	background-image: url(/images/imagenFondo.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -445,10 +446,12 @@ footer ul li > a{
 }
 
 .form-principal {
-	background-color: white;
+	background-color: rgba(28,10,0,0.1);
 	padding: 20px 15px;
-	width: 50vw;
+	width: 80vw;
 	z-index: 50;
+	margin: auto;
+	padding-top: 90px;
 }
 
 .control-form {
@@ -456,6 +459,7 @@ footer ul li > a{
 }
 
 .control-form label{
+	text-shadow: 3px 3px 2px white;
     margin-bottom: 5px;
     font-style: normal;
     display: block;
@@ -474,7 +478,7 @@ footer ul li > a{
 }
 
 .control{
-    width: 40vw;
+    width: 100%;
     padding: 8px 8px;
 }
 
@@ -699,6 +703,9 @@ margin-top: 5px;
 	header{
 		height: 85px;
 	}
+	.register-fondo {
+		margin-top: 12vh;
+	}
 	.logo{
 		flex-grow: 0.1;
 	}
@@ -894,6 +901,9 @@ margin-top: 5px;
         display: flex;
         flex-wrap: nowrap;
     }
+	.register-fondo {
+		margin-top: 15vh;
+}
 
 }
 
@@ -975,6 +985,7 @@ margin-top: 5px;
 	margin: 5%; 
 	width: 90%;
 	max-width: 900px;
+	
 }
 @media (min-width: 768px) {
 	.dp-detalle {
