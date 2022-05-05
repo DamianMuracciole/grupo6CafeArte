@@ -22,3 +22,8 @@ CafeArte buscar que los consumidores y comercios (bares y confiterias) tenga acc
 
 #### Criterio de eleccion de las páginas
 Su eleccion fué basado por diferentes motivos. Desde la idea de lo comercial como tipos de productos a vender tratando de mantener un publico general, estéticas diversas para poder encontrar una idea general manteniendo una visual atractiva para quién la utilice.
+
+
+
+#### Url donde se encuentra el tablero de trabajo
+https://github.com/users/DamianMuracciole/projects/1
