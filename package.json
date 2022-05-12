@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/DamianMuracciole/grupo6CafeArte#readme",
   "dependencies": {
-    "express": "^4.17.3",
+    "express": "^4.18.1",
     "nodemon": "^2.0.15"
   }
 }
