@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- <% include (/partials/head.ejs) %>  -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Cafe Arte</title>
+</head>
+
+<body class="login">
+    <header>
+        <!-- <% include (/partials/header.ejs) %>  -->
+        <!--Icono-->
+        <div class="logo">
+            <a href="/"><img src="/images/logo2.png" alt=""></a>
+        </div>
+        <!--Nav-Bar-->
+        <div class="nav-bar">
+            <nav>
+                <ul>
+                    <li><a href="#">Nuestro Café</a></li>
+                    <li><a href="#">Otros productos</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="icons">
+            <div class="icon-magnifying-glass">
+                <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+
+            <div class="icon-envelope">
+                <a href="#"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+
+            <div class="icon-user">
+                <a href="/login"><i class="fa-solid fa-user"></i></a>
+            </div>
+
+            <div class="icon-register">
+                <li><a href="/register" title="Registrate!" target="_blank"><i class="far fa-id-card"></i></a></li>
+            </div>
+
+            <div class="icon-cart">
+                <a href="/carro" title="Mi Carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+
+            <div class="icon-bars">
+                <a href="#"><i class="fa-solid fa-bars"></i></a>
+            </div>
+        </div>
+    </header>
+    <div class="formLogin">
+        <h2 class="saludo">Editar Producto</h2>
+        <form action="/editarProducto" method="" class="formCyE">
+            <label for="username">Nombre del Producto</label>
+            <input type="text" name="username" id="username" placeholder="Producto" required>
+            <label for="peso">Peso Neto</label>
+            <input type="text" name="peso" id="peso" placeholder="Peso Neto" required>
+            <label for="username">Descripción</label>
+            <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion" required>
+            <label for="precio">Precio</label>
+            <input type="text" name="precio" id="precio" placeholder="Precio" required>
+            <label for="imagenes">Insertar Imagenes de tu Producto</label>
+            <input type="file" accept="image/*" name="imagenes" id="imagenes" placeholder="Insertar Imagenes de tu producto" required>
+            <label for="categoria">Categoria</label>
+            <select name="categoria" id="categoria" required>
+                <option value="enGranos">En granos</option>
+                <option value="molido">Molido</option>
+                <option value="enCapsulas">En capsulas</option>
+            </select>
+            <button type="submit" class="butonLogin">Aceptar</button>
+        </form>
+    </div>
+
+</body>
+<footer>
+    <!-- <% include (/partials/footer.ejs) %>  -->
+</footer>
+
+</html>

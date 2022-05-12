@@ -996,3 +996,20 @@ margin-top: 5px;
 	display: flex;
 }
 }
+/*----------Formulario de Creacion y Edicion -----------*/
+.CyEbotonesSuperiores {
+	display: flex;
+}
+.formCyE{
+	
+	display: flex;
+	flex-direction: column;
+	
+}
+
+.formCyE label {
+	padding: 1% 0;
+}
+.formCyE input {
+	padding: 1% 0;
+}

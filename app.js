@@ -51,6 +51,14 @@ app.get('/carro', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/productCart.html'));
     }
 );
+app.get('/crearProducto', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/crearProducto.html'));
+    }
+);
+app.get('/editarProducto', (req, res) => {
+    res.sendFile(path.resolve(__dirname, './views/editarProducto.html'));
+    }
+);
 
 app.get('/*', (req, res) => {
     res.sendFile(path.resolve(__dirname, './views/404.html'));
