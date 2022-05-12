@@ -4,14 +4,16 @@ const path = require("path")
 
 // Template Engine EJS
 app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname, 'views'));
+//app.set('views', path.join(__dirname, 'views'));
+// Testeando esta desde el proyecto que mandaron como ejemplo
+app.set('views', path.resolve(__dirname, './src/views'));
 // let dir = path.resolve(__dirname, 'src')
 // console.log("El file queda en: ", dir);
 
 // Archivos de rutas || NO HACE FALTA PONER EL .js AL FINAL PARECE...
-const rutasMain = require('./routes/mainRoutes')
-const rutasProductos = require('./routes/productRoutes.js')
-const rutasUsers = require('./routes/userRoutes')
+const rutasMain = require('./src/routes/mainRoutes')
+const rutasProductos = require('./src/routes/productRoutes.js')
+const rutasUsers = require('./src/routes/userRoutes')
 
 // Configuracion Puerto
 const port = process.env.PORT || 3000;
