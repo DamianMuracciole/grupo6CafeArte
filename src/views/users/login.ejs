@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Cafe Arte</title>
+</head>
+
+<body class="login">
+    <header>
+        <!--Icono-->
+        <div class="logo">
+            <a href="/"><img src="/images/logo2.png" alt=""></a>
+        </div>
+        <!--Nav-Bar-->
+        <div class="nav-bar">
+            <nav>
+                <ul>
+                    <li><a href="#">Nuestro Café</a></li>
+                    <li><a href="#">Otros productos</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="icons">
+            <div class="icon-magnifying-glass">
+                <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+
+            <div class="icon-envelope">
+                <a href="#"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+
+            <div class="icon-user">
+                <a href="/login"><i class="fa-solid fa-user"></i></a>
+            </div>
+            
+            <div class="icon-register">
+                <li><a href="/register" title="Registrate!" target="_blank"><i class="far fa-id-card"></i></a></li>
+            </div>
+
+            <div class="icon-cart">
+                <a href="/carro" title="Mi Carrito" ><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+
+            <div class="icon-bars">
+                <a href="#"><i class="fa-solid fa-bars"></i></a>
+            </div>
+        </div>
+
+    </header>
+    <div class="formLogin">
+        <h1 class="tituloLogin">LOGIN</h1>
+        <i class="fa-solid fa-circle-user"></i>
+        <h2 class="saludo">Bienvenido</h2>
+        <form action="/" method="" class="formBody">
+            <label for="username">Usuario</label>
+            <input type="text" name="username" id="username" placeholder="Usuario" required>
+            <label for="password" class="pass">Contraseña</label>
+            <input type="password" name="password" id="password" placeholder="Contraseña" required>
+            <div class="rememberMe">
+                <input type="checkbox" class="check">
+                <span>Recordarme</span>
+            </div>
+            <div class="butonLogin">
+                <button class="button-form-create">Ingresar</button>
+            </div>
+            <a href="/" class="forgot">¿Olvidaste tu Contraseña?</a>
+        </form>
+
+    </div>
+    <footer>
+
+        <div class="logo-footer">
+            <a href="/"><img src="/images/logo2.png" alt=""></a>
+        </div>
+        <div class="info">
+            <div class="info-left">
+                <div class="nav-footer">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#">Nuestro Café</a></li>
+                        <li><a href="#">Otros productos</a></li>
+                        <li><a href="#">Contáctenos</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-right">
+                <div class="social">
+                    <div>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div>
+                        <i class="fa-brands fa-facebook-square"></i>
+                    </div>
+                    <div>
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                </div>
+
+
+                <div class="phone">
+                    <p><i class="fa-solid fa-square-phone"></i> 0111-555-5555 </p>
+                </div>
+
+                <div class="address">
+                    <p><i class="fa-solid fa-location-dot"></i> La Ruta del Café 1234 - Quindío - Colombia </p>
+                </div>
+
+                <div class="how_to_buy">
+                    <a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> Medios de pago</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="cpyrgt">
+            <p>© Copyright Café Arte</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>

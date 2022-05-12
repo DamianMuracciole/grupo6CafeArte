@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafe Arte</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <!--link de fuente-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,800&display=swap" rel="stylesheet"> 
+    <!--link de los íconos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <!--icono de la pestaña-->
+    <link rel="icon" href="/images/logo1.png">
+</head>
+
+<body>
+    <header>
+        <!--Icono-->
+        <div class="logo">
+            <a href="/"><img src="/images/logo2.png" alt=""></a>
+        </div>
+        <!--Nav-Bar-->
+        <div class="nav-bar">
+            <nav>
+                <ul>
+                    <li><a href="#">Nuestro Café</a></li>
+                    <li><a href="#">Otros productos</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="icons">
+            <div class="icon-magnifying-glass">
+                <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+            
+            <div class="icon-envelope">
+                <a href="#"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+
+            <div class="icon-user">
+                <a href="/login"><i class="fa-solid fa-user"></i></a>
+            </div>
+            
+            <div class="icon-register">
+                <li><a href="/register" title="Registrate!" target="_blank"><i class="far fa-id-card"></i></a></li>
+            </div>
+
+            <div class="icon-cart">        
+                <a href="/carro" title="Mi Carrito" ><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+
+            <div class="icon-bars">
+                <a href="#"><i class="fa-solid fa-bars"></i></a>
+            </div>
+        </div>
+    
+    </header>
+
+    <main class="background-mc">
+        
+        <div class="background-div-mc">
+
+        <p class="title-mc">Mi Carrito</p>
+
+            <div class="card-productos-mc">
+                <div class="delete-prod-mc">
+                    <div class="icon-trash-mc">
+                        <i class="fa-solid fa-trash"></i>    
+                    </div>
+                    <img src="images/cafeBrasil.jpg" alt="cafeBrasil" class="img-producto-mc" >
+                </div>
+                <div class="descripciones-mc">
+                    <div>
+                        <div class="descripcion-producto-mc">
+                            <p>Café Brasil</p>
+                        </div>
+                        <div class="detalle-producto-mc">
+                            <p>Café en grano - 500gr </p>
+                            <p>Cerrado Mineiro - Brasil</p>
+                        </div>
+                    </div>
+
+                    <div class="detalle-compra-mc">
+                        <div class="precio-compra-mc">
+                            <p >Precio  </p>
+                            <p>$1000</p>
+                        </div>
+                        <div class="cantidad-compra-mc">
+                            <p>Cantidad</p>
+                            <div>
+                                <input type="number" name="cantidad" value="1" min="0" max="100" class="cantidad-items-mc">
+                            </div>
+                            
+                        </div>
+                        <div class="subtotal-compra-mc">
+                            <p>Subtotal  </p> 
+                            <p>$1000</p>                  
+                        </div>
+                    </div>
+                </div>     
+            </div>
+            
+            <div class="card-productos-mc">
+                <div class="delete-prod-mc">
+                    <div class="icon-trash-mc">
+                        <i class="fa-solid fa-trash"></i>    
+                    </div>
+                    <img src="images/cafeEtiopia.jpg" alt="cafeEtiopia" class="img-producto-mc" >
+                </div>
+                <div class="descripciones-mc">
+                    <div>
+                        <div class="descripcion-producto-mc">
+                            <p>Café Etiopía</p>
+                        </div>
+                        <div class="detalle-producto-mc">
+                            <p>Café en grano - 500gr </p>
+                            <p> Sidamo - Etiopía</p>
+                        </div>
+                    </div>
+                    
+                    <div class="detalle-compra-mc">
+                        <div class="precio-compra-mc">
+                            <p>Precio</p>
+                            <p>$1200</p>
+                        </div>
+                        <div class="cantidad-compra-mc">
+                            <p>Cantidad</p>
+                            <div>
+                                <input type="number" name="cantidad" value="1" min="0" max="100" class="cantidad-items-mc">
+                            </div>
+                            
+                        </div>
+                        <div class="subtotal-compra-mc">
+                            <p>Subtotal</p> 
+                            <p>$1200</p>                  
+                        </div>
+                    </div>
+                </div>     
+            </div>       
+
+            <p class="title-mc">Total de Mi carrito</p>
+
+            <div class="finalizacion-compra-mc">
+                <div class="subtotal-finalizacion-compra-mc">
+                    <p>Subtotal</p>
+                    <p class="bolder-mc">$2200</p>
+                </div>
+                <div class="tipo-envio-mc">
+                    <div class="opciones-envio-mc">
+                        <p>Envio</p>
+                        <div class="opciones-envio-radio-mc">
+                            <div>
+                                <input type="radio" name="envio" value="domicilio"> <span> A domicilio. </span>
+                            </div>
+                            <div>
+                                <input type="radio" name="envio" value="correo"> <span> Sucursales de Correo y otros puntos de todo el pais. </span>
+                            </div>
+                            <div>
+                                <input type="radio" name="envio" value="local"> <span> Retiro en el local. </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="precio-envio-mc">
+                        <p class="bolder-mc">$800</p>  
+                    </div>
+                    
+                </div>
+                <div class="total-compra-mc">
+                    <p>Total</p> 
+                    <p class="bolder-mc" >$3000</p>                  
+                </div>
+
+                <div class="submit-compra-mc">
+                    <input type="submit" value="Finalizar compra" class="submit-lgn-mc" >
+                </div>
+                    
+            </div>  
+            
+        </div>
+
+    </main>
+
+    <footer>
+
+        <div class="logo-footer">
+            <a href="/"><img src="/images/logo2.png" alt=""></a>
+        </div>
+        <div class="info">
+            <div class="info-left">
+                <div class="nav-footer">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#">Nuestro Café</a></li>
+                        <li><a href="#">Otros productos</a></li>
+                        <li><a href="#">Contáctenos</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-right">
+                <div class="social">
+                    <div>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div>
+                        <i class="fa-brands fa-facebook-square"></i>
+                    </div>
+                    <div>
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                </div>
+                
+
+                <div class="phone">
+                    <p><i class="fa-solid fa-square-phone"></i>   0111-555-5555 </p>
+                </div>
+
+                <div class="address">
+                    <p><i class="fa-solid fa-location-dot"></i>   La Ruta del Café 1234 - Quindío - Colombia </p>
+                </div>
+
+                <div class="how_to_buy">
+                    <a href="#"><i class="fa-solid fa-hand-holding-dollar"></i> Medios de pago</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="cpyrgt">
+            <p>© Copyright Café Arte</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>
