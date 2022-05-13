@@ -365,6 +365,73 @@ article img{
 	top:1px;
 }
 
+/*-------------Main del error 404-----------*/
+.error404-er{
+	width: 80%;
+	max-width: 1000px;
+	margin: auto;
+	padding: 150px 0px;
+	margin: auto;
+	text-align: center;
+	font-size: 10px;
+
+}
+
+.error404-er p{
+	font-size: 2em;
+	font-weight: 600;
+}
+
+.error404-er img {
+	width: 60%;
+	max-width: 800px;
+
+}
+
+
+/*------ Contactenos ------*/
+.main-title-ctn{
+	font-size: 36px;
+	font-weight: 400;
+	color: #1C0A00;
+	padding: 60px 0px 20px 0px;
+	text-align: center;
+}
+
+.main-form-ctn{
+	display: flex;
+	align-items:center;
+	justify-content: center;
+}
+
+.form-ctn{
+	display: block;
+	width: 80%;
+	align-items: center;
+	max-width: 500px;
+}
+
+.title-ctn{
+	display: block;
+
+	font-size: 20px;
+	color: #1C0A00;
+	padding: 20px 0px 10px 0px;
+	text-align:justify;
+}
+
+.content-ctn{
+	border-radius: 5px;
+	margin: center;
+	width: 100%;
+	padding: 5px;
+	font-size: 16px;
+} 
+
+.btn-ctn{
+	padding: 30px 0px;
+}
+
 /*-----   FOOTER   -----*/
 
 footer {
@@ -561,32 +628,9 @@ margin-top: 5px;
 	margin-top: 5px;
 }
 
-  /*-------------Main del error 404-----------*/
-  .error404-er{
-	width: 80%;
-	max-width: 1000px;
-	margin: auto;
-	padding: 150px 0px;
-	margin: auto;
-	text-align: center;
-	font-size: 10px;
-
-}
-
-.error404-er p{
-	font-size: 2em;
-	font-weight: 600;
-}
-
-.error404-er img {
-	width: 60%;
-	max-width: 800px;
-
-}
 
 
-
-
+  
 
 /* Media queries */
 

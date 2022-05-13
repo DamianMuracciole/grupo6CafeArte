@@ -13,24 +13,27 @@
 
     <main>
         
-        <br><br><br><br>
-        <h1 style="margin: 30px; border: 3px solid #CC9544; background-color: rgb(28,10,0);color: #FAF3E0;" >Contactenos</h1>
-        <br><br><br>
+        <div class="main-title-ctn">
+            <p>Contactenos</p>
+        </div> 
 
-        <form action="/" method="" class="formBody">
-            <label for="username">Usuario</label>
-            <input type="text" name="username" id="username" placeholder="Usuario" required>
-            <label for="password" class="pass">Contraseña</label>
-            <input type="password" name="password" id="password" placeholder="Contraseña" required>
-            <div class="rememberMe">
-                <input type="checkbox" class="check">
-                <span>Recordarme</span>
-            </div>
-            <div class="butonLogin">
-                <button class="button-form-create">Ingresar</button>
-            </div>
-            <a href="/" class="forgot">¿Olvidaste tu Contraseña?</a>
-        </form>
+        <div class="main-form-ctn">
+            <form action="/" method="" class="form-ctn">
+
+                <label for="consulta" class="title-ctn" >Dejanos tu consulta</label>
+                <textarea name="consulta" id="consulta" class='content-ctn' placeholder="Quisiera saber...." required rows="10" cols="50"></textarea>
+                
+                <label for="email" class="title-ctn" >Email</label>
+                <input type="email" name="email" id="email" class='content-ctn' placeholder="tumail@mail.com" required>
+                <div class="btn-ctn">
+                    <div class="submit-compra-mc">
+                        <button class="submit-lgn-mc">Enviar</button>
+                    </div>  
+                </div>
+
+            </form>
+        </div>
+        
 
     </main>
 
