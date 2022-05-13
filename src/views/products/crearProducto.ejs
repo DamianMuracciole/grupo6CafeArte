@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- Aqui va el head -->
+    <%- include('../partials/head') %>
+
+<body>
+    
+    <!-- Aqui va el header -->
+    <%- include('../partials/header') %>
+
+    <!-- Aqui va el main -->
+    <main>
+        <div class="login">
+            <div class="form-principal">
+                <form action="/" method="post" class="create-user">
+                    <h2 class="registro">Crear Producto</h2>
+                    <div class="control-form">
+                        <label for="nombre">Nombre</label> 
+                        <input type="text" name="nombre" class="control" placeholder="Juan" required>    <!--types: text, number, password, email, tel, radio, checkbos. Name: para identificar el campo del formulario -->
+                    </div>
+                    <div class="control-form">
+                        <label for="">Apellido</label> 
+                        <input type="text" name="apellido" class="control" placeholder="Perez" required>   
+                    </div>
+                    <div class="control-form">
+                        <label for="usuario">Nombre de Usuari@</label> 
+                        <input type="text" name="usuario" class="control" placeholder="nombre_de_usuario" required>   
+                    </div>
+                    <div class="control-form">
+                        <label for="correo">Correo electronico</label> 
+                        <input type="email" name="correo" class="control" placeholder="nombre@correo.com" required>   
+                    </div>
+                    <div class="control-form">
+                        <label for="fechaNacimiento">Fecha de Nacimiento</label> 
+                        <input type="date" name="fechaNacimiento" class="control" placeholder="dd/mm/yyyy" required>   
+                    </div>
+                    <div class="control-form">
+                        <label for="contrasena">Contraseña</label> 
+                        <input type="password" name="contrasena" placeholder="Contraseña" class="control" required>    
+                    </div>
+                    <div class="control-form">
+                        <label for="dobleContrasena">Confirmar Contraseña</label> 
+                        <input type="password" name="dobleContrasena" placeholder="Confirme la Contraseña" class="control" required>    
+                    </div>
+                    <div class="control-form">
+                        <button type="submit" class="button-form-create">Crear Usuario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Aca va el footer -->
+    <%- include('../partials/footer') %>
+    
+
+</body>
+</html>

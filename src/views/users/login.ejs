@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('../partials/head') %>
+
+<body class="login">
+    
+    <%- include('../partials/header') %>
+
+    <!-- Empieza el Form de Login -->
+    <div class="formLogin">
+        <h1 class="tituloLogin">LOGIN</h1>
+        <i class="fa-solid fa-circle-user"></i>
+        <h2 class="saludo">Bienvenido</h2>
+        <form action="/" method="" class="formBody">
+            <label for="username">Usuario</label>
+            <input type="text" name="username" id="username" placeholder="Usuario" required>
+            <label for="password" class="pass">Contraseña</label>
+            <input type="password" name="password" id="password" placeholder="Contraseña" required>
+            <div class="rememberMe">
+                <input type="checkbox" class="check">
+                <span>Recordarme</span>
+            </div>
+            <div class="butonLogin">
+                <button class="button-form-create">Ingresar</button>
+            </div>
+            <a href="/" class="forgot">¿Olvidaste tu Contraseña?</a>
+        </form>
+
+    </div>
+
+    <!-- Aca va el footer -->
+    <%- include('../partials/footer') %>
+    
+</body>
+
+</html>
