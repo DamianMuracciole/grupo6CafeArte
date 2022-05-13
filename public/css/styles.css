@@ -219,7 +219,8 @@ article img{
 
 .title-mc,
 .title-total-mc{
-	font-size: 30px;
+	font-size: 32px;
+	font-weight: 600;
 	padding: 30px 0px 15px 0px;
 	text-align: center;
 }
@@ -391,10 +392,10 @@ article img{
 
 /*------ Contactenos ------*/
 .main-title-ctn{
-	font-size: 36px;
-	font-weight: 400;
+	font-size: 32px;
+	font-weight: 600;
 	color: #1C0A00;
-	padding: 60px 0px 20px 0px;
+	padding: 75px 0px 5px 0px;
 	text-align: center;
 }
 
@@ -413,10 +414,9 @@ article img{
 
 .title-ctn{
 	display: block;
-
-	font-size: 20px;
+	font-size: 22px;
 	color: #1C0A00;
-	padding: 20px 0px 10px 0px;
+	padding: 25px 0px 10px 0px;
 	text-align:justify;
 }
 
@@ -657,7 +657,8 @@ margin-top: 5px;
 	/*------------- main mi compra ------------*/
 	.title-mc,
 	.title-total-mc{
-		font-size: 24px;
+		font-size: 32px;
+		font-weight: 600;
 	}
 	
 	.card-productos-mc{
@@ -1057,15 +1058,30 @@ margin-top: 5px;
 	display: flex;
 }
 .formCyE{
-	
 	display: flex;
 	flex-direction: column;
-	
+	width: 90%;
+	max-width: 500px;
 }
 
 .formCyE label {
-	padding: 1% 0;
+	/*padding: 1% 0;*/
+	display: block;
+	font-size: 22px;
+	font-weight: 400;
+	color: #1C0A00;
+	padding: 20px 0px 10px 0px;
+	text-align: left;
 }
 .formCyE input {
-	padding: 1% 0;
+	/*padding: 1% 0;*/
+	border-radius: 5px;
+	margin: center;
+	width: 100%;
+	padding: 5px;
+	font-size: 16px;
+}
+
+.formCyE button{
+	margin: 30px 0px;
 }

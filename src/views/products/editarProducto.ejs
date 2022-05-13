@@ -8,18 +8,19 @@
     
     <!-- Aqui va el header -->
     <%- include('../partials/header') %>
-
     <!-- Aqui va el main -->
     <main>
-        <div class="formLogin">
-            <h2 class="saludo">Editar Producto</h2>
+        <div class="main-title-ctn">
+            <p>Editar Producto</p>
+        </div>
+        <div class="main-form-ctn">
             <form action="/editarProducto" method="" class="formCyE">
                 <label for="username">Nombre del Producto</label>
                 <input type="text" name="username" id="username" placeholder="Producto" required>
                 <label for="peso">Peso Neto</label>
                 <input type="text" name="peso" id="peso" placeholder="Peso Neto" required>
-                <label for="username">Descripción</label>
-                <input type="text" name="descripcion" id="descripcion" placeholder="Descripcion" required>
+                <label for="descripcion">Descripción</label>
+                <textarea name="descripcion" id="descripcion" class='content-ctn' placeholder="Descripcion" required rows="10" cols="50"></textarea>
                 <label for="precio">Precio</label>
                 <input type="text" name="precio" id="precio" placeholder="Precio" required>
                 <label for="imagenes">Insertar Imagenes de tu Producto</label>
@@ -30,7 +31,9 @@
                     <option value="molido">Molido</option>
                     <option value="enCapsulas">En capsulas</option>
                 </select>
-                <button type="submit" class="butonLogin">Aceptar</button>
+                <div class="submit-compra-mc">
+                    <button class="submit-lgn-mc">Aceptar</button>
+                </div>
             </form>
         </div>
     </main>
