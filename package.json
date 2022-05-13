@@ -1,32 +1,35 @@
 {
-  "name": "grupo6CafeArte",
+  "name": "grupo6cafearte",
   "version": "1.0.0",
   "description": "*Proyecto integrador del curso de desarrollo web Full Stack de digital house. Grupo 6*",
   "main": "app.js",
+  "dependencies": {
+    "async": "^3.2.3",
+    "call-bind": "^1.0.2",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "filelist": "^1.0.4",
+    "function-bind": "^1.1.1",
+    "get-intrinsic": "^1.1.1",
+    "has": "^1.0.3",
+    "has-symbols": "^1.0.3",
+    "jake": "^10.8.5",
+    "nodemon": "^2.0.16",
+    "object-inspect": "^1.12.0",
+    "side-channel": "^1.0.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/app.js"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DamianMuracciole/grupo6CafeArte.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DamianMuracciole/grupo6CafeArte/issues"
   },
-  "homepage": "https://github.com/DamianMuracciole/grupo6CafeArte#readme",
-  "dependencies": {
-<<<<<<< HEAD
-=======
-    "ejs": "^3.1.8",
->>>>>>> crearyeditarforms
-    "express": "^4.18.1",
-    "nodemon": "^2.0.15"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.13"
-  }
+  "homepage": "https://github.com/DamianMuracciole/grupo6CafeArte#readme"
 }
