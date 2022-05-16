@@ -217,8 +217,10 @@ article img{
 	max-width: 900px;
 }
 
-.title-mc{
-	font-size: 30px;
+.title-mc,
+.title-total-mc{
+	font-size: 32px;
+	font-weight: 600;
 	padding: 30px 0px 15px 0px;
 	text-align: center;
 }
@@ -336,26 +338,98 @@ article img{
 /* Botón */
 .submit-compra-mc{
 	text-align: center;
-	border-radius: 5px;
-	background-color:#1C0A00;
-	opacity: 0.85;
-	transition: 0.20s;
-	max-width: 200px;
 	margin:auto;
 }
+
 .submit-lgn-mc{
-	border: 0ch;
-   	font-size: 20px;
-   	padding: 1px;
-   	margin: 5px;
-  	width: 90%;
-   	max-width: 300px;
-   	border-radius: 5px;
+	box-shadow: 3px 4px 0px 0px #899599;
+	background:linear-gradient(to bottom, #ededed 5%, #bab1ba 100%);
+	background-color:#ededed;
+	border-radius:15px;
+	border:1px solid #d6bcd6;
+	cursor:pointer;
+	color:rgba(28,10,0,0.8);
+	font-family:Arial;
+	font-size: 17px;
+	padding: 10px 25px;
+	margin: 5px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #e1e2ed;
 }
-.submit-compra-mc:hover{
-	opacity: 1;
-box-shadow: 1px 1px 1px #815d4a,
--1px -1px 1px #815d4a;
+.submit-lgn-mc:hover{
+	background:linear-gradient(to bottom, #bab1ba 5%, #ededed 100%);
+	background-color:#bab1ba;
+}
+
+.submit-lgn-mc:active {
+	position:relative;
+	top:1px;
+}
+
+/*-------------Main del error 404-----------*/
+.error404-er{
+	width: 80%;
+	max-width: 1000px;
+	margin: auto;
+	padding: 150px 0px;
+	margin: auto;
+	text-align: center;
+	font-size: 10px;
+
+}
+
+.error404-er p{
+	font-size: 2em;
+	font-weight: 600;
+}
+
+.error404-er img {
+	width: 60%;
+	max-width: 800px;
+
+}
+
+
+/*------ Contactenos ------*/
+.main-title-ctn{
+	font-size: 32px;
+	font-weight: 600;
+	color: #1C0A00;
+	padding: 75px 0px 5px 0px;
+	text-align: center;
+}
+
+.main-form-ctn{
+	display: flex;
+	align-items:center;
+	justify-content: center;
+}
+
+.form-ctn{
+	display: block;
+	width: 80%;
+	align-items: center;
+	max-width: 500px;
+}
+
+.title-ctn{
+	display: block;
+	font-size: 22px;
+	color: #1C0A00;
+	padding: 25px 0px 10px 0px;
+	text-align:justify;
+}
+
+.content-ctn{
+	border-radius: 5px;
+	margin: center;
+	width: 100%;
+	padding: 5px;
+	font-size: 16px;
+} 
+
+.btn-ctn{
+	padding: 30px 0px;
 }
 
 /*-----   FOOTER   -----*/
@@ -446,9 +520,9 @@ footer ul li > a{
 }
 
 .form-principal {
-	background-color: rgba(28,10,0,0.1);
+	/* background-color: rgba(28,10,0,0.1); */
 	padding: 20px 15px;
-	width: 80vw;
+	width: 300px;
 	z-index: 50;
 	margin: auto;
 	padding-top: 90px;
@@ -456,6 +530,8 @@ footer ul li > a{
 
 .control-form {
     margin-bottom: 15px;
+	
+	
 }
 
 .control-form label{
@@ -463,8 +539,8 @@ footer ul li > a{
     margin-bottom: 5px;
     font-style: normal;
     display: block;
-    font-weight: bold;
-    font-size: 1.2rem;
+    /* font-weight: bold; */
+    font-size: 16;
 }
 
 .create-user h2{
@@ -480,6 +556,7 @@ footer ul li > a{
 .control{
     width: 100%;
     padding: 8px 8px;
+
 }
 
 
@@ -508,6 +585,16 @@ footer ul li > a{
 	top:1px;
 }
 
+input{
+	border-radius: 5px;
+}
+.control-form-buton {
+    margin-bottom: 15px;
+	text-align: center;
+	
+	
+}
+
 
 /* Login */
 .formBody{
@@ -533,6 +620,7 @@ footer ul li > a{
 text-decoration: none;
 margin-bottom: 100px;
 margin-top: 5px;
+color: black;
 }
 
 .formLogin i{
@@ -553,33 +641,15 @@ margin-top: 5px;
 .rememberMe{
 	margin-top: 5px;
 }
-
-  /*-------------Main del error 404-----------*/
-  .error404-er{
-	width: 80%;
-	max-width: 1000px;
-	margin: auto;
-	padding: 150px 0px;
-	margin: auto;
+.contenedorSadulo{
 	text-align: center;
-	font-size: 10px;
-
-}
-
-.error404-er p{
-	font-size: 2em;
-	font-weight: 600;
-}
-
-.error404-er img {
-	width: 60%;
-	max-width: 800px;
+	color: #361500;
 
 }
 
 
 
-
+  
 
 /* Media queries */
 
@@ -604,8 +674,10 @@ margin-top: 5px;
 	}
 
 	/*------------- main mi compra ------------*/
-	.title-mc{
-		font-size: 24px;
+	.title-mc,
+	.title-total-mc{
+		font-size: 32px;
+		font-weight: 600;
 	}
 	
 	.card-productos-mc{
@@ -693,6 +765,8 @@ margin-top: 5px;
 		max-width: 800px;
 	
 	}
+
+	
 }
 
 	
@@ -773,8 +847,21 @@ margin-top: 5px;
     .card{
         margin: 0;
     }
+	.login, .register-fondo{
+		background-image: url(/images/imagenFondoOld01.jpg);
+		
+		
+	}
+	
+
+	
+	
 
 	/*------------- main mi compra ------------*/
+	.title-mc{
+		padding: 60px 0px 15px 0px;
+	}
+
 	.card-productos-mc{
 		flex-direction:row ;
 		justify-content: space-between;
@@ -1001,15 +1088,30 @@ margin-top: 5px;
 	display: flex;
 }
 .formCyE{
-	
 	display: flex;
 	flex-direction: column;
-	
+	width: 90%;
+	max-width: 500px;
 }
 
 .formCyE label {
-	padding: 1% 0;
+	/*padding: 1% 0;*/
+	display: block;
+	font-size: 22px;
+	font-weight: 400;
+	color: #1C0A00;
+	padding: 20px 0px 10px 0px;
+	text-align: left;
 }
 .formCyE input {
-	padding: 1% 0;
+	/*padding: 1% 0;*/
+	border-radius: 5px;
+	margin: center;
+	width: 100%;
+	padding: 5px;
+	font-size: 16px;
+}
+
+.formCyE button{
+	margin: 30px 0px;
 }
