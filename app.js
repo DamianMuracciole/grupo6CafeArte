@@ -40,6 +40,11 @@ app.use('/', rutasProductos)
 // Rutas Usuarios
 app.use('/', rutasUsers)
 
+// Para la 404 - La vista que se va a cargar es la de not-found
+// Tiene que ir despues de definir todas las rutas.
+app.use((req, res, next) => {
+    res.status(404).render("main/404")
+})
 
 
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Aqui va el head -->
+<%- include('../partials/head') %>
+
+<body>
+    <!-- Aqui va el header -->
+    <%- include('../partials/header') %>
+    
+    <!-- Aqui va el main -->
+    <main class="background-detalle">
+        <br>
+        <br>
+        <br>
+        <div class="dp-contenedor1">
+            <div class="dp-contenedor-principal">
+                <div dp-img-principal>
+                    <img src="/images/cafeEtiopia.jpg " class="dp-img-principal">
+                </div>
+                <div class="dp-detalle">
+                    <h3>Cafe Etiopia</h3>
+                    <p> 500 grs</p>
+                    <p>$1200</p>
+                    <label>Cantidad:</label>
+                    <input type="number" name="cantidad" min="1" max="99" required>
+                    <div>
+                    <button class="button-form-create">Sumar al Carrito</button>
+                    </div>
+                </div>
+        </div>
+        <div class="dp-descripcion">
+            <h3>Detalle</h3>
+            <p>El café etíope crece a grandes altitudes, lo que produce un grano denso y duro. Los granos más densos
+                tienden a contener una mayor cantidad de azúcares y precursores de sabor, lo cual resulta en más sabores
+                luego del tueste. Para elegir un perfil de tueste efectivo, la clave es conocer la densidad del grano.
+            </p>
+        </div>
+    </div>
+        <div class="dp-contenedor1">
+            <h2>Productos Relacionados</h4>
+            <div class="dp-img-secundarias">
+                <div class="dp-img-detalle1">
+                <p>Cafe Brasil</p>
+                <img src="/images/cafeBrasil.jpg" alt="" class="img-relacionados">
+                </div>
+                <div class="dp-img-detalle1">
+                    <p>Cafe Colombia</p>
+                    <img src="/images/cafeColombia.jpg" alt="" class="img-relacionados">
+                </div>
+                <div class="dp-img-detalle1">
+                    <p>Cafe Mexico</p>
+                    <img src="/images/cafeMexico.jpg" alt="" class="img-relacionados">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Aca va el footer -->
+    <%- include('../partials/footer') %>
+    
+</body>
+
+</html>
