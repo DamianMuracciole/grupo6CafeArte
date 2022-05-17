@@ -14,28 +14,26 @@
         <br>
         <br>
         <div class="dp-contenedor1">
+                       
             <div class="dp-contenedor-principal">
                 <div dp-img-principal>
-                    <img src="/images/cafeEtiopia.jpg " class="dp-img-principal">
+                     <img src="/images/<%= detalleProducto.imagen %> " class="dp-img-principal">
                 </div>
                 <div class="dp-detalle">
-                    <h3>Cafe Etiopia</h3>
-                    <p> 500 grs</p>
-                    <p>$1200</p>
+                    <h3><%= detalleProducto.nombre %></h3>
+                    <p> <%= detalleProducto.peso %></p>
+                    <p><%= detalleProducto.precio %></p>
                     <label>Cantidad:</label>
                     <input type="number" name="cantidad" min="1" max="99" required>
                     <div>
                     <button class="button-form-create">Sumar al Carrito</button>
                     </div>
                 </div>
-        </div>
-        <div class="dp-descripcion">
-            <h3>Detalle</h3>
-            <p>El café etíope crece a grandes altitudes, lo que produce un grano denso y duro. Los granos más densos
-                tienden a contener una mayor cantidad de azúcares y precursores de sabor, lo cual resulta en más sabores
-                luego del tueste. Para elegir un perfil de tueste efectivo, la clave es conocer la densidad del grano.
-            </p>
-        </div>
+            </div>
+            <div class="dp-descripcion">
+                <h3>Detalle</h3>
+                <p><%= detalleProducto.detalle %></p>
+            </div>
     </div>
         <div class="dp-contenedor1">
             <h2>Productos Relacionados</h4>
