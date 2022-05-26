@@ -86,7 +86,7 @@
         "precio": "488",
         "detalle": "Café 100% El Salvador es un rico café de cuerpo completo con un sabor suave y sofisticado y un aroma intenso.",
         "imagen": "cafeMexico.jpg",
-        "categoria": "En capsulas",
+        "categoria": "Molido",
         "sesion": "Destacado"
     },
     {
@@ -136,7 +136,7 @@
         "precio": "2699",
         "detalle": "Pack compuesto por 500 de Cafe Colombia, 500 de Cafe Brasil y 500 de Cafe Etiopia",
         "imagen": "OfertaPackTrio.jpg",
-        "categoria": "En granos",
+        "categoria": "Molido",
         "sesion": "normal"
     }
 ]
