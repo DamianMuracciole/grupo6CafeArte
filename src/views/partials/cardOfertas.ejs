@@ -1,10 +1,10 @@
 
 
    
-        <% ofertaProductos.forEach(oferta => { %>
+        <% enOferta.forEach(oferta => { %>
             <article class="card">
                 
-                <a href="/producto/<%= oferta.id %> "><img src="/images/<%= oferta.imagen %>" class="ImagenPackTrio">
+                <a href="/products/<%= oferta.id %> "><img src="/images/<%= oferta.imagen %>" class="ImagenPackTrio">
                     <p class="descripcion"><%= oferta.nombre %></p>
                     <p class="precio"><%= oferta.precio %></p>
                 </a>

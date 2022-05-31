@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Aqui va el head -->
+<%- include('../partials/head') %>
+
+<body>
+    <!-- Aqui va el header -->
+    <%- include('../partials/header') %>
+    
+    <!-- Aqui va el main -->
+    <main>
+        <div class="carrusel">
+            <a href="/productDetail"><img src="/images/tomemonos-un-cafe-banner.jpg" class="imagen"></a>
+        </div> 
+        
+            <h3 class="titulo">Nuestros Productos</h3>
+      
+            <section class="">
+                <% products.forEach(producto => { %>
+                    <article class="card-products">
+                        
+                        <a href="/products/<%= producto.id %> "><img src="/images/<%= producto.imagen %>" class="ImagenProductos">
+                            <p class="descripcion"><%= producto.nombre %></p>
+                            <p class="precio"><%= producto.precio %></p>
+                        </a>
+                    </article>
+                <% }) %>  
+            </section>
+            
+
+
+        
+    </main>
+
+    <!-- Aca va el footer -->
+    <%- include('../partials/footer') %>
+    
+</body>
+
+</html>

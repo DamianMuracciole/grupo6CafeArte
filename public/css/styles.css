@@ -757,6 +757,20 @@ color: black;
 	.opciones-envio-radio-mc span{
 		font-size: 16px;
 	}
+	/*----------listado de productos -------*/
+	.card-products {
+		width: 80%;
+		max-width:350px;
+		margin: 0%;
+	}
+	.card-products p {
+		margin: 0 5% 0 5%;
+
+	}
+	sesion .ImagenProductos {
+		max-width: 355px;
+	}
+
 	/*----------main de error 404 -------*/
 	.error404-er p{
 		font-size: 3em;
@@ -774,7 +788,7 @@ color: black;
 
 	
 
-@media (min-width: 769px){
+@media (min-width: 768px){
     /* --------------  header  ---------------*/
 	/*Cambio el tamaño del icono y de la barra */
 	header{
@@ -848,8 +862,12 @@ color: black;
         background-size: cover;
     }
     .card{
-        margin: 0;
+        margin: auto;
     }
+
+	.card-products {
+		margin: auto;
+	}
 	.login, .register-fondo{
 		background-image: url(/images/imagenFondoOld01.jpg);
 		

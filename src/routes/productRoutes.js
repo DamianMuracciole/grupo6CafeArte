@@ -10,8 +10,13 @@ router.get('/productDetail', productsController.productDetail)
 router.get('/crearProducto', productsController.crearProducto)
 router.get('/editarProducto', productsController.editarProducto)
 
+// mostrar todos los productos
+router.get('/products', productsController.index )
+
 //router.get('/productDetailNew', productsController.productDetailNew)
-router.get('/producto/:id', productsController.productoByID)
+router.get('/products/:id', productsController.productoByID)
+
+
 
 
 module.exports = router;
