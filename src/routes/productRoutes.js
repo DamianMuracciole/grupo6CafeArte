@@ -17,6 +17,10 @@ router.get('/products', productsController.index )
 router.get('/products/:id', productsController.productoByID)
 
 
+//
+router.delete('/products/:id', productsController.destroy);
+
+
 
 
 module.exports = router;

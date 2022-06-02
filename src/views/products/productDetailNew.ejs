@@ -34,6 +34,12 @@
                 <h3>Detalle</h3>
                 <p><%= detalleProducto.description %></p>
             </div>
+
+            <form action="/products/<%= detalleProducto.id %>?_method=DELETE" method="post" class="formCyE"> 
+                <div class="submit-compra-mc">
+                    <button type="submit" class="submit-lgn-mc">Borrar producto <%= detalleProducto.name %> </button>
+                </div>
+            </form>
     </div>
         <div class="dp-contenedor1">
             <h2>Productos Relacionados</h4>

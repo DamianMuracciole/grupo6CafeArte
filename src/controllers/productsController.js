@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require ("path")
 
-const productsPath= path.join(__dirname, "../data/products.json");
+const productsPath= path.join(__dirname, "../data/products_copy.json");
 
 const products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
 const enOferta= products.filter( producto => producto.session == "Oferta" )
@@ -41,12 +41,25 @@ const productsController = {
     },
     editarProducto: (req, res) => {
         //res.send("Estoy aca?")
-        res.render('products/editarProducto');
+        res.render('products/editarProducto',{products});
     },
     // productDetailNew: (req, res) => {
     //     //res.send("Estoy aca?")
     //     res.render('products/productDetailNew');
     // },
+
+    // Delete - Delete one product from DB
+	destroy : (req, res) => {
+		//obtengo el id
+		const idProduct = req.params.id;
+		//filtro el nuevo array sin el producto
+		let newList = products.filter(product => product.id != idProduct);
+
+		//cargo los nuevos datos: se pasa a formato JSON y carga el nuevo valor
+		fs.writeFileSync( productsPath,JSON.stringify(newList));
+		//redirecciono a productos
+		res.redirect('/products')	
+	}
     
 };
 

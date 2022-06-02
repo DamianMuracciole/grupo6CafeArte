@@ -201,9 +201,10 @@ article img{
 /*-----   BODY mi compra  -----*/
 .background-mc{
 	background-color: #FAF3E0;
-	background-image: url("/images/imagenFondo.jpg");
-	background-size: 100%;
+	background-image: url('/images/imagenFondoOld02.jpg');
+	background-size: 100%;*/
 	background-position: center;
+	
 	/*background-attachment:fixed;*/
 	image-orientation:90deg ;
 }
@@ -514,7 +515,7 @@ footer ul li > a{
 
  .register-fondo {
 	margin-top: 8vh;
-	background-image: url(/images/imagenFondo.jpg);
+	background-image: url('/images/imagenFondoOld02.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -606,9 +607,11 @@ input{
 	flex-direction: column;
 }
 .login{
-	background-image: url(/images/imagenFondo.jpg);
+	background-image: url('/images/imagenFondoOld02.jpg');
 	background-repeat: no-repeat;
 	background-size:cover;
+	/*agregado 02-06*/
+	background-attachment: fixed;
 }
 .formLogin{
 	margin-top: 90px;
@@ -667,7 +670,7 @@ color: black;
 	}
 
 	/*main{
-		background-image: url(/images/imagenFondo.jpg);
+		background-image: url(/images/imagenFondoOld02.jpg);
 		background-attachment: fixed;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -856,7 +859,7 @@ color: black;
         justify-content: center;
     }
     main{
-        background-image: url(/images/imagenFondo.jpg);
+        background-image: url('/images/imagenFondoOld02.jpg');
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
@@ -869,7 +872,7 @@ color: black;
 		margin: auto;
 	}
 	.login, .register-fondo{
-		background-image: url(/images/imagenFondoOld01.jpg);
+		background-image: url('/images/imagenFondoOld02.jpg');
 		
 		
 	}
@@ -1019,7 +1022,7 @@ color: black;
 
 	.background-detalle{
 		background-color: #FAF3E0;
-		background-image: url("/images/imagenFondo.jpg");
+		background-image: url("/images/imagenFondoOld02.jpg");
 		background-size: 100%;
 		background-position: center;
 		background-attachment:fixed;
