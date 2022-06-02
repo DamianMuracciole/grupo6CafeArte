@@ -1,8 +1,7 @@
 const express = require('express')
 const app = express();
 const path = require("path")
-const methodOverride = require('method-override') // para metodos PUT y DELETE
-
+const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 
 // Template Engine EJS
 app.set('view engine', 'ejs')
@@ -22,6 +21,7 @@ const rutasUsers = require('./src/routes/userRoutes')
 const port = process.env.PORT || 3000;
 const publicPath = path.resolve(__dirname, 'public');
 app.use( express.static(publicPath) );
+app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 
 // Para los formulatios POST
 app.use(express.urlencoded({ extended: false })) // para archivos estaticos de public

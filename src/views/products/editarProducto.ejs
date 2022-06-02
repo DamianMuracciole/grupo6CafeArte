@@ -2,7 +2,7 @@
 <html lang="en">
 
     <!-- Aqui va el head -->
-    <%- include('../partials/head') %>
+    <%- include('../partials/head', {title: 'Editando: ' + productoAEditar.nombre}) %>
 
 <body>
     
@@ -11,28 +11,50 @@
     <!-- Aqui va el main -->
     <main>
         <div class="main-title-ctn">
-            <p>Editar Producto</p>
+            <p>Editar Producto: <%= productoAEditar.nombre %></p>
         </div>
         <div class="main-form-ctn">
-            <form action="/editarProducto" method="" class="formCyE">
-                <label for="username">Nombre del Producto</label>
-                <input type="text" name="username" id="username" placeholder="Producto" required>
+            <form action="/editarProducto/<%= productoAEditar.id %>?_method=PUT" method="POST" class="formCyE" enctype="multipart/form-data">
+
+                <label for="nombre">Nombre del Producto</label>
+                <input type="text" name="nombre" id="nombre" value="<%= productoAEditar.nombre %>" placeholder="Producto" required>
+
                 <label for="peso">Peso Neto</label>
-                <input type="text" name="peso" id="peso" placeholder="Peso Neto" required>
-                <label for="descripcion">Descripción</label>
-                <textarea name="descripcion" id="descripcion" class='content-ctn' placeholder="Descripcion" required rows="10" cols="50"></textarea>
+                <input type="text" name="peso" id="peso" value="<%= productoAEditar.peso %>" placeholder="Peso Neto" required>
+
+                <label for="detalle">Descripción</label>
+                <textarea name="detalle" id="detalle" class='content-ctn' placeholder="Detalle" required rows="10" cols="50"><%= productoAEditar.detalle %></textarea>
+                                
                 <label for="precio">Precio</label>
-                <input type="text" name="precio" id="precio" placeholder="Precio" required>
-                <label for="imagenes">Insertar Imagenes de tu Producto</label>
-                <input type="file" accept="image/*" name="imagenes" id="imagenes" placeholder="Insertar Imagenes de tu producto" required>
+                <input type="text" name="precio" id="precio" value="<%= productoAEditar.precio %>" placeholder="Precio" required>
+                
+                <!-- Traer la imagen -->
+                <label for="imagenes">Subir Imagen</label>
+                <img src="/images/<%= productoAEditar.imagen %>" alt="">
+                <input type="file" accept="image/*" name="imagenes" id="imagenes" placeholder="Insertar Imagenes de tu producto">
+
                 <label for="categoria">Categoria</label>
-                <select name="categoria" id="categoria" required>
-                    <option value="enGranos">En granos</option>
-                    <option value="molido">Molido</option>
-                    <option value="enCapsulas">En capsulas</option>
+                <select name="categoria" id="categoria">
+                    <!-- <option value="" disabled>Seleccionar Categoria</option> -->
+                    <!-- <option value="molido" <%= productoAEditar.category === 'molido' ? 'selected' : '' %> >Molido</option>
+                    <option value="granos" <%= productoAEditar.category === 'granos' ? 'selected' : '' %> >En granos</option>                    
+                    <option value="capsulas" <%= productoAEditar.category === 'capsulas' ? 'selected' : '' %> >En capsulas</option> -->
+                    
+                    <option value="molido" <%= productoAEditar.categoria === 'molido' ? 'selected' : '' %> >Molido</option>
+                    <option value="granos" <%= productoAEditar.categoria === 'granos' ? 'selected' : '' %> >En granos</option>              
+                    <option value="capsulas" <%= productoAEditar.categoria === 'capsulas' ? 'selected' : '' %> >En capsulas</option>
+
                 </select>
+
+                <label for="sesion">Sesion</label>
+                <select name="sesion" id="sesion">
+                    <option value="destacado" <%= productoAEditar.sesion === 'destacado' ? 'selected' : '' %> >Destacado</option>
+                    <option value="oferta" <%= productoAEditar.sesion === 'oferta' ? 'selected' : '' %> >En Oferta</option>
+                    <option value="normal" <%= productoAEditar.sesion === 'normal' ? 'selected' : '' %> >Normal</option>
+                </select>
+
                 <div class="submit-compra-mc">
-                    <button class="submit-lgn-mc">Aceptar</button>
+                    <button type="submit" class="submit-lgn-mc">Guardar Producto</button>
                 </div>
             </form>
         </div>
