@@ -67,7 +67,7 @@
     "detalle": "Café de especialidad mexicano, de cuerpo equilibrado y de acidez cítrica media. Cultivado a lo largo de la frontera sur, donde las montañas y las selvas le dan a las plantas los nutrientes y la altitud necesaria para un excelente café.",
     "imagen": "cafeMexico.jpg",
     "categoria": "Molido",
-    "sesion": "Oferta"
+    "sesion": "oferta"
   },
   {
     "id": 8,
@@ -137,6 +137,6 @@
     "detalle": "Pack compuesto por 500 de Cafe Colombia, 500 de Cafe Brasil y 500 de Cafe Etiopia",
     "imagen": "OfertaPackTrio.jpg",
     "categoria": "Molido",
-    "sesion": "normal"
+    "sesion": "oferta"
   }
 ]

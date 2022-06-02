@@ -2,14 +2,13 @@ const fs = require("fs");
 const path = require ("path")
 
 
-const enOferta= products.filter( producto => producto.sesion == "Oferta" )
-const destacados= products.filter( producto => producto.sesion == "Destacado" )
-const normal= products.filter( producto => producto.sesion == "normal" )
-
-
 // Me traigo el json que tiene la data de prods y lo parseo
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
+// const enOferta= products.filter( producto => producto.sesion == "Oferta" )
+// const destacados= products.filter( producto => producto.sesion == "Destacado" )
+// const normal= products.filter( producto => producto.sesion == "normal" )
 
 // Podemos hacer una const para agarrar el parms.id
 //const idProduct = req.params.id;
