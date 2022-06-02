@@ -4,9 +4,9 @@
         <% enOferta.forEach(oferta => { %>
             <article class="card">
                 
-                <a href="/products/<%= oferta.id %> "><img src="/images/<%= oferta.imagen %>" class="ImagenPackTrio">
-                    <p class="descripcion"><%= oferta.nombre %></p>
-                    <p class="precio"><%= oferta.precio %></p>
+                <a href="/products/<%= oferta.id %> "><img src="/images/<%= oferta.image %>" class="ImagenPackTrio">
+                    <p class="descripcion"><%= oferta.name %></p>
+                    <p class="precio"><%= oferta.price %></p>
                 </a>
             </article>
         <% }) %>   

@@ -17,12 +17,12 @@
                        
             <div class="dp-contenedor-principal">
                 <div dp-img-principal>
-                     <img src="/images/<%= detalleProducto.imagen %> " class="dp-img-principal">
+                     <img src="/images/<%= detalleProducto.image %> " class="dp-img-principal">
                 </div>
                 <div class="dp-detalle">
-                    <h3><%= detalleProducto.nombre %></h3>
-                    <p> <%= detalleProducto.peso %></p>
-                    <p><%= detalleProducto.precio %></p>
+                    <h3><%= detalleProducto.name %></h3>
+                    <p> <%= detalleProducto.wieght %></p>
+                    <p><%= detalleProducto.price %></p>
                     <label>Cantidad:</label>
                     <input type="number" name="cantidad" min="1" max="99" required>
                     <div>
@@ -32,7 +32,7 @@
             </div>
             <div class="dp-descripcion">
                 <h3>Detalle</h3>
-                <p><%= detalleProducto.detalle %></p>
+                <p><%= detalleProducto.description %></p>
             </div>
     </div>
         <div class="dp-contenedor1">

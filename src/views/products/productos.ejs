@@ -20,9 +20,9 @@
                 <% products.forEach(producto => { %>
                     <article class="card-products">
                         
-                        <a href="/products/<%= producto.id %> "><img src="/images/<%= producto.imagen %>" class="ImagenProductos">
-                            <p class="descripcion"><%= producto.nombre %></p>
-                            <p class="precio"><%= producto.precio %></p>
+                        <a href="/products/<%= producto.id %> "><img src="/images/<%= producto.image %>" class="ImagenProductos">
+                            <p class="descripcion"><%= producto.name %></p>
+                            <p class="precio"><%= producto.price %></p>
                         </a>
                     </article>
                 <% }) %>  
