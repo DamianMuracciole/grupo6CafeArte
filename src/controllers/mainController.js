@@ -11,10 +11,7 @@ const normal= products.filter( producto => producto.sesion == "normal" )
 
 const mainController = {
     index:(req, res) => {
-        //res.render('../src/views/main/index.ejs');
-        //res.render('index');
         res.render('main/index', {products, enOferta, destacados, normal});
-        //res.render('/main/index.ejs');
     },
     contactenos: (req, res) => {
         res.render('main/contactenos')

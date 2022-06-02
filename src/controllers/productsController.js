@@ -6,9 +6,9 @@ const path = require ("path")
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
-// const enOferta= products.filter( producto => producto.sesion == "Oferta" )
-// const destacados= products.filter( producto => producto.sesion == "Destacado" )
-// const normal= products.filter( producto => producto.sesion == "normal" )
+const enOferta= products.filter( producto => producto.sesion == "Oferta" )
+const destacados= products.filter( producto => producto.sesion == "Destacado" )
+const normal= products.filter( producto => producto.sesion == "normal" )
 
 // Podemos hacer una const para agarrar el parms.id
 //const idProduct = req.params.id;
@@ -35,9 +35,9 @@ const productsController = {
         //res.send("Estoy aca?")
         res.render('products/productCart');
     },
-    comoComprar: (req, res) => {
+    howToBuy: (req, res) => {
         //res.send("Estoy aca?")
-        res.render('products/comoComprar');
+        res.render('products/howToBuy');
     },
     productDetail: (req, res) => {
         let idProduct = req.params.id;
@@ -82,22 +82,27 @@ const productsController = {
 		})
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(newProduct))
-		res.redirect('/productDetail/' + productToEdit.id) //esta no es la vista, es la url
+		res.redirect('/products/' + productToEdit.id) //esta no es la vista, es la url
 
     },
     // productDetailNew: (req, res) => {
     //     //res.send("Estoy aca?")
     //     res.render('products/productDetailNew');
     // },
-    productoByID: (req, res) => {
-        //res.send("Estoy aca?")
-        let idProducto = req.params.id;
-        let productoAMostrar = products.find(function(producto){
-            return producto.id == idProducto;
-        })
-        //res.send("Estoy en product id")
-        res.render('products/productDetailNew.ejs', {detalleProducto: productoAMostrar});
-    }
+
+    // Delete - Delete one product from DB
+	destroy : (req, res) => {
+		//obtengo el id
+		const idProduct = req.params.id;
+		//filtro el nuevo array sin el producto
+		let newList = products.filter(product => product.id != idProduct);
+
+		//cargo los nuevos datos: se pasa a formato JSON y carga el nuevo valor
+		fs.writeFileSync(productsFilePath, JSON.stringify(newList));
+		//redirecciono a productos
+		res.redirect('/products')	
+	}
+    
 };
 
 
