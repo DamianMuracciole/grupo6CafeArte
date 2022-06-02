@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require ("path")
 
-const productsPath= path.join(__dirname, "../data/products_copy.json");
+const productsPath= path.join(__dirname, "../data/products.json");
 
 const products = JSON.parse(fs.readFileSync(productsPath, "utf-8"));
 const enOferta= products.filter( producto => producto.session == "Oferta" )
