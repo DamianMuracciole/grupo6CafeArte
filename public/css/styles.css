@@ -21,6 +21,7 @@ header{
 }
 a{
 	text-decoration: none;
+	color:#1C0A00;
 }
 
  .main-header-reg {
@@ -760,7 +761,14 @@ color: black;
 	.opciones-envio-radio-mc span{
 		font-size: 16px;
 	}
-	/*----------listado de productos -------*/
+	/*----------vista de todos productos -------*/
+
+	.section-pr{
+		display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+		
+	}
 	.card-products {
 		width: 80%;
 		max-width:350px;
@@ -770,9 +778,27 @@ color: black;
 		margin: 0 5% 0 5%;
 
 	}
-	sesion .ImagenProductos {
+	.ImagenProductos {
 		max-width: 355px;
+		padding: 0 10% ;
 	}
+	.descripcion-pr{
+		font-family: "poppins";
+		font-size: 20px;
+		text-align: left;
+		margin: 5px 0px 0px 0px;
+		padding: 0 5%;
+	}
+	
+	.precio-pr{
+		font-family: "poppins";
+		font-size: 20px ;
+		text-align: left;
+		margin: 0;
+		padding: 0 5% 5% 5%;
+		color: burlywood
+	}
+	
 
 	/*----------main de error 404 -------*/
 	.error404-er p{
@@ -1010,7 +1036,8 @@ color: black;
 
     section{
         display: flex;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
+		margin: 0 10%
     }
 	.register-fondo {
 		margin-top: 15vh;
