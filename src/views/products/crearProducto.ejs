@@ -15,9 +15,9 @@
             <p>Crear Producto</p>
         </div>
         <div class="main-form-ctn">
-            <form action="/editarProducto" method="" class="formCyE">
+            <form action="/crearProducto" method="POST" enctype="multipart/form-data" class="formCyE">
                 <label for="username">Nombre del Producto</label>
-                <input type="text" name="username" id="username" placeholder="Producto" required>
+                <input type="text" name="nombre" id="nombre" placeholder="Producto" required>
                 <label for="peso">Peso Neto</label>
                 <input type="text" name="peso" id="peso" placeholder="Peso Neto" required>
                 <label for="descripcion">Descripción</label>
@@ -25,12 +25,20 @@
                 <label for="precio">Precio</label>
                 <input type="text" name="precio" id="precio" placeholder="Precio" required>
                 <label for="imagenes">Insertar Imagenes de tu Producto</label>
-                <input type="file" accept="image/*" name="imagenes" id="imagenes" placeholder="Insertar Imagenes de tu producto" required>
+                <input type="file"  name="imagen" id="imagen" placeholder="Insertar Imagenes de tu producto">
+                
                 <label for="categoria">Categoria</label>
                 <select name="categoria" id="categoria" required>
-                    <option value="enGranos">En granos</option>
-                    <option value="molido">Molido</option>
-                    <option value="enCapsulas">En capsulas</option>
+                    <option value="En Granos">En granos</option>
+                    <option value="Molido">Molido</option>
+                    <option value="Capsulas">En capsulas</option>
+                </select>
+                
+                <label for="sesion">Sesion</label>
+                <select name="sesion" id="sesion" required>
+                    <option value="normal">Normal</option>
+                    <option value="Destacado">Destacado</option>
+                    <option value="oferta">Oferta</option>
                 </select>
                 <div class="submit-compra-mc">
                     <button class="submit-lgn-mc">Aceptar</button>

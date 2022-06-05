@@ -9,8 +9,9 @@ const storage = multer.diskStorage({
         cb(null, 'public/images')
     },
     filename: function(req, file, cb) {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-        cb(null, file.fieldname + uniqueSuffix + path.extname(file.originalname));
+        // const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        // cb(null, file.fieldname + uniqueSuffix + path.extname(file.originalname));
+        cb(null, file.fieldname + file.originalname);
     }
 })
 
@@ -23,7 +24,9 @@ router.get('/comoComprar', productsController.comoComprar)
 /*** GET ONE PRODUCT ***/ 
 router.get('/productDetail/:id/', productsController.productDetail)
 
+/*** CREATE ONE PRODUCT ***/ 
 router.get('/crearProducto', productsController.crearProducto)
+router.post('/crearProducto',upload.any(),productsController.create)
 
 /*** EDIT ONE PRODUCT ***/ 
 // no es una mala practica repetir las rutas de get y put, como aca

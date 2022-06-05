@@ -49,6 +49,27 @@ const productsController = {
         //res.send("Estoy aca?")
         res.render('products/crearProducto');
     },
+    create:(req,res)=> {
+        let imagen
+		if(req.files[0] != undefined){
+			imagen = req.files[0].filename
+
+		}else{
+			imagen = 'default-image.png'
+		}
+		
+		let newProduct={
+		id: products[products.length -1].id + 1,
+			...req.body,
+			imagen : imagen
+	
+	}
+		products.push(newProduct)
+		fs.writeFileSync(productsFilePath, JSON.stringify(products));
+		res.redirect('/')
+
+
+    },
     editarProducto: (req, res) => {
         let idProduct = req.params.id;
         let producto = products.find(producto => producto.id == idProduct)
