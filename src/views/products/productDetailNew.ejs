@@ -21,8 +21,8 @@
                 </div>
                 <div class="dp-detalle">
                     <h3><%= detalleProducto.nombre %></h3>
-                    <p> <%= detalleProducto.peso %></p>
-                    <p><%= detalleProducto.precio %></p>
+                    <p> <%= detalleProducto.peso %> grs</p>
+                    <p>$ <%= detalleProducto.precio %></p>
                     <label>Cantidad:</label>
                     <input type="number" name="cantidad" min="1" max="99" required>
                     <div>
@@ -34,6 +34,12 @@
                 <h3>Detalle</h3>
                 <p><%= detalleProducto.detalle %></p>
             </div>
+
+            <form action="/products/<%= detalleProducto.id %>?_method=DELETE" method="post" class="formCyE"> 
+                <div class="submit-compra-mc">
+                    <button type="submit" class="submit-lgn-mc">Borrar producto <%= detalleProducto.nombre %> </button>
+                </div>
+            </form>
     </div>
         <div class="dp-contenedor1">
             <h2>Productos Relacionados</h4>

@@ -11,18 +11,18 @@
     <!-- Aqui va el main -->
     <main>
         <div class="carrusel">
-            <a href="/productDetail"><img src="/images/tomemonos-un-cafe-banner.jpg" class="imagen"></a>
+            <a href="#"><img src="/images/tomemonos-un-cafe-banner.jpg" class="imagen"></a>
         </div> 
         
             <h3 class="titulo">Nuestros Productos</h3>
       
-            <section class="">
+            <section class="section-pr">
                 <% products.forEach(producto => { %>
                     <article class="card-products">
                         
                         <a href="/products/<%= producto.id %> "><img src="/images/<%= producto.imagen %>" class="ImagenProductos">
-                            <p class="descripcion"><%= producto.nombre %></p>
-                            <p class="precio"><%= producto.precio %></p>
+                            <p class="descripcion-pr"><%= producto.nombre %></p>
+                            <p class="precio-pr">$ <%= producto.precio %></p>
                         </a>
                     </article>
                 <% }) %>  

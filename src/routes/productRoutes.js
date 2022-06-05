@@ -19,12 +19,11 @@ const upload = multer({ storage: storage });
 
 
 router.get('/productCart', productsController.productCart)
-router.get('/comoComprar', productsController.comoComprar)
+router.get('/howToBuy', productsController.howToBuy)
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/productDetail/:id/', productsController.productDetail)
-
-/*** CREATE ONE PRODUCT ***/ 
+router.get('/productDetail', productsController.productDetail)
 router.get('/crearProducto', productsController.crearProducto)
 router.post('/crearProducto',upload.any(),productsController.create)
 
@@ -38,6 +37,10 @@ router.get('/products', productsController.index )
 
 //router.get('/productDetailNew', productsController.productDetailNew)
 router.get('/products/:id', productsController.productoByID)
+
+
+//
+router.delete('/products/:id', productsController.destroy);
 
 
 
