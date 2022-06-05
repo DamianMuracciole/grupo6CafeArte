@@ -1118,6 +1118,13 @@ color: black;
 	max-width: 500px;
 }
 
+.botonesEditarProducto {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
 .formCyE label {
 	/*padding: 1% 0;*/
 	display: block;
