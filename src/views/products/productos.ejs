@@ -20,7 +20,7 @@
                 <% products.forEach(producto => { %>
                     <article class="card-products">
                         
-                        <a href="/products/<%= producto.id %> "><img src="/images/<%= producto.imagen %>" class="ImagenProductos">
+                        <a href="/productos/detalle/<%= producto.id %> "><img src="/images/<%= producto.imagen %>" class="ImagenProductos">
                             <p class="descripcion-pr"><%= producto.nombre %></p>
                             <p class="precio-pr">$ <%= producto.precio %></p>
                         </a>
@@ -28,9 +28,16 @@
                 <% }) %>  
             </section>
             
+            <!-- Boton para Crear un Producto -->
+            
+            <div class="botonesEditarProducto">
+                <a href="/productos/crear">
+                    <button type="submit" class="submit-lgn-mc">Crear producto </button>
+                </a>
+            </div>
+            <br>
+            
 
-
-        
     </main>
 
     <!-- Aca va el footer -->
