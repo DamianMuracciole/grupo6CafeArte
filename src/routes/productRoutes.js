@@ -40,7 +40,7 @@ router.get('/editar/:id', productsController.editarProducto)
 router.put('/editar/:id', upload.any(), productsController.update); 
 
 // Borrar un producto
-router.delete('/:id', productsController.destroy);
+router.delete('/borrar/:id', productsController.destroy);
 
 
 module.exports = router;
