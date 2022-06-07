@@ -20,7 +20,7 @@ const productsController = {
     index: (req,res)=> {
         res.render("products/productos", {products, enOferta})
     },
-
+    //// esto es lo mismo que /detalle/:id/
     productoByID: (req, res) => {
         //res.send("Estoy aca?")
         let idProducto = req.params.id;
@@ -29,6 +29,12 @@ const productsController = {
         })
         //res.send("Estoy en product id")
         res.render('products/productDetailNew.ejs', {detalleProducto: productoAMostrar});
+    },
+    productDetail: (req, res) => {
+        let idProduct = req.params.id;
+		let producto = products.find(producto => producto.id == idProduct)
+		res.render('products/productDetailNew', {detalleProducto: producto})
+        //res.render('products/productDetail');
     },
 
     productCart: (req, res) => {
@@ -39,12 +45,7 @@ const productsController = {
         //res.send("Estoy aca?")
         res.render('products/howToBuy');
     },
-    productDetail: (req, res) => {
-        let idProduct = req.params.id;
-		let producto = products.find(producto => producto.id == idProduct)
-		res.render('products/productDetailNew', {detalleProducto: producto})
-        //res.render('products/productDetail');
-    },
+   
     crearProducto: (req, res) => {
         //res.send("Estoy aca?")
         res.render('products/crearProducto');
@@ -66,7 +67,7 @@ const productsController = {
 	}
 		products.push(newProduct)
 		fs.writeFileSync(productsFilePath, JSON.stringify(products));
-		res.redirect('/products')
+		res.redirect('/productos')
 
 
     },
@@ -77,10 +78,10 @@ const productsController = {
     },
     update: (req, res) => {
         let idProduct = req.params.id;
-        console.log("🚀 ~ file: productsController.js ~ line 65 ~ idProduct", idProduct)
+        //console.log("🚀 ~ file: productsController.js ~ line 65 ~ idProduct", idProduct)
         
         let productToEdit = products.find(producto => producto.id == idProduct)
-        console.log("🚀 ~ file: productsController.js ~ line 66 ~ productToEdit", productToEdit)
+        //console.log("🚀 ~ file: productsController.js ~ line 66 ~ productToEdit", productToEdit)
 
         let image
         if(req.files[0] != undefined){
@@ -103,7 +104,7 @@ const productsController = {
 		})
 
 		fs.writeFileSync(productsFilePath, JSON.stringify(newProduct))
-		res.redirect('/products/' + productToEdit.id) //esta no es la vista, es la url
+		res.redirect('/productos/detalle/' + productToEdit.id) //esta no es la vista, es la url
 
     },
     // productDetailNew: (req, res) => {
@@ -121,7 +122,7 @@ const productsController = {
 		//cargo los nuevos datos: se pasa a formato JSON y carga el nuevo valor
 		fs.writeFileSync(productsFilePath, JSON.stringify(newList));
 		//redirecciono a productos
-		res.redirect('/products')	
+		res.redirect('/productos')	
 	}
     
 };
