@@ -7,6 +7,11 @@
 	font-family: "poppins";
 
 }
+
+.text-danger{
+	color: rgb(255, 38, 0);
+}
+
 /*-----   HEADER   -----*/
 header{
     font-family: "poppins";

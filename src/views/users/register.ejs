@@ -9,39 +9,99 @@
     <!-- Aqui va el header -->
     <%- include('../partials/header') %>
 
+    
+
     <!-- Aqui va el main -->
     <main>
         <div class="login">
             <div class="form-principal">
-                <form action="/" method="post" class="create-user">
+                <form action="/usuarios/registro" method="post" class="create-user" enctype="multipart/form-data">
                     <h2 class="registro">Formulario de registro</h2>
+                    <!-- <% if (locals.errors) { %>
+                        <% for( error in errors ) { %>
+                            <p> <%= errors[error].msg %>  </p>
+                        <% } %>
+                    <% } %> -->
                     <div class="control-form">
                         <label for="nombre">Nombre</label> 
-                        <input type="text" name="nombre" class="control" placeholder="Juan" required>    <!--types: text, number, password, email, tel, radio, checkbos. Name: para identificar el campo del formulario -->
+                        <input 
+                            type="text" 
+                            name="nombre" 
+                            class="control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
+                            placeholder="Nombre"
+                            value="<%= locals.oldData ? oldData.nombre : null  %>">    <!--types: text, number, password, email, tel, radio, checkbos. Name: para identificar el campo del formulario -->
+                        <% if (locals.errors && errors.nombre) { %>
+                            <div class="text-danger">
+                                <%= errors.nombre.msg %> 
+                            </div>                         
+                        <% } %>
                     </div>
                     <div class="control-form">
                         <label for="">Apellido</label> 
-                        <input type="text" name="apellido" class="control" placeholder="Perez" required>   
+                        <input type="text" name="apellido" class="control" placeholder="Apellido" value="<%= locals.oldData ? oldData.apellido : null  %>">  
+                        <% if (locals.errors && errors.apellido) { %>
+                            <div class="text-danger">
+                                <%= errors.apellido.msg %> 
+                            </div>                         
+                        <% } %> 
                     </div>
                     <div class="control-form">
                         <label for="usuario">Nombre de Usuari@</label> 
-                        <input type="text" name="usuario" class="control" placeholder="nombre_de_usuario" required>   
+                        <input type="text" name="usuario" class="control" placeholder="Nombre de Usuario" value="<%= locals.oldData ? oldData.usuario : null  %>">
+                        <% if (locals.errors && errors.usuario) { %>
+                            <div class="text-danger">
+                                <%= errors.usuario.msg %> 
+                            </div>                         
+                        <% } %>    
                     </div>
                     <div class="control-form">
                         <label for="correo">Correo electronico</label> 
-                        <input type="email" name="correo" class="control" placeholder="nombre@correo.com" required>   
+                        <input type="email" name="correo" class="control" placeholder="nombre@correo.com" value="<%= locals.oldData ? oldData.correo : null  %>">
+                        <% if (locals.errors && errors.correo) { %>
+                            <div class="text-danger">
+                                <%= errors.correo.msg %> 
+                            </div>                         
+                        <% } %>    
                     </div>
                     <div class="control-form">
                         <label for="fechaNacimiento">Fecha de Nacimiento</label> 
-                        <input type="date" name="fechaNacimiento" class="control" placeholder="dd/mm/yyyy" required>   
+                        <input type="date" name="fechaNacimiento" class="control" placeholder="dd/mm/yyyy" value="<%= locals.oldData ? oldData.correo : null  %>">
+                        <% if (locals.errors && errors.fechaNacimiento) { %>
+                            <div class="text-danger">
+                                <%= errors.fechaNacimiento.msg %> 
+                            </div>                         
+                        <% } %> 
                     </div>
+
+                    <div class="control-form">
+						<label for="image">Selecciona tu imagen de Perfil</label>
+						<input type="file" name="image" id="image" class="control">
+                        <% if (locals.errors && errors.image) { %>
+                            <div class="text-danger">
+                                <%= errors.image.msg %> 
+                            </div>                         
+                        <% } %> 
+					</div>
+                   
+                    <!-- Contraseña -->
                     <div class="control-form">
                         <label for="contrasena">Contraseña</label> 
-                        <input type="password" name="contrasena" placeholder="Contraseña" class="control" required>    
+                        <input type="password" name="contrasena" placeholder="Contraseña" class="control">
+                        <% if (locals.errors && errors.contrasena) { %>
+                            <div class="text-danger">
+                                <%= errors.contrasena.msg %> 
+                            </div>                         
+                        <% } %>    
                     </div>
+                    
                     <div class="control-form">
                         <label for="dobleContrasena">Confirmar Contraseña</label> 
-                        <input type="password" name="dobleContrasena" placeholder="Confirme la Contraseña" class="control" required>    
+                        <input type="password" name="dobleContrasena" placeholder="Confirme la Contraseña" class="control">
+                        <% if (locals.errors && errors.dobleContrasena) { %>
+                            <div class="text-danger">
+                                <%= errors.dobleContrasena.msg %> 
+                            </div>                         
+                        <% } %>  
                     </div>
                     <div class="control-form-buton">
                         <button type="submit" class="button-form-create">Crear Usuario</button>

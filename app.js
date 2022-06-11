@@ -42,7 +42,7 @@ app.use('/', rutasMain)
 app.use('/productos', rutasProductos)
 
 // Rutas Usuarios
-app.use('/', rutasUsers)
+app.use('/usuarios', rutasUsers)
 
 // Para la 404 - La vista que se va a cargar es la de not-found
 // Tiene que ir despues de definir todas las rutas.
