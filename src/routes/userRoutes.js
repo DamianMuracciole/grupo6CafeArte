@@ -5,6 +5,12 @@ const multer = require('multer');
 const path = require('path')
 const registerValidations = require('../middlewares/registerValidation')
 
+// traigo el middleware para ver si hay alguien logeado y lo paso a la ruta de register y del login
+const guestMiddleware = require("../middlewares/guestMiddleware")
+
+//traigo el middle de auth para evitar el error de la ruta /profile y lo paso al profile
+const authMiddleware = require("../middlewares/authMiddleware")
+
 
 // Configuracion Multer
 const storage = multer.diskStorage({
@@ -21,10 +27,17 @@ const storage = multer.diskStorage({
 const uploadFile = multer({ storage })
 
 // Generar una ruta, en este caso raiz
-router.get('/login', userController.login);
+router.get('/login', guestMiddleware ,userController.login);
+// Esta se encarga de procesr el login
+router.post("/login", registerValidations, userController.loginProcess)
+
+// ruta de logout
+router.get('/logout', userController.logout);
+
+router.get('/profile', authMiddleware ,userController.profile);
 
 // Registro de usuarios
-router.get('/registro', userController.register)
+router.get('/registro', guestMiddleware ,userController.register)
 // Esta se encarga de procesr el registro
 router.post('/registro',uploadFile.single('image'),registerValidations, userController.processRegister)
 

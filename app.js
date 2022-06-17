@@ -2,6 +2,17 @@ const express = require('express')
 const app = express();
 const path = require("path")
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
+const session = require("express-session")
+
+// middleware de aplicacion con session
+app.use(session({
+    secret:"007 agente secreto",
+    resave: false, // para evitar q aparezca deprecated
+    saveUninitialized: false, // para evitar q aparezca deprecated
+}))
+// middleware de barra de navegación
+const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware")
+app.use(userLoggedMiddleware)
 
 // Template Engine EJS
 app.set('view engine', 'ejs')

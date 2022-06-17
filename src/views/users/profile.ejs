@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!-- Aqui va el head -->
+ <%- include('../partials/head') %>
+
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <div class="login">
+        <h2> Hola aca va el profile <%= user.fullName %> </h2>
+        <%= user.imagen %>
+        <%= user.correo %>
+    </div>
+    </main>
+   
+</body>
+
+</html>

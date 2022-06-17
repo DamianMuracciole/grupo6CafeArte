@@ -309,5 +309,16 @@
   "contrasena": "$2a$10$Wm16winOsrujzNBqNIhF0uNGRntYFdu1vAg68pIBsaJGMTNiqfIr6",
   "dobleContrasena": "$2a$10$d.HQkMLq0QihkbMxjyMrTeyyqGGuCNsJp81AyFRFlgcYN2/k2MQrq",
   "imagen": "1654962048065_img.JPG"
+ },
+ {
+  "id": 32,
+  "nombre": "luis",
+  "apellido": "heiler",
+  "usuario": "gaston.heiler@gmail.com",
+  "correo": "gaston.heiler@gmail.com",
+  "fechaNacimiento": "2022-06-06",
+  "contrasena": "$2a$10$QcaB.N869/16Iys2lhvMfOi3EF9qVVgg9fLsR5Ih4jtV3o6b.Sx0q",
+  "dobleContrasena": "$2a$10$k7xLGs74HWayldYOgR76CelSkv94mQ2mdFWnCuHUrda5Q.B9KrZEm",
+  "imagen": "1655327796971_img.jpg"
  }
 ]
