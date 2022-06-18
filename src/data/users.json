@@ -320,5 +320,16 @@
   "contrasena": "$2a$10$QcaB.N869/16Iys2lhvMfOi3EF9qVVgg9fLsR5Ih4jtV3o6b.Sx0q",
   "dobleContrasena": "$2a$10$k7xLGs74HWayldYOgR76CelSkv94mQ2mdFWnCuHUrda5Q.B9KrZEm",
   "imagen": "1655327796971_img.jpg"
+ },
+ {
+  "id": 33,
+  "nombre": "Luis",
+  "apellido": "Martirena",
+  "usuario": "danubio",
+  "correo": "luismartirena@yahoo.com",
+  "fechaNacimiento": "2022-05-31",
+  "contrasena": "$2a$10$Yg3qEH7m0YEUn5MKRXsujuKqpXINlyVlKfTk7abzTT28t6z8X1cUO",
+  "dobleContrasena": "$2a$10$GxekXEGevKJPuIe6PViYwOs55bsRodCge6UrNFONSksWmaMVdMzpO",
+  "imagen": "1655565562271_img.JPG"
  }
 ]

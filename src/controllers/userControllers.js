@@ -25,7 +25,7 @@ const userController = {
                 // si esta todo bien, quiero guardar el usuario en sesion, borrando la contraseña
                 delete userToLogin.contrasena;
                 req.session.userLogged = userToLogin
-                return res.redirect("profile")
+                return res.redirect("perfil")
             }
             return res.render('users/login', {
                 errors: {
