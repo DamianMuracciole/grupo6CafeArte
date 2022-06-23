@@ -14,7 +14,7 @@
             <p>Editar Producto: <%= productoAEditar.nombre %></p>
         </div>
         <div class="main-form-ctn">
-            <form action="/editarProducto/<%= productoAEditar.id %>?_method=PUT" method="POST" class="formCyE" enctype="multipart/form-data">
+            <form action="/productos/editar/<%= productoAEditar.id %>?_method=PUT" method="POST" class="formCyE" enctype="multipart/form-data">
 
                 <label for="nombre">Nombre del Producto</label>
                 <input type="text" name="nombre" id="nombre" value="<%= productoAEditar.nombre %>" placeholder="Producto" required>

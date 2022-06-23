@@ -5,9 +5,12 @@
   "main": "app.js",
   "dependencies": {
     "async": "^3.2.3",
+    "bcryptjs": "^2.4.3",
     "call-bind": "^1.0.2",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "express-validator": "^6.14.1",
     "filelist": "^1.0.4",
     "function-bind": "^1.1.1",
     "get-intrinsic": "^1.1.1",

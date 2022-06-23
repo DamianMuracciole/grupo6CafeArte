@@ -7,6 +7,24 @@
 	font-family: "poppins";
 
 }
+
+.text-danger{
+	color: rgb(255, 38, 0);
+}
+
+.user-profile{
+    width: 300px;
+    margin: auto;
+    padding: 5px;
+    /* background-o; */
+    text-align: center;
+	margin-top: 70px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    transition: 0.20s;
+
+}
+
 /*-----   HEADER   -----*/
 header{
     font-family: "poppins";
@@ -1143,6 +1161,13 @@ color: black;
 	flex-direction: column;
 	width: 90%;
 	max-width: 500px;
+}
+
+.botonesEditarProducto {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .formCyE label {

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <%- include('../partials/head') %>
+<body>
+	<%- include('../partials/header') %>
+    
+	<!-- Container -->
+    <article class="user-profile">
+        <h2>Hi <%= user.nombre + " " + user.apellido %>  </h2>
+				<img src="/images/users/<%= user.imagen %>" alt="Perfil">
+				<br>
+				<br>
+				<div class="alert alert-success">
+                   <p>
+                    Tu correo es: <%= user.correo %>
+                   </p>  
+                </div>
+        </a>
+    </article>
+
+	<!-- //Container -->
+	
+    <%- include('../partials/footer') %>
+</body>
+</html>

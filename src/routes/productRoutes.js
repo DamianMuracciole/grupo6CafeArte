@@ -4,6 +4,9 @@ const router = express.Router();
 const multer = require('multer')
 const path = require('path')
 
+//traigo el middle de auth para evitar el error de la ruta /profile y lo paso al profile
+const authMiddleware = require("../middlewares/authMiddleware")
+
 const storage = multer.diskStorage({    
     destination: function(req, file, cb) {
         cb(null, 'public/images')
@@ -16,39 +19,31 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage: storage });
+// Carrito y Como comprar
+router.get('/carrito', productsController.productCart)
+//router.get('/comprar', productsController.howToBuy)
 
+// Mostrar todos los productos
+router.get('/', productsController.index )
 
-router.get('/productCart', productsController.productCart)
-router.get('/howToBuy', productsController.howToBuy)
+// Mostrar Producto por id
+//router.get('/:id', productsController.productoByID)
+
+// Crear un producto
+router.get ('/crear', authMiddleware ,productsController.crearProducto)
+router.post('/crear',upload.any(),productsController.create)
 
 /*** GET ONE PRODUCT ***/ 
-router.get('/productDetail/:id/', productsController.productDetail)
-router.get('/productDetail', productsController.productDetail)
-router.get('/crearProducto', productsController.crearProducto)
-router.post('/crearProducto',upload.any(),productsController.create)
+router.get('/detalle/:id/', productsController.productDetail)
+//router.get('/detalle', productsController.productDetail)
 
 /*** EDIT ONE PRODUCT ***/ 
 // no es una mala practica repetir las rutas de get y put, como aca
-router.get('/editarProducto/:id', productsController.editarProducto)
-router.put('/editarProducto/:id', upload.any(), productsController.update); 
+router.get('/editar/:id', authMiddleware ,productsController.editarProducto)
+router.put('/editar/:id', upload.any(), productsController.update); 
 
-// mostrar todos los productos
-router.get('/products', productsController.index )
-
-//router.get('/productDetailNew', productsController.productDetailNew)
-router.get('/products/:id', productsController.productoByID)
-
-
-//
-router.delete('/products/:id', productsController.destroy);
-
-
+// Borrar un producto
+router.delete('/borrar/:id', authMiddleware, productsController.destroy);
 
 
 module.exports = router;
-
-
-
-
-
-
