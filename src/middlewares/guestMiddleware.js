@@ -2,7 +2,7 @@
 // voy a verificar si hay alguien en sesion para que si no hay, se redirija al login
 function guestMiddleware (req, res, next){
     if(req.session.userLogged) {
-        return res.redirect ("/usuarios/profile")
+        return res.redirect ("/usuarios/perfil")
     }
     next();
 }

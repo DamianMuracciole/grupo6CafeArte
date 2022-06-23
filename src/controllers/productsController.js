@@ -1,5 +1,5 @@
 const fs = require("fs");
-const path = require ("path")
+const path = require ("path");
 
 
 // Me traigo el json que tiene la data de prods y lo parseo
@@ -102,7 +102,6 @@ const productsController = {
 			}
 			return product
 		})
-
 		fs.writeFileSync(productsFilePath, JSON.stringify(newProduct))
 		res.redirect('/productos/detalle/' + productToEdit.id) //esta no es la vista, es la url
 
@@ -121,7 +120,7 @@ const productsController = {
 
 		//cargo los nuevos datos: se pasa a formato JSON y carga el nuevo valor
 		fs.writeFileSync(productsFilePath, JSON.stringify(newList));
-		//redirecciono a productos
+        //redirecciono a productos
 		res.redirect('/productos')	
 	}
     

@@ -7,11 +7,11 @@ const validations = [
     body('usuario').notEmpty().withMessage("Tienes que escribir un usuario"),
     body('correo')
         .notEmpty().withMessage("Tienes que poner un email").bail() //si tengo un error para notEmpty paro ahi
-        .isEmail().withMessage('Tienes que poner un formato de correo electronico valido.'),
+        .isEmail().withMessage('Tienes que poner un formato de correo electrónico válido.'),
     body('fechaNacimiento').notEmpty().withMessage("Tienes que poner tu fecha de nacimiento"),
-    body('contrasena').notEmpty().withMessage("Tienes que escribir una constrseña").bail()
-    .isLength({ min: 5 }).withMessage("La contraseña tiene que tener un minimo de 5 caracteres"),
-    body('dobleContrasena').notEmpty().withMessage("Por favor confirma tu constraseña").bail()
+    body('contrasena').notEmpty().withMessage("Tienes que escribir una contraseña").bail()
+    .isLength({ min: 5 }).withMessage("La contraseña tiene que tener un mínimo de 5 caracteres"),
+    body('dobleContrasena').notEmpty().withMessage("Por favor, confirma tu constraseña").bail()
     .custom((value, { req }) => {
         if (value !== req.body.contrasena) {
           throw new Error('Las contraseñas no son iguales');

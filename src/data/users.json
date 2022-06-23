@@ -331,5 +331,16 @@
   "contrasena": "$2a$10$Yg3qEH7m0YEUn5MKRXsujuKqpXINlyVlKfTk7abzTT28t6z8X1cUO",
   "dobleContrasena": "$2a$10$GxekXEGevKJPuIe6PViYwOs55bsRodCge6UrNFONSksWmaMVdMzpO",
   "imagen": "1655565562271_img.JPG"
+ },
+ {
+  "id": 34,
+  "nombre": "Damian",
+  "apellido": "Muracciole",
+  "usuario": "damianmuracciole",
+  "correo": "damian@email.com",
+  "fechaNacimiento": "1999-06-23",
+  "contrasena": "$2a$10$dCZskVoqtZne3HgprcKIhepYWYRzYF9FuK1sJq1d8ZEzzQIzO.jCe",
+  "dobleContrasena": "$2a$10$VHUk99hAZufzaHC07mr8UOZ2R87BOETlfzdSg/hKJEH3NWBAg9Du2",
+  "imagen": "1655985316685_img.jpg"
  }
 ]
