@@ -124,4 +124,13 @@
   "imagen": "OfertaPackTrio.jpg",
   "categoria": "Molido",
   "sesion": "oferta"
+}, {
+  "id": 15,
+  "nombre": "Cafe Honduras ",
+  "peso": "100",
+  "detalle": "Rico ",
+  "precio": "1000",
+  "categoria": "Molido",
+  "sesion": "oferta",
+  "imagen": "imagenCafeHonduras.jpg"
 }]
