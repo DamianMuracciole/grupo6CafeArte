@@ -331,5 +331,16 @@
   "contrasena": "$2a$10$Yg3qEH7m0YEUn5MKRXsujuKqpXINlyVlKfTk7abzTT28t6z8X1cUO",
   "dobleContrasena": "$2a$10$GxekXEGevKJPuIe6PViYwOs55bsRodCge6UrNFONSksWmaMVdMzpO",
   "imagen": "1655565562271_img.JPG"
+ },
+ {
+  "id": 34,
+  "nombre": "Ricardo",
+  "apellido": "Heiler",
+  "usuario": "rh@gmail.com",
+  "correo": "rh@gmail.com",
+  "fechaNacimiento": "2022-05-12",
+  "contrasena": "$2a$10$F0/mkP6k37RKUXzZF3t.gOfzLIzm.HOdgRaJOHZhrjR8PoETPEhda",
+  "dobleContrasena": "$2a$10$MQq3X2vFOYalyh78cqHQk.sSxxoLIn4rm7D6D6zsxtlTsgMcF2/9e",
+  "imagen": "1655985535833_img.jpg"
  }
 ]

@@ -7,6 +7,8 @@ function userLoggedMiddleware(req, res, next) {
     res.locals.isLogged = false;
     if(req.session && req.session.userLogged){
         res.locals.isLogged = true;
+        // para pasar lo que tengo en sesion a las vistas
+        res.locals.userLogged = req.session.userLogged
     }
     next();
 };

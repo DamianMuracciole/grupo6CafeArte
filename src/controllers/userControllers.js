@@ -43,7 +43,6 @@ const userController = {
             }
         })
     },
-    // ruta de perfil: falta la vista!!!
     profile: (req, res)=> {
         return res.render("users/profile", {
             // le pasamos la variable a la vista, debo usarlas
