@@ -1,6 +1,6 @@
 // const fs = require("fs");
 // const path = require ("path")
-//const User = require('../models/User')
+const User = require('../models/User')
 const bcryptjs = require('bcryptjs');
 let db = require('../database/models/index'); //requerimos sequelize dentro del controlador
 const Op = db.Sequelize.Op;
@@ -14,7 +14,18 @@ const { validationResult } = require('express-validator');
 //const { send } = require("process");
 
 const userController = { 
-    login: (req, res) => {        
+    login: (req, res) => {
+         db.Usuario.findAll()
+                .then(usuarios => {
+                    res.send(usuarios);
+                    console.log(usuarios);
+                })
+                .catch(err => {
+                    res.send(err);
+                })
+                console.log(usuarios);
+        // let users = User.getData()
+        // console.log(users);
         res.render('users/login')
     }, 
     loginProcess: (req, res)=>{

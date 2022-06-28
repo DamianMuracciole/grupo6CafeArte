@@ -5,16 +5,25 @@
 // 4. Editar la informacion de un usuario
 // 5. Eliminar a un usuario de la DB
 // 6. Buscar a todos los usuarios
-const fs = require("fs");
+//const fs = require("fs");
+let db = require('../database/models/index'); //requerimos sequelize dentro del controlador
+const Op = db.Sequelize.Op;
 
 
 const User = {
     fileName: './src/data/users.json',
 
     // Me trae todos los usuarios
-    getData: function() {
-        //return fs.readFileSync(this.fileName, 'utf-8') //esto me o trae en formato de string,no lo queremos asi, lo queremos en un array
-        return JSON.parse(fs.readFileSync(this.fileName, 'utf-8')) // ahora si en un array de objetos
+    getData: (req, res) => {
+        db.Usuario.findAll()
+            .then(usuarios => {
+                res.send(usuarios);
+                console.log(usuarios);
+            })
+            .catch(err => {
+                res.send(err);
+            })
+            console.log(usuarios);
     },
     generateId: function() {
         
