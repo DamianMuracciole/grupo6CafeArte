@@ -342,5 +342,16 @@
   "contrasena": "$2a$10$dCZskVoqtZne3HgprcKIhepYWYRzYF9FuK1sJq1d8ZEzzQIzO.jCe",
   "dobleContrasena": "$2a$10$VHUk99hAZufzaHC07mr8UOZ2R87BOETlfzdSg/hKJEH3NWBAg9Du2",
   "imagen": "1655985316685_img.jpg"
+ },
+ {
+  "id": 35,
+  "nombre": "Cristian",
+  "apellido": "Aguille",
+  "usuario": "caguille",
+  "correo": "cristianma26@gmail.com",
+  "fechaNacimiento": "1982-01-06",
+  "contrasena": "$2a$10$Wn7vCuZYIO5pW/2tT.r1R.XRNXCVmKL.4cvc4LD0f7hE/2TYi/WnW",
+  "dobleContrasena": "$2a$10$ae79H8wEun2K6vfGQVzcBO0rVOJRXHkQncGJLShjmjrpnE9qBDx62",
+  "imagen": "1656361544065_img.JPG"
  }
 ]

@@ -25,6 +25,15 @@ const userController = {
                 // si esta todo bien, quiero guardar el usuario en sesion, borrando la contraseña
                 delete userToLogin.contrasena;
                 req.session.userLogged = userToLogin
+                // console.log(userToLogin);
+                
+                
+                if ( req.body.recordame != undefined){
+                    res.cookie ('recordame',req.body.correo,{maxAge: 60000 })
+                    
+                }
+
+
                 return res.redirect("perfil")
             }
             return res.render('users/login', {
@@ -51,6 +60,7 @@ const userController = {
         })
     },
     logout: (req, res)=>{
+        res.clearCookie('recordame')
         req.session.destroy();
         return res.redirect("/")
     },
