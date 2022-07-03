@@ -15,10 +15,10 @@ const { validationResult } = require('express-validator');
 
 const userController = { 
     login: (req, res) => {
-         db.Usuario.findAll()
-                .then(usuarios => {
-                    res.send(usuarios);
-                    console.log(usuarios);
+         db.User.findAll()
+                .then(user => {
+                    res.send(user);
+                    //console.log(user);
                 })
                 .catch(err => {
                     res.send(err);
