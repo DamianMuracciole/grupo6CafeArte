@@ -15,15 +15,15 @@ const { validationResult } = require('express-validator');
 
 const userController = { 
     login: (req, res) => {
-         db.User.findAll()
-                .then(user => {
-                    res.send(user);
-                    //console.log(user);
-                })
-                .catch(err => {
-                    res.send(err);
-                })
-                console.log(usuarios);
+        //  db.User.findAll()
+        //         .then(user => {
+        //             res.send(user);
+        //             console.log(user);
+        //         })
+        //         .catch(err => {
+        //             res.send(err);
+        //         })
+        //         console.log(usuarios);
         // let users = User.getData()
         // console.log(users);
         res.render('users/login')
@@ -36,7 +36,16 @@ const userController = {
                 // si esta todo bien, quiero guardar el usuario en sesion, borrando la contraseña
                 delete userToLogin.contrasena;
                 req.session.userLogged = userToLogin
-                return res.redirect("perfil")
+                console.log(userToLogin);
+                
+                
+                if ( req.body.recordame != undefined){
+                    res.cookie ('recordame',req.body.correo,{maxAge: 60000 })
+                    
+                }
+
+
+                return res.redirect("/usuarios/perfil")
             }
             return res.render('users/login', {
                 errors: {
@@ -56,9 +65,10 @@ const userController = {
     },
     // ruta de perfil: falta la vista!!!
     profile: (req, res)=> {
+        //console.log(req.session);
         return res.render("users/profile", {
-            // le pasamos la variable a la vista, debo usarlas
-            user: req.session.userLogged
+            // le pasamos la variable a la vista, debo usarlas            
+            user: req.session.userLogged            
         })
     },
     logout: (req, res)=>{

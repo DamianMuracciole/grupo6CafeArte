@@ -15,7 +15,7 @@
             <h2 class="saludo">Bienvenido</h2>
         </div>
         <form action="/usuarios/login" method="POST" class="formBody">
-            <label for="correo">Usuario</label>
+            <label for="correo">Correo Electrónico</label>
             <input type="email" name="correo" id="correo" placeholder="email" required>
             <% if (locals.errors && errors.correo) { %>
              <div class="text-danger">

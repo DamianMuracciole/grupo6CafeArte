@@ -331,5 +331,16 @@
   "contrasena": "$2a$10$Yg3qEH7m0YEUn5MKRXsujuKqpXINlyVlKfTk7abzTT28t6z8X1cUO",
   "dobleContrasena": "$2a$10$GxekXEGevKJPuIe6PViYwOs55bsRodCge6UrNFONSksWmaMVdMzpO",
   "imagen": "1655565562271_img.JPG"
+ },
+ {
+  "id": 34,
+  "nombre": "Jaime",
+  "apellido": "Roos",
+  "usuario": "jaimeroos",
+  "correo": "jaime@gmail.com",
+  "fechaNacimiento": "2022-06-30",
+  "contrasena": "$2a$10$5RWotrIHPgdgBpyxC/r5R.KF6tl5BR5KmwOUDJ5d8/2i8agZZV9Tq",
+  "dobleContrasena": "$2a$10$bwlpih/zyBumko71aekNJOjGTfgG2mc7N9skDt.KoCJ1FGSDpxruu",
+  "imagen": "1656868148635_img.JPG"
  }
 ]
