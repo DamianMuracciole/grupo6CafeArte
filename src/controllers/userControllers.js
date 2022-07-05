@@ -29,7 +29,7 @@ const userController = {
                 
                 
                 if ( req.body.recordame != undefined){
-                    res.cookie ('recordame',req.body.correo,{maxAge: 60000 })
+                    res.cookie ('recordame',req.body.correo,{maxAge: 60000 * 10})
                     
                 }
 

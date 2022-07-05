@@ -19,6 +19,17 @@
             <div class="icon-bars">
                 <a href="#"><i class="fa-solid fa-bars"></i></a>
             </div>
+
+            <div>
+                <a href="/usuarios/perfil">
+                    <img src="/images/users/<%= locals.userLogged.imagen %>" width="40" height="40" style="border-radius: 100%;">                    
+                </a>
+                
+            </div>
+
+            <div>
+                <p class="saludo-usuario">Hola <%= locals.userLogged.nombre %>  </p> 
+            </div>
             
             
             <div class="icon-magnifying-glass">
