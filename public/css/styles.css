@@ -25,6 +25,10 @@
 
 }
 
+.saludo-usuario {
+	color: white;
+}
+
 /*-----   HEADER   -----*/
 header{
     font-family: "poppins";

@@ -5,6 +5,10 @@
 // 4. Editar la informacion de un usuario
 // 5. Eliminar a un usuario de la DB
 // 6. Buscar a todos los usuarios
+//const fs = require("fs");
+let db = require('../database/models/index'); //requerimos sequelize dentro del controlador
+const Op = db.Sequelize.Op;
+
 const fs = require("fs");
 
 
@@ -13,8 +17,18 @@ const User = {
 
     // Me trae todos los usuarios
     getData: function() {
-        //return fs.readFileSync(this.fileName, 'utf-8') //esto me o trae en formato de string,no lo queremos asi, lo queremos en un array
-        return JSON.parse(fs.readFileSync(this.fileName, 'utf-8')) // ahora si en un array de objetos
+    //(req, res) => {
+        // db.Usuario.findAll()
+        //     .then(usuarios => {
+        //         res.send(usuarios);
+        //         console.log(usuarios);
+        //     })
+        //     .catch(err => {
+        //         res.send(err);
+        //     })
+        //     console.log(usuarios);
+
+            return JSON.parse(fs.readFileSync(this.fileName, 'utf-8'))
     },
     generateId: function() {
         
@@ -33,13 +47,13 @@ const User = {
     },
     findByPk: function(id){
         let allUsers = this.findAll();
-        let userFound = allUsers.find(user => user.id === id);
+        let userFound = allUsers.find(oneUser => oneUser.id === id);
         return userFound;
         // Si no lo encuentra me devuelve undefined
     },
     findByField: function(field, text){
         let allUsers = this.findAll();
-        let userFound = allUsers.find(user => user[field] === text); //Me trae el primero que se encuentre, se puede hacer otro metodo que me traiga todo, pero queda para adelante...
+        let userFound = allUsers.find(oneUser => oneUser[field] === text); //Me trae el primero que se encuentre, se puede hacer otro metodo que me traiga todo, pero queda para adelante...
         return userFound;
         // Si no lo encuentra me devuelve undefined
     },
