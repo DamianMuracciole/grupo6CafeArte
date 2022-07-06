@@ -1,5 +1,5 @@
 const fs = require("fs");
-const path = require ("path")
+const path = require ("path");
 
 
 // Me traigo el json que tiene la data de prods y lo parseo
@@ -18,7 +18,8 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = {
     index: (req,res)=> {
-        res.render("products/productos", {products, enOferta})
+        let logged = req.session.userLogged;
+        res.render("products/productos", {products, enOferta, logged})
     },
     //// esto es lo mismo que /detalle/:id/
     productoByID: (req, res) => {
@@ -32,8 +33,9 @@ const productsController = {
     },
     productDetail: (req, res) => {
         let idProduct = req.params.id;
+        let logged = req.session.userLogged;
 		let producto = products.find(producto => producto.id == idProduct)
-		res.render('products/productDetailNew', {detalleProducto: producto})
+		res.render('products/productDetailNew', {detalleProducto: producto, logged:logged})
         //res.render('products/productDetail');
     },
 
@@ -63,8 +65,8 @@ const productsController = {
 		id: products[products.length -1].id + 1,
 			...req.body,
 			imagen : imagen
-	
-	}
+		}
+
 		products.push(newProduct)
 		fs.writeFileSync(productsFilePath, JSON.stringify(products));
 		res.redirect('/productos')
@@ -102,7 +104,6 @@ const productsController = {
 			}
 			return product
 		})
-
 		fs.writeFileSync(productsFilePath, JSON.stringify(newProduct))
 		res.redirect('/productos/detalle/' + productToEdit.id) //esta no es la vista, es la url
 
@@ -121,7 +122,7 @@ const productsController = {
 
 		//cargo los nuevos datos: se pasa a formato JSON y carga el nuevo valor
 		fs.writeFileSync(productsFilePath, JSON.stringify(newList));
-		//redirecciono a productos
+        //redirecciono a productos
 		res.redirect('/productos')	
 	}
     

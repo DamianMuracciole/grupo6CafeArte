@@ -29,13 +29,15 @@
             </section>
             
             <!-- Boton para Crear un Producto -->
+            <% if (logged) { %>
+                <div class="botonesEditarProducto">
+                    <a href="/productos/crear">
+                        <button type="submit" class="submit-lgn-mc">Crear producto </button>
+                    </a>
+                </div>
+                <br>
+            <% } %>
             
-            <div class="botonesEditarProducto">
-                <a href="/productos/crear">
-                    <button type="submit" class="submit-lgn-mc">Crear producto </button>
-                </a>
-            </div>
-            <br>
             
 
     </main>

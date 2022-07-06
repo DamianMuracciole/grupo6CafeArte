@@ -1,5 +1,4 @@
-[
- {
+[{
   "id": 1,
   "nombre": "Almeda",
   "apellido": "Shieber",
@@ -334,13 +333,24 @@
  },
  {
   "id": 34,
-  "nombre": "Ricardo",
-  "apellido": "Heiler",
-  "usuario": "rh@gmail.com",
-  "correo": "rh@gmail.com",
-  "fechaNacimiento": "2022-05-12",
-  "contrasena": "$2a$10$F0/mkP6k37RKUXzZF3t.gOfzLIzm.HOdgRaJOHZhrjR8PoETPEhda",
-  "dobleContrasena": "$2a$10$MQq3X2vFOYalyh78cqHQk.sSxxoLIn4rm7D6D6zsxtlTsgMcF2/9e",
-  "imagen": "1655985535833_img.jpg"
+  "nombre": "Damian",
+  "apellido": "Muracciole",
+  "usuario": "damianmuracciole",
+  "correo": "damian@email.com",
+  "fechaNacimiento": "1999-06-23",
+  "contrasena": "$2a$10$dCZskVoqtZne3HgprcKIhepYWYRzYF9FuK1sJq1d8ZEzzQIzO.jCe",
+  "dobleContrasena": "$2a$10$VHUk99hAZufzaHC07mr8UOZ2R87BOETlfzdSg/hKJEH3NWBAg9Du2",
+  "imagen": "1655985316685_img.jpg"
+ },
+ {
+  "id": 35,
+  "nombre": "Cristian",
+  "apellido": "Aguille",
+  "usuario": "caguille",
+  "correo": "cristianma26@gmail.com",
+  "fechaNacimiento": "1982-01-06",
+  "contrasena": "$2a$10$Wn7vCuZYIO5pW/2tT.r1R.XRNXCVmKL.4cvc4LD0f7hE/2TYi/WnW",
+  "dobleContrasena": "$2a$10$ae79H8wEun2K6vfGQVzcBO0rVOJRXHkQncGJLShjmjrpnE9qBDx62",
+  "imagen": "1656361544065_img.JPG"
  }
 ]

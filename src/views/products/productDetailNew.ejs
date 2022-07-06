@@ -38,23 +38,19 @@
             
 
             <!-- Boton para Editar un Producto -->
-            
+            <% if (logged) { %>
                 <div class="botonesEditarProducto">
-
                     <!-- Boton para Borrar un Producto -->
-                <form action="/productos/borrar/<%= detalleProducto.id %>?_method=DELETE" method="post"> 
-                    <!-- <div class="submit-compra-mc"> -->
+                    <form action="/productos/borrar/<%= detalleProducto.id %>?_method=DELETE" method="post"> 
                         <button type="submit" class="submit-lgn-mc">Borrar producto</button>
-                    <!-- </div> -->
-                </form>
-                
+                    </form>
+                    <!-- Boton para Editar un Producto -->
                     <a href="/productos/editar/<%= detalleProducto.id %>">
                     <button type="submit" class="submit-lgn-mc">Editar producto </button>
-                    </a>
-                    
+                    </a> 
                 </div>
-           
-                        
+             <% } %>
+                       
     </div>
         <div class="dp-contenedor1">
             <h2>Productos Relacionados</h4>

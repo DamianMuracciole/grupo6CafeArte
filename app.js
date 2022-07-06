@@ -2,7 +2,9 @@ const express = require('express')
 const app = express();
 const path = require("path")
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
-const session = require("express-session")
+const session = require("express-session");
+const cookieParser = require('cookie-parser');
+const recordameMiddleware = require('./src/middlewares/recordameMiddleware');
 
 // middleware de aplicacion con session
 app.use(session({
@@ -11,8 +13,16 @@ app.use(session({
     saveUninitialized: false, // para evitar q aparezca deprecated
 }))
 // middleware de barra de navegación
+
+app.use(cookieParser());
+app.use(recordameMiddleware);
+
 const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware")
 app.use(userLoggedMiddleware)
+
+
+//  const recordameMiddleware = require('./src/middlewares/recordameMiddleware');
+//  app.use(recordameMiddleware);
 
 // Template Engine EJS
 app.set('view engine', 'ejs')
@@ -25,7 +35,12 @@ app.set('views', path.resolve(__dirname, './src/views'));
 // Archivos de rutas || NO HACE FALTA PONER EL .js AL FINAL PARECE...
 const rutasMain = require('./src/routes/mainRoutes')
 const rutasProductos = require('./src/routes/productRoutes.js')
-const rutasUsers = require('./src/routes/userRoutes')
+const rutasUsers = require('./src/routes/userRoutes');
+// const { cookie } = require('express-validator');
+
+
+
+
 
 
 // Configuracion Puerto
@@ -33,7 +48,6 @@ const port = process.env.PORT || 3000;
 const publicPath = path.resolve(__dirname, 'public');
 app.use( express.static(publicPath) );
 app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
-
 // Para los formulatios POST
 app.use(express.urlencoded({ extended: false })) // para archivos estaticos de public
 app.use(express.json());
