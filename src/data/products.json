@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [
     {
         "id": 2,
@@ -141,7 +140,6 @@
         "imagen": "imagenCafeAlajuela.jpg"
     }
 ]
-=======
 [{
   "id": 2,
   "nombre": "Cafe Etiopia",
@@ -269,4 +267,3 @@
   "sesion": "normal",
   "imagen": "imagenCafeAlajuela.jpg"
 }]
->>>>>>> 77fb4e8d4abca2d872e525e4a08efe3b82ea89bb
