@@ -3,6 +3,9 @@ const path = require ("path")
 const User = require('../models/User')
 const bcryptjs = require('bcryptjs');
 
+const db = require('../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
 
 // Me traigo el json que tiene la data de users y lo parseo
 const usersFilePath = path.join(__dirname, '../data/users.json');
@@ -18,7 +21,11 @@ const userController = {
         res.render('users/login')
     }, 
     loginProcess: (req, res)=>{
-        let userToLogin = User.findByField("correo", req.body.correo)
+        let userToLogin = db.User.findOne({
+            where: {
+                email: req.body.correo
+            }
+        }).then((resultado)=> console.log(resultado))
         if(userToLogin){
             let isOkcontrasena = bcryptjs.compareSync(req.body.contrasena, userToLogin.contrasena)
             if(isOkcontrasena){
@@ -85,17 +92,23 @@ const userController = {
         }
 
         // para que no pueda haber 2o+ users con el mismo mail.
-        let userInDB = User.findByField("correo", req.body.correo);
-        if(userInDB){
-           return  res.render('users/register', {
-                errors: {
-                    correo: {
-                        msg: "El correo ya pertenece a un usuario"
-                    }
-                },
-                oldData: req.body            
-            }); 
-        }
+        let userInDB = db.User.findOne({
+             where: {
+                 email: req.body.correo
+             }
+         }).then(function(resultado) {
+            console.log(resultado)
+         })
+        // if(userInDB){
+        //    return  res.render('users/register', {
+        //         errors: {
+        //             correo: {
+        //                 msg: "El correo ya pertenece a un usuario"
+        //             }
+        //         },
+        //         oldData: req.body            
+        //     }); 
+        // }
 
             //Esto es con modelo
             let userToCreate = {
@@ -104,7 +117,17 @@ const userController = {
                 dobleContrasena: bcryptjs.hashSync(req.body.dobleContrasena, 10),
                 imagen: req.file.filename
             }
-            let userCreated = User.create(userToCreate);
+            let userCreated = db.User.create({
+                first_name: req.body.nombre,
+                last_name: req.body.apellido,
+                username: req.body.usuario,
+                email: req.body.correo, 
+                birth_date: req.body.fechaNacimiento,
+                password: req.body.contrasena,
+                confirm_password: req.body.dobleContrasena,
+                image: req.body.image,
+                status: "A", 
+            });
             res.redirect('/usuarios/login')
     
             // Todo esto es sin modelo
@@ -121,7 +144,59 @@ const userController = {
                 //res.send("No hubo errores y se pasaron las validaciones!")
             */
         
-    }
+    },
+    create: function (req,res) {
+    //     User.create({
+    //         ... req.body,
+    // })
+    // .then(user => res.redirect("/perfil"))
+    db.User.create({
+        first_name: req.body.nombre,
+        last_name: req.body.apellido,
+        username: req.body.usuario,
+        email: req.body.correo, 
+        birth_date: req.body.fechaNacimiento,
+        password: req.body.contrasena,
+        confirm_password: req.body.dobleContrasena,
+        image: req.body.image,
+        status: "A", 
+    })
+    res.redirect("login")
+    },
+    detalle: function (req, res){
+        db.User.findByPk(req.params.id, {
+            include: [{association: "purchases"}, {association: "cart"}]
+        })
+            .then(function(user) {
+                res.render("userDetail", {user})
+            })
+    },
+
+    editar: function (req, res) {
+        db.User.findByPk(req.params.id)
+            .then(function(user){
+                res.render("users/editUser", {user:user})
+            })
+            res.redirect("/perfil")
+    },
+    update: function (req, res) {
+        db.User.update({
+            first_name: req.body.nombre,
+        last_name: req.body.apellido,
+        username: req.body.usuario,
+        email: req.body.correo, 
+        birth_date: req.body.fechaNacimiento,
+        password: req.body.contrasena,
+        confirm_password: req.body.dobleContrasena,
+        image: req.body.image,
+        status: "A", 
+
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+    } 
 };
 
 module.exports = userController;

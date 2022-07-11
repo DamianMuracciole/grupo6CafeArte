@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
-    <%- include('../partials/head') %>
+<%- include('../partials/head') %>
+
 <body>
-	<%- include('../partials/header') %>
-    
-	<!-- Container -->
+    <%- include('../partials/header') %>
+
+    <!-- Container -->
     <article class="user-profile">
-        <h2>Hi <%= user.nombre + " " + user.apellido %>  </h2>
-				<img src="/images/users/<%= user.imagen %>" alt="Perfil">
-				<br>
-				<br>
-				<div class="alert alert-success">
-                   <p>
-                    Tu correo es: <%= user.correo %>
-                   </p>  
-                </div>
+        <h2>Hi <%= user.nombre + " " + user.apellido %> </h2>
+        <img src="/images/users/<%= user.imagen %>" alt="Perfil">
+        <br>
+        <br>
+        <div class="alert alert-success">
+            <p>
+                Tu correo es: <%= user.correo %>
+            </p>
+        </div>
         </a>
+        <form action="/usuarios/editar/<%= user.id %>" method="GET">
+            <button class="button-form-create" type="submit">Editar</button>
+        </form>
+        <form action="/usuarios/<%= user.id %>" method="GET">
+            <button class="button-form-create" type="submit">Ver Detalle</button>
+        </form>
     </article>
 
-	<!-- //Container -->
-	
+    <!-- //Container -->
+
     <%- include('../partials/footer') %>
 </body>
+
 </html>

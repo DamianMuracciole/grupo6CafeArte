@@ -1,4 +1,5 @@
-[{
+[
+ {
   "id": 1,
   "nombre": "Almeda",
   "apellido": "Shieber",
@@ -352,5 +353,16 @@
   "contrasena": "$2a$10$Wn7vCuZYIO5pW/2tT.r1R.XRNXCVmKL.4cvc4LD0f7hE/2TYi/WnW",
   "dobleContrasena": "$2a$10$ae79H8wEun2K6vfGQVzcBO0rVOJRXHkQncGJLShjmjrpnE9qBDx62",
   "imagen": "1656361544065_img.JPG"
+ },
+ {
+  "id": 36,
+  "nombre": "Gasty",
+  "apellido": "Heiler",
+  "usuario": "gasty",
+  "correo": "gasty.heiler@gmail.com",
+  "fechaNacimiento": "2022-07-01",
+  "contrasena": "$2a$10$huKRJC4yCngBuBzkiBQp8uVOr7NlGC30CQMXjTKod56SAfWRV/zSS",
+  "dobleContrasena": "$2a$10$KLovmmeYlRVxuoio38d5/.KfHWyweBEra0iP8j2jGRrdJnb9NFJ.W",
+  "imagen": "1657559784247_img.png"
  }
 ]

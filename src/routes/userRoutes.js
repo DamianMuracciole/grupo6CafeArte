@@ -39,6 +39,13 @@ router.get('/perfil', authMiddleware ,userController.profile);
 // Registro de usuarios
 router.get('/registro', guestMiddleware ,userController.register)
 // Esta se encarga de procesr el registro
-router.post('/registro',uploadFile.single('image'),registerValidations, userController.processRegister)
+router.post('/registro',uploadFile.single('image'),registerValidations, userController.create)
+
+// editar
+router.get("/editar/:id", userController.editar)
+router.post("/editar/:id", userController.update)
+
+// detalle
+router.get("/:id", userController.detalle)
 
 module.exports = router;

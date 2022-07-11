@@ -16,36 +16,6 @@
     <div class="icons">
 
         <% if (locals.isLogged) { %>
-<<<<<<< HEAD
-        <div class="icon-bars">
-            <a href="#"><i class="fa-solid fa-bars"></i></a>
-        </div>
-        <div class="icon-magnifying-glass">
-            <a href="#"><i class="fa-solid fa-magnifying-glass" title="Busca productos!"></i></a>
-        </div>
-
-
-        <div class="icon-cart">
-            <a href="/productos/carrito" title="Mi Carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
-        <div class="icon-envelope">
-            <a href="/contactenos" title="Contactanos!"><i class="fa-regular fa-envelope"></i></a>
-        </div>
-        <div class="icon-register">
-            <a href="/usuarios/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
-        </div>
-        <div class="icon-register">
-        </div>
-        <div class="icon-register">
-            <img src="/images/users/<%=locals.userLogged.imagen %>" width="30" style="border-radius: 100%;">
-        </div>
-        <div class="icon-register">
-        Hola, <%= locals.userLogged.nombre %>
-    </div>
-
-
-
-=======
             <div class="icon-bars">
                 <a href="#"><i class="fa-solid fa-bars"></i></a>
             </div>
@@ -79,7 +49,6 @@
                 <a href="/usuarios/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
             </div>
         
->>>>>>> 77fb4e8d4abca2d872e525e4a08efe3b82ea89bb
         <% } else { %>
         <div class="icon-user">
             <a href="/usuarios/login" title="Login"><i class="fa-solid fa-user"></i></a>

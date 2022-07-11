@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- Aqui va el head -->
+    <%- include('../partials/head') %>
+
+<body>
+    
+    <!-- Aqui va el header -->
+    <%- include('../partials/header') %>
+
+    
+
+    <!-- Aqui va el main -->
+    <main>
+        <div class="login">
+            <div class="form-principal">
+                <form action="/usuarios/edit/<%= user.id %>" method="post" class="create-user">
+                    <h2 class="registro">Editar Usuario</h2>
+                    <div class="control-form">
+                        <label for="nombre">Nombre</label> 
+                        <input 
+                            type="text" 
+                            name="nombre" 
+                            class="control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
+                            value=<%= user.first_name %>  >
+                        
+                    </div>
+                    <div class="control-form">
+                        <label for="">Apellido</label> 
+                        <input type="text" name="apellido" class="control" placeholder="Apellido" value="<%= user.last_name %> ">  
+                         
+                    </div>
+                    <div class="control-form">
+                        <label for="usuario">Nombre de Usuari@</label> 
+                        <input type="text" name="usuario" class="control" value="<%= user.username %> ">
+                           
+                    </div>
+                    <div class="control-form">
+                        <label for="correo">Correo electronico</label> 
+                        <input type="email" name="correo" class="control"  value="<%= user.email %>">
+                           
+                    </div>
+                    <div class="control-form">
+                        <label for="fechaNacimiento">Fecha de Nacimiento</label> 
+                        <input type="date" name="fechaNacimiento" class="control"  value="<%= locals.oldData ? oldData.correo : null  %>">
+                        <% if (locals.errors && errors.fechaNacimiento) { %>
+                            <div class="text-danger">
+                                <%= errors.fechaNacimiento.msg %> 
+                            </div>                         
+                        <% } %> 
+                    </div>
+
+                    <div class="control-form">
+						<label for="image">Selecciona tu imagen de Perfil</label>
+						<input type="file" name="image" id="image" class="control">
+    
+					</div>
+                   
+                    <!-- Contraseña -->
+                    <div class="control-form">
+                        <label for="contrasena">Contraseña</label> 
+                        <input type="password" name="contrasena" placeholder="Contraseña" class="control" value="<%= user.password %> ">
+                        <% if (locals.errors && errors.contrasena) { %>
+                            <div class="text-danger">
+                                <%= errors.contrasena.msg %> 
+                            </div>                         
+                        <% } %>    
+                    </div>
+                    
+                    <div class="control-form">
+                        <label for="dobleContrasena">Confirmar Contraseña</label> 
+                        <input type="password" name="dobleContrasena" placeholder="Confirme la Contraseña" class="control" value="<%= user.confirm_password %> ">
+                        <% if (locals.errors && errors.dobleContrasena) { %>
+                            <div class="text-danger">
+                                <%= errors.dobleContrasena.msg %> 
+                            </div>                         
+                        <% } %>  
+                    </div>
+                    <div class="control-form-buton">
+                        <button type="submit" class="button-form-create">Editar Usuario</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Aca va el footer -->
+    <%- include('../partials/footer') %>
+    
+
+</body>
+</html>

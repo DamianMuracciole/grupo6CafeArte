@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <!-- Aqui va el head -->
+    <%- include('../partials/head') %>
+
+<body>
+    
+    <!-- Aqui va el header -->
+    <%- include('../partials/header') %>
+
+    
+
+    <!-- Aqui va el main -->
+    <main>
+        <div class="login">
+            <div class="form-principal">
+                <h1> <%= user.first_name %> + " " + <%= user.last_name %>  </h1>
+                <br>
+                <div class="control-form">
+                    Correo: <%= user.email %>
+                    Fecha de Nacimiento: <%= user.birth_date %>
+                    Imagen: <%= user.image %>  
+                    Compras:
+                    <ul> <% for( let i = 0; i < user.purchases.length; i++ ) {                
+                        <li> 
+                        user.purchases[i].invoice_num
+                        user.purchases[i].invoice_date
+                        user.purchases[i].prod_name
+                        </li>
+                    <% } %> </ul> 
+                </div>
+                <form action="/usuarios/editar/<%= user.id %>" method="GET">
+            <button class="button-form-create" type="submit">Editar</button>
+        </form>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- Aca va el footer -->
+    <%- include('../partials/footer') %>
+    
+
+</body>
+</html>
