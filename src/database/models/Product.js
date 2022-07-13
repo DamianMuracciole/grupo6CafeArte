@@ -59,14 +59,14 @@ module.exports = (sequelize, DataTypes) => {
             updatedAt: 'updated_at'
     });
 
-        Product.belongsToMany(models.Cart, {
-            as: 'cart',
-            through: 'products_cart',
-            foreignKey: 'products_id',
-            otherKey: 'cart_id',
-            createdAt: 'created_at',
-            updatedAt: 'updated_at'
-        });
+        // Product.belongsToMany(models.Cart, {
+        //     as: 'cart',
+        //     through: 'products_cart',
+        //     foreignKey: 'products_id',
+        //     otherKey: 'cart_id',
+        //     createdAt: 'created_at',
+        //     updatedAt: 'updated_at'
+        // });
 
     }
 

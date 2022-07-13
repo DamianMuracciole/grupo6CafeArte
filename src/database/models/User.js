@@ -56,12 +56,12 @@ module.exports = (sequelize, DataTypes) => {
             updatedAt: 'updated_at'
         });
 
-        User.hasMany(models.Cart, {
-            as: 'cart',
-            foreignKey: 'users_id',
-            createdAt: 'created_at',
-            updatedAt: 'updated_at'
-        });
+        // User.hasMany(models.Cart, {
+        //     as: 'cart',
+        //     foreignKey: 'users_id',
+        //     createdAt: 'created_at',
+        //     updatedAt: 'updated_at'
+        // });
 
     }
 
