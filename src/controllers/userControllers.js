@@ -24,37 +24,20 @@ const userController = {
                 let userFound = allUsers.find(oneUser => oneUser[field] === text); 
                 return userFound;
     },
-    loginProcess: (req, res)=>{
-        //bring all uses
-        // Users.findAll()
-        //     .then(listadoUsers => {
-        //         console.log(listadoUsers);
-        //     })
-        // console.log("Usuarios*******", Users);
-
-        // let userToLogin = Users.findByField("email", req.body.email)
-        // console.log("🚀 ~ file: userControllers.js ~ line 29 ~ userToLogin", userToLogin)
-        // console.log("imprimir Body", req.body);
-        
+    loginProcess: (req, res)=>{        
         let userToLogin = {}
         Users.findOne({
             where: {
                 email: req.body.email
             }            
-        }).then((resultado) => {
-        //console.log("🚀 ~ file: userControllers.js ~ line 38 ~ resultado", resultado)
-        //console.log("resultado email", resultado.email)
-        userToLogin = resultado
-        
-        //console.log("imprimir usertologin", userToLogin);
+        }).then((resultado) => {        
+        userToLogin = resultado        
         if(userToLogin){
             let isOkcontrasena = bcryptjs.compareSync(req.body.password, userToLogin.password)
             if(isOkcontrasena){
                 // si esta todo bien, quiero guardar el usuario en sesion, borrando la contraseña
                 delete userToLogin.contrasena;
                 req.session.userLogged = userToLogin
-                //console.log("req.session.userLogged", req.session.userLogged)
-                //console.log("Correo del usuario logueado: ", userToLogin.email);                
                 
                 if ( req.body.recordame != undefined){
                     res.cookie ('recordame',req.body.correo,{maxAge: 60000 * 10})                    
@@ -79,8 +62,6 @@ const userController = {
                 }
             })
         }
-
-
         }).catch(err => {
             res.send(err)
         })      
@@ -130,31 +111,6 @@ const userController = {
             })
         }
 
-        // para que no pueda haber 2o+ users con el mismo mail.
-        // let userInDB = User.findByField("correo", req.body.correo);
-        // if(userInDB){
-        //    return  res.render('users/register', {
-        //         errors: {
-        //             correo: {
-        //                 msg: "El correo ya pertenece a un usuario"
-        //             }
-        //         },
-        //         oldData: req.body            
-        //     }); 
-        // }
-
-            //Esto es con modelo
-            // let userToCreate = {
-            //     ...req.body,
-            //     contrasena: bcryptjs.hashSync(req.body.contrasena, 10), //como estoy en un objeto, esta contrasena va a pisar a la que viene en el body
-            //     dobleContrasena: bcryptjs.hashSync(req.body.dobleContrasena, 10),
-            //     imagen: req.file.filename
-            // }
-            
-        
-       
-    
-            
         
     }
 };
