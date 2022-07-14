@@ -15,15 +15,15 @@
             <h2 class="saludo">Bienvenido</h2>
         </div>
         <form action="/usuarios/login" method="POST" class="formBody">
-            <label for="correo">Correo Electrónico</label>
-            <input type="email" name="correo" id="correo" placeholder="email" required>
-            <% if (locals.errors && errors.correo) { %>
+            <label for="email">Correo Electrónico</label>
+            <input type="email" name="email" id="email" placeholder="email" required>
+            <% if (locals.errors && errors.email) { %>
              <div class="text-danger">
-                <%= errors.correo.msg %> 
+                <%= errors.email.msg %> 
              </div>
             <% } %>
-            <label for="contrasena" class="pass">Contraseña</label>
-            <input type="password" name="contrasena" id="contrasena" placeholder="Contraseña">
+            <label for="password" class="pass">Contraseña</label>
+            <input type="password" name="password" id="password" placeholder="Contraseña">
             <div class="rememberMe">
                 <input type="checkbox" name="recordame" class="check">
                 <span>Recordame</span>

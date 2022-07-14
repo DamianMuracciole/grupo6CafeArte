@@ -29,7 +29,7 @@
                             name="first_name" 
                             class="control <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
                             placeholder="Nombre"
-                            value="<%= locals.oldData ? oldData.first_name : null  %>">    <!--types: text, number, password, email, tel, radio, checkbos. Name: para identificar el campo del formulario -->
+                            value="<%= locals.oldData ? oldData.first_name : null  %>"> 
                         <% if (locals.errors && errors.first_name) { %>
                             <div class="text-danger">
                                 <%= errors.first_name.msg %> 
@@ -85,21 +85,21 @@
                    
                     <!-- Contraseña -->
                     <div class="control-form">
-                        <label for="contrasena">Contraseña</label> 
-                        <input type="password" name="contrasena" placeholder="Contraseña" class="control">
-                        <% if (locals.errors && errors.contrasena) { %>
+                        <label for="password">Contraseña</label> 
+                        <input type="password" name="password" placeholder="Contraseña" class="control">
+                        <% if (locals.errors && errors.password) { %>
                             <div class="text-danger">
-                                <%= errors.contrasena.msg %> 
+                                <%= errors.password.msg %> 
                             </div>                         
                         <% } %>    
                     </div>
                     
                     <div class="control-form">
-                        <label for="dobleContrasena">Confirmar Contraseña</label> 
-                        <input type="password" name="dobleContrasena" placeholder="Confirme la Contraseña" class="control">
-                        <% if (locals.errors && errors.dobleContrasena) { %>
+                        <label for="confirm_password">Confirmar Contraseña</label> 
+                        <input type="password" name="confirm_password" placeholder="Confirme la Contraseña" class="control">
+                        <% if (locals.errors && errors.confirm_password) { %>
                             <div class="text-danger">
-                                <%= errors.dobleContrasena.msg %> 
+                                <%= errors.confirm_password.msg %> 
                             </div>                         
                         <% } %>  
                     </div>
