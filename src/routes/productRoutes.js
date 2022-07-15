@@ -45,5 +45,7 @@ router.put('/editar/:id', upload.any(), productsController.update);
 // Borrar un producto
 router.delete('/borrar/:id', authMiddleware, productsController.destroy);
 
+router.post('/buscar:search?',productsController.buscarProducto);
+
 
 module.exports = router;

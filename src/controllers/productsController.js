@@ -1,5 +1,11 @@
 const fs = require("fs");
 const path = require ("path");
+//hago el requerimiento de la base de datos
+const db = require('../database/models/index');
+const Products = db.Product
+
+const sequelize = db.sequelize;
+const Op = db.Sequelize.Op;
 
 
 // Me traigo el json que tiene la data de prods y lo parseo
@@ -19,24 +25,47 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const productsController = {
     index: (req,res)=> {
         let logged = req.session.userLogged;
-        res.render("products/productos", {products, enOferta, logged})
+        let msj;
+
+        Products.findAll()
+        .then(productos => {
+                if (productos.length == 0) {
+                    msj = 'No hemos encontrado su producto'
+                }
+            return res.render("products/productos", {products:productos, msj ,logged})   
+        })
+        .catch(error => res.send(error))
     },
     //// esto es lo mismo que /detalle/:id/
-    productoByID: (req, res) => {
-        //res.send("Estoy aca?")
-        let idProducto = req.params.id;
-        let productoAMostrar = products.find(function(producto){
-            return producto.id == idProducto;
-        })
-        //res.send("Estoy en product id")
-        res.render('products/productDetailNew.ejs', {detalleProducto: productoAMostrar});
-    },
+    // productoByID: (req, res) => {
+    //     //res.send("Estoy aca?")
+    //     let idProducto = req.params.id;
+    //     let productoAMostrar = products.find(function(producto){
+    //         return producto.id == idProducto;
+    //     })
+    //     //res.send("Estoy en product id")
+    //     res.render('products/productDetailNew.ejs', {detalleProducto: productoAMostrar});
+    // },
     productDetail: (req, res) => {
         let idProduct = req.params.id;
         let logged = req.session.userLogged;
-		let producto = products.find(producto => producto.id == idProduct)
-		res.render('products/productDetailNew', {detalleProducto: producto, logged:logged})
-        //res.render('products/productDetail');
+
+        // Products.findByPk(idProduct)
+        // .then(product =>{
+        //     res.render('products/productDetailNew', {detalleProducto: product, logged:logged})
+        // })
+
+        Products.findAll()
+        .then(productos=>{
+            let productoSel = productos.find(producto => producto.id == idProduct);
+            let otrosProductos = productos.filter(producto => (producto.weight == productoSel.weight  && producto.category == productoSel.category && producto.id != productoSel.id));
+            res.render('products/productDetailNew', {detalleProducto: productoSel, otrosProductos, logged:logged})
+        })        
+        .catch(error => res.send(error))
+
+
+		//let producto = products.find(producto => producto.id == idProduct)
+		//res.render('products/productDetailNew', {detalleProducto: producto, logged:logged})
     },
 
     productCart: (req, res) => {
@@ -124,7 +153,30 @@ const productsController = {
 		fs.writeFileSync(productsFilePath, JSON.stringify(newList));
         //redirecciono a productos
 		res.redirect('/productos')	
-	}
+	},
+
+    buscarProducto: (req,res)=>{
+        const valor = '%'+req.body.search+'%'
+        let logged = req.session.userLogged;
+        let msj;
+
+        Products.findAll({
+            where:{
+                [Op.or]: [
+                    { name:     {[Op.like]: valor }},
+                    { weight:   {[Op.like]: valor }},
+                    { category: {[Op.like]: valor }}
+                ]
+            }
+        })
+        .then(productos => {
+                if (productos.length == 0) {
+                    msj = 'No hemos encontrado su producto !!'
+                }
+            return res.render("products/productos", {products:productos, msj ,logged})   
+        })
+        .catch(error => res.send(error))
+    }
     
 };
 

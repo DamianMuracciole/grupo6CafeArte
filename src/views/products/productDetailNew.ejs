@@ -10,54 +10,70 @@
     
     <!-- Aqui va el main -->
     <main class="background-detalle">
-        <br>
-        <br>
-        <br>
-        <div class="dp-contenedor1">
-                       
-            <div class="dp-contenedor-principal">
-                <div dp-img-principal>
-                     <img src="/images/<%= detalleProducto.imagen %> " class="dp-img-principal">
-                </div>
-                <div class="dp-detalle">
-                    <h3><%= detalleProducto.nombre %></h3>
-                    <p> <%= detalleProducto.peso %> grs</p>
-                    <p>$ <%= detalleProducto.precio %></p>
-                    <label>Cantidad:</label>
-                    <input type="number" name="cantidad" min="1" max="99" required>
-                    <div>
+    <br>
+    <br>
+    <br>
+    <div class="dp-contenedor1">
+                    
+        <div class="dp-contenedor-principal">
+            <div dp-img-principal>
+                    <img src="/images/<%= detalleProducto.image %> " class="dp-img-principal">
+            </div>
+            <div class="dp-detalle">
+                <h3><%= detalleProducto.name %></h3>
+                <p> <%= detalleProducto.weight %> grs</p>
+                <p>$ <%= detalleProducto.price %></p>
+                <label>Cantidad:</label>
+                <input type="number" name="cantidad" min="1" max="99" required>
+                <div>
                     <button class="button-form-create">Sumar al Carrito</button>
-                    </div>
                 </div>
             </div>
-            <div class="dp-descripcion">
-                <h3>Detalle</h3>
-                <p><%= detalleProducto.detalle %></p>
+        </div>
+        <div class="dp-descripcion">
+            <h3>Detalle</h3>
+            <p><%= detalleProducto.detail %></p>
+        </div>
+
+        
+
+        <!-- Boton para Editar un Producto -->
+        <% if (logged) { %>
+            <div class="botonesEditarProducto">
+                <!-- Boton para Borrar un Producto -->
+                <form action="/productos/borrar/<%= detalleProducto.id %>?_method=DELETE" method="post"> 
+                    <button type="submit" class="submit-lgn-mc">Borrar producto</button>
+                </form>
+                <!-- Boton para Editar un Producto -->
+                <a href="/productos/editar/<%= detalleProducto.id %>">
+                <button type="submit" class="submit-lgn-mc">Editar producto </button>
+                </a> 
             </div>
-
-            
-
-            <!-- Boton para Editar un Producto -->
-            <% if (logged) { %>
-                <div class="botonesEditarProducto">
-                    <!-- Boton para Borrar un Producto -->
-                    <form action="/productos/borrar/<%= detalleProducto.id %>?_method=DELETE" method="post"> 
-                        <button type="submit" class="submit-lgn-mc">Borrar producto</button>
-                    </form>
-                    <!-- Boton para Editar un Producto -->
-                    <a href="/productos/editar/<%= detalleProducto.id %>">
-                    <button type="submit" class="submit-lgn-mc">Editar producto </button>
-                    </a> 
-                </div>
-             <% } %>
-                       
+        <% } %>
+                    
     </div>
         <div class="dp-contenedor1">
-            <h2>Productos Relacionados</h4>
-            <div class="dp-img-secundarias">
-                <div class="dp-img-detalle1">
-                <p>Cafe Brasil</p>
-                <img src="/images/cafeBrasil.jpg" alt="" class="img-relacionados">
+            <!-- <h2>Productos Relacionados</h4>
+            <div class="dp-img-secundarias"> -->
+            <% if (otrosProductos.length == 0) { %>
+                <h2>No se registran productos pelacionados</h2>
+            <% }else { %>
+                <h2>Productos Relacionados</h4>
+                <div class="dp-img-secundarias">
+                    <% otrosProductos.forEach(element => { %>
+                        <a href="/productos/detalle/<%= element.id %> ">
+                            <div class="dp-img-detalle1">
+                                <p><%= element.name %></p>
+                                <img src="/images/<%= element.image %>" alt="" class="img-relacionados">
+                            </div>
+                        </a>
+                    <% }) %>
+                </div>
+            <% } %>
+            
+                <!-- <div class="dp-img-detalle1">
+                    <p>Cafe Brasil</p>
+                    <img src="/images/cafeBrasil.jpg" alt="" class="img-relacionados">
                 </div>
                 <div class="dp-img-detalle1">
                     <p>Cafe Colombia</p>
@@ -66,14 +82,13 @@
                 <div class="dp-img-detalle1">
                     <p>Cafe Mexico</p>
                     <img src="/images/cafeMexico.jpg" alt="" class="img-relacionados">
-                </div>
-            </div>
+                </div> -->
         </div>
     </main>
 
-    <!-- Aca va el footer -->
-    <%- include('../partials/footer') %>
-    
+<!-- Aca va el footer -->
+<%- include('../partials/footer') %>
+
 </body>
 
 </html>

@@ -15,56 +15,62 @@
 
     <div class="icons">
 
-        <% if (locals.isLogged) { %>
+        <!-- iconos que quedan siempre -->
+        <!-- hamburguesa -->
         <div class="icon-bars">
             <a href="#"><i class="fa-solid fa-bars"></i></a>
         </div>
+        <!-- lupa -->
+        <div class="icon-magnifying-glass">
+            <form action="/productos/buscar" method="post">
+                
+               <input type="text" id='' name="search" placeholder="Buscar..."  >
+               <button type="submit" class="lupa">
+                    <i class="fa-solid fa-magnifying-glass" title="Busca productos!"></i>
+               </button>
+               
+           </form>
+        </div>
+
+
+        <!-- Si es logged entonces  -->
+            <% if (locals.isLogged) { %>
+            
+            <div class="icon-cart">
+                <a href="/productos/carrito" title="Mi Carrito"><i class="fa-solid fa-cart-shopping"></i></a>
+            </div>
+
+            <div class="icon-register">
+                <a href="/usuarios/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+            </div>
+
+            <div class="icon-register">
+                <img src="/images/users/<%=locals.userLogged.imagen %>" width="30" style="border-radius: 100%;">
+            </div>
+
+            <div class="icon-register">
+                Hola, <%= locals.userLogged.nombre %>
+            </div>
+
         
-        <div class="icon-magnifying-glass">
-             <form action="/productos">
-                <input type="text" id='search' name="search"placeholder="Buscar" >
-                <i class="fa-solid fa-magnifying-glass" title="Busca productos!"></i>
-            </form>
-        </div>
-
-
-        <div class="icon-cart">
-            <a href="/productos/carrito" title="Mi Carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-        </div>
-        <div class="icon-envelope">
-            <a href="/contactenos" title="Contactanos!"><i class="fa-regular fa-envelope"></i></a>
-        </div>
-        <div class="icon-register">
-            <a href="/usuarios/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
-        </div>
-        <div class="icon-register">
-        </div>
-        <div class="icon-register">
-            <img src="/images/users/<%=locals.userLogged.imagen %>" width="30" style="border-radius: 100%;">
-        </div>
-        <div class="icon-register">
-        Hola, <%= locals.userLogged.nombre %>
-    </div>
-
-
-
+        <!-- Si es logged entonces  -->
         <% } else { %>
-        <div class="icon-user">
-            <a href="/usuarios/login" title="Login"><i class="fa-solid fa-user"></i></a>
-        </div>
+            <div class="icon-user">
+                <a href="/usuarios/login" title="Login"><i class="fa-solid fa-user"></i></a>
+            </div>
 
-        <div class="icon-register">
-            <li><a href="/usuarios/registro" title="Registrate!"><i class="far fa-id-card"></i></a></li>
-        </div>
-        <div class="icon-magnifying-glass">
-            <a href="#"><i class="fa-solid fa-magnifying-glass" title="Busca productos!"></i></a>
-        </div>
+            <div class="icon-register">
+                <li><a href="/usuarios/registro" title="Registrate!"><i class="far fa-id-card"></i></a></li>
+            </div>
 
-        <div class="icon-envelope">
-            <a href="/contactenos" title="Contactanos!"><i class="fa-regular fa-envelope"></i></a>
-        </div>
+            <!-- Contactenos -->
+            <div class="icon-envelope">
+                <a href="/contactenos" title="Contactanos!"><i class="fa-regular fa-envelope"></i></a>
+            </div>
 
         <% } %>
+
+
     </div>
 
 </header>
