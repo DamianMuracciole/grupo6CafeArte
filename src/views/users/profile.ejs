@@ -6,13 +6,13 @@
     
 	<!-- Container -->
     <article class="user-profile">
-        <h2>Hi <%= user.nombre + " " + user.apellido %>  </h2>
-				<img src="/images/users/<%= user.imagen %>" alt="Perfil">
+        <h2>Hi <%= user.first_name + " " + user.last_name %>  </h2>
+				<img src="/images/users/<%= user.image %>" alt="Perfil">
 				<br>
 				<br>
 				<div class="alert alert-success">
                    <p>
-                    Tu correo es: <%= user.correo %>
+                    Tu correo es: <%= user.email %>
                    </p>  
                 </div>
         </a>
