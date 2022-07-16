@@ -15,6 +15,16 @@
                     Tu correo es: <%= user.email %>
                    </p>  
                 </div>
+                <div class="botonesEditarProducto">
+                    <form action="/usuarios/edit/<%= user.id %>" method="get" class="create-user">
+                        <button type="submit" class="submit-lgn-mc">Editar </button>
+                    </a> 
+                    </form>
+                
+                    <form action="/usuarios/details/<%= user.id %> " method="get" class="create-user">
+                        <button type="submit" class="submit-lgn-mc">Ver Detalle </button>
+                    </form> 
+                </div>
         </a>
     </article>
 
