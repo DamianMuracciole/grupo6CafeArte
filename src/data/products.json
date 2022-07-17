@@ -1,1 +1,143 @@
-[{"id":2,"nombre":"Cafe Etiopia","peso":"500","detalle":"El café etíope crece a grandes altitudes, lo que produce un grano denso y duro. Los granos más densos tienden a contener una mayor cantidad de azúcares y precursores de sabor, lo cual resulta en más sabores luego del tueste. Para elegir un perfil de tueste efectivo, la clave es conocer la densidad del grano.","precio":"999","categoria":"molido","sesion":"destacado","imagen":"cafeEtiopia.jpg"},{"id":3,"nombre":"Cafe Brasil Tres","peso":"250","detalle":"El café de Brasil corresponde a la variedad arábica, por ello predomina el sabor dulzón, similar a los cafés procedentes de África, aunque sin la acidez característica de estos. El café de Brasil se caracteriza por su aroma suave y fino y cuerpo alto.","precio":"489","categoria":"capsulas","sesion":"oferta","imagen":"imagenescafeBrasil.jpg"},{"id":4,"nombre":"Cafe Brasil","peso":"500","precio":"889","detalle":"El café de Brasil corresponde a la variedad arábica, por ello predomina el sabor dulzón, similar a los cafés procedentes de África, aunque sin la acidez característica de estos. El café de Brasil se caracteriza por su aroma suave y fino y cuerpo alto.","imagen":"cafeBrasil.jpg","categoria":"Molido","sesion":"Destacado"},{"id":5,"nombre":"Cafe Colombia","peso":"250","precio":"500","detalle":"Se trata de una variante de grano 100% arábica. Una de las principales características de este café, es que se siembra a grandes alturas, principalmente en zonas montañosas. ","imagen":"cafeColombia.jpg","categoria":"En granos","sesion":"Destacado"},{"id":6,"nombre":"Cafe Colombia","peso":"500","precio":"980","detalle":"Se trata de una variante de grano 100% arábica. Una de las principales características de este café, es que se siembra a grandes alturas, principalmente en zonas montañosas. ","imagen":"cafeColombia.jpg","categoria":"En granos","sesion":"normal"},{"id":7,"nombre":"Cafe Mexico","peso":"250","detalle":"Café de especialidad mexicano, de cuerpo equilibrado y de acidez cítrica media. Cultivado a lo largo de la frontera sur, donde las montañas y las selvas le dan a las plantas los nutrientes y la altitud necesaria para un excelente café.","precio":"466","categoria":"molido","sesion":"oferta","imagen":"cafeMexico.jpg"},{"id":8,"nombre":"Cafe Mexico","peso":"500","precio":"950","detalle":"Café de especialidad mexicano, de cuerpo equilibrado y de acidez cítrica media. Cultivado a lo largo de la frontera sur, donde las montañas y las selvas le dan a las plantas los nutrientes y la altitud necesaria para un excelente café.","imagen":"cafeMexico.jpg","categoria":"En granos","sesion":"normal"},{"id":9,"nombre":"Cafe El Salvador","peso":"250","precio":"488","detalle":"Café 100% El Salvador es un rico café de cuerpo completo con un sabor suave y sofisticado y un aroma intenso.","imagen":"cafeMexico.jpg","categoria":"Molido","sesion":"Destacado"},{"id":10,"nombre":"Cafe El Salvador","peso":"500","precio":"899","detalle":"Café 100% El Salvador es un rico café de cuerpo completo con un sabor suave y sofisticado y un aroma intenso.","imagen":"cafeMexico.jpg","categoria":"En granos","sesion":"normal"},{"id":11,"nombre":"Cafe Honduras","peso":"250","precio":"399","detalle":"Se trata de una variante de grano 100% arábica. Se caracteriza por ser más aromático, equilibrado y con una acidez muy agradable. En comparación con el robusta, tiene menos cafeína, entre un 0,7- 1,5%. El nivel de cafeína del robusta oscila entre 2 y 4% o más. Es, sin duda, un café muy elegante con un perfecto equilibrio entre sabor y cuerpo. En el caso del café descafeinado de este tipo de grano, el porcentaje se reduce al mínimo, lo que hace que puedas disfrutar del café hasta por la noche.","imagen":"cafeMexico.jpg","categoria":"En granos","sesion":"normal"},{"id":12,"nombre":"Cafe Honduras","peso":"250","precio":"399","detalle":"Se trata de una variante de grano 100% arábica. Se caracteriza por ser más aromático, equilibrado y con una acidez muy agradable. En comparación con el robusta, tiene menos cafeína, entre un 0,7- 1,5%. El nivel de cafeína del robusta oscila entre 2 y 4% o más. Es, sin duda, un café muy elegante con un perfecto equilibrio entre sabor y cuerpo. En el caso del café descafeinado de este tipo de grano, el porcentaje se reduce al mínimo, lo que hace que puedas disfrutar del café hasta por la noche.","imagen":"cafeMexico.jpg","categoria":"Molido","sesion":"normal"},{"id":13,"nombre":"Pack Trio Varios Paises","peso":"500","detalle":"Pack compuesto por 250 de Café Colombia, 250 de Café Brasil y 250 de Cafe Etiopia. Se sumo café de Costa Rica.\r\nSigo agregando cosas aca. Sigoooooo","precio":"1500","categoria":"molido","sesion":"destacado","imagen":"OfertaPackTrio.jpg"},{"id":14,"nombre":"Pack Trio","peso":"500","detalle":"Pack compuesto por 500 de Cafe Colombia, 500 de Cafe Brasil y 500 de Cafe Etiopia","precio":"2699","categoria":"molido","sesion":"oferta","imagen":"OfertaPackTrio.jpg"},{"id":15,"nombre":"Cafe Alajuela","peso":"3000","detalle":"Es un café de Alajuela que sube por el norte","precio":"500","categoria":"granos","sesion":"normal","imagen":"imagenCafeAlajuela.jpg"},{"id":16,"nombre":"cafe brasil","peso":"1000","detalle":"cafe brasil","precio":"1000","categoria":"molido","sesion":"destacado","imagen":"imagencafeBrasil.jpg"}]
+[
+  {
+    "id": 2,
+    "nombre": "Cafe Etiopia",
+    "peso": "505",
+    "detalle": "El café etíope crece a grandes altitudes, lo que produce un grano denso y duro. Los granos más densos tienden a contener una mayor cantidad de azúcares y precursores de sabor, lo cual resulta en más sabores luego del tueste. Para elegir un perfil de tueste efectivo, la clave es conocer la densidad del grano.",
+    "precio": "999",
+    "categoria": "molido",
+    "sesion": "destacado",
+    "imagen": "cafeEtiopia.jpg"
+  },
+  {
+    "id": 3,
+    "nombre": "Cafe Brasil Tres",
+    "peso": "255",
+    "detalle": "El café de Brasil corresponde a la variedad arábica, por ello predomina el sabor dulzón, similar a los cafés procedentes de África, aunque sin la acidez característica de estos. El café de Brasil se caracteriza por su aroma suave y fino y cuerpo alto.",
+    "precio": "489",
+    "categoria": "capsulas",
+    "sesion": "oferta",
+    "imagen": "imagenescafeBrasil.jpg"
+  },
+  {
+    "id": 4,
+    "nombre": "Cafe Brasil",
+    "peso": "500",
+    "precio": "889",
+    "detalle": "El café de Brasil corresponde a la variedad arábica, por ello predomina el sabor dulzón, similar a los cafés procedentes de África, aunque sin la acidez característica de estos. El café de Brasil se caracteriza por su aroma suave y fino y cuerpo alto.",
+    "imagen": "cafeBrasil.jpg",
+    "categoria": "Molido",
+    "sesion": "Destacado"
+  },
+  {
+    "id": 5,
+    "nombre": "Cafe Colombia",
+    "peso": "250",
+    "precio": "500",
+    "detalle": "Se trata de una variante de grano 100% arábica. Una de las principales características de este café, es que se siembra a grandes alturas, principalmente en zonas montañosas. ",
+    "imagen": "cafeColombia.jpg",
+    "categoria": "En granos",
+    "sesion": "Destacado"
+  },
+  {
+    "id": 6,
+    "nombre": "Cafe Colombia",
+    "peso": "500",
+    "precio": "980",
+    "detalle": "Se trata de una variante de grano 100% arábica. Una de las principales características de este café, es que se siembra a grandes alturas, principalmente en zonas montañosas. ",
+    "imagen": "cafeColombia.jpg",
+    "categoria": "En granos",
+    "sesion": "normal"
+  },
+  {
+    "id": 7,
+    "nombre": "Cafe Mexico",
+    "peso": "250",
+    "detalle": "Café de especialidad mexicano, de cuerpo equilibrado y de acidez cítrica media. Cultivado a lo largo de la frontera sur, donde las montañas y las selvas le dan a las plantas los nutrientes y la altitud necesaria para un excelente café.",
+    "precio": "455",
+    "categoria": "molido",
+    "sesion": "oferta",
+    "imagen": "cafeMexico.jpg"
+  },
+  {
+    "id": 8,
+    "nombre": "Cafe Mexico",
+    "peso": "500",
+    "precio": "950",
+    "detalle": "Café de especialidad mexicano, de cuerpo equilibrado y de acidez cítrica media. Cultivado a lo largo de la frontera sur, donde las montañas y las selvas le dan a las plantas los nutrientes y la altitud necesaria para un excelente café.",
+    "imagen": "cafeMexico.jpg",
+    "categoria": "En granos",
+    "sesion": "normal"
+  },
+  {
+    "id": 9,
+    "nombre": "Cafe El Salvador",
+    "peso": "250",
+    "precio": "488",
+    "detalle": "Café 100% El Salvador es un rico café de cuerpo completo con un sabor suave y sofisticado y un aroma intenso.",
+    "imagen": "cafeMexico.jpg",
+    "categoria": "Molido",
+    "sesion": "Destacado"
+  },
+  {
+    "id": 10,
+    "nombre": "Cafe El Salvador",
+    "peso": "500",
+    "precio": "899",
+    "detalle": "Café 100% El Salvador es un rico café de cuerpo completo con un sabor suave y sofisticado y un aroma intenso.",
+    "imagen": "cafeMexico.jpg",
+    "categoria": "En granos",
+    "sesion": "normal"
+  },
+  {
+    "id": 11,
+    "nombre": "Cafe Honduras",
+    "peso": "250",
+    "precio": "399",
+    "detalle": "Se trata de una variante de grano 100% arábica. Se caracteriza por ser más aromático, equilibrado y con una acidez muy agradable. En comparación con el robusta, tiene menos cafeína, entre un 0,7- 1,5%. El nivel de cafeína del robusta oscila entre 2 y 4% o más. Es, sin duda, un café muy elegante con un perfecto equilibrio entre sabor y cuerpo. En el caso del café descafeinado de este tipo de grano, el porcentaje se reduce al mínimo, lo que hace que puedas disfrutar del café hasta por la noche.",
+    "imagen": "cafeMexico.jpg",
+    "categoria": "En granos",
+    "sesion": "normal"
+  },
+  {
+    "id": 12,
+    "nombre": "Cafe Honduras",
+    "peso": "255",
+    "detalle": "Se trata de una variante de grano 100% arábica. Se caracteriza por ser más aromático, equilibrado y con una acidez muy agradable. En comparación con el robusta, tiene menos cafeína, entre un 0,7- 1,5%. El nivel de cafeína del robusta oscila entre 2 y 4% o más. Es, sin duda, un café muy elegante con un perfecto equilibrio entre sabor y cuerpo. En el caso del café descafeinado de este tipo de grano, el porcentaje se reduce al mínimo, lo que hace que puedas disfrutar del café hasta por la noche.",
+    "precio": "399",
+    "categoria": "molido",
+    "sesion": "normal",
+    "imagen": "cafeMexico.jpg"
+  },
+  {
+    "id": 13,
+    "nombre": "Pack Trio Varios Paises",
+    "peso": "500",
+    "detalle": "Pack compuesto por 250 de Café Colombia, 250 de Café Brasil y 250 de Cafe Etiopia. Se sumo café de Costa Rica.\r\nSigo agregando cosas aca. Sigoooooo",
+    "precio": "1500",
+    "categoria": "molido",
+    "sesion": "destacado",
+    "imagen": "OfertaPackTrio.jpg"
+  },
+  {
+    "id": 14,
+    "nombre": "Pack Trio",
+    "peso": "500",
+    "detalle": "Pack compuesto por 500 de Cafe Colombia, 500 de Cafe Brasil y 500 de Cafe Etiopia",
+    "precio": "2699",
+    "categoria": "molido",
+    "sesion": "oferta",
+    "imagen": "OfertaPackTrio.jpg"
+  },
+  {
+    "id": 15,
+    "nombre": "Cafe Alajuela",
+    "peso": "3000",
+    "detalle": "Es un café de Alajuela que sube por el norte",
+    "precio": "500",
+    "categoria": "granos",
+    "sesion": "normal",
+    "imagen": "imagenCafeAlajuela.jpg"
+  }
+]
+

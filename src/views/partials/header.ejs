@@ -19,6 +19,17 @@
             <div class="icon-bars">
                 <a href="#"><i class="fa-solid fa-bars"></i></a>
             </div>
+
+            <div>
+                <a href="/usuarios/perfil">
+                    <img src="/images/users/<%= locals.userLogged.image %>" width="40" height="40" style="border-radius: 100%;">                    
+                </a>
+                
+            </div>
+
+            <div>
+                <p class="saludo-usuario">Hola <%= locals.userLogged.first_name %>  </p> 
+            </div>
             
             
             <div class="icon-magnifying-glass">
@@ -39,21 +50,21 @@
             </div>
         
         <% } else { %>
-            <div class="icon-user">
-                <a href="/usuarios/login" title="Login"><i class="fa-solid fa-user"></i></a>
-            </div>
-    
-            <div class="icon-register">
-                <li><a href="/usuarios/registro" title="Registrate!"><i class="far fa-id-card"></i></a></li>
-            </div>
-            <div class="icon-magnifying-glass">
-                <a href="#"><i class="fa-solid fa-magnifying-glass" title="Busca productos!"></i></a>
-            </div>
-    
-            <div class="icon-envelope">
-                <a href="/contactenos" title="Contactanos!"><i class="fa-regular fa-envelope"></i></a>
-            </div>
-        
+        <div class="icon-user">
+            <a href="/usuarios/login" title="Login"><i class="fa-solid fa-user"></i></a>
+        </div>
+
+        <div class="icon-register">
+            <li><a href="/usuarios/registro" title="Registrate!"><i class="far fa-id-card"></i></a></li>
+        </div>
+        <div class="icon-magnifying-glass">
+            <a href="#"><i class="fa-solid fa-magnifying-glass" title="Busca productos!"></i></a>
+        </div>
+
+        <div class="icon-envelope">
+            <a href="/contactenos" title="Contactanos!"><i class="fa-regular fa-envelope"></i></a>
+        </div>
+
         <% } %>
     </div>
 

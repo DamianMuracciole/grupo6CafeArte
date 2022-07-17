@@ -25,6 +25,10 @@
 
 }
 
+.saludo-usuario {
+	color: white;
+}
+
 /*-----   HEADER   -----*/
 header{
     font-family: "poppins";
@@ -129,6 +133,7 @@ a{
 	font-size: 20px;
 	padding: 5px;
 }
+
 
 /*-- Usuario => Ingresar --*/
 .icon-user{

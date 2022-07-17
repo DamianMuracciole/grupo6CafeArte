@@ -23,52 +23,52 @@
                         <% } %>
                     <% } %> -->
                     <div class="control-form">
-                        <label for="nombre">Nombre</label> 
+                        <label for="first_name">Nombre</label> 
                         <input 
                             type="text" 
-                            name="nombre" 
-                            class="control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
+                            name="first_name" 
+                            class="control <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
                             placeholder="Nombre"
-                            value="<%= locals.oldData ? oldData.nombre : null  %>">    <!--types: text, number, password, email, tel, radio, checkbos. Name: para identificar el campo del formulario -->
-                        <% if (locals.errors && errors.nombre) { %>
+                            value="<%= locals.oldData ? oldData.first_name : null  %>"> 
+                        <% if (locals.errors && errors.first_name) { %>
                             <div class="text-danger">
-                                <%= errors.nombre.msg %> 
+                                <%= errors.first_name.msg %> 
                             </div>                         
                         <% } %>
                     </div>
                     <div class="control-form">
-                        <label for="">Apellido</label> 
-                        <input type="text" name="apellido" class="control" placeholder="Apellido" value="<%= locals.oldData ? oldData.apellido : null  %>">  
-                        <% if (locals.errors && errors.apellido) { %>
+                        <label for="last_name">Apellido</label> 
+                        <input type="text" name="last_name" class="control" placeholder="Apellido" value="<%= locals.oldData ? oldData.last_name : null  %>">  
+                        <% if (locals.errors && errors.last_name) { %>
                             <div class="text-danger">
-                                <%= errors.apellido.msg %> 
+                                <%= errors.last_name.msg %> 
                             </div>                         
                         <% } %> 
                     </div>
                     <div class="control-form">
-                        <label for="usuario">Nombre de Usuari@</label> 
-                        <input type="text" name="usuario" class="control" placeholder="Nombre de Usuario" value="<%= locals.oldData ? oldData.usuario : null  %>">
-                        <% if (locals.errors && errors.usuario) { %>
+                        <label for="username">Nombre de Usuari@</label> 
+                        <input type="text" name="username" class="control" placeholder="Nombre de Usuario" value="<%= locals.oldData ? oldData.username : null  %>">
+                        <% if (locals.errors && errors.username) { %>
                             <div class="text-danger">
-                                <%= errors.usuario.msg %> 
+                                <%= errors.username.msg %> 
                             </div>                         
                         <% } %>    
                     </div>
                     <div class="control-form">
-                        <label for="correo">Correo electronico</label> 
-                        <input type="email" name="correo" class="control" placeholder="nombre@correo.com" value="<%= locals.oldData ? oldData.correo : null  %>">
-                        <% if (locals.errors && errors.correo) { %>
+                        <label for="email">Correo electronico</label> 
+                        <input type="email" name="email" class="control" placeholder="nombre@correo.com" value="<%= locals.oldData ? oldData.email : null  %>">
+                        <% if (locals.errors && errors.email) { %>
                             <div class="text-danger">
-                                <%= errors.correo.msg %> 
+                                <%= errors.email.msg %> 
                             </div>                         
                         <% } %>    
                     </div>
                     <div class="control-form">
-                        <label for="fechaNacimiento">Fecha de Nacimiento</label> 
-                        <input type="date" name="fechaNacimiento" class="control" placeholder="dd/mm/yyyy" value="<%= locals.oldData ? oldData.correo : null  %>">
-                        <% if (locals.errors && errors.fechaNacimiento) { %>
+                        <label for="birth_date">Fecha de Nacimiento</label> 
+                        <input type="date" name="birth_date" class="control" placeholder="dd/mm/yyyy" value="<%= locals.oldData ? oldData.birth_date : null  %>">
+                        <% if (locals.errors && errors.birth_date) { %>
                             <div class="text-danger">
-                                <%= errors.fechaNacimiento.msg %> 
+                                <%= errors.birth_date.msg %> 
                             </div>                         
                         <% } %> 
                     </div>
@@ -85,21 +85,21 @@
                    
                     <!-- Contraseña -->
                     <div class="control-form">
-                        <label for="contrasena">Contraseña</label> 
-                        <input type="password" name="contrasena" placeholder="Contraseña" class="control">
-                        <% if (locals.errors && errors.contrasena) { %>
+                        <label for="password">Contraseña</label> 
+                        <input type="password" name="password" placeholder="Contraseña" class="control">
+                        <% if (locals.errors && errors.password) { %>
                             <div class="text-danger">
-                                <%= errors.contrasena.msg %> 
+                                <%= errors.password.msg %> 
                             </div>                         
                         <% } %>    
                     </div>
                     
                     <div class="control-form">
-                        <label for="dobleContrasena">Confirmar Contraseña</label> 
-                        <input type="password" name="dobleContrasena" placeholder="Confirme la Contraseña" class="control">
-                        <% if (locals.errors && errors.dobleContrasena) { %>
+                        <label for="confirm_password">Confirmar Contraseña</label> 
+                        <input type="password" name="confirm_password" placeholder="Confirme la Contraseña" class="control">
+                        <% if (locals.errors && errors.confirm_password) { %>
                             <div class="text-danger">
-                                <%= errors.dobleContrasena.msg %> 
+                                <%= errors.confirm_password.msg %> 
                             </div>                         
                         <% } %>  
                     </div>
