@@ -46,7 +46,7 @@ const userController = {
                      // console.log(req.session.userLogged)
                      // console.log(req.session)
                     if (req.body.recordame != undefined) {
-                        res.cookie('recordame', req.body.correo, {
+                        res.cookie('recordame', req.body.email, {
                             maxAge: 60000 * 10
                         })
                     }
