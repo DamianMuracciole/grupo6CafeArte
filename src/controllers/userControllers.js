@@ -78,18 +78,22 @@ const userController = {
     },
 
     profile: (req, res) => {
-          console.log("userLogged en profile", req.session);
+          //console.log("userLogged en profile", req.session);
          // console.log("userLogged en profile2", res.locals);
-         
-        let userLogged = Users.findOne({
-            where: {
-                email: req.session.userLogged.email
-            }
-        }).then((respuesta) => res.render("users/profile", {
-                respuesta
-            })
 
-        )
+         console.log (req.session.userLogged);
+         
+        // let userLogged = Users.findOne({
+        //     where: {
+        //         email: req.session.userLogged.email
+        //     }
+        // }).then((respuesta) => res.render("users/profile", {
+        //         respuesta
+        //     })
+
+        // )
+        res.render("users/profile", {user: req.session.userLogged})
+
 
 
     },
