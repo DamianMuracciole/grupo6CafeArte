@@ -69,7 +69,7 @@ const userController = {
         
     },
     profile: (req, res)=> {
-        //console.log("userLogged en profile", req.session.userLogged);
+        console.log("userLogged en profile", req.session.userLogged);
         return res.render("users/profile", {
             // le pasamos la variable a la vista
             user: req.session.userLogged
