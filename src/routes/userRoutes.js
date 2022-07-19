@@ -34,7 +34,7 @@ router.post("/login", registerValidations, userController.loginProcess)
 // ruta de logout
 router.get('/logout', userController.logout);
 
-router.get('/perfil', authMiddleware ,userController.profile);
+router.get('/perfil', authMiddleware, userController.profile);
 
 // Registro de usuarios
 router.get('/registro', guestMiddleware ,userController.register)

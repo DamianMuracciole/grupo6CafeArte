@@ -6,22 +6,22 @@
     
 	<!-- Container -->
     <article class="user-profile">
-        <h2>Hi <%= user.first_name + " " + user.last_name %>  </h2>
-				<img src="/images/users/<%= user.image %>" alt="Perfil">
+        <h2>Hi <%= userLogged.first_name + " " + userLogged.last_name %>  </h2>
+				<img src="/images/users/<%= userLogged.image %>" alt="Perfil">
 				<br>
 				<br>
 				<div class="alert alert-success">
                    <p>
-                    Tu correo es: <%= user.email %>
+                    Tu correo es: <%= userLogged.email %>
                    </p>  
                 </div>
                 <div class="botonesEditarProducto">
-                    <form action="/usuarios/edit/<%= user.id %>" method="get" class="create-user">
+                    <form action="/usuarios/edit/<%= userLogged.id %>" method="get" class="create-user">
                         <button type="submit" class="submit-lgn-mc">Editar </button>
                     </a> 
                     </form>
                 
-                    <form action="/usuarios/details/<%= user.id %> " method="get" class="create-user">
+                    <form action="/usuarios/details/<%= userLogged.id %> " method="get" class="create-user">
                         <button type="submit" class="submit-lgn-mc">Ver Detalle </button>
                     </form> 
                 </div>

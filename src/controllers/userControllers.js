@@ -1,8 +1,11 @@
 const fs = require("fs");
-const path = require ("path")
+const path = require("path")
 const bcryptjs = require('bcryptjs');
-const { validationResult } = require('express-validator');
-const db = require('../database/models')
+const {
+    validationResult
+} = require('express-validator');
+const db = require('../database/models/index');
+const sequelize = db.sequelize
 const Users = db.User;
 //const { Op } = require("sequelize");
 
@@ -12,72 +15,85 @@ const Users = db.User;
 // const { localsName } = require('ejs');
 // const { send } = require("process");
 
-const userController = { 
+
+
+const userController = {
     login: (req, res) => {
-        res.render("users/login")      
-    }, 
-    findByField: function (field, text) {
-        let allUsers = Users.findAll()
-                    .then(listadoUsers => {
-                        console.log(listadoUsers);
-                    })
-                let userFound = allUsers.find(oneUser => oneUser[field] === text); 
-                return userFound;
+        res.render("users/login")
     },
-    loginProcess: (req, res)=>{        
-        let userToLogin = {}
+    // findByField: function (field, text) {
+    //     let allUsers = Users.findAll()
+    //                 .then(listadoUsers => {
+    //                     console.log(listadoUsers);
+    //                 })
+    //             let userFound = allUsers.find(oneUser => oneUser[field] === text); 
+    //             return userFound;
+    // },
+    loginProcess: (req, res) => {
+        // let userToLogin = {}
         Users.findOne({
             where: {
                 email: req.body.email
-            }            
-        }).then((resultado) => {        
-        userToLogin = resultado        
-        if(userToLogin){
-            let isOkcontrasena = bcryptjs.compareSync(req.body.password, userToLogin.password)
-            if(isOkcontrasena){
-                // si esta todo bien, quiero guardar el usuario en sesion, borrando la contraseña
-                delete userToLogin.contrasena;
-                req.session.userLogged = userToLogin
-                
-                if ( req.body.recordame != undefined){
-                    res.cookie ('recordame',req.body.correo,{maxAge: 60000 * 10})                    
-                }
+            }
+        }).then((resultado) => {
+            userToLogin = resultado
+            if (userToLogin) {
+                let isOkcontrasena = bcryptjs.compareSync(req.body.password, userToLogin.password)
+                if (isOkcontrasena) {
+                    // si esta todo bien, quiero guardar el usuario en sesion, borrando la contraseña
+                    delete userToLogin.password;
+                    req.session.userLogged = userToLogin.dataValues
+                     // console.log(req.session.userLogged)
+                     // console.log(req.session)
+                    if (req.body.recordame != undefined) {
+                        res.cookie('recordame', req.body.correo, {
+                            maxAge: 60000 * 10
+                        })
+                    }
 
-                return res.redirect("perfil")
+                    return res.redirect("/usuarios/perfil")
+                } else {
+                    return res.render('users/login', {
+                        errors: {
+                            user: {
+                                msg: "Debes ingresar los datos correctamente"
+                            }
+                        }
+                    })
+                }
             } else {
                 return res.render('users/login', {
                     errors: {
-                        correo: {
+                        email: {
                             msg: "Debes ingresar los datos correctamente"
                         }
                     }
                 })
             }
-        } else {
-            return res.render('users/login', {
-                errors: {
-                    correo: {
-                        msg: "Debes ingresar los datos correctamente"
-                    }
-                }
-            })
-        }
         }).catch(err => {
             res.send(err)
-        })      
-       
-        
-    },
-    profile: (req, res)=> {
-        //console.log("userLogged en profile", req.session.userLogged);
-        return res.render("users/profile", {
-            // le pasamos la variable a la vista
-            user: req.session.userLogged
         })
-        
-        
+
+
     },
-    logout: (req, res)=>{
+
+    profile: (req, res) => {
+          console.log("userLogged en profile", req.session);
+         // console.log("userLogged en profile2", res.locals);
+         
+        let userLogged = Users.findOne({
+            where: {
+                email: req.session.userLogged.email
+            }
+        }).then((respuesta) => res.render("users/profile", {
+                respuesta
+            })
+
+        )
+
+
+    },
+    logout: (req, res) => {
         res.clearCookie('recordame')
         req.session.destroy();
         return res.redirect("/")
@@ -85,33 +101,33 @@ const userController = {
     register: (req, res) => {
         //res.send("Estoy aca")
         res.render('users/register')
-    },    
+    },
     processRegister: (req, res) => {
         const resultValidation = validationResult(req)
         console.log("🚀 ~ file: userControllers.js ~ line 110 ~ resultValidation", resultValidation)
-       
-        if(resultValidation.errors.length > 0) {
+
+        if (resultValidation.errors.length > 0) {
             res.render('users/register', {
                 errors: resultValidation.mapped(),
-                oldData: req.body            
-            });   
+                oldData: req.body
+            });
         } else {
             console.log("🚀 ~ file: userControllers.js ~ line 140 ~ body", req.body)
-        
+
             Users.create({
-                ...req.body,
-                password: bcryptjs.hashSync(req.body.password, 10), //como estoy en un objeto, esta contrasena va a pisar a la que viene en el body
-                confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
-                image: req.file.filename,
-                status: "A"
-            })
-            .then(() => res.redirect('/usuarios/login'))
-            .catch(err => {
-                res.send(err)
-            })
+                    ...req.body,
+                    password: bcryptjs.hashSync(req.body.password, 10), //como estoy en un objeto, esta contrasena va a pisar a la que viene en el body
+                    confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
+                    image: req.file.filename,
+                    status: "A"
+                })
+                .then(() => res.redirect('/usuarios/login'))
+                .catch(err => {
+                    res.send(err)
+                })
         }
 
-        
+
     }
 };
 
