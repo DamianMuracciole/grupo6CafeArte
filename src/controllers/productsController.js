@@ -85,8 +85,8 @@ const productsController = {
         db.Product.create ({
               ...req.body,
 
-            //   quantity:(0),
-            //   status: 'A'
+              quantity:0,
+              status: 'A'
 
         })
         res.redirect("/productos")

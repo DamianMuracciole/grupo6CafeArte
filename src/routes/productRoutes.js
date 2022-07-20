@@ -40,7 +40,8 @@ router.get('/detalle/:id/', productsController.productDetail)
 
 /*** EDIT ONE PRODUCT ***/ 
 // no es una mala practica repetir las rutas de get y put, como aca
-router.get('/editar/:id', authMiddleware ,productsController.editarProducto)
+// router.get('/editar/:id', authMiddleware ,productsController.editarProducto)
+router.get('/editar/:id',productsController.editarProducto)
 router.put('/editar/:id', upload.any(), productsController.update); 
 
 // Borrar un producto
