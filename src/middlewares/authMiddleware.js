@@ -3,7 +3,8 @@
 function authMiddleware (req, res, next){
     if(!req.session.userLogged) {
         return res.redirect ("/usuarios/login")
-    }
-    next();
+    } else {
+    next()
+    };
 }
 module.exports = authMiddleware

@@ -15,11 +15,13 @@ const Users = db.User;
 // const { localsName } = require('ejs');
 // const { send } = require("process");
 
-
+ 
 
 const userController = {
+    
     login: (req, res) => {
         res.render("users/login")
+        
     },
     // findByField: function (field, text) {
     //     let allUsers = Users.findAll()
@@ -43,7 +45,6 @@ const userController = {
                     // si esta todo bien, quiero guardar el usuario en sesion, borrando la contraseña
                     delete userToLogin.password;
                     req.session.userLogged = userToLogin.dataValues
-                     // console.log(req.session.userLogged)
                      // console.log(req.session)
                     if (req.body.recordame != undefined) {
                         res.cookie('recordame', req.body.email, {
@@ -51,7 +52,7 @@ const userController = {
                         })
                     }
 
-                    return res.redirect("/usuarios/perfil")
+                    return res.redirect("perfil")
                 } else {
                     return res.render('users/login', {
                         errors: {
@@ -132,7 +133,19 @@ const userController = {
         }
 
 
-    }
+    },
+
+    edit: function(req,res){
+        const id = req.params.id
+        Users.findByPk(id)
+        .then( user => res.render("users/edit", {user}))
+    },
+    detalle: function(req,res){
+        const id = req.params.id
+        Users.findByPk(id)
+        .then( user => res.render("users/details", {user}))
+    },
+
 };
 
 module.exports = userController;

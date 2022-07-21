@@ -34,11 +34,18 @@ router.post("/login", registerValidations, userController.loginProcess)
 // ruta de logout
 router.get('/logout', userController.logout);
 
-router.get('/perfil', authMiddleware, userController.profile);
+router.get('/perfil',   userController.profile);
 
 // Registro de usuarios
 router.get('/registro', guestMiddleware ,userController.register)
 // Esta se encarga de procesr el registro
 router.post('/registro',uploadFile.single('image'),registerValidations, userController.processRegister)
+
+//ruta de edit
+router.get('/edit/:id', authMiddleware ,userController.edit)
+
+//ruta de detalle
+
+router.get('/detalle/:id', authMiddleware ,userController.detalle)
 
 module.exports = router;
