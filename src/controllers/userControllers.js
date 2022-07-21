@@ -52,7 +52,7 @@ const userController = {
                         })
                     }
                     req.session.userLogged = userToLogin.dataValues
-                    console.log(req.session)
+                    // console.log(req.session)
                     // res.redirect("/")
                     return res.redirect("/usuarios/perfil")
                 } else {
@@ -95,7 +95,7 @@ const userController = {
         //     })
 
         // )
-        res.render("users/profile")
+        res.render("users/profile", {user:req.session.userLogged})
 
 
 
