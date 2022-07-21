@@ -51,8 +51,10 @@ const userController = {
                             maxAge: 60000 * 10
                         })
                     }
-
-                    return res.redirect("perfil")
+                    req.session.userLogged = userToLogin.dataValues
+                    console.log(req.session)
+                    // res.redirect("/")
+                    return res.redirect("/usuarios/perfil")
                 } else {
                     return res.render('users/login', {
                         errors: {
@@ -93,7 +95,7 @@ const userController = {
         //     })
 
         // )
-        res.render("users/profile", {user: req.session.userLogged})
+        res.render("users/profile")
 
 
 
