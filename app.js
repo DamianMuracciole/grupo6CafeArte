@@ -4,7 +4,7 @@ const path = require("path")
 const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
 const session = require("express-session");
 const cookieParser = require('cookie-parser');
-const recordameMiddleware = require('./src/middlewares/recordameMiddleware');
+//const recordameMiddleware = require('./src/middlewares/recordameMiddleware');
 
 // middleware de aplicacion con session
 app.use(session({
@@ -15,7 +15,7 @@ app.use(session({
 // middleware de barra de navegación
 
 app.use(cookieParser());
-app.use(recordameMiddleware);
+//app.use(recordameMiddleware);
 
 const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware")
 app.use(userLoggedMiddleware)
@@ -37,9 +37,6 @@ const rutasMain = require('./src/routes/mainRoutes')
 const rutasProductos = require('./src/routes/productRoutes.js')
 const rutasUsers = require('./src/routes/userRoutes');
 // const { cookie } = require('express-validator');
-
-
-
 
 
 

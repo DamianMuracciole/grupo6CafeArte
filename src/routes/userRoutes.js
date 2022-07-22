@@ -4,6 +4,7 @@ const userController = require('../controllers/userControllers')
 const multer = require('multer');
 const path = require('path')
 const registerValidations = require('../middlewares/registerValidation')
+const editUserValidation = require('../middlewares/editUserValidation')
 
 // traigo el middleware para ver si hay alguien logeado y lo paso a la ruta de register y del login
 const guestMiddleware = require("../middlewares/guestMiddleware")
@@ -42,7 +43,9 @@ router.get('/registro', guestMiddleware ,userController.register)
 router.post('/registro',uploadFile.single('image'),registerValidations, userController.processRegister)
 
 //ruta de edit
-router.get('/edit/:id', authMiddleware ,userController.edit)
+router.get('/edit/:id', userController.edit)
+
+router.post('/edit/:id', editUserValidation, uploadFile.single('image'), userController.actualizar)
 
 //ruta de detalle
 

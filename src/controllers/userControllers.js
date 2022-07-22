@@ -5,8 +5,10 @@ const {
     validationResult
 } = require('express-validator');
 const db = require('../database/models/index');
+const User = require("../database/models/User");
 const sequelize = db.sequelize
 const Users = db.User;
+const Rols = db.Rol;
 //const { Op } = require("sequelize");
 
 // Me traigo el json que tiene la data de users y lo parseo
@@ -22,15 +24,7 @@ const userController = {
     login: (req, res) => {
         res.render("users/login")
         
-    },
-    // findByField: function (field, text) {
-    //     let allUsers = Users.findAll()
-    //                 .then(listadoUsers => {
-    //                     console.log(listadoUsers);
-    //                 })
-    //             let userFound = allUsers.find(oneUser => oneUser[field] === text); 
-    //             return userFound;
-    // },
+    },    
     loginProcess: (req, res) => {
         // let userToLogin = {}
         Users.findOne({
@@ -44,7 +38,7 @@ const userController = {
                 if (isOkcontrasena) {
                     // si esta todo bien, quiero guardar el usuario en sesion, borrando la contraseña
                     delete userToLogin.password;
-                    req.session.userLogged = userToLogin.dataValues
+                    req.session.userLogged = userToLogin
                      // console.log(req.session)
                     if (req.body.recordame != undefined) {
                         res.cookie('recordame', req.body.email, {
@@ -84,7 +78,7 @@ const userController = {
           //console.log("userLogged en profile", req.session);
          // console.log("userLogged en profile2", res.locals);
 
-         console.log (req.session.userLogged);
+        // console.log (req.session.userLogged);
          
         // let userLogged = Users.findOne({
         //     where: {
@@ -111,7 +105,7 @@ const userController = {
     },
     processRegister: (req, res) => {
         const resultValidation = validationResult(req)
-        console.log("🚀 ~ file: userControllers.js ~ line 110 ~ resultValidation", resultValidation)
+        //console.log("🚀 ~ file: userControllers.js ~ line 110 ~ resultValidation", resultValidation)
 
         if (resultValidation.errors.length > 0) {
             res.render('users/register', {
@@ -119,7 +113,7 @@ const userController = {
                 oldData: req.body
             });
         } else {
-            console.log("🚀 ~ file: userControllers.js ~ line 140 ~ body", req.body)
+            //console.log("🚀 ~ file: userControllers.js ~ line 140 ~ body", req.body)
 
             Users.create({
                     ...req.body,
@@ -139,12 +133,53 @@ const userController = {
 
     edit: function(req,res){
         const id = req.params.id
-        Users.findByPk(id)
-        .then( user => res.render("users/edit", {user}))
+        // Users.findByPk(id,{
+        //     include: [{association: "rols"}]
+        // })
+        // .then( user => res.render("users/edit", {user}))
+        let pedidoUsuario = Users.findByPk(id);
+        let pedidoRoles = Rols.findAll();
+
+        Promise.all([pedidoUsuario, pedidoRoles])
+            .then(([user, rol]) => {
+                res.render("users/edit", {user:user, rol:rol})
+            })
+
+    },
+    actualizar: (req, res) => {
+        //console.log("VIENE EL BODYY????", req.body)
+        //console.log("Y FIRST NAME??",req.body.first_name);
+        //console.log("Y EL FILE",req.file.filename);
+        //console.log("Y LA IMAGEN",req.session.userLogged.image);
+        //const id = req.params.id       
+        //console.log("**** req.file *****", req.file)
+        //console.log("**** req.file.filename **** ", req.file.filename)
+        let finalImage;
+        if (!req.file) {            
+            finalImage = req.session.userLogged.image            
+        } else {
+            finalImage = req.file.filename
+        }
+        
+        Users.update({
+            ...req.body,
+            image: finalImage,
+            rols_id: req.body.rol
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(() => res.redirect('/usuarios/detalle/' + req.params.id))
+        .catch(err => res.render(err))
+
+        
     },
     detalle: function(req,res){
         const id = req.params.id
-        Users.findByPk(id)
+        Users.findByPk(id, {
+            include: [{association: "rols"}]
+        })
         .then( user => res.render("users/details", {user}))
     },
 
