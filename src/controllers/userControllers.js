@@ -40,12 +40,7 @@ const userController = {
                 req.session.userLogged = userToLogin
                 
                 if ( req.body.recordame != undefined){
-<<<<<<< HEAD
-                    res.cookie ('recordame',req.body.correo,{maxAge: 600000 })
-                    
-=======
                     res.cookie ('recordame',req.body.correo,{maxAge: 60000 * 10})                    
->>>>>>> 18bb0fa01e79e6b09d6affdc23e9551a8fd62b53
                 }
 
                 return res.redirect("perfil")
