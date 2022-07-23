@@ -5,6 +5,9 @@ const methodOverride =  require('method-override'); // Pasar poder usar los mét
 const session = require("express-session");
 const cookieParser = require('cookie-parser');
 //const recordameMiddleware = require('./src/middlewares/recordameMiddleware');
+const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware")
+
+
 
 // middleware de aplicacion con session
 app.use(session({
@@ -12,16 +15,15 @@ app.use(session({
     resave: false, // para evitar q aparezca deprecated
     saveUninitialized: false, // para evitar q aparezca deprecated
 }))
-// middleware de barra de navegación
 
 app.use(cookieParser());
 //app.use(recordameMiddleware);
 
-const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware")
+
+// Este tiene que ir despues del midd de session
 app.use(userLoggedMiddleware)
 
 
-//  const recordameMiddleware = require('./src/middlewares/recordameMiddleware');
 //  app.use(recordameMiddleware);
 
 // Template Engine EJS

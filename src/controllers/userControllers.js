@@ -1,23 +1,13 @@
 const fs = require("fs");
 const path = require("path")
 const bcryptjs = require('bcryptjs');
-const {
-    validationResult
-} = require('express-validator');
+const { validationResult } = require('express-validator');
 const db = require('../database/models/index');
 const User = require("../database/models/User");
 const sequelize = db.sequelize
 const Users = db.User;
 const Rols = db.Rol;
 //const { Op } = require("sequelize");
-
-// Me traigo el json que tiene la data de users y lo parseo
-// const usersFilePath = path.join(__dirname, '../data/users.json');
-// const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-// const { localsName } = require('ejs');
-// const { send } = require("process");
-
- 
 
 const userController = {
     
@@ -39,15 +29,13 @@ const userController = {
                     // si esta todo bien, quiero guardar el usuario en sesion, borrando la contraseña
                     delete userToLogin.password;
                     req.session.userLogged = userToLogin
-                     // console.log(req.session)
-                    if (req.body.recordame != undefined) {
-                        res.cookie('recordame', req.body.email, {
-                            maxAge: 60000 * 10
+                    // en sesion tengo una propiedad llamada userLogged, que tiene toda la info de userToLogin 
+                    if (req.body.recordame) {
+                        res.cookie('userEmail', req.body.email, {
+                            maxAge: (1000 * 60) * 2 //dos minutos, un minuto por dos
                         })
                     }
-                    req.session.userLogged = userToLogin.dataValues
-                    // console.log(req.session)
-                    // res.redirect("/")
+                    
                     return res.redirect("/usuarios/perfil")
                 } else {
                     return res.render('users/login', {
@@ -70,51 +58,29 @@ const userController = {
         }).catch(err => {
             res.send(err)
         })
-
-
     },
-
     profile: (req, res) => {
-          //console.log("userLogged en profile", req.session);
-         // console.log("userLogged en profile2", res.locals);
-
-        // console.log (req.session.userLogged);
-         
-        // let userLogged = Users.findOne({
-        //     where: {
-        //         email: req.session.userLogged.email
-        //     }
-        // }).then((respuesta) => res.render("users/profile", {
-        //         respuesta
-        //     })
-
-        // )
-        res.render("users/profile", {user:req.session.userLogged})
-
-
-
+        res.render("users/profile", {
+            user:req.session.userLogged
+        });
     },
     logout: (req, res) => {
         res.clearCookie('recordame')
         req.session.destroy();
         return res.redirect("/")
     },
-    register: (req, res) => {
-        //res.send("Estoy aca")
+    register: (req, res) => {        
         res.render('users/register')
     },
     processRegister: (req, res) => {
         const resultValidation = validationResult(req)
-        //console.log("🚀 ~ file: userControllers.js ~ line 110 ~ resultValidation", resultValidation)
-
+        
         if (resultValidation.errors.length > 0) {
             res.render('users/register', {
                 errors: resultValidation.mapped(),
                 oldData: req.body
             });
-        } else {
-            //console.log("🚀 ~ file: userControllers.js ~ line 140 ~ body", req.body)
-
+        } else {          
             Users.create({
                     ...req.body,
                     password: bcryptjs.hashSync(req.body.password, 10), //como estoy en un objeto, esta contrasena va a pisar a la que viene en el body
@@ -127,8 +93,6 @@ const userController = {
                     res.send(err)
                 })
         }
-
-
     },
 
     edit: function(req,res){
@@ -144,16 +108,13 @@ const userController = {
             .then(([user, rol]) => {
                 res.render("users/edit", {user:user, rol:rol})
             })
+            .catch(err => {
+                res.send(err)
+            })
 
     },
     actualizar: (req, res) => {
-        //console.log("VIENE EL BODYY????", req.body)
-        //console.log("Y FIRST NAME??",req.body.first_name);
-        //console.log("Y EL FILE",req.file.filename);
-        //console.log("Y LA IMAGEN",req.session.userLogged.image);
-        //const id = req.params.id       
-        //console.log("**** req.file *****", req.file)
-        //console.log("**** req.file.filename **** ", req.file.filename)
+        // Chequear si en la edicion se pone una imagen nueva o el campo viene vacio
         let finalImage;
         if (!req.file) {            
             finalImage = req.session.userLogged.image            
@@ -172,8 +133,6 @@ const userController = {
         })
         .then(() => res.redirect('/usuarios/detalle/' + req.params.id))
         .catch(err => res.render(err))
-
-        
     },
     detalle: function(req,res){
         const id = req.params.id
@@ -181,6 +140,9 @@ const userController = {
             include: [{association: "rols"}]
         })
         .then( user => res.render("users/details", {user}))
+        .catch(err => {
+            res.send(err)
+        })
     },
 
 };
