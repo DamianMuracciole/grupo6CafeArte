@@ -91,13 +91,14 @@ a{
 }
 
 /*--------- Iconos -----------*/
-.icons {
+.icons{
 	display: flex;
 	flex-grow: 0.2;
 	justify-content: space-around;
+	align-items: center;
 }
 
-.icons a{
+.icons a {
 	color:#FAF3E0;
 	text-decoration-line: none;
 	padding: 10px;
@@ -111,11 +112,43 @@ a{
 }
 
 /*-- Lupa => buscador --*/
-.icon-magnifying-glass{
-	display: none;
-	font-size: 20px;
-	padding: 5px;
+.lupa{
+	position: relative;
+	font-size: 18px;
+	color:#FAF3E0;
+	text-decoration-line: none;
+	padding: 10px;
+	border-radius: 5px;
+	border: 0 black solid;
+	background-color: #361500;
+	z-index: 0;
+}
 
+.lupa:hover{
+	background-color:#1C0A00 ;
+	opacity: 0.85;
+	transition: 0.20s;
+}
+
+.icon-magnifying-glass input{
+	position: relative;
+	display: inline-block;
+	left: 40px;
+	font-size: 20px;
+	padding: 10px;
+	margin: 2px 0px;
+	width: 50px;
+	background-color: #ededed;
+	border-color: #360600 0px solid;
+	z-index: 1;
+	opacity: 0;
+	transition: 0.7s;
+}
+
+.icon-magnifying-glass input:hover{
+	color: #361500;
+	width: 150px;
+	opacity: 1;
 }
 
 /*-- Sobre de carta => Ayuda, preguntas --*/
@@ -167,13 +200,10 @@ a{
     font-size:  30px;
 	background-color: #CC9544;
 	text-align: center;
-	
-	
-	
 }
 
-.carrusel img{
-	margin-top: 80px;
+.carrusel img {
+	margin-top: 60px;
     box-shadow: 0 0 50px 0 rgba(0,0,0,.9);
 }
 
@@ -193,12 +223,17 @@ a{
 
 }
 
+.card-products p{
+	margin: 5px 8%;
+}
+
 article img{
-    width: 95%;
+    width: 84%;
     border-radius: 10px;
+	margin: 4% 0% 2%;
 }
 .descripcion{
-    font-family: "poppins";
+	color:#1C0A00;
     font-size: 20px;
     text-align: left;
     margin: 5px 0px 0px 0px;
@@ -206,20 +241,32 @@ article img{
 }
 
 .precio{
-    font-family: "poppins";
+	color:#CC9544;
     font-size: 20px ;
     text-align: left;
-    margin: 0;
+    margin: 5px 0px 0px 0px;
     padding: 0;
-    color: burlywood
 }
 
 .card:hover{
-
     transform:translateY(-3%);
     opacity: 90%;
+}
 
-	
+.sin-encontrar img{
+	display: block;
+	margin: 100px auto;
+	width: 50%;
+	max-width: 300px;
+}
+
+.sin-encontrar p {
+	color:#1C0A00;
+    font-size: 22px;
+	font-weight: 600;
+    text-align: center;
+    margin: 4em;
+    padding: 0;
 }
 
 /*-----   BODY mi compra  -----*/
@@ -228,7 +275,6 @@ article img{
 	background-image: url('/images/imagenFondoOld02.jpg');
 	background-size: 100%;
 	background-position: center;
-	
 	/*background-attachment:fixed;*/
 	image-orientation:90deg ;
 }
@@ -516,7 +562,7 @@ footer ul li > a{
 
 /******** ESTILOS PARA EL REGISTER *************************/
 
- .main-header-reg {
+.main-header-reg {
 	position: fixed;
     top: 0px;
     width: 100vw;
@@ -537,7 +583,7 @@ footer ul li > a{
 	z-index: 100;
 }
 
- .register-fondo {
+.register-fondo {
 	margin-top: 8vh;
 	background-image: url('/images/imagenFondoOld02.jpg');
     background-attachment: fixed;
@@ -699,9 +745,6 @@ color: black;
 		background-repeat: no-repeat;
 		background-size: cover;
 	}*/
-	.carrusel img{
-		margin-top: 50px;
-	}
 
 	/*------------- main mi compra ------------*/
 	.title-mc,
@@ -802,8 +845,10 @@ color: black;
 
 	}
 	.ImagenProductos {
-		max-width: 355px;
-		padding: 0 10% ;
+		max-width: 300px;
+		padding: 0 0% ;
+		margin: 0 10% ;
+		border-radius: 10px;
 	}
 	.descripcion-pr{
 		font-family: "poppins";
@@ -821,9 +866,8 @@ color: black;
 		padding: 0 5% 5% 5%;
 		color: burlywood
 	}
-	
 
-	/*----------main de error 404 -------*/
+		/*----------main de error 404 -------*/
 	.error404-er p{
 		font-size: 3em;
 		font-weight: 600;
@@ -868,14 +912,28 @@ color: black;
 		justify-content: space-around;
 	}
 	/*Aparece el elemento lupa para buscar*/
-	.icon-magnifying-glass{
-		display: block;
+
+
+	.lupa{
+		display:inline-block;
 	}
-	/*Aparece la elemento carta de ayuda*/
+	.icon-magnifying-glass input{
+		display: inline-block;
+		width: 50px;
+		font-size: 16px;
+		border-width: 0px;
+		padding: 3px;
+		line-height: 150%;
+
+	}
+	.icon-magnifying-glass input:hover{
+		width: 150px;
+	}
+	/*Aparece el elemento carta de ayuda*/
 	.icon-envelope{
 		display: block;
 	}
-	/*Aparece la elemento registrarse*/
+	/*Aparece el elemento registrarse*/
 	.icon-user{
 		display: block;
 	}
@@ -894,19 +952,22 @@ color: black;
 
 	/*se saca el elemento menú de barras*/
 	.icon-bars{
+		display: none;
 		font-size: 0px;
 		padding: 0px;
 		flex-grow: 0;
 	}
-	.icon-bars > .fa-bars{
-		display: none;
-	}
+
     /*------ main ------*/
     section{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
     }
+
+	.carrusel img{
+		margin-top: 85px;
+	}
     main{
         background-image: url('/images/imagenFondoOld02.jpg');
         background-attachment: fixed;
@@ -1088,6 +1149,7 @@ color: black;
 .dp-img-principal{
 	width: 100%;
 	margin-top: 1%;
+	border-radius: 10px;
 
 }
 .dp-detalle {
@@ -1146,6 +1208,7 @@ color: black;
 	margin: 5%; 
 	width: 90%;
 	max-width: 900px;
+	border-radius: 10px;
 	
 }
 @media (min-width: 768px) {
