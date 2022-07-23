@@ -27,7 +27,9 @@ const productsController = {
         let logged = req.session.userLogged;
         let msj;
 
-        Products.findAll()
+        Products.findAll({
+            where:{status : 'A'}
+        })
         .then(productos => {
                 if (productos.length == 0) {
                     msj = 'No hemos encontrado su producto'
@@ -55,7 +57,9 @@ const productsController = {
         //     res.render('products/productDetailNew', {detalleProducto: product, logged:logged})
         // })
 
-        Products.findAll()
+        Products.findAll({
+            where:{status : 'A'}
+        })
         .then(productos=>{
             let productoSel = productos.find(producto => producto.id == idProduct);
             let otrosProductos = productos.filter(producto => (producto.weight == productoSel.weight  && producto.category == productoSel.category && producto.id != productoSel.id));
@@ -76,22 +80,44 @@ const productsController = {
         //res.send("Estoy aca?")
         res.render('products/howToBuy');
     },
+
+    // CRUD /////////////////////////////////////////////////////
    
     crearProducto: (req, res) => {
         //res.send("Estoy aca?")
         res.render('products/crearProducto');
     },
-    create: function (req, res) {
-        db.Product.create ({
-              ...req.body,
 
+
+    create: function (req, res) {
+         
+            let imagen
+		if(req.files[0] != undefined){
+			imagen = req.files[0].filename
+
+		}else{
+			imagen = 'default-image.png'
+		}
+
+        Products.create ({
+              ...req.body,
+              
+              image: imagen,
               quantity:0,
               status: 'A'
 
         })
-        res.redirect("/productos")
+        .then (product =>{
+        
+            console.log("🚀 ~ file: productsController.js ~ line 93 ~ product", product)
+            
+            res.redirect("/productos")
+        })
+        .catch(error => res.send(error))
     },
 
+
+    // create para la base de datos JSON/////////////////
 
     // create:(req,res)=> {
     //     let imagen
@@ -114,73 +140,136 @@ const productsController = {
 
 
     // },
-    editarProducto: (req, res) => {
-        let idProduct = req.params.id;
-        let producto = products.find(producto => producto.id == idProduct)
-        res.render('products/editarProducto', { productoAEditar: producto });
-    },
-    update: (req, res) => {
-        let idProduct = req.params.id;
-        //console.log("🚀 ~ file: productsController.js ~ line 65 ~ idProduct", idProduct)
-        
-        let productToEdit = products.find(producto => producto.id == idProduct)
-        //console.log("🚀 ~ file: productsController.js ~ line 66 ~ productToEdit", productToEdit)
+    // editarProducto: (req, res) => {
+    //     let idProduct = req.params.id;
+    //     let producto = products.find(producto => producto.id == idProduct)
+    //     res.render('products/editarProducto', { productoAEditar: producto });
+    // },
+    
+    editarProducto: function (req,res){   
+            let productId = req.params.id
 
-        let image
+        Products.findByPk(productId)
+        .then(Product =>{
+            
+            res.render("products/editarProducto" , {productoAEditar:Product})
+        })
+        .catch(error => res.send(error))
+
+
+    },
+
+    update: (req, res) => {
+         let idProduct = req.params.id;
+
+         let productToEdit = req.body.image
+         let imagen
         if(req.files[0] != undefined){
-            image = req.files[0].filename;
+            imagen = req.files[0].filename;
         } else {
-            image = productToEdit.imagen
+            imagen = productToEdit
         };
 
-        productToEdit = {
-			id: productToEdit.id,
-			...req.body,
-			imagen: image
-		}
+        console.log(req.body);
+        Products.update({
 
-		let newProduct = products.map(product => {			
-			if(product.id == productToEdit.id){
-				return product = {...productToEdit};
-			}
-			return product
-		})
-		fs.writeFileSync(productsFilePath, JSON.stringify(newProduct))
-		res.redirect('/productos/detalle/' + productToEdit.id) //esta no es la vista, es la url
+            ...req.body,
+            image: imagen
+
+        },
+        {
+            where:{id : idProduct}
+        })
+        .then(() => res.redirect("/productos"))
+        .catch(error => res.send(error))
 
     },
-    // productDetailNew: (req, res) => {
-    //     //res.send("Estoy aca?")
-    //     res.render('products/productDetailNew');
-    // },
 
-    // Delete - Delete one product from DB
+    // update para la base de datos JSON/////////////////
+
+    // update: (req, res) => {
+    //     let idProduct = req.params.id;
+    //     //console.log("🚀 ~ file: productsController.js ~ line 65 ~ idProduct", idProduct)
+        
+    //     let productToEdit = products.find(producto => producto.id == idProduct)
+    //     //console.log("🚀 ~ file: productsController.js ~ line 66 ~ productToEdit", productToEdit)
+
+    //     let image
+    //     if(req.files[0] != undefined){
+    //         image = req.files[0].filename;
+    //     } else {
+    //         image = productToEdit.imagen
+    //     };
+
+    //     productToEdit = {
+	// 		id: productToEdit.id,
+	// 		...req.body,
+	// 		imagen: image
+	// 	}
+
+	// 	let newProduct = products.map(product => {			
+	// 		if(product.id == productToEdit.id){
+	// 			return product = {...productToEdit};
+	// 		}
+	// 		return product
+	// 	})
+	// 	fs.writeFileSync(productsFilePath, JSON.stringify(newProduct))
+	// 	res.redirect('/productos/detalle/' + productToEdit.id) //esta no es la vista, es la url
+
+    // },
+    // // productDetailNew: (req, res) => {
+    // //     //res.send("Estoy aca?")
+    // //     res.render('products/productDetailNew');
+    // // },
+
+    // // Delete - Delete one product from DB
 	destroy : (req, res) => {
 		//obtengo el id
 		const idProduct = req.params.id;
-		//filtro el nuevo array sin el producto
-		let newList = products.filter(product => product.id != idProduct);
-
-		//cargo los nuevos datos: se pasa a formato JSON y carga el nuevo valor
-		fs.writeFileSync(productsFilePath, JSON.stringify(newList));
-        //redirecciono a productos
-		res.redirect('/productos')	
+		//filtro
+        Products.update({status: 'D'},{
+            where:{id : idProduct}
+        })
+        .then(()=>{
+           //redirecciono a productos
+		res.redirect('/productos') 
+        })
+        .catch(error => res.send(error))
+        
 	},
+
+    
+    // destroy  para la base de datos JSON/////////////////
+
+
+    // destroy : (req, res) => {
+	// 	//obtengo el id
+	// 	const idProduct = req.params.id;
+	// 	//filtro el nuevo array sin el producto
+	// 	let newList = products.filter(product => product.id != idProduct);
+
+	// 	//cargo los nuevos datos: se pasa a formato JSON y carga el nuevo valor
+	// 	fs.writeFileSync(productsFilePath, JSON.stringify(newList));
+    //     //redirecciono a productos
+	// 	res.redirect('/productos')	
+	// },
 
     buscarProducto: (req,res)=>{
         const valor = '%'+req.body.search+'%'
         let logged = req.session.userLogged;
         let msj;
 
-        Products.findAll({
-            where:{
-                [Op.or]: [
+        Products.findAll({where:{
+            [Op.and]:[
+
+                {[Op.or]: [
                     { name:     {[Op.like]: valor }},
                     { weight:   {[Op.like]: valor }},
                     { category: {[Op.like]: valor }}
-                ]
-            }
-        })
+                ]},
+                {status : 'A'}
+            ]
+        }})
         .then(productos => {
                 if (productos.length == 0) {
                     msj = 'No hemos encontrado su producto !!'
