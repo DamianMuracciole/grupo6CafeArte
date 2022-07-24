@@ -11,7 +11,6 @@ Que no hicimos bien?
 Que debemos empezar a hacer?
 - reunion antes de la entrega para verificar que todo este funcionando correctamente.
 
-
 Que debemos dejar de hacer?
 - preocuparnos
 
