@@ -22,7 +22,8 @@ const { Op } = require("sequelize");
 const userController = {
     login: (req, res) => {
         res.render("users/login")      
-    }, 
+    },
+
     findByField: function (field, text) {
         let allUsers = Users.findAll()
                     .then(listadoUsers => {
@@ -31,6 +32,7 @@ const userController = {
                 let userFound = allUsers.find(oneUser => oneUser[field] === text); 
                 return userFound;
     },
+
     loginProcess: (req, res)=>{       
         let userToLogin = {}
         Users.findOne({
@@ -38,7 +40,7 @@ const userController = {
                 email: req.body.email
             }            
         }).then((resultado) => {        
-        userToLogin = resultado        
+        userToLogin = resultado;        
         if(userToLogin){
             let isOkcontrasena = bcryptjs.compareSync(req.body.password, userToLogin.password)
             if(isOkcontrasena){
@@ -47,10 +49,8 @@ const userController = {
                 req.session.userLogged = userToLogin
 
                 if ( req.body.recordame != undefined){
-                    res.cookie ('recordame',req.body.correo,{maxAge: 60000 })
-                    
+                    res.cookie ('recordame',req.body.email,{maxAge: 10 * 60 * 1000 }) //cookie dura 10 mminutos
                 }
-
                 return res.redirect("perfil")
             } else {
                 return res.render('users/login', {
@@ -72,28 +72,25 @@ const userController = {
         }
         }).catch(err => {
             res.send(err)
-        })      
-       
-        
+        })       
     },
+
     profile: (req, res)=> {
         //console.log("userLogged en profile", req.session.userLogged);
-        return res.render("users/profile", {
-            // le pasamos la variable a la vista
-            user: req.session.userLogged
-        })
-        
-        
+        return res.render("users/profile", { user : req.session.userLogged }) // le pasamos la variable a la vista  
     },
+
     logout: (req, res)=>{
         res.clearCookie('recordame')
         req.session.destroy();
         return res.redirect("/")
     },
+
     register: (req, res) => {
         //res.send("Estoy aca")
         res.render('users/register')
     },
+
     processRegister: (req, res) => {
         const resultValidation = validationResult(req)
         console.log("🚀 ~ file: userControllers.js ~ line 110 ~ resultValidation", resultValidation)
@@ -118,8 +115,6 @@ const userController = {
                 res.send(err)
             })
         }
-
-        
     }
 };
 
