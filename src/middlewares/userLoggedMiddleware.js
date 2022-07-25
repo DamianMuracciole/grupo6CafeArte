@@ -13,9 +13,10 @@ function userLoggedMiddleware(req, res, next) {
     res.locals.isLogged = false; //res.locals la puedo compartir en todas las vistas, indistintamente del controlador
     
     let emailInCookie = req.cookies.userEmail;
-    console.log("**** emailInCookie *****", emailInCookie)
+    //console.log("**** emailInCookie *****", emailInCookie)
 
     let userFromCookie;
+    let allUsers;
 
     if (emailInCookie) {
         userFromCookie = Users.findOne({
@@ -23,20 +24,34 @@ function userLoggedMiddleware(req, res, next) {
                 email: emailInCookie
             }
         })
-        .then((result) => {return result})
-        .catch(err => res.send(err))    
+        .then((userFromCookie) => {
+            //return result
+            //console.log("*** userFromCookie DE RESULT!! ****", userFromCookie)
+            if (userFromCookie) {
+                req.session.userLogged = userFromCookie;
+                //console.log("🚀 ~ file: userLoggedMiddleware.js ~ line 32 ~ .then ~  req.session.userLogged",  req.session.userLogged)
+            }
+            
+            
+            
+        })
+            
+        .catch(err => res.send(err))        
     }
 
-    console.log("USER DE LA GALLETA!!!*****",userFromCookie);
-
-    if (userFromCookie) {
-        req.session.userLogged = userFromCookie;
-    }
-    
     if(req.session && req.session.userLogged){
         res.locals.isLogged = true;
         res.locals.userLogged = req.session.userLogged;
+        //console.log("🚀 ~ file: userLoggedMiddleware.js ~ line 38 ~ .then ~ req.session.userLogged;", req.session.userLogged)
+        //console.log("🚀 ~ file: userLoggedMiddleware.js ~ line 38 ~ .then ~ res.locals.userLogged", res.locals.userLogged)
     }
+
+    //console.log("USER DE LA GALLETA!!!*****",userFromCookie);
+    //console.log("TODOS LOS USUARIOS!!!*****",allUsers);
+
+
+
+    
 
     next();
 
