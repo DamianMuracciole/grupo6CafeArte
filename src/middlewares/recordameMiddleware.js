@@ -1,3 +1,8 @@
+//NOTA (2022-07-25) de Damian Muracciole
+//Este archivo se trató de limpiar comentarios de código ya no utilizable 
+//por cuestiones de legibilidad
+//para verlo completo referirise a la rama feature-feature-RemenberMe
+
 // const fs= require('fs');
 // const path = require ("path")
 // const usersFilePath = path.join(__dirname, '../data/users.json');
