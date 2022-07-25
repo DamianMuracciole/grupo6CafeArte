@@ -1,9 +1,10 @@
-<% destacados.forEach(oferta => { %>
+<% destacados.forEach(destacado => { %>
     <article class="card">
         
-        <a href="/productos/detalle/<%= oferta.id %> "><img src="/images/<%= oferta.imagen %>" class="ImagenPackTrio">
-            <p class="descripcion"><%= oferta.nombre %></p>
-            <p class="precio">$ <%= oferta.precio %></p>
+        <a href="/productos/detalle/<%= destacado.id %> "><img src="/images/<%= destacado.image %>" class="ImagenPackTrio">
+            <p class="descripcion"><%= destacado.name %></p>
+            <p class="descripcion"><%= destacado.weight %>  gr.</p>
+            <p class="precio">$ <%= destacado.price %></p>
         </a>
     </article>
 <% }) %>   

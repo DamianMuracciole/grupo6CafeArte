@@ -14,18 +14,29 @@
             <a href="#"><img src="/images/tomemonos-un-cafe-banner.jpg" class="imagen"></a>
         </div> 
         
+            <% if (msj) { %>
+                <div class="sin-encontrar" >
+                    <img src="/images/sinEncontrar.png">
+                    <p><%= msj %></p>
+                </div>
+            <% }else { %>
             <h3 class="titulo">Nuestros Productos</h3>
+            <% } %> 
       
             <section class="section-pr">
                 <% products.forEach(producto => { %>
                     <article class="card-products">
                         
-                        <a href="/productos/detalle/<%= producto.id %> "><img src="/images/<%= producto.imagen %>" class="ImagenProductos">
-                            <p class="descripcion-pr"><%= producto.nombre %></p>
-                            <p class="precio-pr">$ <%= producto.precio %></p>
+                        <a href="/productos/detalle/<%= producto.id %> ">
+                            <img src="/images/<%= producto.image %>" class="ImagenProductos">
+                            <p class="descripcion-pr"><%= producto.name %></p>
+                            <p class="descripcion-pr"><%= producto.weight %> gr.</p>
+                            <p class="precio-pr">$ <%= producto.price %></p>
                         </a>
+        
                     </article>
                 <% }) %>  
+
             </section>
             
             <!-- Boton para Crear un Producto -->

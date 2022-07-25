@@ -17,25 +17,25 @@
         <div class="main-form-ctn">
             <form action="/productos/crear" method="POST" enctype="multipart/form-data" class="formCyE">
                 <label for="username">Nombre del Producto</label>
-                <input type="text" name="nombre" id="nombre" placeholder="Producto" required>
+                <input type="text" name="name" id="nombre" placeholder="Producto" required>
                 <label for="peso">Peso Neto</label>
-                <input type="text" name="peso" id="peso" placeholder="Peso Neto" required>
+                <input type="text" name="weight" id="peso" placeholder="Peso Neto" required>
                 <label for="detalle">Descripción</label>
-                <textarea name="detalle" id="detalle" class='content-ctn' placeholder="Descripcion" required rows="10" cols="50"></textarea>
+                <textarea name="detail" id="detalle" class='content-ctn' placeholder="Descripcion" required rows="10" cols="50"></textarea>
                 <label for="precio">Precio</label>
-                <input type="text" name="precio" id="precio" placeholder="Precio" required>
+                <input type="text" name="price" id="precio" placeholder="Precio" required>
                 <label for="imagenes">Insertar Imagenes de tu Producto</label>
-                <input type="file"  name="imagen" id="imagen" placeholder="Insertar Imagenes de tu producto">
+                <input type="file"  name="image" id="imagen" placeholder="Insertar Imagenes de tu producto">
                 
                 <label for="categoria">Categoria</label>
-                <select name="categoria" id="categoria" required>
+                <select name="category" id="categoria" required>
                     <option value="En Granos">En granos</option>
                     <option value="Molido">Molido</option>
                     <option value="Capsulas">En capsulas</option>
                 </select>
                 
                 <label for="sesion">Sesion</label>
-                <select name="sesion" id="sesion" required>
+                <select name="session" id="sesion" required>
                     <option value="normal">Normal</option>
                     <option value="Destacado">Destacado</option>
                     <option value="oferta">Oferta</option>

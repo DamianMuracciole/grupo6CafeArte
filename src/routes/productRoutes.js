@@ -30,8 +30,10 @@ router.get('/', productsController.index )
 //router.get('/:id', productsController.productoByID)
 
 // Crear un producto
-router.get ('/crear', authMiddleware ,productsController.crearProducto)
+// router.get ('/crear', authMiddleware ,productsController.crearProducto)
+router.get ('/crear',productsController.crearProducto)
 router.post('/crear',upload.any(),productsController.create)
+// router.post('/crear',productsController.create)
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/detalle/:id/', productsController.productDetail)
@@ -39,11 +41,14 @@ router.get('/detalle/:id/', productsController.productDetail)
 
 /*** EDIT ONE PRODUCT ***/ 
 // no es una mala practica repetir las rutas de get y put, como aca
-router.get('/editar/:id', authMiddleware ,productsController.editarProducto)
+// router.get('/editar/:id', authMiddleware ,productsController.editarProducto)
+router.get('/editar/:id',productsController.editarProducto)
 router.put('/editar/:id', upload.any(), productsController.update); 
 
 // Borrar un producto
 router.delete('/borrar/:id', authMiddleware, productsController.destroy);
+
+router.post('/buscar:search?',productsController.buscarProducto);
 
 
 module.exports = router;
