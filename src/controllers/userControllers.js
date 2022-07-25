@@ -1,8 +1,10 @@
 const fs = require("fs");
-const path = require ("path")
+const path = require("path")
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
-const db = require('../database/models')
+const db = require('../database/models/index');
+const User = require("../database/models/User");
+const sequelize = db.sequelize
 const Users = db.User;
 const { Op } = require("sequelize");
 
@@ -22,7 +24,8 @@ const { Op } = require("sequelize");
 const userController = {
     login: (req, res) => {
         res.render("users/login")      
-    }, 
+    },
+
     findByField: function (field, text) {
         let allUsers = Users.findAll()
                     .then(listadoUsers => {
@@ -31,6 +34,7 @@ const userController = {
                 let userFound = allUsers.find(oneUser => oneUser[field] === text); 
                 return userFound;
     },
+
     loginProcess: (req, res)=>{       
         let userToLogin = {}
         Users.findOne({
@@ -38,7 +42,7 @@ const userController = {
                 email: req.body.email
             }            
         }).then((resultado) => {        
-        userToLogin = resultado        
+        userToLogin = resultado;        
         if(userToLogin){
             let isOkcontrasena = bcryptjs.compareSync(req.body.password, userToLogin.password)
             if(isOkcontrasena){
@@ -47,80 +51,80 @@ const userController = {
                 req.session.userLogged = userToLogin
 
                 if ( req.body.recordame != undefined){
-                    res.cookie ('recordame',req.body.correo,{maxAge: 60000 })
-                    
+                    res.cookie ('recordame',req.body.email,{maxAge: 1 * 60 * 1000 }) //cookie dura 1 mminuto
                 }
-
                 return res.redirect("perfil")
             } else {
                 return res.render('users/login', {
                     errors: {
-                        correo: {
+                        email: {
                             msg: "Debes ingresar los datos correctamente"
                         }
                     }
                 })
             }
-        } else {
-            return res.render('users/login', {
-                errors: {
-                    correo: {
-                        msg: "Debes ingresar los datos correctamente"
-                    }
-                }
-            })
-        }
-        }).catch(err => {
+        }}).catch(err => {
             res.send(err)
-        })      
-       
-        
+        })       
     },
+
     profile: (req, res)=> {
         //console.log("userLogged en profile", req.session.userLogged);
-        return res.render("users/profile", {
-            // le pasamos la variable a la vista
-            user: req.session.userLogged
-        })
-        
-        
+        return res.render("users/profile", { user : req.session.userLogged }) // le pasamos la variable a la vista  
     },
+
     logout: (req, res)=>{
         res.clearCookie('recordame')
         req.session.destroy();
         return res.redirect("/")
     },
+
     register: (req, res) => {
         //res.send("Estoy aca")
         res.render('users/register')
     },
+
     processRegister: (req, res) => {
         const resultValidation = validationResult(req)
-        console.log("🚀 ~ file: userControllers.js ~ line 110 ~ resultValidation", resultValidation)
-       
-        if(resultValidation.errors.length > 0) {
+        
+        if (resultValidation.errors.length > 0) {
             res.render('users/register', {
                 errors: resultValidation.mapped(),
-                oldData: req.body            
-            });   
-        } else {
-            console.log("🚀 ~ file: userControllers.js ~ line 140 ~ body", req.body)
-        
+                oldData: req.body
+            });
+        } else {          
             Users.create({
-                ...req.body,
-                password: bcryptjs.hashSync(req.body.password, 10), //como estoy en un objeto, esta contrasena va a pisar a la que viene en el body
-                confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
-                image: req.file.filename,
-                status: "A"
+                    ...req.body,
+                    password: bcryptjs.hashSync(req.body.password, 10), //como estoy en un objeto, esta contrasena va a pisar a la que viene en el body
+                    confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
+                    image: req.file.filename,
+                    status: "A"
+                })
+                .then(() => res.redirect('/usuarios/login'))
+                .catch(err => {
+                    res.send(err)
+                })
+        }
+    },
+
+    edit: function(req,res){
+        const id = req.params.id
+        // Users.findByPk(id,{
+        //     include: [{association: "rols"}]
+        // })
+        // .then( user => res.render("users/edit", {user}))
+        let pedidoUsuario = Users.findByPk(id);
+        let pedidoRoles = Rols.findAll();
+
+        Promise.all([pedidoUsuario, pedidoRoles])
+            .then(([user, rol]) => {
+                res.render("users/edit", {user:user, rol:rol})
             })
-            .then(() => res.redirect('/usuarios/login'))
             .catch(err => {
                 res.send(err)
             })
         }
-
-        
     }
-};
+;
 
 module.exports = userController;
