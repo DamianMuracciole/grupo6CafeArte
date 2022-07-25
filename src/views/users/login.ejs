@@ -25,9 +25,14 @@
             <label for="password" class="pass">Contraseña</label>
             <input type="password" name="password" id="password" placeholder="Contraseña">
             <div class="rememberMe">
-                <input type="checkbox" name="recordame" class="check">
-                <span>Recordame</span>
-            </div>
+                <% if (locals.errors && errors.user) { %>
+                    <div class="text-danger">
+                        <%= errors.user.msg %> 
+                    </div>
+                    <% } %>
+                    <input type="checkbox" name="recordame" class="check">
+                    <span>Recordame</span>
+                </div>
             <div class="butonLogin">
                 <button class="button-form-create">Ingresar</button>
             </div>

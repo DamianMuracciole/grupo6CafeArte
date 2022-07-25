@@ -15,8 +15,8 @@
     <main>
         <div class="login">
             <div class="form-principal">
-                <form action="/usuarios/registro" method="post" class="create-user" enctype="multipart/form-data">
-                    <h2 class="registro">Detalle de Usuario</h2>
+                <form action="/usuarios/edit/<%= user.id %> " method="post" class="create-user" enctype="multipart/form-data">
+                    <h2 class="registro">Editar Usuario</h2>
                   
                     <div class="control-form">
                         <label for="first_name">Nombre</label> 
@@ -26,82 +26,81 @@
                             class="control <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
                             placeholder="Nombre"
                             value="<%= user.first_name  %>"> 
-                        <% if (locals.errors && errors.first_name) { %>
-                            <div class="text-danger">
-                                <%= errors.first_name.msg %> 
-                            </div>                         
-                        <% } %>
+                        
                     </div>
                     <div class="control-form">
                         <label for="last_name">Apellido</label> 
                         <input type="text" name="last_name" class="control" placeholder="Apellido" 
                         value="<%= user.last_name  %>">  
-                        <% if (locals.errors && errors.last_name) { %>
-                            <div class="text-danger">
-                                <%= errors.last_name.msg %> 
-                            </div>                         
-                        <% } %> 
+                        
                     </div>
                     <div class="control-form">
                         <label for="username">Nombre de Usuari@</label> 
                         <input type="text" name="username" class="control" placeholder="Nombre de Usuario" 
                         value="<%= user.username  %>">
-                        <% if (locals.errors && errors.username) { %>
-                            <div class="text-danger">
-                                <%= errors.username.msg %> 
-                            </div>                         
-                        <% } %>    
+                           
                     </div>
                     <div class="control-form">
                         <label for="email">Correo electronico</label> 
                         <input type="email" name="email" class="control" placeholder="nombre@correo.com" 
                         value="<%= user.email  %>">
-                        <% if (locals.errors && errors.email) { %>
-                            <div class="text-danger">
-                                <%= errors.email.msg %> 
-                            </div>                         
-                        <% } %>    
+                           
                     </div>
                     <div class="control-form">
                         <label for="birth_date">Fecha de Nacimiento</label> 
                         <input type="date" name="birth_date" class="control" placeholder="dd/mm/yyyy" 
                         value="<%= user.birth_date  %>">
-                        <% if (locals.errors && errors.birth_date) { %>
-                            <div class="text-danger">
-                                <%= errors.birth_date.msg %> 
-                            </div>                         
-                        <% } %> 
+                        
                     </div>
 
                     <div class="control-form">
 						<label for="image">Selecciona tu imagen de Perfil</label>
-						<input type="file" name="image" id="image" class="control">
-                        <% if (locals.errors && errors.image) { %>
-                            <div class="text-danger">
-                                <%= errors.image.msg %> 
-                            </div>                         
-                        <% } %> 
+						<input type="file" name="image" id="image" class="control"
+                        value="<%= user.image %>">
+                        
+                        
 					</div>
-                   
-                    <!-- Contraseña -->
-                    <div class="control-form">
+
+                     <!-- Contraseña -->
+                     <div class="control-form">
                         <label for="password">Contraseña</label> 
-                        <input type="password" name="password" placeholder="Contraseña" class="control">
-                        <% if (locals.errors && errors.password) { %>
-                            <div class="text-danger">
-                                <%= errors.password.msg %> 
-                            </div>                         
-                        <% } %>    
+                        <input type="password" name="password" placeholder="Contraseña" class="control"
+                        value="<%= user.password %>">
+                          
                     </div>
                     
                     <div class="control-form">
                         <label for="confirm_password">Confirmar Contraseña</label> 
-                        <input type="password" name="confirm_password" placeholder="Confirme la Contraseña" class="control">
-                        <% if (locals.errors && errors.confirm_password) { %>
-                            <div class="text-danger">
-                                <%= errors.confirm_password.msg %> 
-                            </div>                         
-                        <% } %>  
+                        <input type="password" name="confirm_password" placeholder="Confirme la Contraseña" class="control"
+                        value="<%= user.confirm_password %>">
+                        
+                    </div>
+
+                    <div class="control-form">
+                        <label for="status">Status</label> 
+                        <input type="text" name="status" class="control" placeholder="Status" 
+                        value="<%= user.status  %>">
+                           
+                    </div>
+                   
+                    <div class="control-form">
+                        <label for="rol">Rol</label> 
+                        <select name="rol" >
+                            <% rol.forEach(role => { %>                                
+                                <% if (role.id == user.rols_id) { %>
+                                    <option value="<%= role.id  %>" selected>
+                                        <%= role.rol_name  %>
+                                    </option>
+                                     
+                                     <% } else { %>
+                                        <option value="<%= role.id  %>">
+                                            <%= role.rol_name  %>
+                                        </option>
+                                        <% } %>                             
+                            <% }) %>
+                        </select>
+
+                           
                     </div>
                     <div class="control-form-buton">
                         <button type="submit" class="button-form-create">Guardar Usuario</button>
