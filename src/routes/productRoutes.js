@@ -30,8 +30,8 @@ router.get('/', productsController.index )
 //router.get('/:id', productsController.productoByID)
 
 // Crear un producto
-// router.get ('/crear', authMiddleware ,productsController.crearProducto)
-router.get ('/crear',productsController.crearProducto)
+router.get ('/crear', authMiddleware ,productsController.crearProducto)
+// router.get ('/crear',productsController.crearProducto)
 router.post('/crear',upload.any(),productsController.create)
 // router.post('/crear',productsController.create)
 
