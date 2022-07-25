@@ -1,5 +1,5 @@
-const fs = require("fs");
-const path = require ("path")
+//const fs = require("fs");
+//const path = require ("path")
 
 //hago el requerimiento de la base de datos
 const db = require('../database/models/index');
@@ -14,16 +14,17 @@ const Products = db.Product
 
 
 const mainController = {
+    //Muestra productos destacados de la pagina de inicio
     index:(req, res) => {
         Products.findAll()
         .then(products =>{
             const enOferta = products.filter( producto => producto.session == "oferta" )
             const destacados = products.filter( producto => producto.session == "destacado" )
-            const normal = products.filter( producto => producto.session == "normal" )
-
-            res.render('main/index', {products, enOferta, destacados, normal});
+            //const normal = products.filter( producto => producto.session == "normal")
+            res.render('main/index', {enOferta, destacados});
         })
     },
+    //Va a la vista de contactenos
     contactenos: (req, res) => {
         res.render('main/contactenos')
     }

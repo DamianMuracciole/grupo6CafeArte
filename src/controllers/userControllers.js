@@ -49,7 +49,7 @@ const userController = {
                 req.session.userLogged = userToLogin
 
                 if ( req.body.recordame != undefined){
-                    res.cookie ('recordame',req.body.email,{maxAge: 10 * 60 * 1000 }) //cookie dura 10 mminutos
+                    res.cookie ('recordame',req.body.email,{maxAge: 1 * 60 * 1000 }) //cookie dura 1 mminuto
                 }
                 return res.redirect("perfil")
             } else {

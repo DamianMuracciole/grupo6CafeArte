@@ -14,7 +14,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const productsController = {
     //Listado de todos los productos habilitados
-    index: (req,res)=> {
+    index: (req,res) => {
         let logged = req.session.userLogged;
         let msj;
 
@@ -30,7 +30,7 @@ const productsController = {
         .catch(error => res.send(error))
     },
     //Buscador de un pruducto
-    buscarProducto: (req,res)=>{
+    buscarProducto: (req,res) => {
         const valor = '%'+req.body.search+'%'
         let logged = req.session.userLogged;
         let msj;
@@ -82,7 +82,7 @@ const productsController = {
         res.render('products/crearProducto');
     },
     //CArga del producto nuevo en la DB
-    create: function (req, res) {
+    create: (req, res) => {
         let imagen;
         //condiciones para la carga de la imagen
 		if(req.files[0] != undefined){
@@ -103,7 +103,7 @@ const productsController = {
         .catch(error => res.send(error))
     },
     //Vista de la edicion de un pruducto
-    editarProducto: function (req,res){   
+    editarProducto: (req,res) => {   
         let productId = req.params.id;
 
         Products.findByPk(productId)
@@ -150,6 +150,5 @@ const productsController = {
         .catch(error => res.send(error))
 	}    
 };
-
 
 module.exports = productsController;

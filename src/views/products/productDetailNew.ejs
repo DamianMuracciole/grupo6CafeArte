@@ -38,7 +38,7 @@
         
 
         <!-- Boton para Editar un Producto -->
-        <% //if (logged) { %>
+        <%if (logged) { %>
             <div class="botonesEditarProducto">
                 <!-- Boton para Borrar un Producto -->
                 <form action="/productos/borrar/<%= detalleProducto.id %>?_method=DELETE" method="post"> 
@@ -49,7 +49,7 @@
                 <button type="submit" class="submit-lgn-mc">Editar producto </button>
                 </a> 
             </div>
-        <%// } %>
+        <%} %>
                     
     </div>
         <div class="dp-contenedor1">

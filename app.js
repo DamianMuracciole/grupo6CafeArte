@@ -5,6 +5,7 @@ const methodOverride =  require('method-override'); // Pasar poder usar los mét
 const session = require("express-session");
 const cookieParser = require('cookie-parser');
 const recordameMiddleware = require('./src/middlewares/recordameMiddleware');
+const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
 
 // middleware de aplicacion con session
 app.use(session({
@@ -15,11 +16,10 @@ app.use(session({
 // middleware de barra de navegación
 
 app.use(cookieParser());
+
 app.use(recordameMiddleware);
 
-const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware")
-app.use(userLoggedMiddleware)
-
+app.use(userLoggedMiddleware);
 
 //  const recordameMiddleware = require('./src/middlewares/recordameMiddleware');
 //  app.use(recordameMiddleware);
@@ -36,10 +36,8 @@ app.set('views', path.resolve(__dirname, './src/views'));
 const rutasMain = require('./src/routes/mainRoutes')
 const rutasProductos = require('./src/routes/productRoutes.js')
 const rutasUsers = require('./src/routes/userRoutes');
+const { cookie } = require('express-validator');
 // const { cookie } = require('express-validator');
-
-
-
 
 
 
