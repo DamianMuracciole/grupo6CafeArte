@@ -4,7 +4,14 @@ const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 const db = require('../database/models')
 const Users = db.User;
-//const { Op } = require("sequelize");
+const { Op } = require("sequelize");
+
+//hago el requerimiento de la base de datos
+// const DB = require('../database/models/index');
+// const user = DB.User
+// const sequelize = db.sequelize;
+// const Op = db.Sequelize.Op;
+
 
 // Me traigo el json que tiene la data de users y lo parseo
 // const usersFilePath = path.join(__dirname, '../data/users.json');
@@ -12,7 +19,7 @@ const Users = db.User;
 // const { localsName } = require('ejs');
 // const { send } = require("process");
 
-const userController = { 
+const userController = {
     login: (req, res) => {
         res.render("users/login")      
     }, 
@@ -24,7 +31,7 @@ const userController = {
                 let userFound = allUsers.find(oneUser => oneUser[field] === text); 
                 return userFound;
     },
-    loginProcess: (req, res)=>{        
+    loginProcess: (req, res)=>{       
         let userToLogin = {}
         Users.findOne({
             where: {
@@ -38,9 +45,10 @@ const userController = {
                 // si esta todo bien, quiero guardar el usuario en sesion, borrando la contraseña
                 delete userToLogin.contrasena;
                 req.session.userLogged = userToLogin
-                
+
                 if ( req.body.recordame != undefined){
-                    res.cookie ('recordame',req.body.correo,{maxAge: 60000 * 10})                    
+                    res.cookie ('recordame',req.body.correo,{maxAge: 60000 })
+                    
                 }
 
                 return res.redirect("perfil")
@@ -85,7 +93,7 @@ const userController = {
     register: (req, res) => {
         //res.send("Estoy aca")
         res.render('users/register')
-    },    
+    },
     processRegister: (req, res) => {
         const resultValidation = validationResult(req)
         console.log("🚀 ~ file: userControllers.js ~ line 110 ~ resultValidation", resultValidation)
