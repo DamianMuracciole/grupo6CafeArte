@@ -45,10 +45,10 @@ router.post('/registro',uploadFile.single('image'),registerValidations, userCont
 //ruta de edit
 router.get('/edit/:id', userController.edit)
 
-router.post('/edit/:id', editUserValidation, uploadFile.single('image'), userController.actualizar)
+//router.post('/edit/:id', editUserValidation, uploadFile.single('image'), userController.actualizar)
 
 //ruta de detalle
 
-router.get('/detalle/:id', authMiddleware ,userController.detalle)
+//router.get('/detalle/:id', authMiddleware ,userController.detalle)
 
 module.exports = router;
