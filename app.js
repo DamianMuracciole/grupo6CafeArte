@@ -16,11 +16,10 @@ app.use(session({
 
 app.use(cookieParser());
 
+app.use(userLoggedMiddleware);
 app.use(recordameMiddleware);
 
-app.use(userLoggedMiddleware);
 
-//  app.use(recordameMiddleware);
 
 // Template Engine EJS
 app.set('view engine', 'ejs')

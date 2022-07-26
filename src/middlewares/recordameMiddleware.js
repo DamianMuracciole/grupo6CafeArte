@@ -11,18 +11,22 @@ const sequelize = db.sequelize
 const Users = db.User;
 
 
-function recordameMiddleware (req, res, next){
+async function recordameMiddleware (req, res, next){
     
-    if (req.cookies.recordame != undefined && req.session.userToLogin == undefined ){
+    if (req.cookies.userEmail != undefined && req.session.userToLogin == undefined ){
 
-        Users.findOne({
+       const user = await Users.findOne({
             where: {
-                email: req.cookies.recordame
+                email: req.cookies.userEmail
             }            
-        }).then((user) => {
-            req.session.userLogged = user;
         })
+     
+            req.session.userLogged = user;
+            res.locals.isLogged = true;
+            res.locals.userLogged = req.session.userLogged;
+        
     }
+   
     next();
 }
 
