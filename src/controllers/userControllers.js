@@ -6,54 +6,46 @@ const db = require('../database/models/index');
 const User = require("../database/models/User");
 const sequelize = db.sequelize
 const Users = db.User;
-const { Op } = require("sequelize");
-
-//hago el requerimiento de la base de datos
-// const DB = require('../database/models/index');
-// const user = DB.User
-// const sequelize = db.sequelize;
-// const Op = db.Sequelize.Op;
-
-
-// Me traigo el json que tiene la data de users y lo parseo
-// const usersFilePath = path.join(__dirname, '../data/users.json');
-// const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-// const { localsName } = require('ejs');
-// const { send } = require("process");
+const Rols = db.Rol;
+//const { Op } = require("sequelize");
 
 const userController = {
+    
     login: (req, res) => {
-        res.render("users/login")      
-    },
-
-    findByField: function (field, text) {
-        let allUsers = Users.findAll()
-                    .then(listadoUsers => {
-                        console.log(listadoUsers);
-                    })
-                let userFound = allUsers.find(oneUser => oneUser[field] === text); 
-                return userFound;
-    },
-
-    loginProcess: (req, res)=>{       
-        let userToLogin = {}
+        res.render("users/login")
+        
+    },    
+    loginProcess: (req, res) => {
+        // let userToLogin = {}
         Users.findOne({
             where: {
                 email: req.body.email
-            }            
-        }).then((resultado) => {        
-        userToLogin = resultado;        
-        if(userToLogin){
-            let isOkcontrasena = bcryptjs.compareSync(req.body.password, userToLogin.password)
-            if(isOkcontrasena){
-                // si esta todo bien, quiero guardar el usuario en sesion, borrando la contraseña
-                delete userToLogin.contrasena;
-                req.session.userLogged = userToLogin
-
-                if ( req.body.recordame != undefined){
-                    res.cookie ('recordame',req.body.email,{maxAge: 1 * 60 * 1000 }) //cookie dura 1 mminuto
+            }
+        }).then((resultado) => {
+            userToLogin = resultado
+            if (userToLogin) {
+                let isOkcontrasena = bcryptjs.compareSync(req.body.password, userToLogin.password)
+                if (isOkcontrasena) {
+                    // si esta todo bien, quiero guardar el usuario en sesion, borrando la contraseña
+                    delete userToLogin.password;
+                    req.session.userLogged = userToLogin
+                    // en sesion tengo una propiedad llamada userLogged, que tiene toda la info de userToLogin 
+                    if (req.body.recordame) {
+                        res.cookie('userEmail', req.body.email, {
+                            maxAge: (1000 * 60) * 2 //dos minutos, un minuto por dos
+                        })
+                    }
+                    
+                    return res.redirect("/usuarios/perfil")
+                } else {
+                    return res.render('users/login', {
+                        errors: {
+                            user: {
+                                msg: "Debes ingresar los datos correctamente"
+                            }
+                        }
+                    })
                 }
-                return res.redirect("perfil")
             } else {
                 return res.render('users/login', {
                     errors: {
@@ -63,27 +55,23 @@ const userController = {
                     }
                 })
             }
-        }}).catch(err => {
+        }).catch(err => {
             res.send(err)
-        })       
+        })
     },
-
-    profile: (req, res)=> {
-        //console.log("userLogged en profile", req.session.userLogged);
-        return res.render("users/profile", { user : req.session.userLogged }) // le pasamos la variable a la vista  
+    profile: (req, res) => {
+        res.render("users/profile", {
+            user:req.session.userLogged
+        });
     },
-
-    logout: (req, res)=>{
-        res.clearCookie('recordame')
+    logout: (req, res) => {
+        res.clearCookie('userEmail')
         req.session.destroy();
         return res.redirect("/")
     },
-
-    register: (req, res) => {
-        //res.send("Estoy aca")
+    register: (req, res) => {        
         res.render('users/register')
     },
-
     processRegister: (req, res) => {
         const resultValidation = validationResult(req)
         
@@ -99,6 +87,8 @@ const userController = {
                     confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
                     image: req.file.filename,
                     status: "A"
+                  
+
                 })
                 .then(() => res.redirect('/usuarios/login'))
                 .catch(err => {
@@ -123,14 +113,40 @@ const userController = {
             .catch(err => {
                 res.send(err)
             })
+
+    },
+    actualizar: (req, res) => {
+        // Chequear si en la edicion se pone una imagen nueva o el campo viene vacio
+        let finalImage;
+        if (!req.file) {            
+            finalImage = req.session.userLogged.image            
+        } else {
+            finalImage = req.file.filename
         }
-    }
+        
+        Users.update({
+            ...req.body,
+            image: finalImage,
+            rols_id: req.body.rol
+        }, {
+            where: {
+                id: req.params.id
+            }
+        })
+        .then(() => res.redirect('/usuarios/detalle/' + req.params.id))
+        .catch(err => res.render(err))
+    },
+    detalle: function(req,res){
+        const id = req.params.id
+        Users.findByPk(id, {
+            include: [{association: "rols"}]
+        })
+        .then( user => res.render("users/details", {user}))
+        .catch(err => {
+            res.send(err)
+        })
+    },
 
-
-
-
-
-    
-;
+};
 
 module.exports = userController;
