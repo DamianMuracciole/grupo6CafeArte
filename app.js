@@ -20,7 +20,6 @@ app.use(recordameMiddleware);
 
 app.use(userLoggedMiddleware);
 
-//  app.use(recordameMiddleware);
 
 // Template Engine EJS
 app.set('view engine', 'ejs')
