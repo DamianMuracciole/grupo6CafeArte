@@ -32,7 +32,7 @@ const userController = {
                     // en sesion tengo una propiedad llamada userLogged, que tiene toda la info de userToLogin 
                     if (req.body.recordame) {
                         res.cookie('userEmail', req.body.email, {
-                            maxAge: (1000 * 60) * 2 //dos minutos, un minuto por dos
+                            maxAge: (1000 * 60) * 120 //ciento veinte minutos, un minuto por 120, 2 horas
                         })
                     }
                     

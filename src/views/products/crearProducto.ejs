@@ -16,30 +16,106 @@
         </div>
         <div class="main-form-ctn">
             <form action="/productos/crear" method="POST" enctype="multipart/form-data" class="formCyE">
+                
                 <label for="username">Nombre del Producto</label>
-                <input type="text" name="name" id="nombre" placeholder="Producto" required>
+                <input type="text" name="name" id="nombre"
+                        placeholder="Nombre del Producto"
+                        class="control"
+                        value="<%= locals.oldData ? oldData.name : null  %>"> 
+                            <% if (locals.errors && errors.name) { %>
+                                <div class="text-danger">
+                                    <%= errors.name.msg %> 
+                                </div>                         
+                            <% } %>
+                                      
+
                 <label for="peso">Peso Neto</label>
-                <input type="text" name="weight" id="peso" placeholder="Peso Neto" required>
-                <label for="detalle">Descripción</label>
-                <textarea name="detail" id="detalle" class='content-ctn' placeholder="Descripcion" required rows="10" cols="50"></textarea>
+                <input type="number" name="weight" id="peso" placeholder="Peso Neto" value="<%= locals.oldData ? oldData.weight : null  %>"> 
+                    <% if (locals.errors && errors.weight) { %>
+                        <div class="text-danger">
+                            <%= errors.weight.msg %> 
+                        </div>                         
+                    <% } %>
+                
+                <div>
+                    <label for="detalle">Descripción</label>
+                    <textarea name="detail" id="detalle" class='content-ctn' placeholder="Descripcion" rows="10" cols="50"><%= locals.oldData ? oldData.detail : null  %></textarea>
+                        <% if (locals.errors && errors.detail) { %>
+                            <div class="text-danger">
+                                <%= errors.detail.msg %> 
+                            </div>                         
+                        <% } %>     
+                </div>
+
                 <label for="precio">Precio</label>
-                <input type="text" name="price" id="precio" placeholder="Precio" required>
+                <input type="number" name="price" id="precio" placeholder="Precio"
+                        value="<%= locals.oldData ? oldData.price : null  %>"> 
+                                    <% if (locals.errors && errors.price) { %>
+                                        <div class="text-danger">
+                                            <%= errors.price.msg %> 
+                                        </div>                         
+                                    <% } %>
+
+                <label for="cantidad">Cantidad</label>
+                <input type="number" name="quantity" id="cantidad" placeholder="Cantidad"
+                        value="<%= locals.oldData ? oldData.quantity : null  %>"> 
+                            <% if (locals.errors && errors.quantity) { %>
+                                <div class="text-danger">
+                                    <%= errors.quantity.msg %> 
+                                </div>                         
+                            <% } %>
+                
+            <div>
                 <label for="imagenes">Insertar Imagenes de tu Producto</label>
-                <input type="file"  name="image" id="imagen" placeholder="Insertar Imagenes de tu producto">
+                <input type="file" name="image" id="imagen" placeholder="Insertar Imagenes de tu producto">
+                <% if (locals.errors && errors.image) { %>
+                    <div class="text-danger">
+                        <%= errors.image.msg %> 
+                    </div>                         
+                <% } %>
+            </div>
                 
                 <label for="categoria">Categoria</label>
-                <select name="category" id="categoria" required>
-                    <option value="En Granos">En granos</option>
-                    <option value="Molido">Molido</option>
-                    <option value="Capsulas">En capsulas</option>
-                </select>
+                <select name="category" id="categoria">
+                    <option value="">Elegí una Categoria</option>
+                    <%  
+						let categorias = ['En Granos', 'Molido', 'Capsulas'];
+					%>
+						<% for (const categoria of categorias) { %>
+						<option 
+							value="<%= categoria %>"
+							<%= locals.oldData && (categoria === oldData.category) ? 'selected' : null %>>
+							<%= categoria %>
+                        </option>
+						<% } %>
+				</select>
+						<% if (locals.errors && errors.category) { %>
+							<div class="text-danger">
+								<%= errors.category.msg %>
+							</div>
+						<% } %>                    
+                
                 
                 <label for="sesion">Sesion</label>
-                <select name="session" id="sesion" required>
-                    <option value="normal">Normal</option>
-                    <option value="Destacado">Destacado</option>
-                    <option value="oferta">Oferta</option>
+                <select name="session" id="sesion">
+                    <option value="">Elegí una Sesión</option>
+                    <%  
+						let sesiones = ['Normal', 'Destacado', 'Oferta'];
+					%>
+						<% for (const sesion of sesiones) { %>
+						<option 
+							value="<%= sesion %>"
+							<%= locals.oldData && (sesion === oldData.session) ? 'selected' : null %>>
+							<%= sesion %>
+                        </option>
+						<% } %>                   
                 </select>
+                        <% if (locals.errors && errors.session) { %>
+                            <div class="text-danger">
+                                <%= errors.session.msg %>
+                            </div>
+                        <% } %>   
+
                 <div class="submit-compra-mc">
                     <button class="submit-lgn-mc">Aceptar</button>
                 </div>

@@ -23,10 +23,10 @@
                         <% } %>
                     <% } %> -->
                     <div class="control-form">
-                        <label for="first_name">Nombre</label> 
+                        <label for="first_name">Nombre</label>
                         <input 
-                            type="text" 
-                            name="first_name" 
+                            type="text"
+                            name="first_name"
                             class="control <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
                             placeholder="Nombre"
                             value="<%= locals.oldData ? oldData.first_name : null  %>"> 
@@ -75,7 +75,7 @@
 
                     <div class="control-form">
 						<label for="image">Selecciona tu imagen de Perfil</label>
-						<input type="file" name="image" id="image" class="control" aceept="image/*">
+						<input type="file" name="image" id="image" class="control">
                         <% if (locals.errors && errors.image) { %>
                             <div class="text-danger">
                                 <%= errors.image.msg %> 

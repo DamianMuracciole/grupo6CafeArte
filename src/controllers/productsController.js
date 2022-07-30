@@ -8,6 +8,7 @@ const db = require('../database/models/index');
 const Products = db.Product
 const sequelize = db.sequelize;
 const Op = db.Sequelize.Op;
+const { validationResult } = require('express-validator');
 
 // Agrega los puntos a los numeros que sean 1000
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -83,24 +84,33 @@ const productsController = {
     },
     //CArga del producto nuevo en la DB
     create: (req, res) => {
-        let imagen;
-        //condiciones para la carga de la imagen
-		if(req.files[0] != undefined){
-			imagen = req.files[0].filename;
-		}else{
-			imagen = 'default-image.png';
-		}
-        //crea el producto en la DB
-        Products.create ({
-              ...req.body,
-              image: imagen,
-              quantity:0,
-              status: 'A'
-        })
-        .then (product =>{
-            res.redirect("/productos")
-        })
-        .catch(error => res.send(error))
+        const resultValidation = validationResult(req)        
+
+        if (resultValidation.errors.length > 0) {
+            res.render('products/crearProducto', {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            });
+        } else {
+            let imagen;
+            //condiciones para la carga de la imagen
+            if(req.file.filename){
+                imagen = req.file.filename;
+            }else{
+                imagen = 'default-image.png';
+            }
+            //crea el producto en la DB
+            Products.create ({
+                  ...req.body,
+                  image: imagen,
+                  status: 'A'
+            })
+            .then (product =>{
+                res.redirect("/productos")
+            })
+            .catch(error => res.send(error))
+        }
+        
     },
     //Vista de la edicion de un pruducto
     editarProducto: (req,res) => {   
