@@ -29,6 +29,17 @@
 	color: white;
 }
 
+.is-valid {
+	color: #198754;
+	border: solid 3px #198754
+  }
+  
+  .is-invalid {
+	color: #842029;
+	border: solid 3px #842029
+	
+  }
+
 /*-----   HEADER   -----*/
 header{
     font-family: "poppins";
