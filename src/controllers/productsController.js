@@ -32,16 +32,20 @@ const productsController = {
     },
     //Buscador de un pruducto
     buscarProducto: (req,res) => {
-        const valor = '%'+req.body.search+'%'
+        const valor = '%' + req.body.search.toLowerCase() + '%'
         let logged = req.session.userLogged;
         let msj;
 
-        Products.findAll({where:{
+        Products.findAll({
+            where:{
             [Op.and]:[
                 {[Op.or]: [
-                    { name:     {[Op.like]: valor }},
-                    { weight:   {[Op.like]: valor }},
-                    { category: {[Op.like]: valor }}
+                    sequelize.where(sequelize.fn('LOWER', sequelize.col("name")), "LIKE", valor),
+                    sequelize.where(sequelize.fn('LOWER', sequelize.col("weight")), "LIKE", valor),
+                    sequelize.where(sequelize.fn('LOWER', sequelize.col("category")), "LIKE", valor),
+                    // { name:   {[Op.like]: valor }},
+                    // { weight:   {[Op.like]: valor }},
+                    // { category: {[Op.like]: valor }}
                 ]},
                 {status : 'A'}
             ]
