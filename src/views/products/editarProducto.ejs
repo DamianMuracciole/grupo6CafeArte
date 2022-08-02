@@ -43,8 +43,7 @@
 
                 <label for="detalle">Descripción</label>
                 <textarea name="detail" id="detalle" class='content-ctn' 
-                placeholder="Detalle" rows="10" cols="50">
-                <%= productoAEditar.detail %> </textarea>
+                placeholder="Detalle" rows="10" cols="50"> <%= productoAEditar.detail %></textarea>
                 <p id="errorDetalle"></p>
                     <% if (locals.errors && errors.detail) { %>
                         <div class="text-danger">
