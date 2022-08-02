@@ -1270,3 +1270,8 @@ color: black;
 .formCyE button{
 	margin: 30px 0px;
 }
+
+/*----------error de las validaciones -------*/
+ .error {
+	color: red
+}

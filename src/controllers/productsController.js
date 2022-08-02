@@ -122,32 +122,51 @@ const productsController = {
 
         Products.findByPk(productId)
         .then(Product =>{        
-            res.render("products/editarProducto" , {productoAEditar:Product})
+            res.render("products/editarProducto" , {
+                productoAEditar:Product
+      
+            })
         })
         .catch(error => res.send(error))
     },
     //actualización del producto en la DB
     update: (req, res) => {
-        let idProduct = req.params.id;
-        let productToEdit = req.body.image;
-        let imagen;
-
-        if(req.files[0] != undefined){
-            imagen = req.files[0].filename;
+        let errores = validationResult(req)
+        let finalImage;
+        if (!req.file) {            
+            finalImage = req.session.userLogged.image            
         } else {
-            imagen = productToEdit;
-        };
+            finalImage = req.file.filename
+        }
 
-        console.log(req.body);
-        Products.update({
-            ...req.body,
-            image: imagen
-        },
-        {
-            where:{id : idProduct}
-        })
-        .then(() => res.redirect("/productos"))
-        .catch(error => res.send(error))
+        if (errores.isEmpty()) {
+            let idProduct = req.params.id;
+    
+            Products.update({
+                ...req.body,
+                image: finalImage
+            },
+            {
+                where:{id : idProduct}
+            })
+            .then(() => res.redirect("/productos"))
+            .catch(error => res.send(error))
+           
+        } else {
+            let finalImage;
+            if (!req.file) {            
+                finalImage = req.session.userLogged.image            
+            } else {
+                finalImage = req.file.filename
+            }
+            res.render('products/editarProducto', {
+                errors: errores.mapped(),
+                image: finalImage,
+                productoAEditar: req.body
+            });
+
+       
+    }
     },
     //Borrado o deshabilitacion del producto en la DB
 	destroy : (req, res) => {
