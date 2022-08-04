@@ -14,6 +14,7 @@ app.use(session({
     saveUninitialized: false, // para evitar q aparezca deprecated
 }))
 
+// La cookie tiene que estar antes de la session
 app.use(cookieParser());
 
 app.use(userLoggedMiddleware);

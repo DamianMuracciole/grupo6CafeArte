@@ -23,7 +23,7 @@ const validations = [
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.gif'];
         if(!file){
-            throw new Error('Tienes que subier una imagen')
+            throw new Error('Tienes que subir una imagen')
         } else { //cuando me envien un archivo (sino me sale un error porque al principio no viene nada, entonces ahi si pregunto lo de las extensiones)
             let fileExtension = path.extname(file.originalname).toLocaleLowerCase();
             if(!acceptedExtensions.includes(fileExtension)) {

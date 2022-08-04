@@ -32,7 +32,7 @@ const userController = {
                     // en sesion tengo una propiedad llamada userLogged, que tiene toda la info de userToLogin 
                     if (req.body.recordame) {
                         res.cookie('userEmail', req.body.email, {
-                            maxAge: (1000 * 60) * 2 //dos minutos, un minuto por dos
+                            maxAge: (1000 * 60) * 120 //ciento veinte minutos, un minuto por 120, 2 horas
                         })
                     }
                     
@@ -72,14 +72,35 @@ const userController = {
     register: (req, res) => {        
         res.render('users/register')
     },
-    processRegister: (req, res) => {
+    processRegister: async (req, res) => {
         const resultValidation = validationResult(req)
+
+        await Users.findOne({
+            where: {
+                email: req.body.email
+            }
+        })
+            .then((resultado) => {
+                userInDB = resultado
+            })
+            .catch(err => res.send(err))
         
+        //console.log("el usuario esta en db?***", userInDB);
+
         if (resultValidation.errors.length > 0) {
             res.render('users/register', {
                 errors: resultValidation.mapped(),
                 oldData: req.body
             });
+        } else if(userInDB) {
+            return res.render('users/register', {
+				errors: {
+					email: {
+						msg: 'Este email ya está registrado'
+					}
+				},
+				oldData: req.body
+			});
         } else {          
             Users.create({
                     ...req.body,

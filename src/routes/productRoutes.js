@@ -3,6 +3,7 @@ const productsController = require('../controllers/productsController')
 const router = express.Router();
 const multer = require('multer')
 const path = require('path')
+const createProductValidations = require('../middlewares/createProductMiddleware')
 
 //traigo el middle de auth para evitar el error de la ruta /profile y lo paso al profile
 const authMiddleware = require("../middlewares/authMiddleware")
@@ -32,7 +33,7 @@ router.get('/', productsController.index )
 // Crear un producto
 router.get ('/crear', authMiddleware ,productsController.crearProducto)
 // router.get ('/crear',productsController.crearProducto)
-router.post('/crear',upload.any(),productsController.create)
+router.post('/crear',upload.single('image'), createProductValidations, productsController.create)
 // router.post('/crear',productsController.create)
 
 /*** GET ONE PRODUCT ***/ 
