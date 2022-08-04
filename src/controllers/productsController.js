@@ -132,36 +132,35 @@ const productsController = {
     //actualización del producto en la DB
     update: (req, res) => {
         let errores = validationResult(req)
-        let finalImage;
-        if (!req.file) {            
-            finalImage = req.session.userLogged.image            
-        } else {
-            finalImage = req.file.filename
-        }
+        let imagen;
+            //condiciones para la carga de la imagen
+        let product = {...req.body }
+        console.log(req.body)
+       
+            if(req.file && req.file.filename){
+                product.image = req.file.filename ;
+                console.log("hola", req.file)
+            }
 
-        if (errores.isEmpty()) {
+        if (errores.errors.length==0) {
             let idProduct = req.params.id;
     
-            Products.update({
-                ...req.body,
-                image: finalImage
-            },
+            Products.update(
+                product
+            ,
             {
                 where:{id : idProduct}
             })
-            .then(() => res.redirect("/productos"))
+            .then(() => {
+               // console.log("holaaaaaaaaaaaaa")
+                res.redirect("/productos")})
             .catch(error => res.send(error))
            
         } else {
-            let finalImage;
-            if (!req.file) {            
-                finalImage = req.session.userLogged.image            
-            } else {
-                finalImage = req.file.filename
-            }
+            
             res.render('products/editarProducto', {
                 errors: errores.mapped(),
-                image: finalImage,
+                image: imagen,
                 productoAEditar: req.body
             });
 

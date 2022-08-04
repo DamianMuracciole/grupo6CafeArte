@@ -9,7 +9,7 @@
     <!-- Aqui va el header -->
     <%- include('../partials/header') %>
 <!-- Aqui va el script de validaciones -->
-  <!--  <script src="/js/productModifyValidation.js" type="text/javascript"></script>  -->
+  <script src="/js/productModifyValidation.js" type="text/javascript"></script> 
     <!-- Aqui va el main -->
     <main>
         
@@ -31,7 +31,7 @@
 
 
                 <label for="peso">Peso Neto</label>
-                <input type="text" name="weight" id="peso" 
+                <input type="number" name="weight" id="peso" 
                 value="<%= locals.productoAEditar && productoAEditar.weight ? productoAEditar.weight : null  %>" 
                 placeholder="Peso Neto">
                 <p id="error"></p>
@@ -43,7 +43,7 @@
 
                 <label for="detalle">Descripción</label>
                 <textarea name="detail" id="detalle" class='content-ctn' 
-                placeholder="Detalle" rows="10" cols="50"> <%= productoAEditar.detail %></textarea>
+                placeholder="Detalle" rows="10" cols="50"><%= productoAEditar.detail %></textarea>
                 <p id="errorDetalle"></p>
                     <% if (locals.errors && errors.detail) { %>
                         <div class="text-danger">
@@ -51,7 +51,7 @@
                         </div>                         
                     <% } %>
                 <label for="precio">Precio</label>
-                <input type="text" name="price" id="precio" 
+                <input type="number" name="price" id="precio" 
                 value="<%= locals.productoAEditar && productoAEditar.price ? productoAEditar.price : null  %>" placeholder="Precio">
                 <% if (locals.errors && errors.price) { %>
                     <div class="text-danger">
@@ -72,12 +72,7 @@
                 <label for="imagenes">Subir Imagen</label>
                 <img src="/images/<%= productoAEditar.image %>" alt="">
                 <input type="file" accept="image/*" name="image" id="imagenes" placeholder="Insertar Imagenes de tu producto">
-                <p id="errorImage"></p> 
-                <% if (locals.errors && errors.image) { %>
-                    <div class="text-danger">
-                        <%= errors.image.msg %> 
-                    </div>                         
-                <% } %>
+                
                 
 
                 <label for="categoria">Categoria</label>
