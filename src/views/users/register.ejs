@@ -5,11 +5,11 @@
     <%- include('../partials/head') %>
 
 <body>
-    
+
     <!-- Aqui va el header -->
     <%- include('../partials/header') %>
 
-    
+
 
     <!-- Aqui va el main -->
     <main>
@@ -22,104 +22,138 @@
                             <p> <%= errors[error].msg %>  </p>
                         <% } %>
                     <% } %> -->
+
+                    <!-- Campo Nombre -->
                     <div class="control-form">
                         <label for="first_name">Nombre</label>
-                        <input 
-                            type="text"
-                            name="first_name"
-                            class="control <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
-                            placeholder="Nombre"
-                            value="<%= locals.oldData ? oldData.first_name : null  %>"> 
+                        <input type="text" id="first_name" name="first_name" placeholder="Nombre"
+                            class="control bkg_first_name <%= (locals.errors && errors.first_name) ? 'is-invalid' : null %>"
+                            value="<%= locals.oldData ? oldData.first_name : null  %>">
+                        
+                        <!-- Texto de error -->
                         <% if (locals.errors && errors.first_name) { %>
-                            <div class="text-danger">
-                                <%= errors.first_name.msg %> 
-                            </div>                         
-                        <% } %>
-                    </div>
-                    <div class="control-form">
-                        <label for="last_name">Apellido</label> 
-                        <input type="text" name="last_name" class="control" placeholder="Apellido" value="<%= locals.oldData ? oldData.last_name : null  %>">  
-                        <% if (locals.errors && errors.last_name) { %>
-                            <div class="text-danger">
-                                <%= errors.last_name.msg %> 
-                            </div>                         
-                        <% } %> 
-                    </div>
-                    <div class="control-form">
-                        <label for="username">Nombre de Usuari@</label> 
-                        <input type="text" name="username" class="control" placeholder="Nombre de Usuario" value="<%= locals.oldData ? oldData.username : null  %>">
-                        <% if (locals.errors && errors.username) { %>
-                            <div class="text-danger">
-                                <%= errors.username.msg %> 
-                            </div>                         
-                        <% } %>    
-                    </div>
-                    <div class="control-form">
-                        <label for="email">Correo electronico</label> 
-                        <input type="email" name="email" class="control" placeholder="nombre@correo.com" value="<%= locals.oldData ? oldData.email : null  %>">
-                        <% if (locals.errors && errors.email) { %>
-                            <div class="text-danger">
-                                <%= errors.email.msg %> 
-                            </div>                         
-                        <% } %>    
-                    </div>
-                    <div class="control-form">
-                        <label for="birth_date">Fecha de Nacimiento</label> 
-                        <input type="date" name="birth_date" class="control" placeholder="dd/mm/yyyy" value="<%= locals.oldData ? oldData.birth_date : null  %>">
-                        <% if (locals.errors && errors.birth_date) { %>
-                            <div class="text-danger">
-                                <%= errors.birth_date.msg %> 
-                            </div>                         
-                        <% } %> 
+                            <div class="text-danger err_first_name">
+                                <%= errors.first_name.msg %>
+                            </div>
+                        <% }else{%>
+                        <!-- Validacion desde el front -->
+                        <div class="text-danger-front err_first_name"></div>
+                        <% }%>
                     </div>
 
+                    <!-- Campo Apellido -->
+                    <div class="control-form">
+                        <label for="last_name">Apellido</label>
+                        <input type="text" id="last_name" name="last_name" class="control" placeholder="Apellido"
+                        value="<%= locals.oldData ? oldData.last_name : null  %>">
+                        <% if (locals.errors && errors.last_name) { %>
+                            <div class="text-danger">
+                                <%= errors.last_name.msg %>
+                            </div>
+                        <% } %>
+                        <!-- Validacion desde el front -->
+                        <div class="text-danger-front err_last_name"></div>
+                    </div>
+
+                    <!-- Campo Nombre de usuari@ -->
+                    <div class="control-form">
+                        <label for="username">Nombre de Usuari@</label>
+                        <input type="text" id="username" name="username" class="control" placeholder="Nombre de Usuari@" value="<%= locals.oldData ? oldData.username : null  %>">
+                        <% if (locals.errors && errors.username) { %>
+                            <div class="text-danger">
+                                <%= errors.username.msg %>
+                            </div>
+                        <% } %>
+                        <!-- Validacion desde el front -->
+                        <div class="text-danger-front err_username"></div>
+                    </div>
+
+                    <!-- Campo Email -->
+                    <div class="control-form">
+                        <label for="email">Correo electronico</label>
+                        <input type="email" id="email" name="email" class="control" placeholder="nombre@correo.com" value="<%= locals.oldData ? oldData.email : null  %>">
+                        <% if (locals.errors && errors.email) { %>
+                            <div class="text-danger">
+                                <%= errors.email.msg %>
+                            </div>
+                        <% } %>
+                        <!-- Validacion desde el front -->
+                        <div class="text-danger-front err_email"></div>
+                    </div>
+
+                    <!-- campo fecha de nacimiento -->
+                    <div class="control-form">
+                        <label for="birth_date">Fecha de Nacimiento</label>
+                        <input type="date" id="birth_date" name="birth_date" class="control" placeholder="dd/mm/yyyy"
+                        value="<%= locals.oldData ? oldData.birth_date : null  %>">
+                        <% if (locals.errors && errors.birth_date) { %>
+                            <div class="text-danger">
+                                <%= errors.birth_date.msg %>
+                            </div>
+                        <% } %>
+                        <!-- Validacion desde el front -->
+                        <div class="text-danger-front err_birth_date"></div>
+                    </div>
+
+                    <!-- Campo imagen de usuario -->
                     <div class="control-form">
 						<label for="image">Selecciona tu imagen de Perfil</label>
-						<input type="file" name="image" id="image" class="control">
+						<input type="file" id="image" name="image" class="control">
                         <% if (locals.errors && errors.image) { %>
                             <div class="text-danger">
-                                <%= errors.image.msg %> 
-                            </div>                         
-                        <% } %> 
+                                <%= errors.image.msg %>
+                            </div>
+                        <% } %>
+                        <!-- Validacion desde el front -->
+                        <div class="text-danger-front err_image"></div>
 					</div>
-                   
-                    <!-- Contraseña -->
+
+                    <!-- Campo Contraseña -->
                     <div class="control-form">
-                        <label for="password">Contraseña</label> 
-                        <input type="password" name="password" placeholder="Contraseña" class="control">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="password" placeholder="Contraseña" class="control">
                         <% if (locals.errors && errors.password) { %>
                             <div class="text-danger">
-                                <%= errors.password.msg %> 
-                            </div>                         
-                        <% } %>    
+                                <%= errors.password.msg %>
+                            </div>
+                        <% } %>
+                        <!-- Validacion desde el front -->
+                        <div class="text-danger-front err_password"></div>
                     </div>
-                    
+
+                    <!-- Campo confirmar contraseña -->
                     <div class="control-form">
-                        <label for="confirm_password">Confirmar Contraseña</label> 
-                        <input type="password" name="confirm_password" placeholder="Confirme la Contraseña" class="control">
+                        <label for="repassword">Confirmar Contraseña</label>
+                        <input type="password" id="repassword" name="confirm_password" placeholder="Confirme la Contraseña" class="control">
                         <% if (locals.errors && errors.confirm_password) { %>
                             <div class="text-danger">
-                                <%= errors.confirm_password.msg %> 
-                            </div>                         
-                        <% } %>  
+                                <%= errors.confirm_password.msg %>
+                            </div>
+                        <% } %>
+                        <!-- Validacion desde el front -->
+                        <div class="text-danger-front err_repassword"></div>
                     </div>
+
+                    <!-- Campo Rol -->
                     <select name="rol" id="rol">
                         <option value=1 >User</option>
                         <option value=2 >Admin</option>
                         <option value=3 >Guest</option>
                     </select>
                     <div class="control-form-buton">
-                        <button type="submit" class="button-form-create">Crear Usuario</button>
+                        <button type="submit" id="submit" class="button-form-create">Crear Usuario</button>
                     </div>
                 </form>
             </div>
         </div>
     </main>
 
+    <script src="/js/userRegisterValidation.js"></script>
+
 
     <!-- Aca va el footer -->
     <%- include('../partials/footer') %>
-    
+
 
 </body>
 </html>
