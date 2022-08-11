@@ -12,6 +12,11 @@
 	color: rgb(255, 38, 0);
 }
 
+.text-danger-front{
+	color: rgb(223, 108, 0);
+	font-style: italic;
+}
+
 .user-profile{
     width: 300px;
     margin: auto;
@@ -36,8 +41,8 @@
   
   .is-invalid {
 	color: #842029;
-	border: solid 3px #842029
-	
+	border: solid 2px #842029;
+	background-color: rgba(189, 0, 0, 0.1);
   }
 
 /*-----   HEADER   -----*/
