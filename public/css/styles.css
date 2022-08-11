@@ -13,8 +13,9 @@
 }
 
 .text-danger-front{
-	color: rgb(223, 108, 0);
-	font-style: italic;
+	color: rgb(255, 38, 0);
+	/* color: rgb(223, 108, 0);
+	font-style: italic; */
 }
 
 .user-profile{
