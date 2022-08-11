@@ -49,7 +49,9 @@ window.addEventListener('load', () => {
         }else{
             delete errores.first_name;
         };
+        //Agrega texto de error correspondiente
         err_first_name.innerHTML  = (errores.first_name)  ? errores.first_name  : '';
+        //Cambia el background y da estilo de los campos si ha error en los mismos
         errores.first_name  ? first_name.classList.add('is-invalid') : first_name.classList.remove('is-invalid');
     });
 
@@ -64,7 +66,9 @@ window.addEventListener('load', () => {
         }else{
             delete errores.last_name;
         };
+        //Agrega texto de error correspondiente
         err_last_name.innerHTML  = (errores.last_name)  ? errores.last_name  : '';
+        //Cambia el background y da estilo de los campos si ha error en los mismos
         errores.last_name  ? last_name.classList.add('is-invalid') : last_name.classList.remove('is-invalid');
     });
 
@@ -75,6 +79,7 @@ window.addEventListener('load', () => {
         }else{
             delete errores.username;
         };
+        //Agrega texto de error correspondiente
         err_username.innerHTML = (errores.username)   ? errores.username   : '';
         errores.username   ? username.classList.add('is-invalid')  : username.classList.remove('is-invalid');
     });
@@ -93,7 +98,9 @@ window.addEventListener('load', () => {
                 delete errores.email;
             };
         };
+        //Agrega texto de error correspondiente
         err_email.innerHTML      = (errores.email)      ? errores.email      : '';
+        //Cambia el background y da estilo de los campos si ha error en los mismos
         errores.email      ? email.classList.add('is-invalid')     : email.classList.remove('is-invalid');
     });
     //Evalua condicion de error de Birth_date
@@ -103,7 +110,9 @@ window.addEventListener('load', () => {
         }else{
             delete errores.birth_date;
         };
+        //Agrega texto de error correspondiente
         err_birth_date.innerHTML = (errores.birth_date) ? errores.birth_date : '';
+        //Cambia el background y da estilo de los campos si ha error en los mismos
         errores.birth_date ? birth_date.classList.add('is-invalid'): birth_date.classList.remove('is-invalid');
     });
     
@@ -124,7 +133,9 @@ window.addEventListener('load', () => {
                 delete errores.image;
             };
         };
+        //Agrega texto de error correspondiente
         err_image.innerHTML      = (errores.image)      ? errores.image      : '';
+        //Cambia el background y da estilo de los campos si ha error en los mismos
         errores.image      ? image.classList.add('is-invalid')     : image.classList.remove('is-invalid');
     });
     
@@ -135,8 +146,7 @@ window.addEventListener('load', () => {
         }else if (password.value.length >= passwordMinLength && repassword.value.length >= passwordMinLength){
             if (password.value !== repassword.value){
                 errores.password = 'Las contraseñas no son iguales';
-                //password.value = '';
-                //repassword.value = '';
+
             }else{
                 delete errores.password;
                 delete errores.repassword;
@@ -159,8 +169,6 @@ window.addEventListener('load', () => {
         }else if (password.value.length >= passwordMinLength && repassword.value.length >= passwordMinLength){
             if (password.value !== repassword.value){
                 errores.repassword = 'Las contraseñas no son iguales';
-                //password.value = '';
-                //repassword.value = '';
             }else{
                 delete errores.password;
                 delete errores.repassword;
@@ -200,16 +208,15 @@ window.addEventListener('load', () => {
         if(Object.keys(errores).length >= 1){
             console.log(errores);
             e.preventDefault();
-            err_first_name.innerHTML = (errores.first_name)  ? errores.first_name  : '';
+            err_first_name.innerHTML = (errores.first_name) ? errores.first_name  : '';
             err_last_name.innerHTML  = (errores.last_name)  ? errores.last_name  : '';
             err_username.innerHTML   = (errores.username)   ? errores.username   : '';
-            err_email.innerHTML      = (errores.email)   ? errores.email   : '';
+            err_email.innerHTML      = (errores.email)      ? errores.email   : '';
             err_birth_date.innerHTML = (errores.birth_date) ? errores.birth_date : '';
             err_image.innerHTML      = (errores.image)      ? errores.image      : '';
             err_password.innerHTML   = (errores.password)   ? errores.password   : '';
-            err_repassword.innerHTML = (errores.repassword)   ? errores.repassword   : '';
+            err_repassword.innerHTML = (errores.repassword) ? errores.repassword   : '';
         }
-        //Cambia el background y da estilo de los campos si ha error en los mismos
     })
 
 })
