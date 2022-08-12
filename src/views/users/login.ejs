@@ -14,9 +14,9 @@
             <i class="fa-solid fa-circle-user"></i>
             <h2 class="saludo">Bienvenido</h2>
         </div>
-        <form action="/usuarios/login" method="POST" class="formBody">
+        <form action="/usuarios/login" method="POST" class="formBody" id="formulario">
             <label for="email">Correo Electrónico</label>
-            <input type="email" name="email" id="email" class="email" placeholder="email" required>
+            <input type="email" name="email" id="email" class="email" placeholder="email" >
             <% if (locals.errors && errors.email) { %>
              <div class="text-danger">
                 <%= errors.email.msg %> 
@@ -40,7 +40,7 @@
         </form>
 
     </div>
-    <script src="/public/js/loginValidation.js"></script>
+    <script src="/js/userLoginValidation.js"></script>
 
     <!-- Aca va el footer --> 
     <%- include('../partials/footer') %>
