@@ -739,6 +739,15 @@ color: black;
 	color: #361500;
 
 }
+.invalid{
+border: solid 2px red;
+
+
+}
+
+.valid{
+	border: solid 2px green;
+}
 
 
 
