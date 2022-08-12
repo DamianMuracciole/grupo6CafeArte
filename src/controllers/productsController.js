@@ -122,32 +122,50 @@ const productsController = {
 
         Products.findByPk(productId)
         .then(Product =>{        
-            res.render("products/editarProducto" , {productoAEditar:Product})
+            res.render("products/editarProducto" , {
+                productoAEditar:Product
+      
+            })
         })
         .catch(error => res.send(error))
     },
     //actualización del producto en la DB
     update: (req, res) => {
-        let idProduct = req.params.id;
-        let productToEdit = req.body.image;
+        let errores = validationResult(req)
         let imagen;
+            //condiciones para la carga de la imagen
+        let product = {...req.body }
+        console.log(req.body)
+       
+            if(req.file && req.file.filename){
+                product.image = req.file.filename ;
+                console.log("hola", req.file)
+            }
 
-        if(req.files[0] != undefined){
-            imagen = req.files[0].filename;
+        if (errores.errors.length==0) {
+            let idProduct = req.params.id;
+    
+            Products.update(
+                product
+            ,
+            {
+                where:{id : idProduct}
+            })
+            .then(() => {
+               // console.log("holaaaaaaaaaaaaa")
+                res.redirect("/productos")})
+            .catch(error => res.send(error))
+           
         } else {
-            imagen = productToEdit;
-        };
+            
+            res.render('products/editarProducto', {
+                errors: errores.mapped(),
+                image: imagen,
+                productoAEditar: req.body
+            });
 
-        console.log(req.body);
-        Products.update({
-            ...req.body,
-            image: imagen
-        },
-        {
-            where:{id : idProduct}
-        })
-        .then(() => res.redirect("/productos"))
-        .catch(error => res.send(error))
+       
+    }
     },
     //Borrado o deshabilitacion del producto en la DB
 	destroy : (req, res) => {

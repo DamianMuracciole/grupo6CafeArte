@@ -4,6 +4,7 @@ const router = express.Router();
 const multer = require('multer')
 const path = require('path')
 const createProductValidations = require('../middlewares/createProductMiddleware')
+const editProductValidations = require('../middlewares/editProductMiddleware')
 
 //traigo el middle de auth para evitar el error de la ruta /profile y lo paso al profile
 const authMiddleware = require("../middlewares/authMiddleware")
@@ -44,7 +45,7 @@ router.get('/detalle/:id/', productsController.productDetail)
 // no es una mala practica repetir las rutas de get y put, como aca
 // router.get('/editar/:id', authMiddleware ,productsController.editarProducto)
 router.get('/editar/:id',productsController.editarProducto)
-router.put('/editar/:id', upload.any(), productsController.update); 
+router.post('/editar/:id', upload.single('image'), editProductValidations ,productsController.update); 
 
 // Borrar un producto
 router.delete('/borrar/:id', authMiddleware, productsController.destroy);
