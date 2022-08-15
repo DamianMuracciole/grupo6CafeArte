@@ -16,6 +16,7 @@
                 document.getElementById('email').classList.add('valid');
             }else{
                 document.getElementById('email').classList.add('invalid');
+                document.getElementById('email').classList.remove('valid');
             }
         break;
 
@@ -26,6 +27,7 @@
                
             }else{
                 document.getElementById('password').classList.add('invalid');
+                document.getElementById('password').classList.remove('valid');
                 
             }
         
