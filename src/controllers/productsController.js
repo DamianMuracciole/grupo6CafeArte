@@ -30,7 +30,7 @@ const productsController = {
         })
         .catch(error => res.send(error))
     },
-    //Buscador de un pruducto
+    //Buscador de un producto
     buscarProducto: (req,res) => {
         const valor = '%' + req.body.search.toLowerCase() + '%'
         let logged = req.session.userLogged;
