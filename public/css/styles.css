@@ -152,7 +152,7 @@ a{
 	display: inline-block;
 	left: 40px;
 	font-size: 20px;
-	padding: 10px;
+	/* padding: 10px; */
 	margin: 2px 0px;
 	width: 50px;
 	background-color: #ededed;
@@ -164,7 +164,7 @@ a{
 
 .icon-magnifying-glass input:hover{
 	color: #361500;
-	width: 150px;
+	width: 100px;
 	opacity: 1;
 }
 
@@ -749,6 +749,134 @@ border: solid 2px red;
 	border: solid 2px green;
 }
 
+/*----------Formulario de Creacion y Edicion -----------*/
+.CyEbotonesSuperiores {
+	display: flex;
+}
+.formCyE{
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	max-width: 500px;
+}
+
+.botonesEditarProducto {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.formCyE label {
+	/*padding: 1% 0;*/
+	display: block;
+	font-size: 22px;
+	font-weight: 400;
+	color: #1C0A00;
+	padding: 20px 0px 10px 0px;
+	text-align: left;
+}
+.formCyE input {
+	/*padding: 1% 0;*/
+	border-radius: 5px;
+	margin: center;
+	width: 100%;
+	padding: 5px;
+	font-size: 16px;
+}
+
+.formCyE button{
+	margin: 30px 0px;
+}
+
+/*----------error de las validaciones -------*/
+ .error {
+	color: red
+}
+
+/*-------------product detail-----------*/
+
+.background-detalle{
+	background-color: #FAF3E0;
+	background-image: url("/images/imagenFondoOld02.jpg");
+	background-size: 100%;
+	background-position: center;
+	background-attachment:fixed;
+	image-orientation:90deg ;
+}
+
+.dp-contenedor-principal{
+	
+	margin: 1%;
+
+}
+
+.dp-img-principal{
+	width: 100%;
+	margin-top: 1%;
+	border-radius: 10px;
+
+}
+.dp-detalle {
+	margin: 1%;
+	padding: 1%;
+	text-align: center;
+	color: #1C0A00;
+}
+.dp-contenedor1 {
+	background-color: rgba(28,10,0,0.1); /*#FAF3E0;*/
+	border: #1C0A00 1px solid;
+	margin: 5% 15%;
+	padding: 10px;
+	max-width: 900px;
+}
+
+.dp-detalle button {
+	padding: 6px;
+	
+}
+
+.dp-descripcion p {
+	color: #361500;
+	text-align: justify;
+}
+.dp-img-secundarias{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.img-otros {
+	width: 350px;
+	margin: 2%;
+	border-radius: 5%;
+}
+.dp-img-detalle1{
+	position: relative;
+	
+	
+}
+.dp-img-detalle1 p{
+	color:#361500;
+	text-shadow: 2px 2px 2px white;
+	position: absolute;
+	margin: 0%;
+	top: 5%;
+	left: 10%;
+	font-size: 1.3em;
+	font-weight: bolder;
+
+}
+.dp-descripcion h3, h2 {
+	text-align: center;
+}
+.img-relacionados{
+	margin: 5%; 
+	width: 90%;
+	max-width: 900px;
+	border-radius: 10px;
+	
+}
+
 
 
   
@@ -953,7 +1081,7 @@ border: solid 2px red;
 
 	}
 	.icon-magnifying-glass input:hover{
-		width: 150px;
+		width: 100px;
 	}
 	/*Aparece el elemento carta de ayuda*/
 	.icon-envelope{
@@ -1137,6 +1265,14 @@ border: solid 2px red;
 	.cpyrgt{
 		padding-top: 40px;
 	}
+
+	.dp-detalle {
+		font-size: 24px;
+
+	}
+	.dp-contenedor-principal{
+	display: flex;
+	}
 }
 /*-------------product detail-----------*/
 
@@ -1151,142 +1287,11 @@ border: solid 2px red;
     }
 	.register-fondo {
 		margin-top: 15vh;
-}
-
-}
-
-    /*-------------product detail-----------*/
-
-	.background-detalle{
-		background-color: #FAF3E0;
-		background-image: url("/images/imagenFondoOld02.jpg");
-		background-size: 100%;
-		background-position: center;
-		background-attachment:fixed;
-		image-orientation:90deg ;
 	}
 
-.dp-contenedor-principal{
-	
-	margin: 1%;
-
-}
-
-.dp-img-principal{
-	width: 100%;
-	margin-top: 1%;
-	border-radius: 10px;
-
-}
-.dp-detalle {
-	margin: 1%;
-	padding: 1%;
-	text-align: center;
-	color: #1C0A00;
-}
-.dp-contenedor1 {
-	background-color: rgba(28,10,0,0.1); /*#FAF3E0;*/
-	border: #1C0A00 1px solid;
-	margin: 5% 15%;
-	padding: 10px;
-	max-width: 900px;
-}
-
-.dp-detalle button {
-	padding: 6px;
-	
-}
-
-.dp-descripcion p {
-	color: #361500;
-	text-align: justify;
-}
-.dp-img-secundarias{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
-.img-otros {
-	width: 350px;
-	margin: 2%;
-	border-radius: 5%;
-}
-.dp-img-detalle1{
-	position: relative;
-	
-	
-}
-.dp-img-detalle1 p{
-	color:#361500;
-	text-shadow: 2px 2px 2px white;
-	position: absolute;
-	margin: 0%;
-	top: 5%;
-	left: 10%;
-	font-size: 1.3em;
-	font-weight: bolder;
-
-}
-.dp-descripcion h3, h2 {
-	text-align: center;
-}
-.img-relacionados{
-	margin: 5%; 
-	width: 90%;
-	max-width: 900px;
-	border-radius: 10px;
-	
-}
-@media (min-width: 768px) {
-	.dp-detalle {
-		font-size: 24px;
-
+	.icon-magnifying-glass input:hover{
+	width: 150px;
 	}
-	.dp-contenedor-principal{
-	display: flex;
-}
-}
-/*----------Formulario de Creacion y Edicion -----------*/
-.CyEbotonesSuperiores {
-	display: flex;
-}
-.formCyE{
-	display: flex;
-	flex-direction: column;
-	width: 90%;
-	max-width: 500px;
+
 }
 
-.botonesEditarProducto {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	align-items: center;
-}
-
-.formCyE label {
-	/*padding: 1% 0;*/
-	display: block;
-	font-size: 22px;
-	font-weight: 400;
-	color: #1C0A00;
-	padding: 20px 0px 10px 0px;
-	text-align: left;
-}
-.formCyE input {
-	/*padding: 1% 0;*/
-	border-radius: 5px;
-	margin: center;
-	width: 100%;
-	padding: 5px;
-	font-size: 16px;
-}
-
-.formCyE button{
-	margin: 30px 0px;
-}
-
-/*----------error de las validaciones -------*/
- .error {
-	color: red
-}
