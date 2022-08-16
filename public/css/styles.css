@@ -116,6 +116,7 @@ a{
 }
 
 .icons a {
+	font-size: 18px;
 	color:#FAF3E0;
 	text-decoration-line: none;
 	padding: 10px;
@@ -142,6 +143,7 @@ a{
 }
 
 .lupa:hover{
+	display: none;
 	background-color:#1C0A00 ;
 	opacity: 0.85;
 	transition: 0.20s;
@@ -152,7 +154,7 @@ a{
 	display: inline-block;
 	left: 40px;
 	font-size: 20px;
-	padding: 10px;
+	/* padding: 10px; */
 	margin: 2px 0px;
 	width: 50px;
 	background-color: #ededed;
@@ -953,7 +955,7 @@ border: solid 2px red;
 
 	}
 	.icon-magnifying-glass input:hover{
-		width: 150px;
+		width: 88px;
 	}
 	/*Aparece el elemento carta de ayuda*/
 	.icon-envelope{
@@ -1151,7 +1153,11 @@ border: solid 2px red;
     }
 	.register-fondo {
 		margin-top: 15vh;
-}
+	}
+	/* tamaño del campo de buscar producto */
+	.icon-magnifying-glass input:hover{
+		width: 150px;
+	}
 
 }
 
