@@ -39,7 +39,7 @@ const { cookie } = require('express-validator');
 
 //API's
 const apiUsersRouter = require('./src/routes/apis/userApi');
-//const apiProducts = require('./src/routes/apis/productsApi')
+const apiProducts = require('./src/routes/apis/productsApi')
 
 
 
@@ -71,7 +71,7 @@ app.use('/usuarios', rutasUsers)
 
 // Para apis
 app.use('/api/users', apiUsersRouter);
-//app.use('/api/products',apiProducts)
+app.use('/api/products',apiProducts)
 
 // Para la 404 - La vista que se va a cargar es la de not-found
 // Tiene que ir despues de definir todas las rutas.
