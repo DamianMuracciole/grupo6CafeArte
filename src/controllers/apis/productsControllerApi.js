@@ -55,7 +55,7 @@ const productsControllerApi = {
                                 category: product.category,
                                 session: product.session,
                                 url: `/api/products/${product.id}`,
-                                image: `/images/${product.image}`
+                                image: `http://localhost:3000/images/${product.image}`
                             };
                             products.push(productForApi);
                         });
@@ -98,7 +98,7 @@ const productsControllerApi = {
                         category: product.category,
                         session: product.session,
                         url: `/api/products/${product.id}`,
-                        image: `/images/${product.image}`
+                        image: `http://localhost:3000/images/${product.image}`
               }                
                 res.json(producto);
             }).catch(error =>

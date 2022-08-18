@@ -15,7 +15,7 @@ const userControllerApi = {
                         lastName:user.last_name,
                         email: user.email,
                         url: `/api/users/${user.id}`,
-                        image: `/images/users/${user.image}`
+                        image: `http://localhost:3000/images/users/${user.image}`
                     };
                     users.push(userForApi);
                 });
@@ -44,7 +44,7 @@ const userControllerApi = {
                 username: user.username,
                 birth_date: user.birth_date,
                 status: user.status,
-                image: `/images/users/${user.image}`
+                image: `http://localhost:3000/images/users/${user.image}`
               }                
                 res.json(usuario);
             }).catch(error =>
