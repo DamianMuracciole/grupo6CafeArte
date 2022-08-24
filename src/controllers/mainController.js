@@ -13,8 +13,8 @@ const mainController = {
     index:(req, res) => {
         Products.findAll()
         .then(products =>{
-            const enOferta = products.filter( producto => producto.session == "oferta" )
-            const destacados = products.filter( producto => producto.session == "destacado" )
+            const enOferta = products.filter( producto => producto.session == "Oferta" )
+            const destacados = products.filter( producto => producto.session == "Destacado" )
 
             res.render('main/index', {enOferta, destacados});
         })
