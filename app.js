@@ -7,6 +7,9 @@ const cookieParser = require('cookie-parser');
 const recordameMiddleware = require('./src/middlewares/recordameMiddleware');
 const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
 
+// a ver si con esto se evita el cors
+
+
 // middleware de aplicacion con session
 app.use(session({
     secret:"007 agente secreto",
@@ -59,6 +62,8 @@ app.listen(port, () => {
     }
 );
 
+
+
 // Archivos de rutas
 // Main
 app.use('/', rutasMain)
@@ -69,9 +74,24 @@ app.use('/productos', rutasProductos)
 // Rutas Usuarios
 app.use('/usuarios', rutasUsers)
 
+// a ver si con esto se evita el cors p2
+// var cors = require('cors')
+// app.use(cors())
+// const { createProxyMiddleware } = require('http-proxy-middleware')
+// app.use('/api/users', createProxyMiddleware({ 
+//     target: 'http://localhost:3000/', //original url
+//     changeOrigin: true, 
+//     //secure: false,
+//     onProxyRes: function (proxyRes, req, res) {
+//        proxyRes.headers['Access-Control-Allow-Origin'] = '*';
+//     }
+// }))
+
 // Para apis
 app.use('/api/users', apiUsersRouter);
 app.use('/api/products',apiProducts)
+
+
 
 // Para la 404 - La vista que se va a cargar es la de not-found
 // Tiene que ir despues de definir todas las rutas.
