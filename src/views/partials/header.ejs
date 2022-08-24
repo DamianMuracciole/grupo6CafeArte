@@ -3,15 +3,96 @@
     <div class="logo">
         <a href="/"><img src="/images/logo2.png" alt=""></a>
     </div>
+
+    <!--START BURGER MENU Nav-Bar-->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/productos">Nuestros Productos</a>
+                    </li>
+
+                    <!-- Si es logged entonces  -->
+                    
+                    <% if (locals.isLogged) { %>
+                        <li class="nav-item"></li>
+                            <div class="icon-cart">
+                                <a class="nav-link active" href="/productos/carrito" title="Mi Carrito">Mi Carrito<i class="fa-solid fa-cart-shopping"></i></a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <div class="icon-register">
+                                <a class="nav-link active" href="/usuarios/logout" title="Logout">Logout<i class="fa-solid fa-right-from-bracket"></i></a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <div class="icon-register">
+                            <a class="nav-link active" href="/usuarios/perfil" title="Perfil">Mi Perfil<img src="/images/users/<%=locals.userLogged.image %>" width="30" style="border-radius: 100%;"></a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <div class="icon-register">
+                                Hola, <%= locals.userLogged.first_name %>
+                            </div>
+                        </li>
+            
+                    
+                    <!-- Si es logged entonces  -->
+                    <% } else { %>
+                        <li class="nav-item">
+                            <div class="icon-user">
+                                <a class="nav-link active" href="/usuarios/login" title="Login">Login<i class="fa-solid fa-user"></i></a>
+                            </div>
+                        </li>
+                        
+                        <li class="nav-item">
+                            <div class="icon-register">
+                                <li><a class="nav-link active" href="/usuarios/registro" title="Registrate!">Registrate<i class="far fa-id-card"></i></a></li>
+                            </div>
+                        </li>
+            
+                        <!-- Contactenos -->
+                        <li class="nav-item">
+                            <div class="icon-envelope">
+                                <a class="nav-link active" href="/contactenos" title="Contactanos!">Contactanos<i class="fa-regular fa-envelope"></i></a>
+                            </div>
+                        </li>
+            
+                    <% } %>
+                    <!-- Fin de si es logged entonces  -->
+
+                    
+                </ul>
+          </div>
+        </div>
+      </nav>
+
+    <!--END BURGER MENU Nav-Bar-->
+
+
     <!--Nav-Bar-->
-    <div class="nav-bar">
+
+    <!--Nav-Bar-->
+    <!-- <div class="nav-bar">
         <nav>
             <ul>
                 <li><a href="/productos">Nuestros Productos</a></li>
                 <li><a href="#">Otros productos</a></li>
             </ul>
         </nav>
-    </div>
+    </div> -->
 
     <div class="icons">
 
@@ -30,47 +111,12 @@
         </div>
 
         <!-- hamburguesa -->
-        <div class="icon-bars">
+        <!-- <div class="icon-bars">
             <a href="#"><i class="fa-solid fa-bars"></i></a>
-        </div>
+        </div> -->
 
-
-        <!-- Si es logged entonces  -->
-            <% if (locals.isLogged) { %>
-            
-            <div class="icon-cart">
-                <a href="/productos/carrito" title="Mi Carrito"><i class="fa-solid fa-cart-shopping"></i></a>
-            </div>
-
-            <div class="icon-register">
-                <a href="/usuarios/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
-            </div>
-
-            <div class="icon-register">
-             <a href="/usuarios/perfil">   <img src="/images/users/<%=locals.userLogged.image %>" width="30" style="border-radius: 100%;"></a>
-            </div>
-
-            <div class="icon-register">
-                Hola, <%= locals.userLogged.first_name %>
-            </div>
 
         
-        <!-- Si es logged entonces  -->
-        <% } else { %>
-            <div class="icon-user">
-                <a href="/usuarios/login" title="Login"><i class="fa-solid fa-user"></i></a>
-            </div>
-
-            <div class="icon-register">
-                <li><a href="/usuarios/registro" title="Registrate!"><i class="far fa-id-card"></i></a></li>
-            </div>
-
-            <!-- Contactenos -->
-            <div class="icon-envelope">
-                <a href="/contactenos" title="Contactanos!"><i class="fa-regular fa-envelope"></i></a>
-            </div>
-
-        <% } %>
 
 
     </div>
