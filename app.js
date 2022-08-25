@@ -6,6 +6,7 @@ const session = require("express-session");
 const cookieParser = require('cookie-parser');
 const recordameMiddleware = require('./src/middlewares/recordameMiddleware');
 const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
+const cors = require ('cors')
 
 // middleware de aplicacion con session
 app.use(session({
@@ -13,6 +14,7 @@ app.use(session({
     resave: false, // para evitar q aparezca deprecated
     saveUninitialized: false, // para evitar q aparezca deprecated
 }))
+app.use(cors())
 
 // La cookie tiene que estar antes de la session
 app.use(cookieParser());
