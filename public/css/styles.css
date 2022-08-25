@@ -752,9 +752,32 @@ border: solid 2px red;
 }
 
 
-
+/* menu hamburguesa celular */
+#btn-menu:checked ~ .container-menu .cont-menu, #btn-menu1:checked ~ .container-menu .cont-menu, #btn-menu2:checked ~ .container-menu .cont-menu, #btn-menu3:checked ~ .container-menu .cont-menu{
+	transform: translateX(0%);
+}
   
-
+#btn-menu:checked ~ .container-menu, #btn-menu1:checked ~ .container-menu, #btn-menu2:checked ~ .container-menu, #btn-menu3:checked ~ .container-menu {
+	opacity: 1;
+	visibility: visible;
+}
+.cont-menu .nav-menu a{
+	display: block;
+	text-decoration: none;
+	padding: 20px;
+	color: #c7c7c7;
+	border-left: 5px solid transparent;
+	transition: all 400 ms ease;
+}
+.cont-menu{
+	width:100%;
+	max-width: 250px;
+	background: #1c1c1c;
+	height: 100%;
+	position: relative;
+	transition: all 500ms;
+	transform: translateX(-100%);
+}
 /* Media queries */
 
 @media (min-width: 481px){

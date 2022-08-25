@@ -33,7 +33,48 @@
         <div class="icon-bars">
             <a href="#"><i class="fa-solid fa-bars"></i></a>
         </div>
-
+        <div class="navegador">
+            <!-- Menu para pantalla mas chica -->
+            <div id="menu-alternativo">
+                <div class="#btn-menu" style="float: left; line-height: 30px; color: white; font-size: 100px;">
+                    <label for="btn-menu">
+                        <svg xmlns="http://www.w3.org/2000/svg" cursor="pointer" width="40" height="40" fill="currentColor"
+                            class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </label>
+                </div>
+                <input type="checkbox" id="btn-menu">
+                <div class="container-menu">
+                    <div class="cont-menu">
+                        <nav class="nav-menu">
+                            <ul>
+                                <li>
+                                    <a href="#" data-scroll class="indexelement">Inicio</a>
+                                </li>
+                                <li>
+                                    <a id="acursos" href="#Nosotras" data-scroll class="indexelement">Nosotras</a>
+                                </li>
+                                <li>
+                                    <a href="productos.html" data-scroll class="indexelement"> Productos </a>
+                                </li>
+                                <li>
+                                    <a href="/contactenos" class="indexelement" data-scroll> Contactanos </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <label for="btn-menu" class="icon-equis">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-x" viewBox="0 0 16 16">
+                                <path
+                                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                        </label>
+                    </div>
+                </div>
+    
+            </div>
 
         <!-- Si es logged entonces  -->
             <% if (locals.isLogged) { %>
