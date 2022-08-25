@@ -50,7 +50,7 @@
 header{
     font-family: "poppins";
 	position: fixed;
-	background-color:#361500;
+	background-color:rgb(54, 21, 0);
 	width: 100%;
 	height: 60px;
 	display: flex;
@@ -63,7 +63,7 @@ a{
 	color:#1C0A00;
 }
 
- .main-header-reg {
+.main-header-reg {
 	font-family: "poppins";
 	position: fixed;
 	background-color: rgb(28,10,0);
@@ -72,7 +72,7 @@ a{
 	display: flex;
 	align-items: center;
  
- }
+}
 /*--- logo del negocio ---*/
 .logo {
 	flex-grow: 0.7;
@@ -178,7 +178,31 @@ a{
 	padding: 5px;
 }
 
-/*-- Usuario => Registrarse --*/
+
+/*Menu mobile o PC*/
+.mobile-display {
+	background-color: rgba(54,21,0,0.95);
+	/* background-color: rgba(28, 10, 0, 0.9); */
+	width: 100%;
+	
+	display: none;
+	position:fixed;
+	top: 60px;
+
+	
+
+}
+.icon-register-mobile{
+	padding: 20px 10%;
+	font-size: 20px;
+}
+.icon-register-mobile a{
+
+	color:#FAF3E0;
+}
+
+
+/*-- Usuario => Reg.istrarse --*/
 .icon-register {
 	display: none;
 	color:#FAF3E0;
@@ -1246,11 +1270,13 @@ border: solid 2px red;
 @media (min-width: 768px) {
 	.dp-detalle {
 		font-size: 24px;
-
 	}
 	.dp-contenedor-principal{
 	display: flex;
-}
+	}
+	.mobile-display {
+		display: none;
+	}
 }
 /*----------Formulario de Creacion y Edicion -----------*/
 .CyEbotonesSuperiores {
