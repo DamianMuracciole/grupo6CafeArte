@@ -59,20 +59,32 @@ const productsControllerApi = {
                             };
                             products.push(productForApi);
                         });
-                        let respuesta = {
+                        // let respuesta = {
+                        return res.json({
                         meta: {
                             status: 200,
                             url: 'api/products'                            
                         },
                         total: products.length,
-                        productsByCategory:[{molido:categorias[0]},{granos:categorias[1]},{capsulas:categorias[2]}],
+                        productsByCategory:[{
+                            name: "Molido",
+                            amount: categorias[0]
+                        },
+                            {
+                            name: "Granos",
+                            amount: categorias[1]
+                        },
+                        {
+                            name: "Capsulas",
+                            amount: categorias[2]}],
                         productsBySession:[{destacado:categorias[3]}, {normal:categorias[4]}, {oferta:categorias[5]}],
                         productsByStatus:[{productosActivos:categorias[6]}, {productosInactivos:categorias[7]}],
                         productos: products
-                    }
+                    })
+                    //}
                         //console.log("🚀 ~ file: productsControllerApi.js ~ line 71 ~ granos", granos)
                         //console.log("🚀 ~ file: productsControllerApi.js ~ line 71 ~ molido", molido)
-                        res.json(respuesta);
+                        // res.json(respuesta);
                     }).catch(error => 
                         res.send(error))
 
@@ -105,6 +117,7 @@ const productsControllerApi = {
                 res.send(error));
 
     }
+    
 };
 
 module.exports = productsControllerApi;
