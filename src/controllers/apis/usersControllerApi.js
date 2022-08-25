@@ -50,6 +50,38 @@ const userControllerApi = {
             }).catch(error =>
                 res.send(error));
 
+    },
+    lastUser: (req, res) => {
+        User.findOne({               
+                order: [[ 'created_at', 'DESC']]
+            })
+        .then(user => {            
+            let usuario = {
+              id: user.id,
+              name: user.first_name,
+              lastName: user.last_name,
+              email: user.email,
+              username: user.username,
+              birth_date: user.birth_date,
+              status: user.status,
+              image: `http://localhost:3000/images/users/${user.image}`
+            }
+            let respuesta = {
+                lastUser: {
+                    id: user.id,
+              name: user.first_name,
+              lastName: user.last_name,
+              email: user.email,
+              username: user.username,
+              birth_date: user.birth_date,
+              status: user.status,
+              image: `http://localhost:3000/images/users/${user.image}`
+                }
+            }
+                            
+              res.json(respuesta);
+          }).catch(error =>
+              res.send(error));
     }
 };
 
