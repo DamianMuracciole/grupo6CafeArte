@@ -101,10 +101,12 @@ a{
 }
 
 /* esto no es */
-.nav-bar nav ul li a:hover {
+.nav-bar nav ul li a:hover,
+.icon-bars:hover{
 	background-color:#1C0A00;
 	opacity: 0.85;
 	transition: 0.20s;
+	border-radius: 5px;
 }
 
 /*--------- Iconos -----------*/
@@ -183,15 +185,14 @@ a{
 .mobile-display {
 	background-color: rgba(54,21,0,0.95);
 	/* background-color: rgba(28, 10, 0, 0.9); */
-	width: 100%;
-	
+	width: 50%;
+	min-width: 250px;
 	display: none;
 	position:fixed;
 	top: 60px;
-
-	
-
+	z-index: 1;
 }
+
 .icon-register-mobile{
 	padding: 20px 10%;
 	font-size: 20px;
