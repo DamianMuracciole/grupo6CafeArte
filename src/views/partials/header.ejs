@@ -37,7 +37,16 @@
 
         <!-- Si es logged entonces  -->
             <% if (locals.isLogged) { %>
+                <% console.log("VER QUE HAY EN LOCALS IS LOGGED: ", locals.isLogged) %> 
+                <% console.log("VER QUE HAY EN LOCALS userLogged: ", locals.userLogged.rols_id) %> 
             
+            <!-- if user is an admin the show the register -->
+            <% if (locals.isLogged && locals.userLogged.rols_id === 2) { %>
+            <div class="icon-register">
+                <li><a href="/usuarios/registro" title="Registrate!"><i class="far fa-id-card"></i></a></li>
+            </div>
+            <% } %>
+
             <div class="icon-cart">
                 <a href="/productos/carrito" title="Mi Carrito"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>

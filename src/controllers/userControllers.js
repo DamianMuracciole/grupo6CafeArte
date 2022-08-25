@@ -108,7 +108,6 @@ const userController = {
                     confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
                     image: req.file.filename,
                     status: "A"
-                  
 
                 })
                 .then(() => res.redirect('/usuarios/login'))

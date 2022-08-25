@@ -17,7 +17,8 @@
             <div class="form-principal">
                 <form action="/usuarios/edit/<%= user.id %> " method="post" class="create-user" enctype="multipart/form-data">
                     <h2 class="registro">Editar Usuario</h2>
-                  
+                    
+                    
                     <div class="control-form">
                         <label for="first_name">Nombre</label> 
                         <input 
@@ -25,30 +26,45 @@
                             name="first_name" 
                             class="control <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
                             placeholder="Nombre"
+                            <% if (locals.isLogged && user.rols_id !== 2) { %>
+                                disabled
+                                <% } %>
                             value="<%= user.first_name  %>"> 
                         
                     </div>
                     <div class="control-form">
                         <label for="last_name">Apellido</label> 
                         <input type="text" name="last_name" class="control" placeholder="Apellido" 
+                        <% if (locals.isLogged && user.rols_id !== 2) { %>
+                            disabled
+                            <% } %>
                         value="<%= user.last_name  %>">  
                         
                     </div>
                     <div class="control-form">
                         <label for="username">Nombre de Usuari@</label> 
-                        <input type="text" name="username" class="control" placeholder="Nombre de Usuario" 
+                        <input type="text" name="username" class="control" placeholder="Nombre de Usuario"
+                        <% if (locals.isLogged && user.rols_id !== 2) { %>
+                            disabled
+                            <% } %>
                         value="<%= user.username  %>">
                            
                     </div>
                     <div class="control-form">
                         <label for="email">Correo electronico</label> 
-                        <input type="email" name="email" class="control" placeholder="nombre@correo.com" 
+                        <input type="email" name="email" class="control" placeholder="nombre@correo.com"
+                        <% if (locals.isLogged && user.rols_id !== 2) { %>
+                            disabled
+                            <% } %>
                         value="<%= user.email  %>">
                            
                     </div>
                     <div class="control-form">
                         <label for="birth_date">Fecha de Nacimiento</label> 
-                        <input type="date" name="birth_date" class="control" placeholder="dd/mm/yyyy" 
+                        <input type="date" name="birth_date" class="control" placeholder="dd/mm/yyyy"
+                        <% if (locals.isLogged && user.rols_id !== 2) { %>
+                            disabled
+                            <% } %>
                         value="<%= user.birth_date  %>">
                         
                     </div>
@@ -76,13 +92,15 @@
                         
                     </div>
 
-                    <div class="control-form">
-                        <label for="status">Status</label> 
-                        <input type="text" name="status" class="control" placeholder="Status" 
-                        value="<%= user.status  %>">
-                           
-                    </div>
-                   
+                    <% if (locals.isLogged && user.rols_id === 2) { %>
+                        <div class="control-form">
+                            <label for="status">Status</label> 
+                            <input type="text" name="status" class="control" placeholder="Status" 
+                            value="<%= user.status  %>">                           
+                        </div>                        
+                        <% } %>
+                        
+                        <% if (locals.isLogged && user.rols_id === 2) { %>
                     <div class="control-form">
                         <label for="rol">Rol</label> 
                         <select name="rol" >
@@ -98,6 +116,7 @@
                                         </option>
                                         <% } %>                             
                             <% }) %>
+                            <% } %>
                         </select>
 
                            

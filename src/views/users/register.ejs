@@ -133,16 +133,22 @@
                         <!-- Validacion desde el front -->
                         <div class="text-danger-front err_repassword"></div>
                     </div>
+                    
+                    <!-- <h2>Probando</h2> -->
+                    <% console.log(locals) %> 
+                    <!-- Campo Rol show it only if user logged is an admin-->
+                    <% if (locals.isLogged && locals.userLogged.rols_id === 2) { %>
+                        <select name="rols_id" id="rol">
+                            <option value=1 >User</option>
+                            <option value=2 >Admin</option>
+                            <option value=3 >Guest</option>
+                        </select>
+                    <% } %>
 
-                    <!-- Campo Rol -->
-                    <select name="rol" id="rol">
-                        <option value=1 >User</option>
-                        <option value=2 >Admin</option>
-                        <option value=3 >Guest</option>
-                    </select>
-                    <div class="control-form-buton">
-                        <button type="submit" id="submit" class="button-form-create">Crear Usuario</button>
-                    </div>
+                        <div class="control-form-buton">
+                            <button type="submit" id="submit" class="button-form-create">Crear Usuario</button>
+                        </div>                     
+                    
                 </form>
             </div>
         </div>

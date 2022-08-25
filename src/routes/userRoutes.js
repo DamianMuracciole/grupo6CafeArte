@@ -9,6 +9,9 @@ const editUserValidation = require('../middlewares/editUserValidation')
 // traigo el middleware para ver si hay alguien logeado y lo paso a la ruta de register y del login
 const guestMiddleware = require("../middlewares/guestMiddleware")
 
+//admin middleware para que pueda registrar usuarios
+const adminMiddleware = require("../middlewares/adminMiddleware")
+
 //traigo el middle de auth para evitar el error de la ruta /profile y lo paso al profile
 const authMiddleware = require("../middlewares/authMiddleware")
 
@@ -38,7 +41,7 @@ router.get('/logout', userController.logout);
 router.get('/perfil', authMiddleware, userController.profile);
 
 // Registro de usuarios
-router.get('/registro', guestMiddleware ,userController.register)
+router.get('/registro', adminMiddleware,guestMiddleware ,userController.register)
 // Esta se encarga de procesr el registro
 router.post('/registro',uploadFile.single('image'),registerValidations, userController.processRegister)
 
