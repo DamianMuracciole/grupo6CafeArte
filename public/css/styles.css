@@ -1027,6 +1027,10 @@ border: solid 2px red;
         background-repeat: no-repeat;
         background-size: cover;
     }
+
+	main > .otros-productos{
+		background-image: url('/images/imagenFondoDelicias.jpg');
+	}
     .card{
         margin: auto;
     }
@@ -1035,7 +1039,7 @@ border: solid 2px red;
 		margin: auto;
 	}
 	.login, .register-fondo{
-		background-image: url('/images/imagenFondoOld02.jpg');
+		background-image: url('/images/ondoOld02.jpg');
 		
 		
 	}

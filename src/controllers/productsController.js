@@ -20,13 +20,44 @@ const productsController = {
         let msj;
 
         Products.findAll({
-            where:{status : 'A'}
+            where:{
+                [Op.or]: [
+                    { category: {[Op.like]:'Molido'}},
+                    { category: {[Op.like]:'En Grano'}},
+                    { category: {[Op.like]:'Capsulas'}},
+                ],
+                status : 'A'
+            }
+            
         })
         .then(productos => {
                 if (productos.length == 0) {
                     msj = 'No hemos encontrado su producto'
                 }
             return res.render("products/productos", {products:productos, msj ,logged})   
+        })
+        .catch(error => res.send(error))
+    },
+
+    otrosProd: (req,res) => {
+        let logged = req.session.userLogged;
+        let msj;
+
+        Products.findAll({
+            where:{
+                [Op.or]: [
+                    { category: {[Op.like]:'Chocolates'}},
+                    { category: {[Op.like]:'Cookies'}},
+                    { category: {[Op.like]:'Alfajores'}},
+                ],
+                status : 'A'
+            }
+        })
+        .then(productos => {
+                if (productos.length == 0) {
+                    msj = 'No hemos encontrado su producto'
+                }
+            return res.render("products/otrosProductos", {products:productos, msj ,logged})   
         })
         .catch(error => res.send(error))
     },
@@ -68,7 +99,7 @@ const productsController = {
         })
         .then(productos=>{
             let productoSel = productos.find(producto => producto.id == idProduct);
-            let otrosProductos = productos.filter(producto => (producto.weight == productoSel.weight  && producto.category == productoSel.category && producto.id != productoSel.id));
+            let otrosProductos = productos.filter(producto => (producto.weight == productoSel.weight  &&  producto.category == productoSel.category && producto.id != productoSel.id));
             res.render('products/productDetailNew', {detalleProducto: productoSel, otrosProductos, logged:logged})
         })        
         .catch(error => res.send(error))

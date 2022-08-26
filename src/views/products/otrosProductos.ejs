@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Aqui va el head -->
+<%- include('../partials/head') %>
+
+<body>
+    <!-- Aqui va el header -->
+    <%- include('../partials/header') %>
+    
+    <!-- Aqui va el main -->
+    <main class="otros-productos" style="background-image: url('/images/imagenFondoDelicias.jpg');">
+        <div class="carrusel">
+            <a href="#"><img src="/images/acompañemos-nuestro-café.jpg" class="imagen"></a>
+        </div> 
+        
+            <% if (msj) { %>
+                <div class="sin-encontrar" >
+                    <img src="/images/sinEncontrar.png">
+                    <p><%= msj %></p>
+                </div>
+            <% }else { %>
+            <h3 class="titulo">Nuestras Delicias</h3>
+            <% } %> 
+      
+            <section class="section-pr">
+                <% products.forEach(producto => { %>
+                    <article class="card-products">
+                        
+                        <a href="/productos/detalle/<%= producto.id %> ">
+                            <img src="/images/<%= producto.image %>" class="ImagenProductos">
+                            <p class="descripcion-pr"><%= producto.name %></p>
+                            <p class="descripcion-pr"><%= producto.weight %> gr.</p>
+                            <p class="precio-pr">$ <%= producto.price %></p>
+                        </a>
+        
+                    </article>
+                <% }) %>  
+
+            </section>
+            
+            <!-- Boton para Crear un Producto -->
+            <% if (logged) { %>
+                <div class="botonesEditarProducto">
+                    <a href="/productos/crear">
+                        <button type="submit" class="submit-lgn-mc">Crear producto </button>
+                    </a>
+                </div>
+                <br>
+            <% } %>
+            
+            
+
+    </main>
+
+    <!-- Aca va el footer -->
+    <%- include('../partials/footer') %>
+    
+</body>
+
+</html>
