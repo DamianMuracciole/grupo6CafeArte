@@ -23,7 +23,7 @@ const productsController = {
             where:{
                 [Op.or]: [
                     { category: {[Op.like]:'Molido'}},
-                    { category: {[Op.like]:'En Grano'}},
+                    { category: {[Op.like]:'En Granos'}},
                     { category: {[Op.like]:'Capsulas'}},
                 ],
                 status : 'A'
