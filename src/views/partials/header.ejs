@@ -31,9 +31,8 @@
 
         <!-- hamburguesa -->
         <div class="icon-bars">
-            <a href="#"><i class="fa-solid fa-bars"></i></a>
+            <i id="menuBar" class="fa-solid fa-bars"></i>
         </div>
-
 
         <!-- Si es logged entonces  -->
             <% if (locals.isLogged) { %>
@@ -47,16 +46,16 @@
             </div>
 
             <div class="icon-register">
-             <a href="/usuarios/perfil">   <img src="/images/users/<%=locals.userLogged.image %>" width="30" style="border-radius: 100%;"></a>
+            <a href="/usuarios/perfil">   <img src="/images/users/<%=locals.userLogged.image %>" width="30" style="border-radius: 100%;"></a>
             </div>
 
             <div class="icon-register">
                 Hola, <%= locals.userLogged.first_name %>
             </div>
-
         
         <!-- Si es logged entonces  -->
         <% } else { %>
+
             <div class="icon-user">
                 <a href="/usuarios/login" title="Login"><i class="fa-solid fa-user"></i></a>
             </div>
@@ -71,8 +70,10 @@
             </div>
 
         <% } %>
-
-
     </div>
 
 </header>
+
+    <%- include('../partials/navMobile') %>
+
+    <script src="/js/menu.js"></script>
