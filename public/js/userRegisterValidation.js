@@ -39,7 +39,7 @@ window.addEventListener('load', () => {
         };
 
     //Evalua condicion de error de first_name
-    first_name.addEventListener('keyup', function(){
+    first_name.addEventListener('blur', function(){
         if(first_name.value.length == 0){
             errores.first_name = 'Debe escribir un nombre';
         }else if(first_name.value.length < nameMinLength){
@@ -56,11 +56,11 @@ window.addEventListener('load', () => {
     });
 
     //Evalua condicion de error de last_name
-    last_name.addEventListener('keyup', function(){
+    last_name.addEventListener('blur', function(){
         if(last_name.value.length == 0){
-            errores.last_name = 'Debe escribir un nombre';
+            errores.last_name = 'Debe escribir un apellido';
         }else if(last_name.value.length < nameMinLength){
-            errores.last_name = 'El nombre debe tener un mínimo de ' + nameMinLength + ' caracteres';
+            errores.last_name = 'El apellido debe tener un mínimo de ' + nameMinLength + ' caracteres';
         }else if(last_name.value.charAt(0) == ' ' || last_name.value.charAt(1) == ' '){
             errores.last_name = 'No se admite dos espacios al principio';
         }else{
@@ -73,7 +73,7 @@ window.addEventListener('load', () => {
     });
 
     //Evalua condicion de error de username
-    username.addEventListener('keyup', function(){
+    username.addEventListener('blur', function(){
         if(username.value.length <= 0){
             errores.username = 'Debe escribir un nombre de Usuari@';
         }else{
@@ -85,7 +85,7 @@ window.addEventListener('load', () => {
     });
 
     //Evalua condicion de error de email
-    email.addEventListener('keyup', function(){
+    email.addEventListener('blur', function(){
         if(email.value.length <= 0){
             errores.email = 'Debe escribir un email';
         }else{
@@ -104,7 +104,7 @@ window.addEventListener('load', () => {
         errores.email      ? email.classList.add('is-invalid')     : email.classList.remove('is-invalid');
     });
     //Evalua condicion de error de Birth_date
-    birth_date.addEventListener('change', function(){
+    birth_date.addEventListener('blur', function(){
         if(!birth_date.value.length){
             errores.birth_date = 'Este campo debe estar completo';
         }else{
@@ -117,7 +117,7 @@ window.addEventListener('load', () => {
     });
     
     //Evalua condicion de error de la imagen
-    image.addEventListener('change', function(){
+    image.addEventListener('blur', function(){
         console.log('estoy in image');
         if(image.value.length <= 0){
             errores.image = 'Debe ingresar una imagen';
@@ -140,7 +140,7 @@ window.addEventListener('load', () => {
     });
     
     //Evalua condicion de error de password
-    password.addEventListener('keyup', function(){
+    password.addEventListener('blur', function(){
         if(password.value.length < passwordMinLength){
             errores.password = 'Este campo necesita de ' + passwordMinLength + ' caracteres mínimo';
         }else if (password.value.length >= passwordMinLength && repassword.value.length >= passwordMinLength){
@@ -163,7 +163,7 @@ window.addEventListener('load', () => {
     });
 
     //Evalua condicion de error de repassword
-    repassword.addEventListener('keyup', function(){
+    repassword.addEventListener('blur', function(){
         if(repassword.value.length < passwordMinLength){
             errores.repassword = 'Este campo necesita de ' + passwordMinLength + ' caracteres mínimo';
         }else if (password.value.length >= passwordMinLength && repassword.value.length >= passwordMinLength){

@@ -1,4 +1,11 @@
 <div class="mobile-display">
+    <% if (locals.isLogged) { %>
+
+        <div class="icon-register-mobile">
+            <a href="/usuarios/perfil">Hola, <%= locals.userLogged.first_name %> <img src="/images/users/<%=locals.userLogged.image %>" width="25" style="border-radius: 100%;"></a>
+        </div>
+        
+    <% }%>
     <div class="icon-register-mobile">
         <a href="/productos">Nuestros Productos</a>
     </div>
@@ -10,11 +17,6 @@
     <% if (locals.isLogged) { %>
         <div class="icon-register-mobile">
             <a href="/usuarios/logout">Salir</a>
-        </div>
-
-        <div class="icon-register-mobile">
-            Hola, <%= locals.userLogged.first_name %>
-            <a href="/usuarios/perfil"><img src="/images/users/<%=locals.userLogged.image %>" width="30" style="border-radius: 100%;"></a>
         </div>
         
     <% } else { %>
