@@ -108,7 +108,6 @@ const userController = {
                     confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
                     image: req.file.filename,
                     status: "A"
-                  
 
                 })
                 .then(() => res.redirect('/usuarios/login'))
@@ -147,6 +146,8 @@ const userController = {
         
         Users.update({
             ...req.body,
+            password: bcryptjs.hashSync(req.body.password, 10), //como estoy en un objeto, esta contrasena va a pisar a la que viene en el body
+            confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
             image: finalImage,
             rols_id: req.body.rol
         }, {

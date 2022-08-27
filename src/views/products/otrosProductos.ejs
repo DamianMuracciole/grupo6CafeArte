@@ -9,9 +9,9 @@
     <%- include('../partials/header') %>
     
     <!-- Aqui va el main -->
-    <main>
+    <main class="otros-productos">
         <div class="carrusel">
-            <a href="#"><img src="/images/tomemonos-un-cafe-banner.jpg" class="imagen"></a>
+            <a href="#"><img src="/images/acompañemos-un café -banner.png" class="imagen"></a>
         </div> 
         
             <% if (msj) { %>
@@ -20,7 +20,7 @@
                     <p><%= msj %></p>
                 </div>
             <% }else { %>
-            <h3 class="titulo">Nuestros Productos</h3>
+            <h3 class="titulo">Nuestras Delicias</h3>
             <% } %> 
       
             <section class="section-pr">
@@ -40,7 +40,7 @@
             </section>
             
             <!-- Boton para Crear un Producto -->
-            <% if (locals.logged && locals.userLogged.rols_id === 2) { %>
+            <% if (logged) { %>
                 <div class="botonesEditarProducto">
                     <a href="/productos/crear">
                         <button type="submit" class="submit-lgn-mc">Crear producto </button>

@@ -8,7 +8,7 @@
         <nav>
             <ul>
                 <li><a href="/productos">Nuestros Productos</a></li>
-                <li><a href="#">Otros productos</a></li>
+                <li><a href="/productos/otros">Nuestras Delicias</a></li>
             </ul>
         </nav>
     </div>
@@ -31,13 +31,19 @@
 
         <!-- hamburguesa -->
         <div class="icon-bars">
-            <a href="#"><i class="fa-solid fa-bars"></i></a>
+            <i id="menuBar" class="fa-solid fa-bars"></i>
         </div>
 
-
         <!-- Si es logged entonces  -->
-            <% if (locals.isLogged) { %>
+            <% if (locals.isLogged) { %>               
             
+            <!-- if user is an admin the show the register -->
+            <% if (locals.userLogged.rols_id === 2) { %>
+            <div class="icon-register">
+                <li><a href="/usuarios/registro" title="Registrate!"><i class="far fa-id-card"></i></a></li>
+            </div>
+            <% } %>
+
             <div class="icon-cart">
                 <a href="/productos/carrito" title="Mi Carrito"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>
@@ -47,16 +53,16 @@
             </div>
 
             <div class="icon-register">
-             <a href="/usuarios/perfil">   <img src="/images/users/<%=locals.userLogged.image %>" width="30" style="border-radius: 100%;"></a>
+            <a href="/usuarios/perfil">   <img src="/images/users/<%=locals.userLogged.image %>" width="30" style="border-radius: 100%;"></a>
             </div>
 
             <div class="icon-register">
                 Hola, <%= locals.userLogged.first_name %>
             </div>
-
         
         <!-- Si es logged entonces  -->
         <% } else { %>
+
             <div class="icon-user">
                 <a href="/usuarios/login" title="Login"><i class="fa-solid fa-user"></i></a>
             </div>
@@ -71,8 +77,10 @@
             </div>
 
         <% } %>
-
-
     </div>
 
 </header>
+
+    <%- include('../partials/navMobile') %>
+
+    <script src="/js/menu.js"></script>

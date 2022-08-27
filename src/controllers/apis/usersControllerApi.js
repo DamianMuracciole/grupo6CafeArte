@@ -82,6 +82,22 @@ const userControllerApi = {
               res.json(respuesta);
           }).catch(error =>
               res.send(error));
+    },
+    create: function(req, res){
+        User.create(
+            {
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+
+            })
+            .then(user => {
+                return res.status(200).json({
+                    data: user,
+                    status: 200,
+                    created: "ok"
+                })
+            })
+            .catch(err => console.log(err));
     }
 };
 

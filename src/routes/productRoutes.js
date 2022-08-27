@@ -25,8 +25,11 @@ const upload = multer({ storage: storage });
 router.get('/carrito', productsController.productCart)
 //router.get('/comprar', productsController.howToBuy)
 
-// Mostrar todos los productos
+// Mostrar todos los productos de café
 router.get('/', productsController.index )
+
+// Mostrar todos los otros productos
+router.get('/otros', productsController.otrosProd )
 
 // Mostrar Producto por id
 //router.get('/:id', productsController.productoByID)

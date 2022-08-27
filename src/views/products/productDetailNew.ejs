@@ -38,7 +38,8 @@
         
 
         <!-- Boton para Editar un Producto -->
-        <%if (logged) { %>
+
+        <% if (locals.logged && locals.userLogged.rols_id === 2) { %>
             <div class="botonesEditarProducto">
                 <!-- Boton para Borrar un Producto -->
                 <form action="/productos/borrar/<%= detalleProducto.id %>?_method=DELETE" method="post"> 
