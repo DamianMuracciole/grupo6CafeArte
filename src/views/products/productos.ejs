@@ -40,7 +40,7 @@
             </section>
             
             <!-- Boton para Crear un Producto -->
-            <% if (logged) { %>
+            <% if (locals.logged && locals.userLogged.rols_id === 2) { %>
                 <div class="botonesEditarProducto">
                     <a href="/productos/crear">
                         <button type="submit" class="submit-lgn-mc">Crear producto </button>
