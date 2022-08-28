@@ -177,28 +177,28 @@ const productsController = {
                 req.body.image = product.image
             }
 
-            let product = {...req.body }
-
-            Products.update(
-                product
-            ,
-            {
-                where:{id : idProduct}
-            })
-            .then(() => {
-               // console.log("holaaaaaaaaaaaaa")
-                res.redirect(`/productos/detalle/${id}`)})
-            .catch(error => res.send(error))
-           
-        } else {
-            let productosOld = req.body
-            productosOld.id = req.params.id
-            res.render('products/editarProducto', {
-                errors: errores.mapped(),
-                image: imagen,
-                productoAEditar: productosOld
-            });
-
+            if (errores.errors.length==0) {
+                let idProduct = req.params.id;
+        
+                Products.update(
+                    product
+                ,
+                {
+                    where:{id : idProduct}
+                })
+                .then(() => {
+                   // console.log("holaaaaaaaaaaaaa")
+                    res.redirect(`/productos/detalle/${id}`)})
+                .catch(error => res.send(error))
+               
+            } else {
+                let productosOld = req.body
+                productosOld.id = req.params.id
+                res.render('products/editarProducto', {
+                    errors: errores.mapped(),
+                    image: imagen,
+                    productoAEditar: productosOld
+                });
        
     }
     },
