@@ -25,8 +25,11 @@ const upload = multer({ storage: storage });
 router.get('/carrito', productsController.productCart)
 //router.get('/comprar', productsController.howToBuy)
 
-// Mostrar todos los productos
+// Mostrar todos los productos de café
 router.get('/', productsController.index )
+
+// Mostrar todos los otros productos
+router.get('/otros', productsController.otrosProd )
 
 // Mostrar Producto por id
 //router.get('/:id', productsController.productoByID)
@@ -45,7 +48,8 @@ router.get('/detalle/:id/', productsController.productDetail)
 // no es una mala practica repetir las rutas de get y put, como aca
 // router.get('/editar/:id', authMiddleware ,productsController.editarProducto)
 router.get('/editar/:id',productsController.editarProducto)
-router.put('/editar/:id', upload.single('image'), editProductValidations ,productsController.update); 
+router.put('/editar/:id', upload.single('image'), createProductValidations, productsController.update); 
+//router.post('/editar/:id', upload.single('image'), editProductValidations, productsController.update); 
 
 // Borrar un producto
 router.delete('/borrar/:id', authMiddleware, productsController.destroy);

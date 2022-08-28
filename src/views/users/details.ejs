@@ -28,6 +28,7 @@
                             name="first_name" 
                             class="control <%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
                             placeholder="Nombre"
+
                             value="<%= user.first_name  %>" readonly> 
                         <% if (locals.errors && errors.first_name) { %>
                             <div class="text-danger">
@@ -75,11 +76,16 @@
                             </div>                         
                         <% } %> 
                     </div>
+
+                    <!-- If user it is not an admin, then do not show the Rol field -->
+                    <% if (locals.isLogged && user.rols_id === 2) { %>
                     <div class="control-form">
                         <label for="rol">Rol</label> 
                         <input type="text" name="rol" class="control" placeholder="rol" 
                         value="<%= user.rols.rol_name %>" readonly>
                     </div>
+                    <% } %>
+
                    </form> 
                     <div class="botonesEditarProducto">
                         <form action="/usuarios/edit/<%= user.id %>" method="get" class="create-user">

@@ -8,7 +8,7 @@
         <nav>
             <ul>
                 <li><a href="/productos">Nuestros Productos</a></li>
-                <li><a href="#">Otros productos</a></li>
+                <li><a href="/productos/otros">Nuestras Delicias</a></li>
             </ul>
         </nav>
     </div>
@@ -35,8 +35,15 @@
         </div>
 
         <!-- Si es logged entonces  -->
-            <% if (locals.isLogged) { %>
+            <% if (locals.isLogged) { %>               
             
+            <!-- if user is an admin the show the register -->
+            <% if (locals.userLogged.rols_id === 2) { %>
+            <div class="icon-register">
+                <li><a href="/usuarios/registro" title="Registrate!"><i class="far fa-id-card"></i></a></li>
+            </div>
+            <% } %>
+
             <div class="icon-cart">
                 <a href="/productos/carrito" title="Mi Carrito"><i class="fa-solid fa-cart-shopping"></i></a>
             </div>

@@ -20,13 +20,44 @@ const productsController = {
         let msj;
 
         Products.findAll({
-            where:{status : 'A'}
+            where:{
+                [Op.or]: [
+                    { category: {[Op.like]:'Molido'}},
+                    { category: {[Op.like]:'En Granos'}},
+                    { category: {[Op.like]:'Capsulas'}},
+                ],
+                status : 'A'
+            }
+            
         })
         .then(productos => {
                 if (productos.length == 0) {
                     msj = 'No hemos encontrado su producto'
                 }
             return res.render("products/productos", {products:productos, msj ,logged})   
+        })
+        .catch(error => res.send(error))
+    },
+
+    otrosProd: (req,res) => {
+        let logged = req.session.userLogged;
+        let msj;
+
+        Products.findAll({
+            where:{
+                [Op.or]: [
+                    { category: {[Op.like]:'Chocolates'}},
+                    { category: {[Op.like]:'Cookies'}},
+                    { category: {[Op.like]:'Alfajores'}},
+                ],
+                status : 'A'
+            }
+        })
+        .then(productos => {
+                if (productos.length == 0) {
+                    msj = 'No hemos encontrado su producto'
+                }
+            return res.render("products/otrosProductos", {products:productos, msj ,logged})   
         })
         .catch(error => res.send(error))
     },
@@ -68,7 +99,7 @@ const productsController = {
         })
         .then(productos=>{
             let productoSel = productos.find(producto => producto.id == idProduct);
-            let otrosProductos = productos.filter(producto => (producto.weight == productoSel.weight  && producto.category == productoSel.category && producto.id != productoSel.id));
+            let otrosProductos = productos.filter(producto => (producto.weight == productoSel.weight  &&  producto.category == productoSel.category && producto.id != productoSel.id));
             res.render('products/productDetailNew', {detalleProducto: productoSel, otrosProductos, logged:logged})
         })        
         .catch(error => res.send(error))
@@ -132,20 +163,22 @@ const productsController = {
     //actualización del producto en la DB
     update: (req, res) => {
         let errores = validationResult(req)
-        let id = req.params.id
         let imagen;
             //condiciones para la carga de la imagen
         let product = {...req.body }
         console.log(req.body)
        
             if(req.file && req.file.filename){
-                product.image = req.file.filename ;
-                console.log("hola", req.file)
+                imagen = req.file.filename;                
+            } else if(req.file===undefined){
+                let product = Products.findByPk(id).then(result => {
+                    return result
+                })
+                req.body.image = product.image
             }
 
-        if (errores.errors.length==0) {
-            let idProduct = req.params.id;
-    
+            let product = {...req.body }
+
             Products.update(
                 product
             ,

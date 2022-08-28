@@ -185,7 +185,7 @@ a{
 .mobile-display {
 	background-color: rgba(54,21,0,0.95);
 	/* background-color: rgba(28, 10, 0, 0.9); */
-	width: 50%;
+	width: 100%;
 	min-width: 250px;
 	display: none;
 	position:fixed;
@@ -1027,6 +1027,10 @@ border: solid 2px red;
         background-repeat: no-repeat;
         background-size: cover;
     }
+
+	main > .otros-productos{
+		background-image: url('/images/imagenFondoDelicias.jpg');
+	}
     .card{
         margin: auto;
     }
@@ -1035,7 +1039,7 @@ border: solid 2px red;
 		margin: auto;
 	}
 	.login, .register-fondo{
-		background-image: url('/images/imagenFondoOld02.jpg');
+		background-image: url('/images/ondoOld02.jpg');
 		
 		
 	}
