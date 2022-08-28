@@ -132,6 +132,7 @@ const productsController = {
     //actualización del producto en la DB
     update: (req, res) => {
         let errores = validationResult(req)
+        let id = req.params.id
         let imagen;
             //condiciones para la carga de la imagen
         let product = {...req.body }
@@ -153,15 +154,16 @@ const productsController = {
             })
             .then(() => {
                // console.log("holaaaaaaaaaaaaa")
-                res.redirect("/productos")})
+                res.redirect(`/productos/detalle/${id}`)})
             .catch(error => res.send(error))
            
         } else {
-            
+            let productosOld = req.body
+            productosOld.id = req.params.id
             res.render('products/editarProducto', {
                 errors: errores.mapped(),
                 image: imagen,
-                productoAEditar: req.body
+                productoAEditar: productosOld
             });
 
        

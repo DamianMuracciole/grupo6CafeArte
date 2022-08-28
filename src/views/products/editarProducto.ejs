@@ -17,14 +17,14 @@
             <p>Editar Producto: <%= productoAEditar.name %></p>
         </div>
         <div class="main-form-ctn">
-            <form action="/productos/editar/<%= productoAEditar.id %>" method="POST" class="formCyE" enctype="multipart/form-data">
+            <form action="/productos/editar/<%= productoAEditar.id %>?_method=PUT" method="POST" class="formCyE" enctype="multipart/form-data">
                 
                 <label for="nombre">Nombre del Producto</label>
                 <input type="text" name="name" id="nombre" 
                 value="<%= locals.productoAEditar && productoAEditar.name ? productoAEditar.name : null  %>">
                 <p id="error"></p>
                     <% if (locals.errors && errors.name) { %>
-                        <div class="text-danger">
+                        <div class="text-danger" id="backErrorname">
                             <%= errors.name.msg %> 
                         </div>                         
                     <% } %>
@@ -34,9 +34,9 @@
                 <input type="number" name="weight" id="peso" 
                 value="<%= locals.productoAEditar && productoAEditar.weight ? productoAEditar.weight : null  %>" 
                 placeholder="Peso Neto">
-                <p id="error"></p>
+                <p id="errorPeso"></p>
                     <% if (locals.errors && errors.weight) { %>
-                        <div class="text-danger">
+                        <div class="text-danger" id="backErrorPeso">
                             <%= errors.weight.msg %> 
                         </div>                         
                     <% } %>
@@ -46,15 +46,16 @@
                 placeholder="Detalle" rows="10" cols="50"><%= productoAEditar.detail %></textarea>
                 <p id="errorDetalle"></p>
                     <% if (locals.errors && errors.detail) { %>
-                        <div class="text-danger">
+                        <div class="text-danger" id="backErrorDetalle">
                             <%= errors.detail.msg %> 
                         </div>                         
                     <% } %>
                 <label for="precio">Precio</label>
                 <input type="number" name="price" id="precio" 
                 value="<%= locals.productoAEditar && productoAEditar.price ? productoAEditar.price : null  %>" placeholder="Precio">
+                <p id="errorPrecio"></p>
                 <% if (locals.errors && errors.price) { %>
-                    <div class="text-danger">
+                    <div class="text-danger" id="backErrorPrecio">
                         <%= errors.price.msg %> 
                     </div>                         
                 <% } %>
@@ -62,8 +63,9 @@
                 <label for="cantidad">Cantidad</label>
                 <input type="number" name="quantity" id="cantidad" placeholder="Cantidad" class="form-element"
                 value="<%= locals.productoAEditar && productoAEditar.quantity ? productoAEditar.quantity : null  %>"> 
+                <p id="errorCantidad"></p>
                 <% if (locals.errors && errors.quantity) { %>
-                    <div class="text-danger">
+                    <div class="text-danger" id="backErrorCantidad">
                         <%= errors.quantity.msg %> 
                     </div>                         
                 <% } %>    
@@ -93,10 +95,15 @@
                     <option value="Oferta" <%= productoAEditar.session === 'Oferta' ? 'selected' : '' %> >En Oferta</option>
                     <option value="Normal" <%= productoAEditar.session === 'Normal' ? 'selected' : '' %> >Normal</option>
                 </select>
-
+                <div class="botonesEditarProducto">
                 <div class="submit-compra-mc">
                     <button type="submit" class="submit-lgn-mc">Guardar Producto</button>
                 </div>
+                <a href="/productos/detalle/<%= productoAEditar.id %>">
+                    <button type="button" class="submit-lgn-mc"> Volver
+                    </button>
+                </a>
+            </div>
             </form>
         </div>
     </main>
