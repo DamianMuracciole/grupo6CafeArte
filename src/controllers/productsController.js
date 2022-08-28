@@ -162,20 +162,30 @@ const productsController = {
     },
     //actualización del producto en la DB
     update: (req, res) => {
-        let errores = validationResult(req)
-        let imagen;
-            //condiciones para la carga de la imagen
-        let product = {...req.body }
-        console.log(req.body)
-       
+        let idProduct = req.params.id
+        const resultValidation = validationResult(req)
+        const productoAEditar  = req.body;
+        productoAEditar.id = req.params.id      
+
+        if(resultValidation.errors.length > 0){
+            res.render('products/editarProducto', { 
+                productoAEditar: productoAEditar,  
+                errors: resultValidation.mapped()
+            });
+        } else {
+            let imagen;
+
             if(req.file && req.file.filename){
-                product.image = req.file.filename ;
-                console.log("hola", req.file)
+                imagen = req.file.filename;                
+            } else if(req.file===undefined){
+                let product = Products.findByPk(id).then(result => {
+                    return result
+                })
+                req.body.image = product.image
             }
 
-        if (errores.errors.length==0) {
-            let idProduct = req.params.id;
-    
+            let product = {...req.body }
+
             Products.update(
                 product
             ,
@@ -186,17 +196,8 @@ const productsController = {
                // console.log("holaaaaaaaaaaaaa")
                 res.redirect("/productos")})
             .catch(error => res.send(error))
-           
-        } else {
-            
-            res.render('products/editarProducto', {
-                errors: errores.mapped(),
-                image: imagen,
-                productoAEditar: req.body
-            });
-
-       
-    }
+        }
+    
     },
     //Borrado o deshabilitacion del producto en la DB
 	destroy : (req, res) => {

@@ -7,6 +7,10 @@ const cookieParser = require('cookie-parser');
 const recordameMiddleware = require('./src/middlewares/recordameMiddleware');
 const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
 
+app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
+// Para los formulatios POST
+app.use(express.urlencoded({ extended: false })) // para archivos estaticos de public
+
 // middleware de aplicacion con session
 app.use(session({
     secret:"007 agente secreto",
@@ -47,11 +51,9 @@ const apiProducts = require('./src/routes/apis/productsApi')
 const port = process.env.PORT || 3000;
 const publicPath = path.resolve(__dirname, 'public');
 app.use( express.static(publicPath) );
-app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
-// Para los formulatios POST
-app.use(express.urlencoded({ extended: false })) // para archivos estaticos de public
+
 app.use(express.json());
-app.use(methodOverride("_method"))
+
 
 // Confirmacion del Servidor Corriendo
 app.listen(port, () => {
