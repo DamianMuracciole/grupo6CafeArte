@@ -48,7 +48,8 @@ router.get('/detalle/:id/', productsController.productDetail)
 // no es una mala practica repetir las rutas de get y put, como aca
 // router.get('/editar/:id', authMiddleware ,productsController.editarProducto)
 router.get('/editar/:id',productsController.editarProducto)
-router.post('/editar/:id', upload.single('image'), editProductValidations ,productsController.update); 
+router.put('/editar/:id', upload.single('image'), createProductValidations, productsController.update); 
+//router.post('/editar/:id', upload.single('image'), editProductValidations, productsController.update); 
 
 // Borrar un producto
 router.delete('/borrar/:id', authMiddleware, productsController.destroy);

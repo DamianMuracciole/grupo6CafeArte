@@ -18,6 +18,18 @@ const productsControllerApi = {
             where:{category:"Capsulas"}
         })
 
+        let chocolates = Product.count({
+            where:{category:"Chocolates"}
+        })
+
+        let cookies = Product.count({
+            where:{category:"Cookies"}
+        })
+
+        let alfajores = Product.count({
+            where:{category:"Alfajores"}
+        })
+
         let destacado = Product.count({
             where:{session:"Destacado"}
         })
@@ -38,7 +50,7 @@ const productsControllerApi = {
             where:{status:"D"}
         })
 
-        Promise.all([molido,granos, capsulas, destacado, normal, oferta, productosActivos, productosInactivos])
+        Promise.all([molido,granos, capsulas, chocolates, cookies, alfajores, destacado, normal, oferta, productosActivos, productosInactivos])
          .then ( categorias => {
                 Product.findAll()
                     .then(productsDB => {
@@ -76,9 +88,22 @@ const productsControllerApi = {
                         },
                         {
                             name: "Capsulas",
-                            amount: categorias[2]}],
-                        productsBySession:[{destacado:categorias[3]}, {normal:categorias[4]}, {oferta:categorias[5]}],
-                        productsByStatus:[{productosActivos:categorias[6]}, {productosInactivos:categorias[7]}],
+                            amount: categorias[2]
+                        },
+                        {
+                            name: "Chocolates",
+                            amount: categorias[3]
+                        },
+                        {
+                        name: "Cookies",
+                        amount: categorias[4]
+                        },
+                        {
+                        name: "Alfajores",
+                        amount: categorias[5]
+                        }],
+                        productsBySession:[{destacado:categorias[6]}, {normal:categorias[7]}, {oferta:categorias[8]}],
+                        productsByStatus:[{productosActivos:categorias[9]}, {productosInactivos:categorias[10]}],
                         productos: products
                     })
                     //}

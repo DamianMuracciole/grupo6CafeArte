@@ -169,13 +169,16 @@ const productsController = {
         console.log(req.body)
        
             if(req.file && req.file.filename){
-                product.image = req.file.filename ;
-                console.log("hola", req.file)
+                imagen = req.file.filename;                
+            } else if(req.file===undefined){
+                let product = Products.findByPk(id).then(result => {
+                    return result
+                })
+                req.body.image = product.image
             }
 
-        if (errores.errors.length==0) {
-            let idProduct = req.params.id;
-    
+            let product = {...req.body }
+
             Products.update(
                 product
             ,
@@ -184,15 +187,16 @@ const productsController = {
             })
             .then(() => {
                // console.log("holaaaaaaaaaaaaa")
-                res.redirect("/productos")})
+                res.redirect(`/productos/detalle/${id}`)})
             .catch(error => res.send(error))
            
         } else {
-            
+            let productosOld = req.body
+            productosOld.id = req.params.id
             res.render('products/editarProducto', {
                 errors: errores.mapped(),
                 image: imagen,
-                productoAEditar: req.body
+                productoAEditar: productosOld
             });
 
        
