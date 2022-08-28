@@ -9,11 +9,11 @@ window.onload = function() {
     let p = document.querySelector("#error")
     let pd = document.querySelector("#errorDetalle")
     let pi = document.querySelector("#errorImage")
-
+    
     nombreProducto.addEventListener("blur", e =>  {
         let element  = e.srcElement
         if(element.value === "") {
-            element.classList.add("is-invalid");
+            element.classList.add("is-invalid");         
             p.innerHTML = "El campo nombre de Producto no puede estar vacio.";    
             p.classList.add("error")           
         } else if(element.value.length < 5) {

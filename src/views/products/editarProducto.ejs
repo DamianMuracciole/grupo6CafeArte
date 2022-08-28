@@ -1,110 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <!-- Aqui va el head -->
-    <%- include('../partials/head', {title: 'Editando: ' }) %>
+<!-- Aqui va el head -->
+<%- include('../partials/head', {title: 'Editando: ' }) %>
 
-<body>
-    
-    <!-- Aqui va el header -->
-    <%- include('../partials/header') %>
-<!-- Aqui va el script de validaciones -->
-  <script src="/js/productModifyValidation.js" type="text/javascript"></script> 
-    <!-- Aqui va el main -->
-    <main>
-        
-        <div class="main-title-ctn">
-            <p>Editar Producto: <%= productoAEditar.name %></p>
-        </div>
-        <div class="main-form-ctn">
-            <form action="/productos/editar/<%= productoAEditar.id %>" method="POST" class="formCyE" enctype="multipart/form-data">
-                
-                <label for="nombre">Nombre del Producto</label>
-                <input type="text" name="name" id="nombre" 
-                value="<%= locals.productoAEditar && productoAEditar.name ? productoAEditar.name : null  %>">
-                <p id="error"></p>
-                    <% if (locals.errors && errors.name) { %>
-                        <div class="text-danger">
-                            <%= errors.name.msg %> 
-                        </div>                         
-                    <% } %>
+    <body>
 
+        <!-- Aqui va el header -->
+        <%- include('../partials/header') %>
+            <!-- Aqui va el script de validaciones -->
 
-                <label for="peso">Peso Neto</label>
-                <input type="number" name="weight" id="peso" 
-                value="<%= locals.productoAEditar && productoAEditar.weight ? productoAEditar.weight : null  %>" 
-                placeholder="Peso Neto">
-                <p id="error"></p>
-                    <% if (locals.errors && errors.weight) { %>
-                        <div class="text-danger">
-                            <%= errors.weight.msg %> 
-                        </div>                         
-                    <% } %>
+            <!-- Aqui va el main -->
+            <main>
 
-                <label for="detalle">Descripción</label>
-                <textarea name="detail" id="detalle" class='content-ctn' 
-                placeholder="Detalle" rows="10" cols="50"><%= productoAEditar.detail %></textarea>
-                <p id="errorDetalle"></p>
-                    <% if (locals.errors && errors.detail) { %>
-                        <div class="text-danger">
-                            <%= errors.detail.msg %> 
-                        </div>                         
-                    <% } %>
-                <label for="precio">Precio</label>
-                <input type="number" name="price" id="precio" 
-                value="<%= locals.productoAEditar && productoAEditar.price ? productoAEditar.price : null  %>" placeholder="Precio">
-                <% if (locals.errors && errors.price) { %>
-                    <div class="text-danger">
-                        <%= errors.price.msg %> 
-                    </div>                         
-                <% } %>
-
-                <label for="cantidad">Cantidad</label>
-                <input type="number" name="quantity" id="cantidad" placeholder="Cantidad" class="form-element"
-                value="<%= locals.productoAEditar && productoAEditar.quantity ? productoAEditar.quantity : null  %>"> 
-                <% if (locals.errors && errors.quantity) { %>
-                    <div class="text-danger">
-                        <%= errors.quantity.msg %> 
-                    </div>                         
-                <% } %>    
-
-                <!-- Traer la imagen -->
-                <label for="imagenes">Subir Imagen</label>
-                <img src="/images/<%= productoAEditar.image %>" alt="">
-                <input type="file" accept="image/*" name="image" id="imagenes" placeholder="Insertar Imagenes de tu producto">
-                
-                
-
-                <label for="categoria">Categoria</label>
-                <select name="category" id="categoria">
-                    <!-- <option value="" disabled>Seleccionar Categoria</option> -->
-                    <!-- <option value="molido" <%= productoAEditar.category === 'molido' ? 'selected' : '' %> >Molido</option>
-                    <option value="granos" <%= productoAEditar.category === 'granos' ? 'selected' : '' %> >En granos</option>                    
-                    <option value="capsulas" <%= productoAEditar.category === 'capsulas' ? 'selected' : '' %> >En capsulas</option> -->
-                    
-                    <option value="Molido" <%= productoAEditar.category === 'Molido' ? 'selected' : '' %> >Molido</option>
-                    <option value="En Granos" <%= productoAEditar.category === 'En Granos' ? 'selected' : '' %> >En Granos</option>              
-                    <option value="Capsulas" <%= productoAEditar.category === 'Capsulas' ? 'selected' : '' %> >Capsulas</option>
-                </select>
-
-                <label for="sesion">Sesion</label>
-                <select name="session" id="sesion">
-                    <option value="Destacado" <%= productoAEditar.session === 'Destacado' ? 'selected' : '' %> >Destacado</option>
-                    <option value="Oferta" <%= productoAEditar.session === 'Oferta' ? 'selected' : '' %> >En Oferta</option>
-                    <option value="Normal" <%= productoAEditar.session === 'Normal' ? 'selected' : '' %> >Normal</option>
-                </select>
-
-                <div class="submit-compra-mc">
-                    <button type="submit" class="submit-lgn-mc">Guardar Producto</button>
+                <div class="main-title-ctn">
+                    <p>Editar Producto: <%= productoAEditar.name %>
+                    </p>
                 </div>
-            </form>
-        </div>
-    </main>
+                <div class="main-form-ctn">
+                    <form action="/productos/editar/<%= productoAEditar.id %>?_method=PUT" method="POST" class="formCyE"
+                        enctype="multipart/form-data">
+                        <div class="control-form">
+                            <label for="nombre">Nombre del Producto</label>
+                            <input type="text" name="name" id="nombre"
+                                value="<%= locals.productoAEditar && productoAEditar.name ? productoAEditar.name : null  %>">
+
+                            <% if (locals.errors && errors.name) { %>
+                                <div class="text-danger">
+                                    <%= errors.name.msg %>
+                                </div>
+                                <% } else { %>
+                                    <!-- Validacion desde el front -->
+                                    <div class="text-danger-front err_nombre"></div>
+                                    <% }%>
+                        </div>
+                        <div class="control-form">
+                            <label for="peso">Peso Neto</label>
+                            <input type="number" name="weight" id="peso"
+                                value="<%= locals.productoAEditar && productoAEditar.weight ? productoAEditar.weight : null  %>"
+                                placeholder="Peso Neto">
+
+                            <% if (locals.errors && errors.weight) { %>
+                                <div class="text-danger">
+                                    <%= errors.weight.msg %>
+                                </div>
+                                <% } else { %>
+                                    <div class="text-danger-front err_peso"></div>
+                                    <% }%>
+                        </div>
+                        <div class="control-form">
+                            <label for="detalle">Descripción</label>
+                            <textarea name="detail" id="detalle" class='content-ctn' placeholder="Detalle" rows="10"
+                                cols="50"><%= productoAEditar.detail %></textarea>
+                            <p id="errorDetalle"></p>
+                            <% if (locals.errors && errors.detail) { %>
+                                <div class="text-danger">
+                                    <%= errors.detail.msg %>
+                                </div>
+                                <% } else { %>
+                                    <div class="text-danger-front err_detalle"></div>
+                                    <% }%>
+                        </div>
+                        <div class="control-form">
+                            <label for="precio">Precio</label>
+                            <input type="number" name="price" id="precio"
+                                value="<%= locals.productoAEditar && productoAEditar.price ? productoAEditar.price : null  %>"
+                                placeholder="Precio">
+                            <% if (locals.errors && errors.price) { %>
+                                <div class="text-danger">
+                                    <%= errors.price.msg %>
+                                </div>
+                                <% } else { %>
+                                    <div class="text-danger-front err_precio"></div>
+                                    <% }%>
+                        </div>
+                        <div class="control-form">
+                            <label for="cantidad">Cantidad</label>
+                            <input type="number" name="quantity" id="cantidad" placeholder="Cantidad"
+                                class="form-element"
+                                value="<%= locals.productoAEditar && productoAEditar.quantity ? productoAEditar.quantity : null  %>">
+                            <% if (locals.errors && errors.quantity) { %>
+                                <div class="text-danger">
+                                    <%= errors.quantity.msg %>
+                                </div>
+                                <% } else { %>
+                                    <div class="text-danger-front err_cantidad"></div>
+                                    <% }%>
+                        </div>
+
+                        <!-- Traer la imagen -->
+                        <div class="control-form">
+                            <label for="imagenes">Subir Imagen</label>
+                            <img src="/images/<%= productoAEditar.image %>" alt="">
+                            <input type="file" accept="image/*" name="image" id="imagenes"
+                                placeholder="Insertar Imagenes de tu producto">
+                            
+                        </div>
+
+                        <label for="categoria">Categoria</label>
+                        <select name="category" id="categoria">
 
 
-    <!-- Aca va el footer -->
-    <%- include('../partials/footer') %>
-    
+                            <option value="Molido" <%=productoAEditar.category==='Molido' ? 'selected' : '' %> >Molido
+                            </option>
+                            <option value="En Granos" <%=productoAEditar.category==='En Granos' ? 'selected' : '' %> >En
+                                Granos</option>
+                            <option value="Capsulas" <%=productoAEditar.category==='Capsulas' ? 'selected' : '' %>
+                                >Capsulas</option>
+                        </select>
 
-</body>
+                        <label for="sesion">Sesion</label>
+                        <select name="session" id="sesion">
+                            <option value="Destacado" <%=productoAEditar.session==='Destacado' ? 'selected' : '' %>
+                                >Destacado</option>
+                            <option value="Oferta" <%=productoAEditar.session==='Oferta' ? 'selected' : '' %> >En Oferta
+                            </option>
+                            <option value="Normal" <%=productoAEditar.session==='Normal' ? 'selected' : '' %> >Normal
+                            </option>
+                        </select>
+
+                        <div class="botonesEditarProducto">
+                            <div>
+                                <button type="submit" class="submit-lgn-mc" id="submit">Guardar Producto</button>
+                            </div>
+
+                            <a href="/productos/detalle/<%= productoAEditar.id %>">
+                                <button type="button" class="submit-lgn-mc"> Volver
+                                </button>
+                            </a>
+                        </div>
+                    </form>
+
+                </div>
+            </main>
+
+            <script src="/js/productModifyValidation.js" type="text/javascript"></script>
+            <!-- Aca va el footer -->
+            <%- include('../partials/footer') %>
+
+
+    </body>
+
 </html>
