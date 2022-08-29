@@ -163,42 +163,40 @@ const productsController = {
     //actualización del producto en la DB
     update: (req, res) => {
         let errores = validationResult(req)
+        let id = req.params.id
         let imagen;
             //condiciones para la carga de la imagen
         let product = {...req.body }
         console.log(req.body)
        
             if(req.file && req.file.filename){
-                imagen = req.file.filename;                
-            } else if(req.file===undefined){
-                let product = Products.findByPk(id).then(result => {
-                    return result
-                })
-                req.body.image = product.image
+                product.image = req.file.filename ;
+                console.log("hola", req.file)
             }
 
-            if (errores.errors.length==0) {
-                let idProduct = req.params.id;
-        
-                Products.update(
-                    product
-                ,
-                {
-                    where:{id : idProduct}
-                })
-                .then(() => {
-                   // console.log("holaaaaaaaaaaaaa")
-                    res.redirect(`/productos/detalle/${id}`)})
-                .catch(error => res.send(error))
-               
-            } else {
-                let productosOld = req.body
-                productosOld.id = req.params.id
-                res.render('products/editarProducto', {
-                    errors: errores.mapped(),
-                    image: imagen,
-                    productoAEditar: productosOld
-                });
+        if (errores.errors.length==0) {
+            let idProduct = req.params.id;
+    
+            Products.update(
+                product
+            ,
+            {
+                where:{id : idProduct}
+            })
+            .then(() => {
+               // console.log("holaaaaaaaaaaaaa")
+                res.redirect(`/productos/detalle/${id}`)})
+            .catch(error => res.send(error))
+           
+        } else {
+            let productosOld = req.body
+            productosOld.id = req.params.id
+            res.render('products/editarProducto', {
+                errors: errores.mapped(),
+                image: imagen,
+                productoAEditar: productosOld
+            });
+
        
     }
     },
