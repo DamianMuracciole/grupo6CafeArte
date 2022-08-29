@@ -14,9 +14,11 @@
             if (expresiones.email.test(e.target.value)){
                 document.getElementById('email').classList.remove('invalid');
                 document.getElementById('email').classList.add('valid');
+                document.querySelector('.formInputEmailError').classList.remove ('formInputEmailErrorActivo')
             }else{
                 document.getElementById('email').classList.add('invalid');
                 document.getElementById('email').classList.remove('valid');
+                document.querySelector('.formInputEmailError').classList.add ('formInputEmailErrorActivo')
             }
         break;
 
@@ -24,10 +26,12 @@
             if (expresiones.password.test(e.target.value)){
                 document.getElementById('password').classList.remove('invalid');
                 document.getElementById('password').classList.add('valid');
+                document.querySelector('.formInputPassError').classList.remove ('formInputPassErrorActivo')
                
             }else{
                 document.getElementById('password').classList.add('invalid');
                 document.getElementById('password').classList.remove('valid');
+                document.querySelector('.formInputPassError').classList.add ('formInputPassErrorActivo')
                 
             }
         

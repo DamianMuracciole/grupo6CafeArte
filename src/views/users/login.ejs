@@ -17,6 +17,9 @@
         <form action="/usuarios/login" method="POST" class="formBody" id="formulario">
             <label for="email">Correo Electrónico</label>
             <input type="email" name="email" id="email" class="email" placeholder="email" >
+            <div>
+                <p class="formInputEmailError">Ingrese su Email</p>
+            </div>
             <% if (locals.errors && errors.email) { %>
              <div class="text-danger">
                 <%= errors.email.msg %> 
@@ -24,6 +27,9 @@
             <% } %>
             <label for="password" class="pass">Contraseña</label>
             <input type="password" name="password" id="password" placeholder="Contraseña">
+            <div>
+                <p class="formInputPassError">Ingrese su password de 5 a 12 digitos</p>
+            </div>
             <div class="rememberMe">
                 <% if (locals.errors && errors.user) { %>
                     <div class="text-danger">

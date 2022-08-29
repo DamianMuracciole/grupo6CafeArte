@@ -776,6 +776,25 @@ border: solid 2px red;
 	border: solid 2px green;
 }
 
+.formInputEmailError{
+	display: none;
+}
+
+.formInputEmailErrorActivo{
+	display: block;
+	color: red;
+	margin-top: 0%;
+}
+.formInputPassError{
+	display: none;
+}
+
+.formInputPassErrorActivo{
+	display: block;
+	color: red;
+	margin-top: 0%;
+}
+
 
 
   
