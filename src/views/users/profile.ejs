@@ -16,11 +16,13 @@
                    </p>  
                 </div>
                 
-                <div class="botonesEditarProducto">
-                    <form action="/usuarios/edit/<%= user.id %>" method="get" class="create-user">
+                <div>
+                    <form action="/usuarios/edit/<%= user.id %>" method="get" class="create-user botonesEditarProducto">
                         <button type="submit" class="submit-lgn-mc">Editar Usuario </button>
                     </form>
-                    <form action="/usuarios/detalle/<%= user.id %>" method="get" class="create-user">
+                </div>
+                <div>
+                    <form action="/usuarios/detalle/<%= user.id %>" method="get" class="create-user botonesEditarProducto">
                         <button type="submit" class="submit-lgn-mc">Detalle Usuario </button>
                     </form>
                 </div>

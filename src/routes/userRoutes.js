@@ -45,7 +45,8 @@ router.post('/registro',uploadFile.single('image'),registerValidations, userCont
 //ruta de edit
 router.get('/edit/:id', userController.edit)
 
-router.post('/edit/:id', editUserValidation, uploadFile.single('image'), userController.actualizar)
+//router.put('/edit/:id', editUserValidation, uploadFile.single('image'), userController.actualizar)
+router.put('/edit/:id', uploadFile.single('image'), editUserValidation,  userController.actualizar)
 
 //ruta de detalle
 

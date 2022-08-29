@@ -38,10 +38,12 @@ const validations = [
     
     body('image').custom((value, { req }) => {
         let file = req.file;
+
         let acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
         if(!file){
             throw new Error('Debe subir una imagen')
         } else { //cuando me envien un archivo (sino me sale un error porque al principio no viene nada, entonces ahi si pregunto lo de las extensiones)
+            
             let fileExtension = path.extname(file.originalname).toLocaleLowerCase();
             if(!acceptedExtensions.includes(fileExtension)) {
                 throw new Error(`Las extensiones para archivos deben ser ${acceptedExtensions.join(', ')}`)
@@ -52,22 +54,3 @@ const validations = [
 ]
 
 module.exports = validations;
-
-//calculo edad 
-// function calcularEdad(fecha_nacimiento) {
-//     var hoy = new Date();
-//     var cumpleanos = new Date(fecha_nacimiento);
-//     var edad = hoy.getFullYear() - cumpleanos.getFullYear();
-//     var m = hoy.getMonth() - cumpleanos.getMonth();
-//     if (m < 0 || (m === 0 && hoy.getDate() < cumpleanos.getDate())) {
-//         edad--;
-//     }
-//     return edad;
-// }
-
-// var edad = calcularEdad("2000/08/10");
-// if(edad >= 18){
-//     alert("Eres mayor de edad :D ");
-// }else{
-//     alert("Eres menor de edad :( ");
-// }
