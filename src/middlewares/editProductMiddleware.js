@@ -1,7 +1,7 @@
 const { body } = require('express-validator');
 const path = require('path')
 
-const createProductValidations = [
+const editProductValidations = [
     body('name').notEmpty().withMessage("Tienes que escribir un nombre de producto").bail()
     .isLength({ min: 5 }).withMessage("El nombre debe tener un mínimo de 5 caracteres"),
     body('weight').notEmpty().withMessage("Tienes que escribir el peso del producto").bail()
@@ -32,4 +32,4 @@ const createProductValidations = [
     // })
 ]
 
-module.exports = createProductValidations;
+module.exports = editProductValidations;
