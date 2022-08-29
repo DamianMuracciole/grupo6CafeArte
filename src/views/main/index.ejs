@@ -8,27 +8,44 @@
     <%- include('../partials/header') %>
 
     <main>
-        <div class="carrusel">
-            <!-- <a href="/productDetail"></a> ESTO A DONDE SE SUPONE QUE MANDA? -->
-                <img src="/images/tomemonos-un-cafe-banner.jpg" class="imagen">
-        </div> 
-        
+        <div>
+
+            <!-- <div class="carrusel"> -->
+                <!-- <img src="/images/tomemonos-un-cafe-banner.jpg" class="imagen"> -->
+                <!-- </div>  --> -->
+                
+            </div>
+            
+            <div id="slideshow-principal" class="carrusel" >
+                <div id="progress-bar-container">
+                    <div id="progress-bar"></div>
+                </div>
+                <div id="slideshow">
+                    <img src="" alt="" id="img1">
+                    <img src="" alt="" id="img2">
+                    
+                    <div id="indicadores"></div>
+                </div>
+            </div>
+            
             <h3 class="titulo">Nuestras Ofertas</h3>
-      
+            
             <section class="Ofertas">
                 <%- include('../partials/cardOfertas') %> 
             </section>
-
-        <h3 class="titulo"> Nuestros Destacados</h3>
-
-        <section class="destacados">
-            <%- include('../partials/cardDestacados') %> 
-        </section>
+            
+            <h3 class="titulo"> Nuestros Destacados</h3>
+            
+            <section class="destacados">
+                <%- include('../partials/cardDestacados') %> 
+            </section>
+            
+        </div>
+        </main>
         
-    </main>
-
-    <!-- Aca va el foter -->
-    <%- include('../partials/footer') %>
-</body>
-
-</html>
+        <!-- Aca va el foter -->
+        <%- include('../partials/footer') %>
+        <script src="/js/carousel.js"></script>
+    </body>
+    
+    </html>
