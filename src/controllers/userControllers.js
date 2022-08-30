@@ -138,7 +138,6 @@ const userController = {
         const resultValidation = validationResult(req)
         const user =  req.body;
         user.id = req.params.id;
-
         
         //Busco email en la Bb
         await Users.findOne({
@@ -158,17 +157,14 @@ const userController = {
         }
 
         //referido a la imagen
-
-        let finalImage;    
-        if(!error.image ) {
-            finalImage = user.image
-        }else if (error.image && user.image === ''){
-            finalImage =  userInDB.image;
+        let finalImage;
+        if (req.file && req.file.filename){
+            finalImage = req.file.filename;
+            delete error.image;
+        }else{
+            finalImage = userInDB.image;
             delete error.image;
         }
-        
-        // let lolo = req.file.filename
-        // console.log(lolo);
 
 
         //primero me fijo en las validaciones
@@ -199,18 +195,18 @@ const userController = {
             //borro propiedades del objeto que no voy a usar
             delete data.newPassword;
             delete data.newRepassword;
-            return res.redirect("/")
-            // Users.update({
-            //     ...data,
-            //     //image: finalImage,
-            //     rols_id: req.body.rol
-            // }, {
-            //     where: {
-            //         id: req.params.id
-            //     }
-            // })
-            // .then(() => res.redirect('/usuarios/detalle/' + req.params.id))
-            // .catch(err => res.render(err))
+            res.locals.userLogged.image = finalImage;
+            Users.update({
+                ...data,
+                image: finalImage,
+                rols_id: req.body.rol
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(() => res.redirect('/usuarios/detalle/' + req.params.id))
+            .catch(err => res.render(err))
         }
     },
 

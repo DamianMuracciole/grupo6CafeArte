@@ -220,6 +220,10 @@ a{
 	padding: 5px;
 }
 
+.foto-perfil{
+	max-width: 220px;
+}
+
 /*-- Carrito => Compras --*/
 .icon-cart{
 	display: block;

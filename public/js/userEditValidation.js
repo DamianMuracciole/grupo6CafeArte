@@ -121,7 +121,7 @@ window.addEventListener('load', () => {
     });
     
     //Evalua condicion de error de la imagen
-    image.addEventListener('blur', function(){
+    image.addEventListener('change', function(){
         if(image.value.length <= 0){
             errores.image = 'Debe ingresar una imagen';
         }else if (!image.value.includes('.')) {

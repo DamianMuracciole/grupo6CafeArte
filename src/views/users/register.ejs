@@ -24,7 +24,6 @@
                         <input type="text" id="first_name" name="first_name" placeholder="Nombre"
                             class="control bkg_first_name <%= (locals.errors && errors.first_name) ? 'is-invalid' : null %>"
                             value="<%= locals.oldData ? oldData.first_name : null  %>">
-                        
                         <!-- Texto de error -->
                         <% if (locals.errors && errors.first_name) { %>
                             <div class="text-danger err_first_name">
