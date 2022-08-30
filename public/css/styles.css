@@ -253,19 +253,20 @@ a{
     box-shadow: 0 0 50px 0 rgba(0,0,0,.9);
 }
 
-#slideshow-proncipal{
+#slideshow-principal{
+	
 	position: relative;
 	overflow: hidden;
 }
 
 #progress-bar-container{
-	/* margin-top: 65px; */
+	margin-top: 65px;
 	position:absolute;
 	height: 10px;
 	background-color: rgba(0,0,0,.2);
 	width: 100%;
 	top:0;
-	/* z-index: 9998; */
+	z-index: 0;
 }
 
 #progress-bar{
@@ -275,9 +276,10 @@ a{
 	transition: width 0.8s;
 }
 #slideshow{
+	margin-top: 40px;
 	position: relative;
-	/* z-index: 998; */
-	height: 500px;
+	z-index: 0;
+	height: 600px;
 }
 
 #slideshow img{
@@ -1017,6 +1019,7 @@ border: solid 2px red;
 	
 	}
 
+
 	
 }
 
@@ -1106,6 +1109,8 @@ border: solid 2px red;
 	.carrusel img{
 		margin-top: 85px;
 	}
+
+
     main{
         background-image: url('/images/imagenFondoOld02.jpg');
         background-attachment: fixed;
@@ -1272,6 +1277,7 @@ border: solid 2px red;
 	.icon-magnifying-glass input:hover{
 		width: 150px;
 	}
+
 
 }
 

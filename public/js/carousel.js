@@ -6,7 +6,7 @@ const imagenes = ['/images/tomemonos-un-cafe-banner.jpg','/images/carrusel-img-1
 let i= 1
 const img1 = document.querySelector('#img1')
 const img2 = document.querySelector('#img2')
-const progerssBar = document.querySelector('#progress-bar')
+const progressBar = document.querySelector('#progress-bar')
 const divIndicadores = document.querySelector('#indicadores')
 
 let porcentaje_base= 100/imagenes.length
@@ -19,7 +19,7 @@ for (let index = 0; index < imagenes.length; index++) {
     divIndicadores.appendChild(div)
 }
 
-progerssBar.style.width = `${porcentaje_base}`
+progressBar.style.width = `${porcentaje_base}`
 img1.src = imagenes[0]
 const circulos = document.querySelectorAll('.circles')
 circulos[0].classList.add('resaltado')
@@ -33,7 +33,7 @@ const slideshow = () =>{
     img2.classList.add('active')
     i++
     porcentaje_actual+=porcentaje_base
-    progerssBar.style.width = `${porcentaje_actual}%`
+    progressBar.style.width = `${porcentaje_actual}%`
     if (i == imagenes.length){
         i=0
         porcentaje_actual= porcentaje_base - porcentaje_base
