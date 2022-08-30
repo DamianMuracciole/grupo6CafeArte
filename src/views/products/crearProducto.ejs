@@ -24,7 +24,7 @@
                         value="<%= locals.oldData ? oldData.name : null  %>">
                         <p id="error"></p>
                             <% if (locals.errors && errors.name) { %>
-                                <div class="text-danger">
+                                <div class="text-danger" id="backErrorname">
                                     <%= errors.name.msg %> 
                                 </div>                         
                             <% } %>
@@ -32,40 +32,43 @@
 
                 <label for="peso">Peso Neto</label>
                 <input type="number" name="weight" class="form-element" id="peso" placeholder="Peso Neto" value="<%= locals.oldData ? oldData.weight : null  %>"> 
-                    <% if (locals.errors && errors.weight) { %>
-                        <div class="text-danger">
-                            <%= errors.weight.msg %> 
-                        </div>                         
-                    <% } %>
+                <p id="errorPeso"></p>
+                <% if (locals.errors && errors.weight) { %>
+                    <div class="text-danger" id="backErrorPeso">
+                        <%= errors.weight.msg %> 
+                    </div>                         
+                <% } %>
                 
                 <div>
                     <label for="detalle">Descripción</label>
                     <textarea name="detail" id="detalle" class='content-ctn form-element' placeholder="Descripcion" rows="10" cols="50"><%= locals.oldData ? oldData.detail : null  %></textarea>
                     <p id="errorDetalle"></p>    
                     <% if (locals.errors && errors.detail) { %>
-                            <div class="text-danger">
-                                <%= errors.detail.msg %> 
-                            </div>                         
+                        <div class="text-danger" id="backErrorDetalle">
+                            <%= errors.detail.msg %> 
+                        </div>                         
                         <% } %>     
                 </div>
 
                 <label for="precio">Precio</label>
                 <input type="number" name="price" id="precio" placeholder="Precio" class="form-element"
                         value="<%= locals.oldData ? oldData.price : null  %>"> 
-                                    <% if (locals.errors && errors.price) { %>
-                                        <div class="text-danger">
-                                            <%= errors.price.msg %> 
-                                        </div>                         
-                                    <% } %>
+                        <p id="errorPrecio"></p>
+                        <% if (locals.errors && errors.price) { %>
+                            <div class="text-danger" id="backErrorPrecio">
+                                <%= errors.price.msg %> 
+                            </div>                         
+                        <% } %>
 
                 <label for="cantidad">Cantidad</label>
                 <input type="number" name="quantity" id="cantidad" placeholder="Cantidad" class="form-element"
                         value="<%= locals.oldData ? oldData.quantity : null  %>"> 
-                            <% if (locals.errors && errors.quantity) { %>
-                                <div class="text-danger">
-                                    <%= errors.quantity.msg %> 
-                                </div>                         
-                            <% } %>
+                        <p id="errorCantidad"></p>
+                        <% if (locals.errors && errors.quantity) { %>
+                            <div class="text-danger" id="backErrorCantidad">
+                                <%= errors.quantity.msg %> 
+                            </div>                         
+                        <% } %>  
                 
             <div>
                 <label for="imagenes">Insertar Imagenes de tu Producto</label>

@@ -13,7 +13,7 @@ const editProductValidations = [
     .isNumeric().withMessage("El precio debe ser un número").bail(),
     body('quantity').notEmpty().withMessage("Tienes que poner una cantidad del producto").bail()
     .isNumeric().withMessage("La cantidad debe ser un número").bail()
-    .isInt({min:1, max: 9999999 }).withMessage("El peso debe ser mayor a 0"),
+    .isInt({min:1, max: 9999999 }).withMessage("El cantidad debe ser mayor a 0"),
     body('category').notEmpty().withMessage('Tienes que elegir una categoria'),
     body('session').notEmpty().withMessage('Tienes que elegir una sesion'),
     // body('image').custom((value, { req }) => {
