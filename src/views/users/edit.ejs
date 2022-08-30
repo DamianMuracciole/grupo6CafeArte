@@ -17,10 +17,9 @@
             <div class="form-principal">
                 <form action="/usuarios/edit/<%= user.id %>?_method=PUT" " method="post" class="create-user" enctype="multipart/form-data">
                     <h2 class="registro">Editar Usuario</h2>
-<<<<<<< HEAD
                     
                     
-                    <div class="control-form">
+                    <!-- <div class="control-form">
                         <label for="first_name">Nombre</label> 
                         <input 
                             type="text" 
@@ -29,17 +28,15 @@
                             placeholder="Nombre"
                             <% if (locals.isLogged && user.rols_id !== 2) { %>
                                 disabled
-                                <% } %>
+                            <% } %>
                             value="<%= user.first_name  %>"> 
-=======
-                  
+                    </div> -->
                     <!-- Campo Nombre -->
                     <div class="control-form">
                         <label for="first_name">Nombre</label>
                         <input type="text" id="first_name" name="first_name" placeholder="Nombre"
                             class="control bkg_first_name <%= (locals.errors && errors.first_name) ? 'is-invalid' : null %>"
                             value="<%= locals.oldData ? oldData.first_name : user.first_name  %>">
->>>>>>> correccionesSprint7-Damian
                         
                         <!-- Texto de error -->
                         <% if (locals.errors && errors.first_name) { %>
@@ -54,15 +51,15 @@
 
                     <!-- Campo Apellido -->
                     <div class="control-form">
-<<<<<<< HEAD
-                        <label for="last_name">Apellido</label> 
+
+                        <!-- <label for="last_name">Apellido</label> 
                         <input type="text" name="last_name" class="control" placeholder="Apellido" 
                         <% if (locals.isLogged && user.rols_id !== 2) { %>
                             disabled
                             <% } %>
-                        value="<%= user.last_name  %>">  
+                        value="<%= user.last_name  %>">   -->
                         
-=======
+
                         <label for="last_name">Apellido</label>
                         <input type="text" id="last_name" name="last_name" class="control" placeholder="Apellido"
                         value="<%= locals.oldData ? oldData.last_name : user.last_name  %>">
@@ -74,20 +71,17 @@
                             <!-- Validacion desde el front -->
                             <div class="text-danger-front err_last_name"></div>
                         <% }%>
->>>>>>> correccionesSprint7-Damian
                     </div>
 
                     <!-- Campo Nombre de usuari@ -->
                     <div class="control-form">
-<<<<<<< HEAD
-                        <label for="username">Nombre de Usuari@</label> 
+                        <!-- <label for="username">Nombre de Usuari@</label> 
                         <input type="text" name="username" class="control" placeholder="Nombre de Usuario"
                         <% if (locals.isLogged && user.rols_id !== 2) { %>
                             disabled
                             <% } %>
-                        value="<%= user.username  %>">
+                        value="<%= user.username  %>"> -->
                            
-=======
                         <label for="username">Nombre de Usuari@</label>
                         <input type="text" id="username" name="username" class="control" placeholder="Nombre de Usuari@" 
                         value="<%= locals.oldData ? oldData.username : user.username  %>">
@@ -99,20 +93,17 @@
                             <!-- Validacion desde el front -->
                             <div class="text-danger-front err_username"></div>
                         <% }%>
->>>>>>> correccionesSprint7-Damian
                     </div>
 
                     <!-- Campo Email -->
                     <div class="control-form">
-<<<<<<< HEAD
-                        <label for="email">Correo electronico</label> 
+                        <!-- <label for="email">Correo electronico</label> 
                         <input type="email" name="email" class="control" placeholder="nombre@correo.com"
                         <% if (locals.isLogged && user.rols_id !== 2) { %>
                             disabled
                             <% } %>
-                        value="<%= user.email  %>">
+                        value="<%= user.email  %>"> -->
                            
-=======
                         <label for="email">Correo electronico</label>
                         <input type="email" id="email" name="email" class="control" placeholder="nombre@correo.com" 
                         value="<%= locals.oldData ? oldData.email : user.email %>">
@@ -124,20 +115,18 @@
                             <!-- Validacion desde el front -->
                             <div class="text-danger-front err_email"></div>
                         <% }%>
->>>>>>> correccionesSprint7-Damian
                     </div>
 
                     <!-- campo fecha de nacimiento -->
                     <div class="control-form">
-<<<<<<< HEAD
-                        <label for="birth_date">Fecha de Nacimiento</label> 
+                        <!-- <label for="birth_date">Fecha de Nacimiento</label> 
                         <input type="date" name="birth_date" class="control" placeholder="dd/mm/yyyy"
                         <% if (locals.isLogged && user.rols_id !== 2) { %>
                             disabled
                             <% } %>
-                        value="<%= user.birth_date  %>">
+                        value="<%= user.birth_date  %>"> -->
                         
-=======
+
                         <label for="birth_date">Fecha de Nacimiento</label>
                         <input type="date" id="birth_date" name="birth_date" class="control" placeholder="dd/mm/yyyy"
                         value="<%= locals.oldData ? oldData.birth_date : user.birth_date  %>">
@@ -149,7 +138,6 @@
                             <!-- Validacion desde el front -->
                             <div class="text-danger-front err_birth_date"></div>
                         <% } %> 
->>>>>>> correccionesSprint7-Damian
                     </div>
 
                     <!-- Campo imagen de usuario -->
@@ -170,7 +158,7 @@
                     <!-- cambio de contraseña -->
                     
                     <input type="checkbox" id="changePassword" name="changePassword">
-                    <label for="changePassword"> Cambiar contraseña</label>
+                    <label for="changePassword">Cambiar contraseña</label>
                     <br>
                     <br>
                         
@@ -217,48 +205,49 @@
                         <% } %>
                     </div>
 
-<<<<<<< HEAD
                     <% if (locals.isLogged && user.rols_id === 2) { %>
                         <div class="control-form">
                             <label for="status">Status</label> 
                             <input type="text" name="status" class="control" placeholder="Status" 
                             value="<%= user.status  %>">                           
                         </div>                        
-                        <% } %>
+                    <% } %>
                         
-                        <% if (locals.isLogged && user.rols_id === 2) { %>
-                    <div class="control-form">
-                        <label for="rol">Rol</label> 
-                        <select name="rol" >
-                            <% rol.forEach(role => { %>                                
-                                <% if (role.id == user.rols_id) { %>
-                                    <option value="<%= role.id  %>" selected>
-                                        <%= role.rol_name  %>
-                                    </option>
-                                     
-                                     <% } else { %>
+                    <% if (locals.isLogged && user.rols_id === 2) { %>
+                        <div class="control-form">
+                            <label for="rol">Rol</label> 
+                            <select name="rol" >
+                                <% rol.forEach(role => { %>                                
+                                    <% if (role.id == user.rols_id) { %>
+                                        <option value="<%= role.id  %>" selected>
+                                            <%= role.rol_name  %>
+                                        </option>
+                                        
+                                    <% } else { %>
                                         <option value="<%= role.id  %>">
                                             <%= role.rol_name  %>
                                         </option>
-                                        <% } %>                             
-                            <% }) %>
-                            <% } %>
-=======
-                    <div class="control-form">
+                                    <% } %>                             
+                                <% }) %>
+                            </select>
+                        </div>
+                    <% } %>
+                    
+
+                    <!-- <div class="control-form">
                         <label for="status">Status</label> 
                         <input type="text" name="status" class="control" placeholder="Status" 
                         value="<%= user.status  %>">
-                    </div>
+                    </div> -->
                    
-                    <div class="control-form">
+                    <!-- <div class="control-form">
                         <label for="rol">Rol</label> 
                         <select name="rol" >
                             <option value=1 >User </option>
                             <option value=2 >Admin</option>
                             <option value=3 >Guest</option>
->>>>>>> correccionesSprint7-Damian
                         </select>
-                    </div>
+                    </div> -->
 
                     <!-- aceptar cambios usuario o volver -->
                     <div>
@@ -266,9 +255,9 @@
                             <button type="submit" id="submit" class="button-form-create">Guardar Usuario</button>
                         </div>
                         <div class="botonesEditarProducto">
-                        <a href="/usuarios/perfil">
-                            <button type="button" class="submit-lgn-mc">    Volver    </button>
-                        </a>
+                            <a href="/usuarios/perfil">
+                                <button type="button" class="submit-lgn-mc">    Volver    </button>
+                            </a>
                         </div>
                     </div>
 

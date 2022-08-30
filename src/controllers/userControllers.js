@@ -98,14 +98,13 @@ const userController = {
 				oldData: req.body
 			});
         } else {
+            console.log(req.body);
             Users.create({
                     ...req.body,
                     password: bcryptjs.hashSync(req.body.password, 10), //como estoy en un objeto, esta contrasena va a pisar a la que viene en el body
                     confirm_password: bcryptjs.hashSync(req.body.confirm_password, 10),
                     image: req.file.filename,
                     status: "A"
-                  
-
                 })
                 .then(() => res.redirect('/usuarios/login'))
                 .catch(err => {
@@ -139,6 +138,10 @@ const userController = {
         const user =  req.body;
         user.id = req.params.id;
         
+        //passwords
+        let newPassword;
+        let confirmNewPassword;
+
         //Busco email en la Bb
         await Users.findOne({
             where: { email: req.body.email }
@@ -149,11 +152,17 @@ const userController = {
         .catch(err => res.send(err))
 
         let error = resultValidation.mapped();
+
         //condicion para no evaluar las password
         if (req.body.changePassword == undefined){
             if(error.password) delete error.password;
             if(error.newPassword) delete error.newPassword;
             if(error.newRepassword) delete error.newRepassword;
+            newPassword = userInDB.password
+            confirmNewPassword = userInDB.confirm_password
+        }else{
+            newPassword        = bcryptjs.hashSync(req.body.password, 10) //como estoy en un objeto, esta contrasena va a pisar a la que viene en el body
+            //confirmNewPassword = bcryptjs.hashSync(req.body.confirm_password, 10)
         }
 
         //referido a la imagen
@@ -168,6 +177,8 @@ const userController = {
         
         Users.update({
             ...req.body,
+            password: newPassword,//como estoy en un objeto, esta contrasena va a pisar a la que viene en el body
+            confirm_password: confirmNewPassword,
             image: finalImage,
             rols_id: req.body.rol
         }, {
