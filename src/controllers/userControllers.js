@@ -159,11 +159,11 @@ const userController = {
             if(error.newPassword) delete error.newPassword;
             if(error.newRepassword) delete error.newRepassword;
             newPassword = userInDB.password
-            confirmNewPassword = userInDB.confirm_password
         }else{
-            newPassword        = bcryptjs.hashSync(req.body.password, 10) //como estoy en un objeto, esta contrasena va a pisar a la que viene en el body
-            //confirmNewPassword = bcryptjs.hashSync(req.body.confirm_password, 10)
+            newPassword = bcryptjs.hashSync(req.body.newPassword, 10) //como estoy en un objeto, esta contrasena va a pisar a la que viene en el body
         }
+
+        
 
         //referido a la imagen
         let finalImage;
@@ -178,7 +178,6 @@ const userController = {
         Users.update({
             ...req.body,
             password: newPassword,//como estoy en un objeto, esta contrasena va a pisar a la que viene en el body
-            confirm_password: confirmNewPassword,
             image: finalImage,
             rols_id: req.body.rol
         }, {
