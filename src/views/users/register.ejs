@@ -17,11 +17,6 @@
             <div class="form-principal">
                 <form action="/usuarios/registro" method="post" class="create-user" enctype="multipart/form-data">
                     <h2 class="registro">Formulario de registro</h2>
-                    <!-- <% if (locals.errors) { %>
-                        <% for( error in errors ) { %>
-                            <p> <%= errors[error].msg %>  </p>
-                        <% } %>
-                    <% } %> -->
 
                     <!-- Campo Nombre -->
                     <div class="control-form">
@@ -29,7 +24,6 @@
                         <input type="text" id="first_name" name="first_name" placeholder="Nombre"
                             class="control bkg_first_name <%= (locals.errors && errors.first_name) ? 'is-invalid' : null %>"
                             value="<%= locals.oldData ? oldData.first_name : null  %>">
-                        
                         <!-- Texto de error -->
                         <% if (locals.errors && errors.first_name) { %>
                             <div class="text-danger err_first_name">
@@ -50,9 +44,10 @@
                             <div class="text-danger">
                                 <%= errors.last_name.msg %>
                             </div>
-                        <% } %>
-                        <!-- Validacion desde el front -->
-                        <div class="text-danger-front err_last_name"></div>
+                        <% }else{%>
+                            <!-- Validacion desde el front -->
+                            <div class="text-danger-front err_last_name"></div>
+                        <% }%>
                     </div>
 
                     <!-- Campo Nombre de usuari@ -->
@@ -63,9 +58,10 @@
                             <div class="text-danger">
                                 <%= errors.username.msg %>
                             </div>
-                        <% } %>
-                        <!-- Validacion desde el front -->
-                        <div class="text-danger-front err_username"></div>
+                        <% }else{%>
+                            <!-- Validacion desde el front -->
+                            <div class="text-danger-front err_username"></div>
+                        <% }%>
                     </div>
 
                     <!-- Campo Email -->
@@ -76,9 +72,10 @@
                             <div class="text-danger">
                                 <%= errors.email.msg %>
                             </div>
-                        <% } %>
-                        <!-- Validacion desde el front -->
-                        <div class="text-danger-front err_email"></div>
+                        <% } else{%>
+                            <!-- Validacion desde el front -->
+                            <div class="text-danger-front err_email"></div>
+                        <% }%>
                     </div>
 
                     <!-- campo fecha de nacimiento -->
@@ -90,9 +87,10 @@
                             <div class="text-danger">
                                 <%= errors.birth_date.msg %>
                             </div>
-                        <% } %>
-                        <!-- Validacion desde el front -->
-                        <div class="text-danger-front err_birth_date"></div>
+                        <% }else{%>
+                            <!-- Validacion desde el front -->
+                            <div class="text-danger-front err_birth_date"></div>
+                        <% } %> 
                     </div>
 
                     <!-- Campo imagen de usuario -->
@@ -103,9 +101,11 @@
                             <div class="text-danger">
                                 <%= errors.image.msg %>
                             </div>
+                        <% }else{%>
+                            <!-- Validacion desde el front -->
+                            <div class="text-danger-front err_image"></div>
                         <% } %>
-                        <!-- Validacion desde el front -->
-                        <div class="text-danger-front err_image"></div>
+                        
 					</div>
 
                     <!-- Campo Contraseña -->
@@ -116,9 +116,10 @@
                             <div class="text-danger">
                                 <%= errors.password.msg %>
                             </div>
+                        <% }else{%>
+                            <!-- Validacion desde el front -->
+                            <div class="text-danger-front err_password"></div>
                         <% } %>
-                        <!-- Validacion desde el front -->
-                        <div class="text-danger-front err_password"></div>
                     </div>
 
                     <!-- Campo confirmar contraseña -->
@@ -129,19 +130,30 @@
                             <div class="text-danger">
                                 <%= errors.confirm_password.msg %>
                             </div>
+                        <% }else{%>
+                            <!-- Validacion desde el front -->
+                            <div class="text-danger-front err_repassword"></div>
                         <% } %>
-                        <!-- Validacion desde el front -->
-                        <div class="text-danger-front err_repassword"></div>
                     </div>
 
                     <!-- Campo Rol -->
                     <select name="rols_id" id="rol">
-                        <option value=1 >User</option>
+                        <option value=1 >User </option>
                         <option value=2 >Admin</option>
                         <option value=3 >Guest</option>
                     </select>
-                    <div class="control-form-buton">
-                        <button type="submit" id="submit" class="button-form-create">Crear Usuario</button>
+
+
+                    <!-- aceptar crear usuario o volver -->
+                    <div>
+                        <div class="botonesEditarProducto">
+                            <button type="submit" id="submit" class="submit-lgn-mc">Crear Usuario</button>
+                        </div>
+                        <div class="botonesEditarProducto">
+                        <a href="/">
+                            <button type="button" class="submit-lgn-mc">    Volver    </button>
+                        </a>
+                        </div>
                     </div>
                 </form>
             </div>

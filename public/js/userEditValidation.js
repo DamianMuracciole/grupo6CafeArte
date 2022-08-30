@@ -8,9 +8,11 @@ window.addEventListener('load', () => {
     let birth_date = document.getElementById('birth_date');
     let image      = document.getElementById('image');
     let password   = document.getElementById('password');
-    let repassword = document.getElementById('repassword');
+    let newPassword = document.getElementById('newPassword');
+    let newRepassword = document.getElementById('newRepassword');
     //let rol        = document.getElementById('rol');
     let submit     = document.getElementById('submit');
+    let changePassword = document.getElementById('changePassword')
     
     //Clases para textos de Errores
     let err_first_name = document.querySelector('.err_first_name');
@@ -20,7 +22,8 @@ window.addEventListener('load', () => {
     let err_birth_date = document.querySelector('.err_birth_date');
     let err_image = document.querySelector('.err_image');
     let err_password   = document.querySelector('.err_password');
-    let err_repassword = document.querySelector('.err_repassword');
+    let err_newPassword = document.querySelector('.err_newPassword');
+    let err_newRepassword = document.querySelector('.err_newRepassword');
     //let err_rol = document.querySelector('.err_rol');
 
     //definicion del objeto errores y constantes 
@@ -28,14 +31,15 @@ window.addEventListener('load', () => {
     const nameMinLength = 2;
     const passwordMinLength = 8;
     let errores = {
-        first_name: msgInicial,
-        last_name: msgInicial,
-        username:msgInicial,
-        email:msgInicial,
-        birth_date:msgInicial,
-        image:msgInicial,
-        password:msgInicial,
-        repassword:msgInicial
+        // first_name: msgInicial,
+        // last_name: msgInicial,
+        // username:msgInicial,
+        // email:msgInicial,
+        // birth_date:msgInicial,
+        // image:msgInicial,
+        // password:msgInicial,
+        // newPassword:msgInicial,
+        // newRepassword:msgInicial
         };
 
     //Evalua condicion de error de first_name
@@ -117,8 +121,7 @@ window.addEventListener('load', () => {
     });
     
     //Evalua condicion de error de la imagen
-    image.addEventListener('blur', function(){
-        console.log('estoy in image');
+    image.addEventListener('change', function(){
         if(image.value.length <= 0){
             errores.image = 'Debe ingresar una imagen';
         }else if (!image.value.includes('.')) {
@@ -138,66 +141,119 @@ window.addEventListener('load', () => {
         //Cambia el background y da estilo de los campos si ha error en los mismos
         errores.image      ? image.classList.add('is-invalid')     : image.classList.remove('is-invalid');
     });
+
+    //Evalua el checkbox changePassword
+    changePassword.addEventListener('click',()=>{
+        if (changePassword.checked){
+            //habilito campo
+            password.removeAttribute("readonly",false)
+            newPassword.removeAttribute("readonly",false)
+            newRepassword.removeAttribute("readonly",false)
+            // Cargo errores de mensaje inicial
+            errores.password = msgInicial,
+            errores.newPassword = msgInicial,
+            errores.newRepassword = msgInicial
+        }else{
+            password.setAttribute('readonly',true)
+            newPassword.setAttribute('readonly',true)
+            newRepassword.setAttribute('readonly',true)
+            //borro valores ingresados
+            password.value = '';
+            newPassword.value = '';
+            newRepassword.value = '';
+            //borro errores
+            delete errores.password;
+            delete errores.newPassword;
+            delete errores.newRepassword;
+            //borro carteles
+            err_password.innerHTML = '';
+            err_newPassword.innerHTML = '';
+            err_newRepassword.innerHTML = '';
+            //borro fondo
+            password.classList.remove('is-invalid');
+            newPassword.classList.remove('is-invalid');
+            newRepassword.classList.remove('is-invalid');
+        }
+    })
     
     //Evalua condicion de error de password
     password.addEventListener('blur', function(){
-        if(password.value.length < passwordMinLength){
-            errores.password = 'Este campo necesita de ' + passwordMinLength + ' caracteres mínimo';
-        }else if (password.value.length >= passwordMinLength && repassword.value.length >= passwordMinLength){
-            if (password.value !== repassword.value){
-                errores.password = 'Las contraseñas no son iguales';
-
+        if(changePassword.checked){
+            if(password.value.length < passwordMinLength){
+                errores.password = 'Este campo necesita de ' + passwordMinLength + ' caracteres mínimo';
             }else{
                 delete errores.password;
-                delete errores.repassword;
-                err_repassword.innerHTML = (errores.repassword) ? errores.repassword : '';
-                errores.repassword ? repassword.classList.add('is-invalid'): repassword.classList.remove('is-invalid');
-            }
-        }else{
-            delete errores.password;
-        };
-        //Agrega texto de error correspondiente
-        err_password.innerHTML   = (errores.password)   ? errores.password   : '';
-        //Cambia el background y da estilo de los campos si ha error en los mismos
-        errores.password   ? password.classList.add('is-invalid')  : password.classList.remove('is-invalid')
+            };
+            //Agrega texto de error correspondiente
+            err_password.innerHTML   = (errores.password)   ? errores.password   : '';
+            //Cambia el background y da estilo de los campos si ha error en los mismos
+            errores.password   ? password.classList.add('is-invalid')  : password.classList.remove('is-invalid')
+        }
     });
 
-    //Evalua condicion de error de repassword
-    repassword.addEventListener('blur', function(){
-        if(repassword.value.length < passwordMinLength){
-            errores.repassword = 'Este campo necesita de ' + passwordMinLength + ' caracteres mínimo';
-        }else if (password.value.length >= passwordMinLength && repassword.value.length >= passwordMinLength){
-            if (password.value !== repassword.value){
-                errores.repassword = 'Las contraseñas no son iguales';
+    //Evalua condicion de error de newPassword
+    newPassword.addEventListener('blur', function(){
+        if(changePassword.checked){
+            if(newPassword.value.length < passwordMinLength){
+                errores.newPassword = 'Este campo necesita de ' + passwordMinLength + ' caracteres mínimo';
+            }else if (newPassword.value.length >= passwordMinLength && newRepassword.value.length >= passwordMinLength){
+                if (newPassword.value !== newRepassword.value){
+                    errores.newPassword = 'Las contraseñas no son iguales';
+
+                }else{
+                    delete errores.newPassword;
+                    delete errores.newRepassword;
+                    err_newRepassword.innerHTML = (errores.newRepassword) ? errores.newRepassword : '';
+                    errores.newRepassword ? newRepassword.classList.add('is-invalid'): newRepassword.classList.remove('is-invalid');
+                }
             }else{
-                delete errores.password;
-                delete errores.repassword;
-                err_password.innerHTML = (errores.password) ? errores.password : '';
-                errores.password ? password.classList.add('is-invalid'): password.classList.remove('is-invalid');
-            }
-        }else{
-            
-            delete errores.repassword;
-        };
-        //Agrega texto de error correspondiente
-        err_repassword.innerHTML = (errores.repassword) ? errores.repassword : '';
-        //Cambia el background y da estilo de los campos si ha error en los mismos
-        errores.repassword ? repassword.classList.add('is-invalid'): repassword.classList.remove('is-invalid');
+                delete errores.newPassword;
+            };
+            //Agrega texto de error correspondiente
+            err_newPassword.innerHTML   = (errores.newPassword)   ? errores.newPassword   : '';
+            //Cambia el background y da estilo de los campos si ha error en los mismos
+            errores.newPassword   ? newPassword.classList.add('is-invalid')  : newPassword.classList.remove('is-invalid')
+        }
     });
 
-    //Evalua condicion de igualdad entre password y repassword
-    if (password.value.length >= passwordMinLength && repassword.value.length >= passwordMinLength){
-        if (password.value !== repassword.value){
-        errores.password = 'Las contraseñas no son iguales';
-        errores.repassword = 'Las contraseñas no son iguales';
-        password.value = '';
-        repassword.value = '';
+    //Evalua condicion de error de newRepassword
+    newRepassword.addEventListener('blur', function(){
+        if(changePassword.checked){
+            if(newRepassword.value.length < passwordMinLength){
+                errores.newRepassword = 'Este campo necesita de ' + passwordMinLength + ' caracteres mínimo';
+            }else if (newPassword.value.length >= passwordMinLength && newRepassword.value.length >= passwordMinLength){
+                if (newPassword.value !== newRepassword.value){
+                    errores.newRepassword = 'Las contraseñas no son iguales';
+                }else{
+                    delete errores.newPassword;
+                    delete errores.newRepassword;
+                    err_newPassword.innerHTML = (errores.newPassword) ? errores.newPassword : '';
+                    errores.newPassword ? newPassword.classList.add('is-invalid'): newPassword.classList.remove('is-invalid');
+                }
+            }else{
+                
+                delete errores.newRepassword;
+            };
+            //Agrega texto de error correspondiente
+            err_newRepassword.innerHTML = (errores.newRepassword) ? errores.newRepassword : '';
+            //Cambia el background y da estilo de los campos si ha error en los mismos
+            errores.newRepassword ? newRepassword.classList.add('is-invalid'): newRepassword.classList.remove('is-invalid');
+        }
+    });
+
+    //Evalua condicion de igualdad entre newPassword y newRepassword
+    if (newPassword.value.length >= passwordMinLength && newRepassword.value.length >= passwordMinLength){
+        if (newPassword.value !== newRepassword.value){
+        errores.newPassword = 'Las contraseñas no son iguales';
+        errores.newRepassword = 'Las contraseñas no son iguales';
+        newPassword.value = '';
+        newRepassword.value = '';
         //Agrega texto de error correspondiente
-        err_password.innerHTML   = (errores.password)   ? errores.password   : '';
-        err_repassword.innerHTML = (errores.repassword) ? errores.repassword : '';
+        err_newPassword.innerHTML   = (errores.newPassword)   ? errores.newPassword   : '';
+        err_newRepassword.innerHTML = (errores.newRepassword) ? errores.newRepassword : '';
         //Cambia el background y da estilo de los campos si ha error en los mismos
-        errores.password   ? password.classList.add('is-invalid')  : password.classList.remove('is-invalid');
-        errores.repassword ? repassword.classList.add('is-invalid'): repassword.classList.remove('is-invalid');
+        errores.newPassword   ? newPassword.classList.add('is-invalid')  : newPassword.classList.remove('is-invalid');
+        errores.newRepassword ? newRepassword.classList.add('is-invalid'): newRepassword.classList.remove('is-invalid');
         };
     };
 
@@ -206,7 +262,6 @@ window.addEventListener('load', () => {
     submit.addEventListener('click', function(e){
         //Agrega texto de error correspondiente cuando envía el formulario        
         if(Object.keys(errores).length >= 1){
-            console.log(errores);
             e.preventDefault();
             err_first_name.innerHTML = (errores.first_name) ? errores.first_name  : '';
             err_last_name.innerHTML  = (errores.last_name)  ? errores.last_name  : '';
@@ -215,7 +270,8 @@ window.addEventListener('load', () => {
             err_birth_date.innerHTML = (errores.birth_date) ? errores.birth_date : '';
             err_image.innerHTML      = (errores.image)      ? errores.image      : '';
             err_password.innerHTML   = (errores.password)   ? errores.password   : '';
-            err_repassword.innerHTML = (errores.repassword) ? errores.repassword   : '';
+            err_newPassword.innerHTML= (errores.newPassword) ? errores.newPassword   : '';
+            err_newRepassword.innerHTML = (errores.newRepassword) ? errores.newRepassword   : '';
         }
     })
 
