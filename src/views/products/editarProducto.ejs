@@ -84,56 +84,34 @@
                 <label for="categoria">Categoria</label>
                 <select name="category" id="categoria">
                     <!-- <option value="" disabled>Seleccionar Categoria</option> -->
-<<<<<<< HEAD
-                    <!-- <option value="molido" <%= productoAEditar.category === 'molido' ? 'selected' : '' %> >Molido</option>
-                    <option value="En Granos" <%= productoAEditar.category === 'En Granos' ? 'selected' : '' %> >En Granos</option>                    
-                    <option value="Capsulas" <%= productoAEditar.category === 'Capsulas' ? 'selected' : '' %> >Capsulas</option> -->
-                    
+
                     <option value="Molido" <%= productoAEditar.category === 'Molido' ? 'selected' : '' %> >Molido</option>
                     <option value="En Granos" <%= productoAEditar.category === 'En Granos' ? 'selected' : '' %> >En Granos</option>              
                     <option value="Capsulas" <%= productoAEditar.category === 'Capsulas' ? 'selected' : '' %> >Capsulas</option>
                     <option value="Chocolates" <%= productoAEditar.category === 'Chocolates' ? 'selected' : '' %> >Chocolates</option>
                     <option value="Cookies" <%= productoAEditar.category === 'Cookies' ? 'selected' : '' %> >Cookies</option>
                     <option value="Alfajores" <%= productoAEditar.category === 'Alfajores' ? 'selected' : '' %> >Alfajores</option>
-=======
-                    <!-- <option value="Molido" <%= productoAEditar.category === 'Molido' ? 'selected' : '' %> >Molido</option>
-                    <option value="En Granos" <%= productoAEditar.category === 'En Granos' ? 'selected' : '' %> >En Granos</option>                    
-                    <option value="Capsulas" <%= productoAEditar.category === 'Capsulas' ? 'selected' : '' %> >Capsulas</option> -->
-                    
-                    <option value="Molido"     <%= productoAEditar.category === 'Molido'     ? 'selected' : '' %> >Molido    </option>
-                    <option value="En Granos"  <%= productoAEditar.category === 'En Granos'  ? 'selected' : '' %> >En Granos </option>              
-                    <option value="Capsulas"   <%= productoAEditar.category === 'Capsulas'   ? 'selected' : '' %> >Capsulas  </option>
-                    <option value="Chocolates" <%= productoAEditar.category === 'Chocolates' ? 'selected' : '' %> >Chocolates</option>
-                    <option value="Cookies"    <%= productoAEditar.category === 'Cookies'    ? 'selected' : '' %> >Cookies   </option>
-                    <option value="Alfajores"  <%= productoAEditar.category === 'Alfajores'  ? 'selected' : '' %> >Alfajores </option>
->>>>>>> 8f7e674ec82411639cb66bde41fbfbd8f6044ed9
+
                 </select>
 
                 <label for="sesion">Sesion</label>
                 <select name="session" id="sesion">
-<<<<<<< HEAD
-                    <option value="destacado" <%= productoAEditar.session === 'destacado' ? 'selected' : '' %> >Destacado</option>
-                    <option value="oferta" <%= productoAEditar.session === 'oferta' ? 'selected' : '' %> >En Oferta</option>
-                    <option value="normal" <%= productoAEditar.session === 'normal' ? 'selected' : '' %> >Normal</option>
-=======
+
                     <option value="Destacado" <%= productoAEditar.session === 'Destacado' ? 'selected' : '' %> >Destacado</option>
                     <option value="Oferta"    <%= productoAEditar.session === 'Oferta'    ? 'selected' : '' %> >En Oferta</option>
                     <option value="Normal"    <%= productoAEditar.session === 'Normal'    ? 'selected' : '' %> >Normal   </option>
->>>>>>> 8f7e674ec82411639cb66bde41fbfbd8f6044ed9
+
                 </select>
 
                 <div class="submit-compra-mc">
                     <button type="submit" class="submit-lgn-mc">Guardar Producto</button>
+                    <a href="/productos/detalle/<%= productoAEditar.id %>">
+                        <button type="button" class="submit-lgn-mc"> Volver
+                        </button>
+                    </a>
                 </div>
-<<<<<<< HEAD
-=======
-               
-                <a href="/productos/detalle/<%= productoAEditar.id %>">
-                    <button type="button" class="submit-lgn-mc"> Volver
-                    </button>
-                </a>
+              
             </div>
->>>>>>> 8f7e674ec82411639cb66bde41fbfbd8f6044ed9
             </form>
         </div>
     </main>
