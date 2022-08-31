@@ -999,6 +999,10 @@ border: solid 2px red;
 		width: 40px;
 	}
 
+	#cantidad{
+		max-width: 200px;
+	}
+
 	.opciones-envio-radio-mc span{
 		font-size: 16px;
 	}
@@ -1403,6 +1407,15 @@ border: solid 2px red;
 	}
 	.mobile-display {
 		display: none;
+	}
+	
+	.dp-contenedor1 {
+		margin: 5% auto;
+	}
+	
+	.dp-descripcion p {
+		margin-left:  5%;
+		margin-right: 5%;
 	}
 }
 /*----------Formulario de Creacion y Edicion -----------*/
